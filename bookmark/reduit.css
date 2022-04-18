@@ -915,7 +915,7 @@ button:not(:disabled),
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url(../imagenes/icon-arrow-active.svg);
+  background-image: url(imagenes/icon-arrow-active.svg);
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
 }
@@ -927,7 +927,7 @@ button:not(:disabled),
   height: 1.25rem;
   margin-left: auto;
   content: "";
-  background-image: url(../imagenes/icon-arrow.svg);
+  background-image: url(imagenes/icon-arrow.svg);
   background-repeat: no-repeat;
   background-size: 1.25rem;
   -webkit-transition: -webkit-transform 0.2s ease-in-out;
