@@ -227,7 +227,7 @@ function printCart() {
   let pintar = cart.map((carta) => `<tbody><td>` + carta.name + `</td><td>` + carta.quantity + `</td><td>` + carta.price + `</td><td>` + carta.subtotal + `<td></tbody>`);
   document.getElementById(`tabla`).innerHTML = pintar;
   document.getElementById(`texte`).innerHTML = ``;
-  document.getElementById(`total`).innerHTML = `TOTAL:  `+total.toFixed(2)+ `  €`;
+  document.getElementById(`total`).innerHTML = `TOTAL:  `+total.toFixed(2)+ `  $`;
 
 }
 
