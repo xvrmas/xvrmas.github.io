@@ -225,10 +225,9 @@ function removeFromCart(id) {
 // Fill the shopping cart modal manipulating the shopping cart dom
 function printCart() {
   let pintar = cart.map((carta) => `<tbody><td>` + carta.name + `</td><td>` + carta.quantity + `</td><td>` + carta.price + `</td><td>` + carta.subtotal + `<td></tbody>`);
-  document.getElementById(`tabla`).innerHTML = pintar;
+  document.getElementById(`tabla`).innerHTML = pintar.join(``);
   document.getElementById(`texte`).innerHTML = ``;
   document.getElementById(`total`).innerHTML = `TOTAL:  `+total.toFixed(2)+ `  $`;
-
 }
 
 function open_modal() {
