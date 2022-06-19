@@ -14,19 +14,23 @@
 
     <div class="container d-flex flex-column p-5 align-items-center">
         <div class="col-12"></div>
-        <div class="align-self-start mt-5">avui: parcialment ennuvolat</div>
+        <div class="align-self-start mt-5">avui: sol i nuvols</div>
         <div class="mt-5">
             <h3>Preparat per riure?</h3>
         </div>
-        <div class="mt-5 col-sm-6 text-center fw-bold" id="app"></div>
+        <div class="mt-5 col-sm-6 text-center fw-bold " id="app"></div>
         <div class="m-5">
-            <button class="btn rounded-circle"><img src="./images/sad.png" width="40rem" alt=""></button>
-            <button class="btn rounded-circle"><img src="./images/confused.png" width="40px" height="auto" alt=""></button>
-            <button class="btn rounded-circle"><img src="./images/smiling.png" width="40px" height="auto" alt=""></button>
-            
+            <button class="btn rounded-circle" id="1" onclick="reportAcudits(id)"><img src="./images/sad.png" width="40rem"
+                    alt=""></button>
+            <button class="btn rounded-circle" id="2" onclick="reportAcudits(id)"><img src="./images/confused.png"
+                    width="40px" height="auto" alt=""></button>
+            <button class="btn rounded-circle" id="3" onclick="reportAcudits(id)"><img src="./images/smiling.png"
+                    width="40px" height="auto" alt=""></button>
+
         </div>
         <div>
-            <button class="btn rounded-pill btn-warning r-4 btn-lg mt-2 border-3" onclick="getJoke()">Següent acudit</button>
+            <button class="btn rounded-pill btn-warning r-4 btn-lg mt-2 border-3" onclick="aleatori()">Següent
+                acudit</button>
         </div>
     </div>
 </body>
