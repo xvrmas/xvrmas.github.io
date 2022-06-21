@@ -5,10 +5,10 @@ async function weatherForecast() {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=13.7715&lon=123.0485&appid=00031fdfb443bfcf6352873e8e4fbb04`)
     console.log(response)
     const temp = await response.json()
-    var temperatura = ((temp.main.temp - 273.15).toFixed(2))
+    var temperatura = ((temp.main.temp - 273.15).toFixed(0))
     const icona = `<img src=http://openweathermap.org/img/w/${temp.weather[0].icon}.png`;
     console.log(icona)
-    document.getElementById(`temps`).innerHTML += '<h4>' + temperatura + ` ºC | ` + icona + `  </h4>`
+    document.getElementById(`temps`).innerHTML += '<h4>' + temperatura + ` º | ` + icona + `  </h4>`
 }
 
 function aleatori() {
