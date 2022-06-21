@@ -6,30 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./sass/custom.css">
     <title>Every Day a new Joke</title>
 </head>
 
 <body>
-
-    <div class="container d-flex flex-column p-5 align-items-center">
-        <div class="col-12"></div>
-        <div class="align-self-start mt-5">avui: sol i nuvols</div>
-        <div class="mt-5">
-            <h3>Preparat per riure?</h3>
+  
+    <div class="container-fluid  acudit d-flex flex-column mt-3 align-items-center">
+        <div class="container">
+            <div class="col-sm-6">
+                <div id="temps" class="align-self-start"></div>
+            </div>
         </div>
-        <div class="mt-5 col-sm-6 text-center fw-bold " id="app"></div>
+        <h3 >Preparat per riure?</h3>
+        <div class="mt-5 col-sm-6 text-center fw-bold" id="app"></div>
         <div class="m-5">
-            <button class="btn rounded-circle" id="1" onclick="reportAcudits(id)"><img src="./images/sad.png" width="40rem"
-                    alt=""></button>
+            <button class="btn rounded-circle" id="1" onclick="reportAcudits(id)"><img src="./images/sad.png"
+                    width="40rem" alt="sad"></button>
             <button class="btn rounded-circle" id="2" onclick="reportAcudits(id)"><img src="./images/confused.png"
-                    width="40px" height="auto" alt=""></button>
+                    width="40px" height="auto" alt="confused"></button>
             <button class="btn rounded-circle" id="3" onclick="reportAcudits(id)"><img src="./images/smiling.png"
-                    width="40px" height="auto" alt=""></button>
-
+                    width="40px" height="auto" alt="smile"></button>
         </div>
         <div>
-            <button class="btn rounded-pill btn-warning r-4 btn-lg mt-2 border-3" onclick="aleatori()">Següent
+            <button class="btn rounded-pill btn-warning r-4 btn-lg  border-3" onclick="aleatori()">Següent
                 acudit</button>
         </div>
     </div>
