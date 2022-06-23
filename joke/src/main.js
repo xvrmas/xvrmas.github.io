@@ -10,6 +10,7 @@ async function weatherForecast() {
     console.log(icona)
     document.getElementById(`temps`).innerHTML += '<h4>' + temperatura + ` º | ` + icona + `  </h4>`
 }
+weatherForecast();
 
 function aleatori() {
     let numero = Math.ceil(Math.random() * 100)
@@ -22,12 +23,14 @@ function aleatori() {
 }
 
 async function getJoke() {
-     const response = await fetch(`https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist&type=single`)
+    const response = await fetch(` https://icanhazdadjoke.com/`, {
+        headers: {
+            Accept: `application/json`
+        }
+    });;
     const joke = await response.json();
-    console.log(joke.joke)
-    document.getElementById(`app`).innerHTML = `"` + joke.joke + `"`;
+    document.getElementById(`app`).innerHTML = `"`+ joke.joke + `"`;
 }
-
 
 async function getJokeNorris() {
     const response = await fetch(`https://api.chucknorris.io/jokes/random`);
@@ -46,12 +49,14 @@ class Rating {
 
 function reportAcudits(score) {
     let joke = document.getElementById(`app`).textContent;
-    const d = new Date();
-    let date = d.toISOString();
-    let rate = new Rating(joke, score, date)
-    rateSave.push(rate)
-    console.log(rateSave)
-    alert(`Gràcies per votar`)
+    if (joke === "" || document.getElementById(`app`).textContent === `Graciès per votar!`) {
+        alert(`clica a "Següent acudit"`)
+    } else {
+        const d = new Date();
+        let date = d.toISOString();
+        let rate = new Rating(joke, score, date)
+        rateSave.push(rate)
+        console.log(rateSave)
+        document.getElementById(`app`).innerHTML = `Graciès per votar!`;
+    }
 }
-
-weatherForecast()
