@@ -5,10 +5,11 @@ async function weatherForecast() {
     console.log(response)
     const temp = await response.json()
     var temperatura = ((temp.main.temp - 273.15).toFixed(0))
-    const icona = `<img src=http://openweathermap.org/img/w/${temp.weather[0].icon}.png`;
+    const icona = `<img src=http://openweathermap.org/img/w/${temp.weather[0].icon}.png>`;
     console.log(icona)
-    document.getElementById(`temps`).innerHTML = '<h3>' + temperatura + ` º C |` + icona + ` </h3>`
+    document.getElementById(`temps`).innerHTML = `${icona}  |  ${temperatura} ºC`
 }
+weatherForecast();
 
 function aleatori() {
     let numero = Math.ceil(Math.random() * 100)
@@ -59,5 +60,3 @@ function reportAcudits(score) {
         document.getElementById(`app`).innerHTML = `Graciès per votar!`;
     }
 };
-
-weatherForecast();

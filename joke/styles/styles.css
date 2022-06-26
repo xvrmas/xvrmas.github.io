@@ -1,34 +1,38 @@
 .body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Hubballi', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     display: grid;
     grid-template-columns: 2fr 6fr 2fr;
-    grid-template-rows: 12vh 38vh 38vh 12vh;
+    grid-template-rows: 12vh 36vh 36vh 12vh;
 }
 
 #temps {
+    display: flex;
     grid-column: 1/1;
-    font-size: x-large ;
+    font-size: x-large;
     text-align: center;
     align-items: center;
+    margin-left: auto;
 }
 
 #taca1 {
     grid-column: 3/3;
     grid-row: 2/2;
     background-repeat: no-repeat;
-    background-image: url(../images/blob.svg);
+    background-image: url(../images/blob-1.svg);
 }
+
 #form {
     grid-column: 2/3;
     grid-row: 1/5;
     background-repeat: no-repeat;
     background-image: url(../images/blob-form.svg);
     background-position: center;
-    background-size:100%;
+    background-size: 95%;
     justify-content: center;
     text-align: center;
 }
@@ -36,36 +40,41 @@
 h1 {
     margin-top: 150px;
     text-align: center;
-    color:antiquewhite
+    color: antiquewhite
 }
-p{
-    max-width:60%;
+
+p {
+    max-width: 60%;
     margin-left: 15%;
-    font-size:xx-large;
-    color:bisque;
+    font-size: xx-large;
+    color: bisque;
 
 }
+
 #app {
     margin-top: 10px;
     font-size: 20px;
-    font-family: Geneva;
     max-height: fit-content;
     align-self: center;
 }
+
 #botons {
     padding: 10px;
     align-self: center;
     border-style: none;
     border-radius: 50%;
 }
-.boto1{
+
+.boto1 {
     margin-top: 20px;
 }
+
 #taca2 {
+    margin-left: 90px;
+    margin-top: 100px;
     grid-column: 1/1;
-    grid-row: 3/3;
+    grid-row: 3/5;
     background-repeat: no-repeat;
-    background-image: url(../images/blob.svg);
-    background-size: 50%;
-    margin-left: 50%;
+    background-image: url(../images/blob-2.svg);
+    background-size: 100%;
 }
