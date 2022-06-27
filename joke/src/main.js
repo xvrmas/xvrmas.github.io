@@ -10,6 +10,7 @@ async function weatherForecast() {
     document.getElementById(`temps`).innerHTML = `${icona}  |  ${temperatura} ºC`
 }
 weatherForecast();
+aleatori()
 
 function aleatori() {
     let numero = Math.ceil(Math.random() * 100)
