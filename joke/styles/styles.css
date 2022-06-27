@@ -71,23 +71,26 @@ p {
     border: #FFC107;
     font-size: large;
     height: 50px;
-    width:200px;
+    width: 200px;
     background-color: #FFC107;
     border: transparent;
-    
-}
-.boto1:hover{
-    transform: translateY(4px) ;
 
 }
+
+.boto1:hover {
+    transform: translateY(4px);
+
+}
+
 .btn {
-border-radius: 100%;
-border: transparent;
-background-color:transparent;
+    border-radius: 100%;
+    border: transparent;
+    background-color: transparent;
 
 }
-.btn:hover{
-    transform: translateY(4px) ;
+
+.btn:hover {
+    transform: translateY(4px);
 }
 
 #taca2 {
@@ -97,4 +100,46 @@ background-color:transparent;
     background-repeat: no-repeat;
     background-image: url(../images/blob-2.svg);
     background-size: 100%;
+}
+
+@media screen and (max-width: 850px) {
+    .container {
+        display: grid;
+        grid-template-columns: 33fr 33fr 33fr;
+        background-image: url(../images/blob-form.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 150%;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    p {
+        color: black;
+    }
+
+    h1 {
+        margin-top: 10%;
+        color: black;
+    }
+
+    #temps {
+        grid-column: 2/4;
+    }
+
+    #form {
+        grid-column: 2/3;
+        grid-row: 2/6;
+        color: black;
+    }
+
+    #taca1 {
+        background-image: none;
+    }
+
+    #taca2 {
+        background-image: none;
+    }
+
 }
