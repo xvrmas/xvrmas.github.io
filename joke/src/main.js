@@ -1,9 +1,9 @@
 let rateSave = [];
 
 async function weatherForecast() {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=13.7715&lon=123.0485&appid=00031fdfb443bfcf6352873e8e4fbb04`)
-    console.log(response)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=41.382500&lon=2.176900&appid=00031fdfb443bfcf6352873e8e4fbb04`)
     const temp = await response.json()
+    console.log(temp)
     var temperatura = ((temp.main.temp - 273.15).toFixed(0))
     const icona = `<img src=http://openweathermap.org/img/w/${temp.weather[0].icon}.png>`;
     console.log(icona)
@@ -30,14 +30,14 @@ async function getJoke() {
     });;
     const joke = await response.json();
     console.log(joke.joke)
-    document.getElementById(`app`).innerHTML = `"`+ joke.joke + `"`;
+    document.getElementById(`app`).innerHTML = `" ${joke.joke} "`;
 };
 
 async function getJokeNorris() {
     const response = await fetch(`https://api.chucknorris.io/jokes/random`);
     const jokeNorris = await response.json();
     console.log(jokeNorris.value)
-    document.getElementById(`app`).innerHTML = `"` + jokeNorris.value + `"`;
+    document.getElementById(`app`).innerHTML = `"${jokeNorris.value}"`;
 }
 
 class Rating {

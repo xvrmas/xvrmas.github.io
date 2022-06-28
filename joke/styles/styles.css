@@ -112,11 +112,11 @@ p {
         background-size: 150%;
         justify-content: center;
         text-align: center;
-
     }
 
     p {
-        color: black;
+        padding: 50px 10px;
+        margin-top: 50px;
     }
 
     h1 {
