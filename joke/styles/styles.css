@@ -8,6 +8,10 @@
     display: grid;
     grid-template-columns: 2fr 6fr 2fr;
     grid-template-rows: 12vh 36vh 36vh 12vh;
+    background-repeat: no-repeat;
+    background-image: url(../images/blob-form.svg);
+    background-position: center;
+    background-size: 60%;
 }
 
 #temps {
@@ -29,10 +33,7 @@
 #form {
     grid-column: 2/3;
     grid-row: 1/5;
-    background-repeat: no-repeat;
-    background-image: url(../images/blob-form.svg);
-    background-position: center;
-    background-size: 95%;
+   
     justify-content: center;
     text-align: center;
 }
