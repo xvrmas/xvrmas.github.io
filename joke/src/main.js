@@ -9,19 +9,18 @@ async function weatherForecast() {
     console.log(icona)
     document.getElementById(`temps`).innerHTML = `${icona}  |  ${temperatura} ºC`
 }
-weatherForecast();
-aleatori()
 
 function aleatori() {
-    let numero = Math.ceil(Math.random() * 100)
+    let numero = Math.ceil(Math.random() * 10)
     console.log(numero)
+    document.getElementById(`img`).style.backgroundImage = `url(./images/blobs/${numero}.svg)`;
     if (numero % 2 == 0) {
         getJoke();
     } else {
         getJokeNorris();
     }
-};
 
+};
 async function getJoke() {
     const response = await fetch(` https://icanhazdadjoke.com/`, {
         headers: {
@@ -61,3 +60,5 @@ function reportAcudits(score) {
         document.getElementById(`app`).innerHTML = `Graciès per votar!`;
     }
 };
+weatherForecast();
+aleatori()
