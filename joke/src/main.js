@@ -50,7 +50,8 @@ class Rating {
 function reportAcudits(score) {
     let joke = document.getElementById(`app`).textContent;
     if (joke === "" || document.getElementById(`app`).textContent === `Graciès per votar!`) {
-        alert(`clica a "Següent acudit"`)
+        document.getElementById(`app`).innerHTML = `Clica a "Següent acudit"`;
+        
     } else {
         const d = new Date();
         let date = d.toISOString();
