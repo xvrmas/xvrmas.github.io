@@ -6,21 +6,28 @@ async function weatherForecast() {
     console.log(temp)
     var temperatura = ((temp.main.temp - 273.15).toFixed(0))
     const icona = `<img src=http://openweathermap.org/img/w/${temp.weather[0].icon}.png>`;
-    console.log(icona)
     document.getElementById(`temps`).innerHTML = `${icona}  |  ${temperatura} ºC`
 }
 
 function aleatori() {
     let numero = Math.ceil(Math.random() * 10)
-    console.log(numero)
-    document.getElementById(`img`).style.backgroundImage = `url(./images/blobs/${numero}.svg)`;
-    if (numero % 2 == 0) {
+    return numero
+}
+
+function fons(numero) {
+    let num = aleatori(numero)
+    document.getElementById(`img`).style.backgroundImage = `url(./images/blobs/${num}.svg)`;
+}
+
+function joke(numero) {
+    let num = aleatori(numero)
+    if (num % 2 == 0) {
         getJoke();
     } else {
         getJokeNorris();
     }
+}
 
-};
 async function getJoke() {
     const response = await fetch(` https://icanhazdadjoke.com/`, {
         headers: {
@@ -29,14 +36,16 @@ async function getJoke() {
     });;
     const joke = await response.json();
     console.log(joke.joke)
-    document.getElementById(`app`).innerHTML = `" ${joke.joke} "`;
-};
+    document.getElementById(`app`).innerHTML = `"${joke.joke}"`;
+    fons()
+}
 
 async function getJokeNorris() {
     const response = await fetch(`https://api.chucknorris.io/jokes/random`);
     const jokeNorris = await response.json();
     console.log(jokeNorris.value)
     document.getElementById(`app`).innerHTML = `"${jokeNorris.value}"`;
+    fons()
 }
 
 class Rating {
@@ -45,7 +54,7 @@ class Rating {
         this.score = score;
         this.date = date;
     }
-};
+}
 
 function reportAcudits(score) {
     let joke = document.getElementById(`app`).textContent;
@@ -60,6 +69,7 @@ function reportAcudits(score) {
         console.log(rateSave)
         document.getElementById(`app`).innerHTML = `Graciès per votar!`;
     }
-};
+}
+
 weatherForecast();
-aleatori()
+fons()

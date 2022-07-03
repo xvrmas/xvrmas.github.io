@@ -2,7 +2,7 @@
 <svg
    viewBox="0 0 200 200"
    version="1.1"
-   id="svg2847"
+   id="svg11922"
    sodipodi:docname="2.svg"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -10,9 +10,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs2851" />
+     id="defs11926" />
   <sodipodi:namedview
-     id="namedview2849"
+     id="namedview11924"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -29,11 +29,11 @@
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2847" />
+     inkscape:current-layer="svg11922" />
   <path
      fill="#FF0066"
-     d="M29.9,-52.6C37.7,-41.6,42,-31.4,46.3,-21.4C50.6,-11.3,54.8,-1.4,57.8,11.4C60.8,24.2,62.5,39.9,57.2,53.9C51.9,67.8,39.5,80,26.1,79.7C12.8,79.5,-1.5,66.7,-16.5,60.4C-31.5,54.1,-47.1,54.2,-59.9,47.5C-72.6,40.7,-82.5,27,-87.1,11C-91.6,-4.9,-91,-23.1,-81.2,-34.1C-71.5,-45.1,-52.7,-48.9,-37.7,-56.6C-22.6,-64.3,-11.3,-75.7,-0.1,-75.6C11.1,-75.4,22.2,-63.6,29.9,-52.6Z"
+     d="M33.3,-49.7C47.9,-42.5,67.8,-41.3,74.6,-32.3C81.3,-23.4,75,-6.8,67.5,6.1C60,18.9,51.4,28,44.3,41.3C37.3,54.7,31.9,72.5,20.5,81C9,89.5,-8.4,88.9,-20.4,80.4C-32.4,72,-39,55.7,-49.9,43.2C-60.8,30.7,-76.1,21.9,-83.5,8.5C-91,-5,-90.6,-23.1,-81.5,-34.7C-72.3,-46.4,-54.4,-51.6,-39.4,-58.6C-24.3,-65.6,-12.2,-74.5,-1.4,-72.3C9.4,-70.2,18.7,-56.9,33.3,-49.7Z"
      transform="translate(100 100)"
-     id="path2845"
+     id="path11920"
      style="fill:#8c74b3;fill-opacity:1" />
 </svg>
