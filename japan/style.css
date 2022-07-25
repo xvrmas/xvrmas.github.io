@@ -9,6 +9,9 @@
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
+    position:relative;
+    transform: translate(-50%, -50%);
+    
 }
 .header{
     background: url(images/header.jpg);
