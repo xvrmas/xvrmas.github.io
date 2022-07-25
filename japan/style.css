@@ -10,7 +10,7 @@
     flex-flow: column;
     flex-wrap: wrap;
     position:relative;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%);
     
 }
 .header{
