@@ -8,7 +8,7 @@
 .pare{
     display: flex;
     flex-flow: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
 }
 .header{
     background: url(images/header.jpg);
