@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkstarwars"]=self["webpackChunkstarwars"]||[]).push([[371],{6371:function(e,t,u){u.r(t),u.d(t,{default:function(){return o}});var r=function(){var e=this,t=e._self._c;return t("div",[e._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium eum soluta fuga tenetur non ex magnam quod cum, quidem corrupti. Suscipit excepturi reprehenderit amet aut doloribus distinctio maxime dolore sed.")])},i=[],n={name:"infoCharacters"},s=n,a=u(1001),c=(0,a.Z)(s,r,i,!1,null,null,null),o=c.exports}}]);
-//# sourceMappingURL=371.544fd49c.js.map
