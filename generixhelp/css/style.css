@@ -1,8 +1,22 @@
-*{
-    padding: 2px;
-    box-sizing: border-box;
-    max-width: 1200px;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Roboto', sans-serif;
+html, body { 
+    height:100%; 
+    margin:0;
+    padding:0;
+    background-color: #5c5a5a;
+  }
+  
+  .contenedor {
+    display:flex;
+    min-height:100%;
+    min-width: 50%;
+    flex-flow: column;
+  }
+    
+  div {
     text-align: center;
-}
+    background-color: #f1f0f0;
+    border: solid 2px rgb(250, 247, 247);
+    height: 50vh;
+    margin: 2vh;
+  }
+  
