@@ -1,32 +1,30 @@
 html,
 body {
   height: 100%;
-  margin: 0;
+  margin: 2vh;
   padding: 0;
-  background-color: #5c5a5a;
-}
-
-.contenedor {
-  display: flex;
-  min-height: 100%;
-  min-width: 50%;
-  flex-flow: column;
+  background-color: rgb(250, 247, 247);
 }
 
 div {
   text-align: center;
   background-color: #f1f0f0;
-  border: solid 2px rgb(250, 247, 247);
-  height: 50vh;
+  border: solid 4px rgb(250, 247, 247);
+  min-height: 25vh; 
 }
 
+
 #text {
+  flex: 1;
   display: flex;
-  font-size: xx-large;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #e7e7e7;
+  font-size: large;
+  flex-direction: column-reverse;
+  justify-content: left;
+  height: max-content;
+  background-color: #f1f0f0;
+
 }
+
 .boton {
   padding: 2vh;
   margin: 5px;
@@ -37,7 +35,23 @@ div {
   color: black;
 }
 
-.boton-seleccionado {
-  background-color: #3099df;
+.boton:hover {
+  background-color: rgb(55, 149, 55);
   color: white;
+}
+
+.boton-seleccionado {
+  color: white;
+  background-color: rgb(55, 149, 55);
+}
+
+.info {
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  height: 10vh;
+}
+li
+{
+  margin: 20px;
 }
