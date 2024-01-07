@@ -27,6 +27,7 @@ function mostrar2() {
     div = document.getElementById('obj4');
     div.style.display = '';
 }
+
 function alerta() {
     var divs = document.getElementsByClassName('divi');
     for (var i = 0; i < divs.length; i++) {
@@ -34,18 +35,15 @@ function alerta() {
     }
 }
 
-function alerta1()
-{
-    alert('alerta')
-}
-
 let botones = document.querySelectorAll('.boton');
 
 function cambiarColor(botonSeleccionado) {
-  botones.forEach(boton => {
-    boton.classList.remove('boton-seleccionado');
-  });
+    botones.forEach(boton => {
+        boton.classList.remove('boton-seleccionado');
+    });
 
-  botonSeleccionado.classList.add('boton-seleccionado');
+    botonSeleccionado.classList.add('boton-seleccionado');
 }
+
+
 
