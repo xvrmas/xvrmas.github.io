@@ -34,7 +34,10 @@ function alerta() {
         divs[i].style.display = 'none';
     }
 }
-
+function alerta1()
+{
+    alert('como saber el contenido de una etiqueta')
+}
 let botones = document.querySelectorAll('.boton');
 
 function cambiarColor(botonSeleccionado) {
