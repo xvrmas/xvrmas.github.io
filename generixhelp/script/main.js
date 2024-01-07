@@ -33,4 +33,15 @@ function alerta() {
         divs[i].style.display = 'none';
     }
 }
+let botones = document.querySelectorAll('.boton');
+
+function cambiarColor(botonSeleccionado) {
+  // Remover la clase 'boton-seleccionado' de todos los botones
+  botones.forEach(boton => {
+    boton.classList.remove('boton-seleccionado');
+  });
+
+  // Agregar la clase 'boton-seleccionado' al botón seleccionado
+  botonSeleccionado.classList.add('boton-seleccionado');
+}
 

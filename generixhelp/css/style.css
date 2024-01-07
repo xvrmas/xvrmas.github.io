@@ -20,15 +20,24 @@ div {
   height: 50vh;
 }
 
-button {
-  margin: 1vh;
-  padding: 2vh;
-}
-
 #text {
   display: flex;
   font-size: xx-large;
   flex-direction: column;
   justify-content: center;
   background-color: #e7e7e7;
+}
+.boton {
+  padding: 2vh;
+  margin: 5px;
+  color: #fff;
+  border: 1px solid #a8bfd9;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.boton-seleccionado {
+  background-color: #3099df;
+  color: white;
 }
