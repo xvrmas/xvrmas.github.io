@@ -1,13 +1,13 @@
-function hola()
+function hola(num)
 {
-    document.getElementById("2").innerText = "Hola";
-}function hola2()
+    document.getElementById("text").innerText = num;
+}function hola2(num)
 {
-    document.getElementById("2").innerText = "Hola 2";
-}function hola3()
+    document.getElementById("text").innerText = num;
+}function hola3(num)
 {
-    document.getElementById("2").innerText = "Hola 3";
-}function hola4()
+    document.getElementById("text").innerText = num;
+}function hola4(num)
 {
-    document.getElementById("2").innerText = "Hola 4";
+    document.getElementById("text").innerText = num;
 }
