@@ -14,35 +14,42 @@
         <h1>Generix How to</h1>
         <hr>
         <ol>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
-                anonima</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para
-                preparación manual</button>
-            <button class="boton"
-                onclick="cambiarColor(this),reset(),mostrar('obj3'), alerta('Sirve para imprimir etiquetas sin un valor asignado')">Imprimir
-                etiquetas
-                anonimas</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
-            <button class="boton"
-                onclick="cambiarColor(this),reset(),mostrar('obj5'), alerta('Se utiliza para que a un preparador le caigan en la PDA pedidos de un determinado circuito')">Asignar
-                circuito picking</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj6')">Ajustar el peso de un
-                articulo</button>
-            <button class="boton"
-                onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
-                preparados</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj9')">9</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj10')">10</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj11')">11</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj12')">12</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj13')">13</button>
+            <a href="#link-texte">
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
+                    anonima</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para
+                    preparación manual</button>
+                <button class="boton"
+                    onclick="cambiarColor(this),reset(),mostrar('obj3'), alerta('Sirve para imprimir etiquetas sin un valor asignado')">Imprimir
+                    etiquetas
+                    anonimas</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
+                <button class="boton"
+                    onclick="cambiarColor(this),reset(),mostrar('obj5'), alerta('Se utiliza para que a un preparador le caigan en la PDA pedidos de un determinado circuito')">Asignar
+                    circuito picking</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj6')">Ajustar el peso de un
+                    articulo</button>
+                <button class="boton"
+                    onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
+                    preparados</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj9')">Cantidad de soportes
+                    delivery</button>
+                <button class="boton"
+                    onclick="cambiarColor(this),reset(),mostrar('obj10'), alerta('Antes de dar un articulo como faltante hay que asegurarse bien, haciendo consulta por articulo en generix, de que no hay ningún palet almacenado del mismo codigo.')">Regularizar
+                    en PDA faltante</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj11')">Grabar huella personal en
+                    SPEC</button>
+                <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj12')">Regularizar stock
+                    REAPROS</button>
+                <!--  <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj13')">13</button>
             <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj14')">14</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj15')">15</button>
-
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj15')">15</button>-->
+            </a>
         </ol>
     </div>
     <div id="text">
+        <a name="link-texte"></a>
         <div id="obj1" class="divi" style="display:none;">
             <ol>
                 <li>desplegar el filtro.</li>
@@ -157,18 +164,75 @@
             <ol>
                 <li>Nos situamos en el menú P1</li>
                 <hr>
-                <li>Desplegamos el filtro y seleccionamos FECHA DE ENTREGA, actividad 272, y en estado PEDIDO EXTRAIDO</li>
+                <li>Desplegamos el filtro y seleccionamos FECHA DE ENTREGA, actividad 272, y en estado PEDIDO EXTRAIDO
+                </li>
                 <hr>
-                <li>Al final de la pagina, en el rincón derecho, nos muestra el numero de lineas que son la cantidad de pedidos que se han preparado en esa fecha</li>
+                <li>Al final de la pagina, en el rincón derecho, nos muestra el numero de lineas que son la cantidad de
+                    pedidos que se han preparado en esa fecha</li>
             </ol>
         </div>
-        <div id="obj9" class="divi" style="display: none;"> 9</div>
-        <div id="obj10" class="divi" style="display: none;"> 10</div>
-        <div id="obj11" class="divi" style="display: none;"> 11</div>
-        <div id="obj12" class="divi" style="display: none;"> 12</div>
-        <div id="obj13" class="divi" style="display: none;"> 13</div>
+        <div id="obj9" class="divi" style="display: none;">
+            <ol>
+                <li>Nos situamos en el menú P6</li>
+                <hr>
+                <li>en el filtro seleccionas la opción ENRIQUE1</li>
+                <hr>
+                <li>Filtramos por actividad 272</li>
+                <hr>
+                <li>clicamos en EXTRAER EXCEL</li>
+                <hr>
+                <li>Abrimos el archivo .xlc que se ha generado y seleccionamos todas las lineas del fichero y en el
+                    recuento final tenemos el numero de soportes que se han preparado.</li>
+            </ol>
+        </div>
+        <div id="obj10" class="divi" style="display: none;">
+            <ol>
+                <li>Desde la PDA pinchar en la ubicación o generar un codigo de barras en la web</li>
+                <hr>
+                <li>una vez en el manú de cantidad hacer F5 dos veces</li>
+                <hr>
+                <li>En motivo entrar 8 que es el codigo de faltante</li>
+                <hr>
+                <li>Entrar la clave para autorizar el faltante</li>
+                <hr>
+                <li>En el menú "desea procesar lineas faltantes" se debe decir NO</li>
+            </ol>
+        </div>
+        <div id="obj11" class="divi" style="display: none;">
+            <ol>
+                <li>En la pantalla del monitor SPEC entrar en ZONA USUARIO</li>
+                <hr>
+                <li>Entar en captura</li>
+                <hr>
+                <li>Introducir el codigo que nos han pasado via email</li>
+                <hr>
+                <li>seguir las instrucciones de la pantalla</li>
+            </ol>
+        </div>
+        <div id="obj12" class="divi" style="display: none;">
+            <ol>
+                <li>Para esta operativa necesitamos abrir dos menus, U6 y P7</li>
+                <hr>
+                <li>En U6 entramos el código del producto</li>
+                <hr>
+                <li>Localizamos la linea con la ubicación que no se puede realizar</li>
+                <hr>
+                <li>b.d. "VISUALIZAR"</li>
+                <hr>
+                <li>Localizamos el numero de ola y copiamos el numero con ctrl + c</li>
+                <hr>
+                <li>Pasamos al menú P7</li>
+                <hr>
+                <li>En el filtro entramos el numero de ola y confirmamos</li>
+                <hr>
+                <li>En el articulo afectado b.d. DETALLE</li>
+                <hr>
+                <li>Entramos la ID del operario y confrimamos</li>
+            </ol>
+        </div>
+        <!--<div id="obj13" class="divi" style="display: none;"> 13</div>
         <div id="obj14" class="divi" style="display: none;"> 14</div>
-        <div id="obj15" class="divi" style="display: none;"> 15</div>
+        <div id="obj15" class="divi" style="display: none;"> 15</div>-->
     </div>
 </body>
 <script src="./script/main.js"></script>

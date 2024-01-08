@@ -1,25 +1,22 @@
-html,
-body {
+html,body {
   height: 100%;
   margin: 2vh;
+  margin-bottom: 20vh;
   padding: 0;
   background-color: rgb(219, 218, 218);
 }
-
 .grup {
   padding: 1vh;
   margin-bottom: 2vh;
-  background-color: #f1f0f0;
+  background-color: #f4f4f4;
   border-radius: 10px;
 }
 #text
 {
     padding: 1vh;
-    margin-bottom: 2vh;
-    background-color: #f1f0f0;
+    background-color: #ffffff;
     border-radius: 10px;
   }
-
 .boton {
   padding: 2vh;
   margin: 5px;
@@ -28,18 +25,14 @@ body {
   border-radius: 10px;
   color: black;
 }
-
-
 .boton:hover {
   background-color: rgb(55, 149, 55);
   color: white;
 }
-
 .boton-seleccionado {
   color: white;
   background-color: rgb(55, 149, 55);
 }
-
 .grup
 {
   text-align: center;
