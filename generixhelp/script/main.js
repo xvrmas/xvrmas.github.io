@@ -1,4 +1,5 @@
 
+
 function mostrar(obj) {
     let diva = document.getElementById(obj);
     diva.style.display = '';
@@ -10,13 +11,12 @@ function reset() {
         divs[i].style.display = 'none';
     }
 }
-function    alerta(msg)
-{
+function alerta(msg) {
     alert(msg);
 }
-let botones = document.querySelectorAll('.boton');
 
 function cambiarColor(botonSeleccionado) {
+    let botones = document.querySelectorAll('.boton');
     botones.forEach(boton => {
         boton.classList.remove('boton-seleccionado');
     });
