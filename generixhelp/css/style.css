@@ -3,32 +3,26 @@ body {
   height: 100%;
   margin: 2vh;
   padding: 0;
-  background-color: rgb(250, 247, 247);
+  background-color: rgb(219, 218, 218);
 }
 
-div {
+.grup {
+  padding: 1vh;
+  margin-bottom: 2vh;
   background-color: #f1f0f0;
-  border: solid 4px rgb(203, 199, 199);
-  min-height: 25vh; 
+  border-radius: 10px;
 }
-
-
-#text {
-  flex: 1;
-  display: flex;
-  font-size: large;
-  flex-direction: column-reverse;
-  justify-content: left;
-  height: max-content;
-  background-color: #f1f0f0;
-  text-align: left;
-
-}
+#text
+{
+    padding: 1vh;
+    margin-bottom: 2vh;
+    background-color: #f1f0f0;
+    border-radius: 10px;
+  }
 
 .boton {
   padding: 2vh;
   margin: 5px;
-
   color: #fff;
   border: 1px solid #a8bfd9;
   border-radius: 10px;
@@ -46,12 +40,6 @@ div {
   background-color: rgb(55, 149, 55);
 }
 
-.info {
-  flex-direction: column;
-  justify-content: center;
-  width: fit-content;
-  height: 10vh;
-}
 .grup
 {
   text-align: center;
