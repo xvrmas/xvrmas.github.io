@@ -15,14 +15,30 @@
         <ol>
             <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
                 anonima</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para preparación manual</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj3')">Imprimir etiquetas anonimas</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para
+                preparación manual</button>
+            <button class="boton"
+                onclick="cambiarColor(this),reset(),mostrar('obj3'), alerta('Sirve para imprimir etiquetas sin un valor asignado')">Imprimir
+                etiquetas
+                anonimas</button>
             <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj5')">5</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj6')">6</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj7')">7</button>
-            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj8')">8</button>
+            <button class="boton"
+                onclick="cambiarColor(this),reset(),mostrar('obj5'), alerta('Se utiliza para que a un preparador le caigan en la PDA pedidos de un determinado circuito')">Asignar
+                circuito picking</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj6')">Ajustar el peso de un
+                articulo</button>
+            <button class="boton"
+                onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
+                preparados</button>
             <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj9')">9</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj10')">10</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj11')">11</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj12')">12</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj13')">13</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj14')">14</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj15')">15</button>
+
         </ol>
     </div>
     <div id="text">
@@ -41,29 +57,117 @@
         </div>
         <div id="obj2" class="divi" style="display: none;">
             <ol>
-                <li>Situarse en el menu P6</li><hr>
-                <li>desplegamos filtro y seleccionamos VALIDACON SOPORTES</li><hr>
-                <li>En filtros seleccionar ETIQUETAS FRUTAS Y VERDURAS o el circuito que queremos preparar</li><hr>
-                <li>En muelle seleccionar el muelle (Zona Franca, Badalaona...)</li><hr>
-                <li>Ordenar por articulo</li><hr>
-                <li>Seleccionar un mismo articulo manteniendo presionado CTRL y clicando al mismo tiempo con el mouse.</li><hr>
-                <li>Botón derecho del mouse y seleccionar ETIQUETAS, esto imprimirá las etiquetas de envio</li><hr>
-                <li>Escribir en la etiqueta el nombre del articulo, la cantidad que pide el cliente y la ubicación en el almacén del mismo articulo</li><hr>
+                <li>Situarse en el menu P6</li>
+                <hr>
+                <li>desplegamos filtro y seleccionamos VALIDACON SOPORTES</li>
+                <hr>
+                <li>En filtros seleccionar ETIQUETAS FRUTAS Y VERDURAS o el circuito que queremos preparar</li>
+                <hr>
+                <li>En muelle seleccionar el muelle (Zona Franca, Badalaona...)</li>
+                <hr>
+                <li>Ordenar por articulo</li>
+                <hr>
+                <li>Seleccionar un mismo articulo manteniendo presionado CTRL y clicando al mismo tiempo con el mouse.
+                </li>
+                <hr>
+                <li>Botón derecho del mouse y seleccionar ETIQUETAS, esto imprimirá las etiquetas de envio</li>
+                <hr>
+                <li>Escribir en la etiqueta el nombre del articulo, la cantidad que pide el cliente y la ubicación en el
+                    almacén del mismo articulo</li>
             </ol>
         </div>
         <div id="obj3" class="divi" style="display: none;">
             <ol>
-                <li>Menú R9</li><hr>
-                <li>seleccionar el filtro GERE95A</li><hr>
-                <li>Seleccionar el numero de etiquetas, el programa nos permite entrar un rango de etiquetas, p.ej. del 1 al 100, esto imprimirá 100 etiquetas distintas, si seleccionamos 2 a 100 imprimirá 2 etiquetas iguales 100 veces, es decir el primer valor indica el numero de veces que queremos imprimir una etiqueta y el segundo la cantidad total de etiquetas que queremos.</li><hr>
+                <li>Menú R9</li>
+                <hr>
+                <li>seleccionar el filtro GERE95A</li>
+                <hr>
+                <li>Seleccionar el numero de etiquetas, el programa nos permite entrar un rango de etiquetas, p.ej. del
+                    1 al 100, esto imprimirá 100 etiquetas distintas, si seleccionamos 2 a 100 imprimirá 2 etiquetas
+                    iguales 100 veces, es decir el primer valor indica el numero de veces que queremos imprimir una
+                    etiqueta y el segundo la cantidad total de etiquetas que queremos.</li>
             </ol>
         </div>
-        <div id="obj4" class="divi" style="display: none;"> </div>
-        <div id="obj5" class="divi" style="display: none;"> 5</div>
-        <div id="obj6" class="divi" style="display: none;"> 6</div>
-        <div id="obj7" class="divi" style="display: none;"> 7</div>
-        <div id="obj8" class="divi" style="display: none;"> 8</div>
+        <div id="obj4" class="divi" style="display: none;">
+            <ol>
+                <li>Menú E2</li>
+                <hr>
+                <li>Desplegamos opciones filtro y en FECHA seleccionas la fecha de entrega no la de preparación</li>
+                <hr>
+                <li>en la opción de entrar el numero de pedido se puede hacer seleccion multiple.</li>
+                <hr>
+                <li>Para seleccionar multiples pedidos de una misma ruta damos la opción importar, entramos los numeros
+                    de pedido que aparecen en el archivo excel que nos han facilitado y clicamos en importar</li>
+                <hr>
+                <li>Deberiamos tener los distintos pedidos que hay en esa ruta</li>
+                <hr>
+                <li>Con el botón derecho seleccionamos cambira ruta</li>
+                <hr>
+                <li>Seleccionamos la fecha de entrega, introducimos la ruta correcta y le damos a confirmar</li>
+                <hr>
+                <li> Es posible que aparezca un mensaje de error, eso quiere decir que el pedido está bloqueado.<br>Para
+                    desbloquear el pedido hacemos clic derecho del mouse y clicamos SOPORTE, y desbloquear</li>
+                <hr>
+                <li>Ahora podemos repetir los pasos para asignar ruta</li>
+            </ol>
+        </div>
+        <div id="obj5" class="divi" style="display: none;">
+            <ol>
+                <li>Entramos en el menú PRP, "TABLA PREPARADOR PEDIDOS"</li>
+                <hr>
+                <li>Usuario</li>
+                <hr>
+                <li>seleccionar el usuario al que queremos asignar un circuito</li>
+                <hr>
+                <li>b.d. MODIFICAR</li>
+                <hr>
+                <li>Seleccionamos CIRCUITO AUTORIZADO</li>
+                <hr>
+                <li>Clicamos en un icono con el signo +,SELECCIONAR O AÑADIR CIRCUITO</li>
+                <hr>
+                <li>Seleccionamos el circuito que queremos que le aparezca en la PDA al usuario asignado</li>
+            </ol>
+        </div>
+        <div id="obj6" class="divi" style="display: none;">
+            <ol>
+                <li>Nos situamos en el menu P6</li>
+                <hr>
+                <li>Desplegamos el filtro y en codigo paleta introducimos el numero de la anonima</li>
+                <hr>
+                <li>En la linea que aparece b.d. y seleccionamos detalle</li>
+                <hr>
+                <li>En el articulo al que queremos modificar el peso b.d. modificar</li>
+                <hr>
+                <li>Desplegamos el filtro e introducimos en la casilla PESO el peso correcto</li>
+            </ol>
+        </div>
+        <div id="obj7" class="divi" style="display: none;">
+            <ol>
+                <li>Nos situamos en el menu U7</li>
+                <hr>
+                <li>Seleccionamos ACTIVIDAD 275</li>
+                <hr>
+                <li>En PALETA OBSOLETAS b.d. DETALLE</li>
+                <hr>
+                <li>Seleccionamos los articulas a desmobilizar y con b.d. seleccionamos RETIRAR</li>
+            </ol>
+        </div>
+        <div id="obj8" class="divi" style="display: none;">
+            <ol>
+                <li>Nos situamos en el menú P1</li>
+                <hr>
+                <li>Desplegamos el filtro y seleccionamos FECHA DE ENTREGA, actividad 272, y en estado PEDIDO EXTRAIDO</li>
+                <hr>
+                <li>Al final de la pagina, en el rincón derecho, nos muestra el numero de lineas que son la cantidad de pedidos que se han preparado en esa fecha</li>
+            </ol>
+        </div>
         <div id="obj9" class="divi" style="display: none;"> 9</div>
+        <div id="obj10" class="divi" style="display: none;"> 10</div>
+        <div id="obj11" class="divi" style="display: none;"> 11</div>
+        <div id="obj12" class="divi" style="display: none;"> 12</div>
+        <div id="obj13" class="divi" style="display: none;"> 13</div>
+        <div id="obj14" class="divi" style="display: none;"> 14</div>
+        <div id="obj15" class="divi" style="display: none;"> 15</div>
     </div>
 </body>
 <script src="./script/main.js"></script>
