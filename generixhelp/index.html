@@ -10,14 +10,19 @@
 
 <body>
     <div class="grup">
-        <h1>Generix help</h1>
+        <h1>Generix How to</h1>
         <hr>
         <ol>
-            <button class="boton" onclick="cambiarColor(this),alerta(),mostrar1(),alerta1()">como ver el contenido de una
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
                 anonima</button>
-            <button class="boton" onclick="cambiarColor(this),alerta(),mostrar2()">hola 2</button>
-            <button class="boton" onclick="cambiarColor(this),alerta(),mostrar3()">hola 3</button>
-            <button class="boton" onclick="cambiarColor(this),alerta(),mostrar4()">hola 4</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para preparación manual</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj3')">Imprimir etiquetas anonimas</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj5')">5</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj6')">6</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj7')">7</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj8')">8</button>
+            <button class="boton" onclick="cambiarColor(this),reset(),mostrar('obj9')">9</button>
         </ol>
     </div>
     <div id="text">
@@ -34,12 +39,31 @@
                     almacén del articulo</li>
             </ol>
         </div>
-        <div id="obj2" class="divi" style="display: none;">Hola 2
+        <div id="obj2" class="divi" style="display: none;">
+            <ol>
+                <li>Situarse en el menu P6</li><hr>
+                <li>desplegamos filtro y seleccionamos VALIDACON SOPORTES</li><hr>
+                <li>En filtros seleccionar ETIQUETAS FRUTAS Y VERDURAS o el circuito que queremos preparar</li><hr>
+                <li>En muelle seleccionar el muelle (Zona Franca, Badalaona...)</li><hr>
+                <li>Ordenar por articulo</li><hr>
+                <li>Seleccionar un mismo articulo manteniendo presionado CTRL y clicando al mismo tiempo con el mouse.</li><hr>
+                <li>Botón derecho del mouse y seleccionar ETIQUETAS, esto imprimirá las etiquetas de envio</li><hr>
+                <li>Escribir en la etiqueta el nombre del articulo, la cantidad que pide el cliente y la ubicación en el almacén del mismo articulo</li><hr>
+            </ol>
         </div>
-        <div id="obj3" class="divi" style="display: none;">Hola 3
+        <div id="obj3" class="divi" style="display: none;">
+            <ol>
+                <li>Menú R9</li><hr>
+                <li>seleccionar el filtro GERE95A</li><hr>
+                <li>Seleccionar el numero de etiquetas, el programa nos permite entrar un rango de etiquetas, p.ej. del 1 al 100, esto imprimirá 100 etiquetas distintas, si seleccionamos 2 a 100 imprimirá 2 etiquetas iguales 100 veces, es decir el primer valor indica el numero de veces que queremos imprimir una etiqueta y el segundo la cantidad total de etiquetas que queremos.</li><hr>
+            </ol>
         </div>
-        <div id="obj4" class="divi" style="display: none;">Hola 4
-        </div>
+        <div id="obj4" class="divi" style="display: none;"> </div>
+        <div id="obj5" class="divi" style="display: none;"> 5</div>
+        <div id="obj6" class="divi" style="display: none;"> 6</div>
+        <div id="obj7" class="divi" style="display: none;"> 7</div>
+        <div id="obj8" class="divi" style="display: none;"> 8</div>
+        <div id="obj9" class="divi" style="display: none;"> 9</div>
     </div>
 </body>
 <script src="./script/main.js"></script>
