@@ -25,16 +25,26 @@ html,body {
   color: black;
 }
 .boton:hover {
-  background-color: rgb(55, 149, 55);
+  background-color: #22BF14;
   color: white;
 }
 .boton-seleccionado {
   color: white;
-  background-color: rgb(55, 149, 55);
+  background-color: #22BF14;
 }
 .grup
 {
   text-align: center;
 }
+.imagen-ampliable {
+  width: 10%;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
 
+.imagen-ampliable.ampliada {
+  transform: scale(6.5);
+  border: solid 1px #22BF14;
+  border-radius: 3%;
+}
 

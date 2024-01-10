@@ -22,6 +22,16 @@ function cambiarColor(botonSeleccionado) {
     });
     botonSeleccionado.classList.add('boton-seleccionado');
 }
+// Obtener todas las imágenes con la clase "imagen-ampliable"
+var imagenesAmpliables = document.querySelectorAll('.imagen-ampliable');
+
+// Agregar un evento de clic a cada imagen
+imagenesAmpliables.forEach(function(imagen) {
+    imagen.addEventListener('click', function() {
+        this.classList.toggle('ampliada');
+    });
+});
+
 
 
 
