@@ -11,15 +11,19 @@
 
 <body>
     <div class="contenidorCapsalera">
-        <h1 id="a" class="capsalera">Generix</h1>
-        <img id="b" src="./assets/howto.png" height="50vh"><hr>
-        <input itemid="c" class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
-        <img id="d" src="./assets/lupa.png" height="25vh" style="margin: 10px;">
-
+        <div>
+            <h1 class="capsalera">Generix</h1>
+            <img src="./assets/howto.png" height="50vh">
+        </div>
+        <div>
+            <input  class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
+            <img src="./assets/lupa.png" height="25vh" style="margin: 10px;">
+        </div>
     </div>
     <hr>
     <div class="grup">
         <button onclick="obrirEnllas()">Descargar manual Generix PDF</button>
+        <button onclick="recargarPagina()">Recargar Página</button>
         <hr>
         <ol>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una

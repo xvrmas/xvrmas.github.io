@@ -43,6 +43,9 @@ function obrirEnllas() {
     window.open(url, "_blank");
 }
 
+function recargarPagina() {
+    location.reload();
+}
 
 const buscadorInput = document.getElementById('buscador');
 const seccions = document.querySelectorAll('.boto');
