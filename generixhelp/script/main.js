@@ -43,6 +43,28 @@ function    obrirEnllas()
     let url = "./download/GENERIX.pdf"
     window.open(url, "_blank");
 }
+// Asegúrate de que este código esté en tu archivo main.js
+
+// Obtén una referencia al campo de entrada y las secciones
+const buscadorInput = document.getElementById('buscador');
+const secciones = document.querySelectorAll('.boto');
+
+// Agrega un evento de entrada al campo de búsqueda
+buscadorInput.addEventListener('input', function() {
+    // Obtén el término de búsqueda del campo de entrada
+    const terminoBusqueda = buscadorInput.value.toLowerCase();
+
+    // Itera sobre las secciones y muestra u oculta según el término de búsqueda
+    secciones.forEach(seccion => {
+        const contenidoSeccion = seccion.textContent.toLowerCase();
+        if (contenidoSeccion.includes(terminoBusqueda)) {
+            seccion.style.display = 'inline';
+        } else {
+            seccion.style.display = 'none';
+        }
+    });
+});
+
 
 
 
