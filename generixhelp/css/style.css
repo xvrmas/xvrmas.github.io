@@ -2,7 +2,8 @@ html,
 body {
   height: 100%;
   padding: 0;
-  background: linear-gradient( black 15%, rgb(255, 255, 255) 85%);
+  margin: 2vh;
+  background-color: #e1f2fd;
 }
 
 .grup {
