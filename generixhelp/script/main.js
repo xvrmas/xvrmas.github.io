@@ -38,8 +38,11 @@ imatgesAmpliables.forEach(function (imatge) {
     });
 });
 
-
-
+function    obrirEnllas()
+{
+    let url = "./download/GENERIX.pdf"
+    window.open(url, "_blank");
+}
 
 
 
