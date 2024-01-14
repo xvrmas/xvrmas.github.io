@@ -14,16 +14,12 @@ body {
   box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);
 
 }
-.capsalera1
+.contenidorCapsalera
 {
   display: flex;
   align-items: center;
-  align-content: center;
 }
 
-.capsalera{
-  margin-right: 5vh;
-}
 
 #text {
   padding: 1vh;
@@ -78,7 +74,11 @@ body {
   background-color: #c3c1c1;
   color: #ffffff;
 }
-.buscador
+
+@media  all and (max-width: 820px)
 {
-  margin-left: 100vh;
+  html, body
+  {
+    background-color: #22BF14;
+  }
 }

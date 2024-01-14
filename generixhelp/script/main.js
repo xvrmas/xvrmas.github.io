@@ -52,7 +52,7 @@ buscadorInput.addEventListener('input', function () {
     seccions.forEach(seccion => {
         const contingutSeccion = seccion.textContent.toLowerCase();
         if (contingutSeccion.includes(termeBusqueda)) {
-            seccion.style.display = 'inline';
+            seccion.style.display = 'inline';         
         } else {
             seccion.style.display = 'none';
         }
