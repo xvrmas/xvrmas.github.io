@@ -17,8 +17,8 @@
         </div>
         <div>
             <input class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
-            <button class="boto-rodo" onclick="recargarPagina()"">X</button>
-            <!--<img src="./assets/lupa.png" height="25vh" style="margin: 10px;">-->
+            <button class="boto-rodo" onclick="recargarPagina()">X</button>
+            <!--<img src=" ./assets/lupa.png" height="25vh" style="margin: 10px;">-->
         </div>
     </div>
     <hr>
@@ -44,7 +44,7 @@
             <button class="boto"
                 onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
-                preparados</button>
+                preparados dia</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj9')">Cantidad de soportes
                 delivery</button>
             <button class="boto"
@@ -57,8 +57,13 @@
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj13')">CIR circuitos de
                 reparación</button>
 
-            <!-- <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">14</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">15</button>-->
+            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">Codigos tiendas MAKRO</button>
+            <!--<button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">Ubicación manual</button>-->
+            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj16')">Ver contenido el de una
+                ubicación</button>
+            <!-- <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj17')">15</button>
+             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj18')">15</button>
+             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj19')">15</button>-->
         </ol>
     </div>
     <div id="text">
@@ -150,10 +155,11 @@
                 <hr>
                 <li>Seleccionamos CIRCUITO AUTORIZADO</li>
                 <hr>
-                <li>Clicamos en un icono con el signo +,SELECCIONAR O AÑADIR CIRCUITO</li>
+                <li>Clicamos en un icono con el signo +, SELECCIONAR O AÑADIR CIRCUITO</li>
                 <hr>
                 <li>Seleccionamos el circuito que queremos que le aparezca en la PDA al usuario asignado</li>
-            </ol><hr>
+            </ol>
+            <hr>
             <p><strong>CIR</strong> circuitos de preparación.</p>
             <ul>
                 <li>D86: circuito más habitual, recoge la mayoría de la actividad de Seco.</li>
@@ -169,7 +175,7 @@
                     operativo se requiere que estén agrupados a nivel del sistema.
                 </li>
             </ul>
-                
+
         </div>
         <div id="obj6" class="divi" style="display: none;">
             <ol>
@@ -222,7 +228,8 @@
         </div>
         <div id="obj10" class="divi" style="display: none;">
             <ol>
-                <li>Desde la PDA pinchar en la ubicación o generar un codigo de barras en la web</li>
+                <li>Desde la PDA pinchar en la ubicación o generar un codigo de barras en la web: <a
+                        href="https://barcode.tec-it.com/en" target="_blank">Barcode Generator</a></li>
                 <hr>
                 <li>una vez en el manú de cantidad hacer F5 dos veces</li>
                 <hr>
@@ -281,8 +288,70 @@
                 </li>
             </ul>
         </div>
-        <!--<div id="obj14" class="divi" style="display: none;"> 14</div>
-        <div id="obj15" class="divi" style="display: none;"> 15</div>-->
+        <div id="obj14" class="divi" style="display: none;">
+            <ul>
+                <li>59 - Castellón</li>
+                <hr>
+                <li>54 - Tarragona</li>
+                <hr>
+                <li>22 - Barberá</li>
+                <hr>
+                <li>10 - Palma de Mallorca</li>
+                <hr>
+                <li>9 - Zaragoza</li>
+                <hr>
+                <li>7 - Badalona</li>
+                <hr>
+                <li>2 - Zona Franca</li>
+                <hr>
+            </ul>
+        </div>
+        <div id="obj15" class="divi" style="display: none;">Pendiente
+            <ol>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+                <li></li>
+                <hr>
+            </ol>
+        </div>
+        <div id="obj16" class="divi" style="display: none;">
+            <ol>
+                <li>Nos situamos en el menú U6 Repertorio de las paletas del depósito p/núme...</li>
+                <hr>
+                <li>Desplegamos los filtros y en la sección "DIRECCION"</li>
+                <hr>
+                <li>En esta seccion debemos rellenar los cuatro campos</li>
+                <hr>
+                <li>el primero pertenece a la zona p. ejem. U, F, </li>
+                <hr>
+                <li>El segundo campo pertenece al bloque de estanterias</li>
+                <hr>
+                <li>el tercer campo es la columna de las estanterias</li>
+                <hr>
+                <li>El cuarto pertenece a la altura de la estanteria, 00 es el hueco mas bajo y 01 superior</li>
+                <hr>
+                <p>Si solo rellenamos el primer campo, la letra, el sistema nos muestra todas las ubicaciones de ese
+                    circuito,<br>A medida que vamos rellenando los campos el sistema va acotando la busqueda.
+                </p>
+            </ol>
+        </div>
+        <!--  <div id="obj17" class="divi" style="display: none;"> 17</div>
+         <div id="obj18" class="divi" style="display: none;"> 18</div>
+         <div id="obj19" class="divi" style="display: none;"> 19</div>-->
     </div>
 </body>
 <script src="./script/main.js"></script>
