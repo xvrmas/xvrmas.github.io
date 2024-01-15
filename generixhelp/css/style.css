@@ -4,12 +4,23 @@ body {
   padding: 0;
   margin: 2vh;
 }
- .ancora
+ .ancora1
  {
   text-decoration: none;
+  margin-right: 10px;
   color: #0b5ed7;
  }
- .ancora:hover
+ .ancora1:hover
+ {
+  color: #22BF14;
+ }
+ .ancora2
+ {
+  text-decoration: none;
+  margin-left: 10px;
+  color: #0b5ed7;
+ }
+ .ancora2:hover
  {
   color: #22BF14;
  }
