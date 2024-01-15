@@ -16,14 +16,15 @@
             <img src="./assets/howto.png" height="50vh">
         </div>
         <div>
-            <input  class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
-            <img src="./assets/lupa.png" height="25vh" style="margin: 10px;">
+            <input class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
+            <button class="boto-rodo" onclick="recargarPagina()"">X</button>
+            <!--<img src="./assets/lupa.png" height="25vh" style="margin: 10px;">-->
         </div>
     </div>
     <hr>
     <div class="grup">
         <button class="boto" onclick="obrirEnllas()">Descargar manual Generix PDF</button>
-        <button class="boto" onclick="recargarPagina()">Recargar Página</button>
+        <!--<button class="boto" onclick="recargarPagina()">Recargar Página</button>-->
         <hr>
         <ol>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
@@ -52,9 +53,9 @@
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj11')">Grabar huella personal en
                 SPEC</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj12')">Regularizar stock
-                REAPROS</button> <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj13')">CIR
-                circuitos de
-                preparación</button>
+                REAPROS</button>
+            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj13')">CIR circuitos de
+                reparación</button>
 
             <!-- <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">14</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">15</button>-->
@@ -135,6 +136,7 @@
                 <hr>
                 <li>Ahora podemos repetir los pasos para asignar ruta</li>
             </ol>
+
         </div>
         <div id="obj5" class="divi" style="display: none;">
             <ol>
@@ -152,6 +154,10 @@
                 <hr>
                 <li>Seleccionamos el circuito que queremos que le aparezca en la PDA al usuario asignado</li>
             </ol>
+            <p>Ver los diferentes circuitos.<button class="boto"
+                onclick="alerta('hola')">CIR
+                circuitos de
+                preparación</button></p>
         </div>
         <div id="obj6" class="divi" style="display: none;">
             <ol>
