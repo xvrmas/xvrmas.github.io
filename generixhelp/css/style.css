@@ -4,7 +4,15 @@ body {
   padding: 0;
   margin: 2vh;
 }
-
+ .ancora
+ {
+  text-decoration: none;
+  color: #0b5ed7;
+ }
+ .ancora:hover
+ {
+  color: #22BF14;
+ }
 .grup {
   padding: 1vh;
   margin-bottom: 2vh;
