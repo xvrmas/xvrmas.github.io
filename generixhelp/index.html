@@ -12,8 +12,8 @@
 <body>
     <div class="contenidorCapsalera">
         <div>
-            <h1 class="capsalera">Generix</h1>
-            <img src="./assets/howto.png" height="50vh">
+            <p class="capsalera">Generix</p>
+            <img src="./assets/howto.png" height="50vh" style="margin-left: 10px;">
         </div>
         <div>
             <input class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
@@ -23,7 +23,7 @@
     </div>
     <hr>
     <div class="grup">
-        <button class="boto" onclick="obrirEnllas()">Descargar manual Generix PDF</button>
+        <a href="./download/GENERIX.pdf" target="_blank" style="text-decoration: none;">Descargar manual Generix PDF</a>
         <!--<button class="boto" onclick="recargarPagina()">Recargar Página</button>-->
         <hr>
         <ol>
@@ -153,11 +153,23 @@
                 <li>Clicamos en un icono con el signo +,SELECCIONAR O AÑADIR CIRCUITO</li>
                 <hr>
                 <li>Seleccionamos el circuito que queremos que le aparezca en la PDA al usuario asignado</li>
-            </ol>
-            <p>Ver los diferentes circuitos.<button class="boto"
-                onclick="alerta('hola')">CIR
-                circuitos de
-                preparación</button></p>
+            </ol><hr>
+            <p><strong>CIR</strong> circuitos de preparación.</p>
+            <ul>
+                <li>D86: circuito más habitual, recoge la mayoría de la actividad de Seco.</li>
+                <li>DSB: Circuito de Desbordantes, recoge aquellos productos que son especialmente voluminosos y
+                    que por lo tanto requieren de una metodología de preparación distinta.</li>
+                <li>SMP: Stock de Mercancías Peligrosas, estas mercancías, por su naturaleza (ADR) no pueden estar
+                    mezcladas junto a otras mercancías de Seco, por lo que requieren de un circuito especial.</li>
+                <li>D88: Circuito de Congelado, recoge todos los productos de la cámara de congelado, y a la que sólo
+                    se puede acceder en condiciones de seguridad, por lo tanto sólo preparadores concretos deben
+                    ser capaces de preparar pedidos de este circuito.</li>
+                <li>D75: Circuito Refrigerado, este circuito contiene los productos que requieren de una temperatura
+                    inferior a la normal, y que por lo tanto están ubicados en una cámara aparte, por lo que a nivel
+                    operativo se requiere que estén agrupados a nivel del sistema.
+                </li>
+            </ul>
+                
         </div>
         <div id="obj6" class="divi" style="display: none;">
             <ol>

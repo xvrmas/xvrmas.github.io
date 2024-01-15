@@ -3,7 +3,6 @@ body {
   height: 100%;
   padding: 0;
   margin: 2vh;
-  background-color: #ffffff;
 }
 
 .grup {
@@ -11,10 +10,15 @@ body {
   margin-bottom: 2vh;
   background-color: #e2e2e2;
   border-radius: 10px;
-  box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);
+  /*box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);*/
 
 }
-
+.capsalera
+{
+  color: rgb(59, 59, 59);
+  font-size: 5vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .contenidorCapsalera {
   display: flex;
   justify-content: space-between;
@@ -30,7 +34,6 @@ body {
   padding: 1vh;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);
 }
 
 .boto {
@@ -43,14 +46,14 @@ body {
 }
 .boto-rodo {
   display: inline-block;
-  margin-left: 10px;
-  font-size: 26px;
+  margin-left: 6px;
+  font-size: 20px;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   background-color: black;
   color: white;
   border: 1px solid #a8bfd9;
-
   border-radius: 50%;
   cursor: pointer;
 }

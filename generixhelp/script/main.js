@@ -37,12 +37,12 @@ imatgesAmpliables.forEach(function (imatge) {
         this.classList.toggle('ampliada');
     });
 });
-
+/*
 function obrirEnllas() {
     let url = "./download/GENERIX.pdf"
     window.open(url, "_blank");
 }
-
+*/
 function recargarPagina() {
     location.reload();
 }
