@@ -29,24 +29,45 @@ body {
   margin-bottom: 2vh;
   background-color: #e2e2e2;
   border-radius: 10px;
-  /*box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);*/
-
 }
+
 .capsalera
 {
-  color: rgb(59, 59, 59);
+  color:white;
   font-size: 5vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
 }
 .contenidorCapsalera {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  
 }
+
+.marc {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fondo img {
+  width: 100vw;
+  height: 200%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.sobreposat {
+  position: relative;
+  z-index: 2; 
+}
+
+
 
 .contenidorCapsalera > div {
   display: flex;
-  align-items: center;
 }
 
 #text {
@@ -148,12 +169,11 @@ body {
 }
 
 @media (max-width: 600px) {
-  /* Cambiar a column cuando el ancho de la pantalla es menor o igual a 600px */
   .contenidorCapsalera {
       flex-direction: column;
   }
 
   .contenidorCapsalera > div {
-      margin-bottom: 10px; /* Añade un margen entre los divs apilados */
+      margin-bottom: 10px; 
   }
 }

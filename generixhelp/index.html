@@ -11,21 +11,30 @@
 
 <body>
     <div class="contenidorCapsalera">
-        <div>
-            <p class="capsalera">Generix</p>
-            <img src="./assets/howto.png" height="50vh" style="margin-left: 10px;">
-        </div>
-        <div>
-            <input class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
-            <button class="boto-rodo" onclick="recargarPagina()">X</button>
-            <!--<img src=" ./assets/lupa.png" height="25vh" style="margin: 10px;">-->
+        <div class="marc">
+           
+            <div class="fondo">
+                <img src="./assets/PANO.jpg">
+            </div>
+            
+          
+            <div class="sobreposat">
+                <p class="capsalera">Generix How</p>
+                <!--<img src="./assets/howto.png" height="50vh" style="margin-left: 10px;">-->
+            </div>
         </div>
     </div>
     <hr>
     <div class="grup">
         <p><strong>Descargas</strong></p>
-        <a class="ancora1" href="./download/GENERIX.pdf" target="_blank">Manual oficial Generix</a> | <a class="ancora2" href="./download/protocolo.pdf" target="_blank">Protocolo en caso de rotura PCI</a>
-        <!--<button class="boto" onclick="recargarPagina()">Recargar Página</button>-->
+        <a class="ancora1" href="./download/GENERIX.pdf" target="_blank">Manual oficial Generix</a> | <a class="ancora2"
+            href="./download/protocolo.pdf" target="_blank">Protocolo en caso de rotura PCI</a>
+        <hr>
+        <div>
+            <input class="buscador" type="text" id="buscador" placeholder="Buscar secciones...">
+            <button class="boto-rodo" onclick="recargarPagina()">X</button>
+            <!--<img src=" ./assets/lupa.png" height="25vh" style="margin: 10px;">-->
+        </div>
         <hr>
         <ol>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
@@ -59,7 +68,8 @@
                 reparación</button>
 
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">Codigos tiendas MAKRO</button>
-            <!--<button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">Ubicación manual</button>-->
+            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">Transferencia entre
+                ubicaciones</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj16')">Ver el contenido de una
                 ubicación</button>
             <!-- <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj17')">15</button>
@@ -116,7 +126,8 @@
                 <hr>
                 <li>Seleccionar el numero de etiquetas, el programa nos permite entrar un rango de etiquetas, p.ej. del
                     1 al 100, esto imprimirá 100 etiquetas distintas, si seleccionamos 2 a 100 imprimirá 2 etiquetas
-                    iguales 100 veces, es decir el primer valor indica el numero de veces que queremos imprimir una misma
+                    iguales 100 veces, es decir el primer valor indica el numero de veces que queremos imprimir una
+                    misma
                     etiqueta y el segundo la cantidad total de etiquetas que queremos.</li>
             </ol>
         </div>
@@ -238,6 +249,8 @@
                 <hr>
                 <li>Entrar la clave para autorizar el faltante</li>
                 <hr>
+                <li>F6 una vez</li>
+                <hr>
                 <li>En el menú "desea procesar lineas faltantes" se debe decir NO</li>
             </ol>
         </div>
@@ -307,26 +320,19 @@
                 <hr>
             </ul>
         </div>
-        <div id="obj15" class="divi" style="display: none;">Pendiente
+        <div id="obj15" class="divi" style="display: none;">
             <ol>
-                <li></li>
+                <li>Menú U6</li>
                 <hr>
-                <li></li>
+                <li>Entrar el codigo del articulo y seleccionar la ubicación origen de la transferencia, o abrir el
+                    filtro y entra la ubicación origen</li>
                 <hr>
-                <li></li>
+                <li>Botón derecho y seleccionamos TRANSFERIR</li>
                 <hr>
-                <li></li>
+                <li>En la pantalla que se ha abierto, MOTIVO DEL MOVIMIENTO seleccinamos TFG "TRANSFERENCIA GLOBAL"</li>
                 <hr>
-                <li></li>
-                <hr>
-                <li></li>
-                <hr>
-                <li></li>
-                <hr>
-                <li></li>
-                <hr>
-                <li></li>
-                <hr>
+                <li>Entramos la ubicación destino y confirmamos</li>
+
             </ol>
         </div>
         <div id="obj16" class="divi" style="display: none;">
