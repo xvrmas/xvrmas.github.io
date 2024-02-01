@@ -18,7 +18,7 @@
             </div>
             <div class="fondo">
                 <img src="./assets/PANO.jpg">
-            </div>           
+            </div>
         </div>
     </div>
     <div class="grup">
@@ -67,8 +67,8 @@
                 ubicaciones</button>
             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj16')">Ver el contenido de una
                 ubicación</button>
-            <!-- <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj17')">15</button>
-             <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj18')">15</button>
+           <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj17'), alerta('Se utiliza para generar una etiqueta nueva cuando el producto no cabe en la caja que tenemos')", >Transferir soporte</button>
+            <!--   <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj18')">15</button>
              <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj19')">15</button>-->
         </ol>
     </div>
@@ -231,7 +231,8 @@
                 <hr>
                 <li>clicamos en EXTRAER EXCEL</li>
                 <hr>
-                <li>Abrimos el archivo .xlc que se ha generado, demeso comprobar que todas las rutas sean rutas del delivery, una vez comprobado seleccionamos todas las lineas de la columna muelle y en el
+                <li>Abrimos el archivo .xlc que se ha generado, demeso comprobar que todas las rutas sean rutas del
+                    delivery, una vez comprobado seleccionamos todas las lineas de la columna muelle y en el
                     recuento final tenemos el numero de soportes que se han preparado.</li>
             </ol>
         </div>
@@ -353,8 +354,18 @@
                 </p>
             </ol>
         </div>
-        <!--  <div id="obj17" class="divi" style="display: none;"> 17</div>
-         <div id="obj18" class="divi" style="display: none;"> 18</div>
+       <div id="obj17" class="divi" style="display: none;"> 
+        <ol>
+            <li>Una vez validado el pedido y en P6 abrimos filtro y entramos el numero de pedido 9-xxxxx</li><hr>
+            <li>La pantalla nos muestra todos los soportes de ese pedido, buscamos el número de la anónima o número de paleta que queremos dividir y con el botón derecho seleccionamos DETALLE</li><hr>
+            <li>Ahora vemos el contenido de la caja, seleccionamos el articulo que queremos pasar a otra caja y con el botón derecho seleccionamos TRANSFERIR.</li><hr>
+            <li>En la pantalla que nos aparece debemos indicar el numero de articulos que queremos transferir. Es importante ver si lo que vamos a transferir son bultos completos o articulo unitario.</li><hr>
+            <li>Una vez realizada la modificación confirmamos, si debemos realizar más transferencias realizamos el paso anterior tantas veces como sea necesario. Una vez finalizadas las transferencias retrocedemos hasta llegar a la pantalla inicial del pedido</li><hr>
+            <li>En la pantalla inicial se han creado nuevas lineas con el numero de paleta en blanco, seleccionamos todas las lineas en blanco y con el botón derecho seleccionamos IMPRIMIR</li><hr>
+            <li>Una vez impresas podemos ver que se han generado los numeros de paleta que estaban en blanco y ya podemos pegar las etiquetas generadas en los nuevos soportes.</li><hr>
+        </ol>
+    </div>
+        <!--    <div id="obj18" class="divi" style="display: none;"> 18</div>
          <div id="obj19" class="divi" style="display: none;"> 19</div>-->
     </div>
 </body>
