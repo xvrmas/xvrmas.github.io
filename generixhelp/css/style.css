@@ -68,6 +68,8 @@ body {
 
 .contenidorCapsalera > div {
   display: flex;
+  margin-bottom: 2vh;
+  border-radius: 10px;
 }
 
 #text {
