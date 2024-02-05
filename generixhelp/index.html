@@ -31,46 +31,51 @@
             <button class="boto-rodo" onclick="recargarPagina()">X</button>
             <!--<img src=" ./assets/lupa.png" height="25vh" style="margin: 10px;">-->
         </div>
-        <ol>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
-                anonima</button>
-            <!--<button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para
+        <div class="grup-botons">
+            <ol>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj1')">como ver el contenido de una
+                    anonima</button>
+                <!--<button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj2')">Imprimir etiquetas para
                 preparación manual</button>-->
-            <button class="boto"
-                onclick="cambiarColor(this),reset(),mostrar('obj3'), alerta('Sirve para imprimir etiquetas sin un valor asignado')">Imprimir
-                etiquetas
-                anonimas</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
-            <button class="boto"
-                onclick="cambiarColor(this),reset(),mostrar('obj5'), alerta('Se utiliza para que a un preparador le caigan en la PDA pedidos de un determinado circuito')">Asignar
-                circuito picking</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj6')">Ajustar el peso de un
-                articulo</button>
-            <button class="boto"
-                onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
-                preparados dia</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj9')">Cantidad de soportes
-                delivery</button>
-            <button class="boto"
-                onclick="cambiarColor(this),reset(),mostrar('obj10'), alerta('Antes de dar un articulo como faltante hay que asegurarse bien, haciendo consulta por articulo en generix, de que no hay ningún palet almacenado del mismo codigo.')">Regularizar
-                en PDA faltante</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj11')">Grabar huella personal en
-                SPEC</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj12')">Regularizar stock
-                REAPROS</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj13')">CIR circuitos de
-                reparación</button>
+                <button class="boto"
+                    onclick="cambiarColor(this),reset(),mostrar('obj3'), alerta('Sirve para imprimir etiquetas sin un valor asignado')">Imprimir
+                    etiquetas
+                    anonimas</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj4')">Asignar rutas</button>
+                <button class="boto"
+                    onclick="cambiarColor(this),reset(),mostrar('obj5'), alerta('Se utiliza para que a un preparador le caigan en la PDA pedidos de un determinado circuito')">Asignar
+                    circuito picking</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj6')">Ajustar el peso de un
+                    articulo</button>
+                <button class="boto"
+                    onclick="cambiarColor(this),reset(),mostrar('obj7'), alerta('Se utiliza para desmobilizar productos que no tienen una fecha de caducidad asignada')">Desmobilización</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj8')">Cantidad de pedidos
+                    preparados dia</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj9')">Cantidad de soportes
+                    delivery</button>
+                <button class="boto"
+                    onclick="cambiarColor(this),reset(),mostrar('obj10'), alerta('Antes de dar un articulo como faltante hay que asegurarse bien, haciendo consulta por articulo en generix, de que no hay ningún palet almacenado del mismo codigo.')">Regularizar
+                    en PDA faltante</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj11')">Grabar huella personal en
+                    SPEC</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj12')">Regularizar stock
+                    REAPROS</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj13')">CIR circuitos de
+                    reparación</button>
 
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">Codigos tiendas MAKRO</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">Transferencia entre
-                ubicaciones</button>
-            <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj16')">Ver el contenido de una
-                ubicación</button>
-           <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj17'), alerta('Se utiliza para generar una etiqueta nueva cuando el producto no cabe en la caja que tenemos')", >Transferir soporte</button>
-            <!--   <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj18')">15</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj14')">Codigos tiendas
+                    MAKRO</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj15')">Transferencia entre
+                    ubicaciones</button>
+                <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj16')">Ver el contenido de una
+                    ubicación</button>
+                <button class="boto"
+                    onclick="cambiarColor(this),reset(),mostrar('obj17'), alerta('Se utiliza para generar una etiqueta nueva cuando el producto no cabe en la caja que tenemos')"
+                    ,>Transferir soporte</button>
+                <!--   <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj18')">15</button>
              <button class="boto" onclick="cambiarColor(this),reset(),mostrar('obj19')">15</button>-->
-        </ol>
+            </ol>
+        </div>
     </div>
     <div id="text">
         <div id="obj1" class="divi" style="display:none;">
@@ -354,17 +359,31 @@
                 </p>
             </ol>
         </div>
-       <div id="obj17" class="divi" style="display: none;"> 
-        <ol>
-            <li>Una vez validado el pedido y en P6 abrimos filtro y entramos el numero de pedido 9-xxxxx</li><hr>
-            <li>La pantalla nos muestra todos los soportes de ese pedido, buscamos el número de la anónima o número de paleta que queremos dividir y con el botón derecho seleccionamos DETALLE</li><hr>
-            <li>Ahora vemos el contenido de la caja, seleccionamos el articulo que queremos pasar a otra caja y con el botón derecho seleccionamos TRANSFERIR.</li><hr>
-            <li>En la pantalla que nos aparece debemos indicar el numero de articulos que queremos transferir. Es importante ver si lo que vamos a transferir son bultos completos o articulo unitario.</li><hr>
-            <li>Una vez realizada la modificación confirmamos, si debemos realizar más transferencias realizamos el paso anterior tantas veces como sea necesario. Una vez finalizadas las transferencias retrocedemos hasta llegar a la pantalla inicial del pedido</li><hr>
-            <li>En la pantalla inicial se han creado nuevas lineas con el numero de paleta en blanco, seleccionamos todas las lineas en blanco y con el botón derecho seleccionamos IMPRIMIR</li><hr>
-            <li>Una vez impresas podemos ver que se han generado los numeros de paleta que estaban en blanco y ya podemos pegar las etiquetas generadas en los nuevos soportes.</li><hr>
-        </ol>
-    </div>
+        <div id="obj17" class="divi" style="display: none;">
+            <ol>
+                <li>Una vez validado el pedido y en P6 abrimos filtro y entramos el numero de pedido 9-xxxxx</li>
+                <hr>
+                <li>La pantalla nos muestra todos los soportes de ese pedido, buscamos el número de la anónima o número
+                    de paleta que queremos dividir y con el botón derecho seleccionamos DETALLE</li>
+                <hr>
+                <li>Ahora vemos el contenido de la caja, seleccionamos el articulo que queremos pasar a otra caja y con
+                    el botón derecho seleccionamos TRANSFERIR.</li>
+                <hr>
+                <li>En la pantalla que nos aparece debemos indicar el numero de articulos que queremos transferir. Es
+                    importante ver si lo que vamos a transferir son bultos completos o articulo unitario.</li>
+                <hr>
+                <li>Una vez realizada la modificación confirmamos, si debemos realizar más transferencias realizamos el
+                    paso anterior tantas veces como sea necesario. Una vez finalizadas las transferencias retrocedemos
+                    hasta llegar a la pantalla inicial del pedido</li>
+                <hr>
+                <li>En la pantalla inicial se han creado nuevas lineas con el numero de paleta en blanco, seleccionamos
+                    todas las lineas en blanco y con el botón derecho seleccionamos IMPRIMIR</li>
+                <hr>
+                <li>Una vez impresas podemos ver que se han generado los numeros de paleta que estaban en blanco y ya
+                    podemos pegar las etiquetas generadas en los nuevos soportes.</li>
+                <hr>
+            </ol>
+        </div>
         <!--    <div id="obj18" class="divi" style="display: none;"> 18</div>
          <div id="obj19" class="divi" style="display: none;"> 19</div>-->
     </div>
