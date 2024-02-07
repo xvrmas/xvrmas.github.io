@@ -82,10 +82,10 @@ body {
   padding: 10px 20px;
   margin: 5px;
   background-color:  #0b5ed7;
-  border: 1px solid #a8bfd9;
+  border: 1px solid #0370ee;
   border-radius: 10px;
   color: white;
-  box-shadow: 3px 5px 1px  #ff8c00; 
+  box-shadow: 1px 2px 1px  #ff8c00; 
 
 }
 .boto-rodo {
@@ -104,12 +104,14 @@ body {
 
 .boto:hover {
   background-color: #e3e5e3;
+  border: 1px solid #5d5d5d;
   color: rgb(4, 4, 4);
 }
 
 .boto-seleccionat {
-  color: white;
-  background-color: #22BF14;
+  color: rgb(7, 7, 7);
+  background-color: #e3e5e3;
+  border: 1px solid #5d5d5d;
 
 }
 
