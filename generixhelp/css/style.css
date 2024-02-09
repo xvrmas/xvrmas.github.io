@@ -105,13 +105,13 @@ body {
 .boto:hover {
   /* background-color: #e3e5e3; */
   border: 1px solid #5d5d5d;
-  /* color: rgb(4, 4, 4); */
+  color: rgb(85, 255, 0);
   box-shadow: 5px 6px 10px  #414040; 
 }
 
 .boto-seleccionat {
-  /* color: rgb(7, 7, 7);
-  background-color: #e3e5e3; */
+   color: rgb(85, 255, 0);
+ /* background-color: #e3e5e3; */
   border: 1px solid #5d5d5d;
   box-shadow: 5px 6px 10px  #414040; 
 }
