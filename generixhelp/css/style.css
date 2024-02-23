@@ -51,7 +51,7 @@ body {
 
 .fondo img {
   width: 150vw;
-  height: 200%;
+  height:300%;
   object-fit: cover;
   position: absolute;
   top: 50%;
