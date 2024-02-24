@@ -11,9 +11,9 @@ function reset() {
         divs[i].style.display = 'none';
     }
 }
-function alerta(msg) {
-    alert(msg);
-}
+// function alerta(msg) {
+//     alert(msg);
+// }
 
 // Línea 1: agafa tots el elements de la clase boto i els guarda a la variable botons
 // Línea 2: Itera sobre tots els elements que em guardat de la clase 'boto'.
@@ -28,10 +28,15 @@ function cambiarColor(botoSeleccionat) {
     botoSeleccionat.classList.add('boto-seleccionat');
 }
 
+function mostrarTexte(boton) {
+    var texteBoto = boton.textContent;
+    document.getElementById('texteSeleccionat').textContent = texteBoto;
+  }
+
 // guardem a la variable "imatgesAmpliables" la clase "imatge-ampliable"
 var imatgesAmpliables = document.querySelectorAll('.imagte-ampliable');
 
-// Afegir un event de clic a cada imatgen
+// Afegir un event de clic a cada imatge
 imatgesAmpliables.forEach(function (imatge) {
     imatge.addEventListener('click', function () {
         this.classList.toggle('ampliada');

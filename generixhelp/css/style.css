@@ -12,7 +12,7 @@ body {
  }
  .ancora1:hover
  {
-  color: #22BF14;
+  color: #e9f2e9;
  }
  .ancora2
  {
@@ -22,7 +22,7 @@ body {
  }
  .ancora2:hover
  {
-  color: #22BF14;
+  color: #bdc7bc;
  }
 .grup {
   padding: 1vh;
@@ -31,16 +31,8 @@ body {
   border-radius: 10px;
 }
 
-.capsalera
-{
-  color:white;
-  font-size: 6vh;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
-}
 .contenidorCapsalera {
   position: relative;
-  
 }
 
 .marc {
@@ -50,8 +42,8 @@ body {
 }
 
 .fondo img {
-  width: 150vw;
-  height:300%;
+  width: 100%;
+  height:100%;
   object-fit: cover;
   position: absolute;
   top: 50%;
@@ -60,9 +52,18 @@ body {
 }
 
 .sobreposat {
+  text-align: center; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+  width: 100%;
   position: relative;
   z-index: 2; 
+  color:black;
+  font-size: xx-large;
 }
+
 
 
 
@@ -102,15 +103,15 @@ body {
   cursor: pointer;
 }
 
+
+
 .boto:hover {
   /* background-color: #e3e5e3; */
   border: 1px solid #5d5d5d;
-  color: rgb(85, 255, 0);
   box-shadow: 5px 6px 10px  #414040; 
 }
 
 .boto-seleccionat {
-   color: rgb(85, 255, 0);
  /* background-color: #e3e5e3; */
   border: 1px solid #5d5d5d;
   box-shadow: 5px 6px 10px  #414040; 
