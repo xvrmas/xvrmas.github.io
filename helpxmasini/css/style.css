@@ -159,14 +159,15 @@ body {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 80%;
   max-width: 600px;
   position: relative;
+  border: 6px solid #a8bfd9;
+  border-radius: 10px;
 }
-a{
+/* a{
   text-decoration: none;
-}
+} */
 .close {
   color: #aaa;
   position: absolute;
@@ -179,7 +180,7 @@ a{
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #0b5ed7;
   text-decoration: none;
   cursor: pointer;
 }
