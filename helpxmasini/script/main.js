@@ -18,7 +18,7 @@ function reset() {
 // Línea 1: agafa tots el elements de la clase boto i els guarda a la variable botons
 // Línea 2: Itera sobre tots els elements que em guardat de la clase 'boto'.
 // Línea 3: Remou la clase 'boto-seleccionat' de css de cada botó.
-// Línea 4: Afegeix la clase 'boto-seleccionat' al botó que em pasat com  argument.
+// Línea 4: Afegeix la clase 'boto-seleccionat' al botó que hem pasat com  argument.
 
 function cambiarColor(botoSeleccionat) {
     let botons = document.querySelectorAll('.boto');
