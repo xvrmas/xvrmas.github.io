@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ordre</title>
+</head>
+
+<body>
+    <div class="contenidor">
+        <div class="caixa">
+            <p class="enunciat">Ordena números de menor a major</p>
+            <input type="text" id="entrada">
+            <button onclick="push()">PUSH</button>
+            <button onclick="ordena()">ORDENA</button>
+            <button onclick="reset()">RESET</button>
+            <div class="texte">
+                <div class="calcul">
+                    <P id="texte1"></P>
+                    <p id="texte2"></p>
+                </div>
+                <p id="texte3"></p>
+                <p id="texteEstadistica"></p>
+                <p id="texteSuma"></p>
+            </div>
+        </div>
+        <div class="caixa">
+            <p class="enunciat">Mostra un texte en ordre invers a com s'ha entrat</p>
+            <input type="text" id="entrada2">
+            <!-- <button onclick="pushRevers()">PUSH</button> -->
+            <button onclick="ordenaRevers()">CAPGIRA</button>
+            <button onclick="majuscules()">MAJUSCULES</button>
+            <button onclick="resetRevers()">RESET</button>
+            <div class="texte">
+                <P id="texte4"></P>
+                <p id="texte5"></p>
+                <p id="texteMajuscules"></p>
+                <p id="texte6"></p>
+            </div>
+        </div>
+        <div class="caixa">
+            <p class="enunciat">com vols que sigui de gran el quadrat?</p>
+            <input type="text" placeholder="mida" id="lineas">
+            <input type="text" placeholder="caracters" id="forma">
+            <button onclick="quadrat()">CREAR</button>
+            <button onclick="esborra()">reset</button>
+            <!-- <button onclick="ordenaRevers()">CAPGIRA</button>
+            <button onclick="majuscules()">MAJUSCULES</button>
+            <button onclick="resetRevers()">RESET</button> -->
+            <div class="texte">
+                <P id="quadrat"></P>
+                <!--    <p id="texte5"></p>
+                <p id="texte6"></p> -->
+            </div>
+        </div>
+    </div>
+    <script src="source.js"> </script>
+</body>
+
+</html>

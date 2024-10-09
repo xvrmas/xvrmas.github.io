@@ -1,0 +1,55 @@
+.contenidor
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    align-items: center;
+    text-align: center;   
+}
+.caixa
+{
+   padding: 10px;
+   margin: 10px;
+   border-radius: 10px;
+   box-shadow: 1px 6px 10px;
+}
+
+ .texte
+{
+    border-radius: 6px;
+    margin: 30px;
+    border-radius: 1px 2px 2px;
+}
+button
+{
+    padding: 10px;
+    border: none;   
+    margin: 5px;
+    box-shadow: 1px 1px gray;
+    border-radius: 5px;
+} 
+button:hover
+{
+    box-shadow: 1px 2px 3px;
+}
+input
+{
+    width: 200px;
+    height: 30px;
+    border: none;
+    font-size: medium;
+    box-shadow: 1px 1px 3px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.enunciat
+{
+    font-size: x-large;
+}
+.calcul
+{
+    color: rgb(17, 0, 39);
+    text-align: center;
+    font-size: x-large;
+    border-radius: 10px;
+}
