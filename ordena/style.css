@@ -1,32 +1,40 @@
+
+body
+{
+   background-color: rgb(7, 36, 61);
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .contenidor
 {
     display: grid;
     grid-template-columns: auto auto;
+    color: white;
     gap: 20px;
     align-items: center;
-    text-align: center;   
+    text-align: center;  
+    background-color: rgb(7, 36, 61);
+
 }
 .caixa
 {
    padding: 10px;
    margin: 10px;
+   background-color: rgb(18, 51, 80);
    border-radius: 10px;
-   box-shadow: 1px 6px 10px;
+   box-shadow: 3px 6px 10px rgb(0, 8, 14);
 }
 
- .texte
-{
-    border-radius: 6px;
-    margin: 30px;
-    border-radius: 1px 2px 2px;
-}
 button
 {
     padding: 10px;
     border: none;   
     margin: 5px;
-    box-shadow: 1px 1px gray;
+    color: white;
+    background-color: rgb(35, 74, 108);
+    box-shadow: 3px 4px  rgb(1, 7, 12);
     border-radius: 5px;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 } 
 button:hover
 {
@@ -36,9 +44,10 @@ input
 {
     width: 200px;
     height: 30px;
-    border: none;
+    background-color: rgb(237, 172, 8);
+    border: solid  rgb(2, 29, 52);
     font-size: medium;
-    box-shadow: 1px 1px 3px;
+    box-shadow: 1px 1px 3px ;
     border-radius: 10px;
     margin: 10px;
 }
@@ -48,8 +57,15 @@ input
 }
 .calcul
 {
-    color: rgb(17, 0, 39);
-    text-align: center;
+    color: white;
     font-size: x-large;
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+@media (max-width: 50rem)
+{
+    .contenidor
+    {
+        grid-template-columns: 1fr;
+    }
 }
