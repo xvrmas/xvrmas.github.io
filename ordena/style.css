@@ -44,17 +44,15 @@ input
 {
     width: 200px;
     height: 30px;
-    background-color: rgb(237, 172, 8);
+    background-color: goldenrod;
+    color:rgb(78, 63, 26);
     border: solid  rgb(2, 29, 52);
     font-size: medium;
-    box-shadow: 1px 1px 3px ;
+    box-shadow: 8px 10px;
     border-radius: 10px;
     margin: 10px;
 }
-.enunciat
-{
-    font-size: x-large;
-}
+
 .calcul
 {
     color: white;
