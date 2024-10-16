@@ -1,0 +1,55 @@
+body
+{
+    background-color: rgb(240, 245, 250);
+    align-content: center;
+}
+
+.contenidor
+{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+    align-items: center;
+    text-align: center;  
+
+}
+.caixa
+{
+   padding: 10px;
+   margin: 30px;
+   background-color: rgb(236, 242, 247);
+   border-radius: 10px;
+   box-shadow: 3px 6px 10px rgb(207, 221, 232);
+}
+button
+{
+    padding: 10px;
+    border: none;   
+    margin: 5px;
+    background-color: rgb(177, 211, 240);
+    box-shadow: 3px 4px  rgb(1, 7, 12);
+    border-radius: 5px;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+} 
+button:hover
+{
+    box-shadow: 1px 2px 3px;
+}
+input
+{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(254, 254, 254);
+    color:rgb(78, 63, 26);
+    border: none;
+    font-size: medium;
+    box-shadow: 1px 1px 1px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.caixa2
+{
+    font-size: x-large;
+    border-radius: 20px;
+}
