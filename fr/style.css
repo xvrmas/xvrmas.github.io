@@ -11,11 +11,15 @@ body
     gap: 20px;
     align-items: center;
     text-align: center;  
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 
 }
 .caixa
 {
-   padding: 10px;
+   padding: 30px;
    margin: 30px;
    background-color: rgb(236, 242, 247);
    border-radius: 10px;
@@ -26,15 +30,15 @@ button
     padding: 10px;
     border: none;   
     margin: 5px;
-    background-color: rgb(177, 211, 240);
-    box-shadow: 3px 4px  rgb(1, 7, 12);
+    background-color: rgb(220, 230, 239);
+    box-shadow: 3px 4px  rgb(63, 79, 90);
     border-radius: 5px;
-   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 } 
 button:hover
 {
-    box-shadow: 1px 2px 3px;
+    box-shadow: 1px 2px;
+    background-color: aliceblue;
 }
 input
 {
@@ -45,11 +49,13 @@ input
     border: none;
     font-size: medium;
     box-shadow: 1px 1px 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 10px;
 }
 .caixa2
 {
     font-size: x-large;
-    border-radius: 20px;
+    
 }
+
+

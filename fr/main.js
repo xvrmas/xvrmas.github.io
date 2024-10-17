@@ -143,11 +143,11 @@ function resumPalets() {
         document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
         document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
         if ((mida / result[0].quantitatMinima) == 1) {
-            document.getElementById('palets').innerHTML = 'Total ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
+            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
 
         }
         else {
-            document.getElementById('palets').innerHTML = 'Total ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
+            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
         }
     }
 }
