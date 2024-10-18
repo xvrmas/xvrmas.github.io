@@ -1,6 +1,5 @@
 body
 {
-    background-color: rgb(240, 245, 250);
     align-content: center;
 }
 
@@ -21,9 +20,14 @@ body
 {
    padding: 30px;
    margin: 30px;
-   background-color: rgb(236, 242, 247);
-   border-radius: 10px;
-   box-shadow: 3px 6px 10px rgb(207, 221, 232);
+   /* border-radius: 10px;
+   box-shadow: 1px 3px 10px rgb(201, 201, 212); */
+}
+.caixa3
+{
+    font-size: 2rem;
+    box-shadow: 1px 3px 10px rgb(201, 201, 212) ;
+    border-radius: 10px;
 }
 button
 {
@@ -31,14 +35,13 @@ button
     border: none;   
     margin: 5px;
     background-color: rgb(220, 230, 239);
-    box-shadow: 3px 4px  rgb(63, 79, 90);
+    box-shadow: 1px 1px  rgb(229, 233, 236);
     border-radius: 5px;
 
 } 
 button:hover
 {
     box-shadow: 1px 2px;
-    background-color: aliceblue;
 }
 input
 {

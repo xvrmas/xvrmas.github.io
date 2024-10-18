@@ -121,7 +121,7 @@ const paletsReferencia =
             model: 920439,
             quantitatMinima: 396,
             midaReferencia: 'ample',
-        }, {
+        },{
             model: 920449,
             quantitatMinima: 240,
             midaReferencia: 'estret',
@@ -131,22 +131,25 @@ const paletsReferencia =
 
 
 
-function resumPalets() {
+function resumPalets() 
+{
     let referencia = document.getElementById('referencia').value;
     let mida = parseInt(document.getElementById('quantitat').value);
-    console.log(mida)
     let result = paletsReferencia.filter(element => element.model == referencia);
-    if (result.length == 0 || isNaN(mida)) {
-        alert('falten dades!')
+    if (result.length == 0 || isNaN(mida)) 
+    {
+        alert('falten dades o no son correctes!')
     }
-    else {
+    else 
+    {
         document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
         document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
-        if ((mida / result[0].quantitatMinima) == 1) {
+        if ((mida / result[0].quantitatMinima) == 1) 
+        {
             document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
-
         }
-        else {
+        else 
+        {
             document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
         }
     }
