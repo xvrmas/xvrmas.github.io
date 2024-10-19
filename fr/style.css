@@ -6,7 +6,7 @@ body
 .contenidor
 {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     gap: 20px;
     align-items: center;
     text-align: center;  
@@ -20,28 +20,21 @@ body
 {
    padding: 30px;
    margin: 30px;
-   /* border-radius: 10px;
-   box-shadow: 1px 3px 10px rgb(201, 201, 212); */
 }
-.caixa3
-{
-    font-size: 2rem;
-    box-shadow: 1px 3px 10px rgb(201, 201, 212) ;
-    border-radius: 10px;
-}
+
 button
 {
     padding: 10px;
     border: none;   
     margin: 5px;
     background-color: rgb(220, 230, 239);
-    box-shadow: 1px 1px  rgb(229, 233, 236);
+    box-shadow: 1px 1px 2px rgb(183, 192, 199);
     border-radius: 5px;
 
 } 
 button:hover
 {
-    box-shadow: 1px 2px;
+    box-shadow: none;
 }
 input
 {
@@ -51,7 +44,7 @@ input
     color:rgb(78, 63, 26);
     border: none;
     font-size: medium;
-    box-shadow: 1px 1px 1px;
+    box-shadow: 3px 3px 5px 1px rgb(192, 187, 187);
     border-radius: 5px;
     margin: 10px;
 }
@@ -61,4 +54,11 @@ input
     
 }
 
+
+#palets
+{
+    font-size: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+}
 

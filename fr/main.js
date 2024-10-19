@@ -121,36 +121,42 @@ const paletsReferencia =
             model: 920439,
             quantitatMinima: 396,
             midaReferencia: 'ample',
-        },{
+        }, {
             model: 920449,
             quantitatMinima: 240,
             midaReferencia: 'estret',
         }
     ]
 
+let buto = document.querySelector('button');
 
-
-
-function resumPalets() 
-{
+function resumPalets() {
     let referencia = document.getElementById('referencia').value;
     let mida = parseInt(document.getElementById('quantitat').value);
+
     let result = paletsReferencia.filter(element => element.model == referencia);
-    if (result.length == 0 || isNaN(mida)) 
-    {
-        alert('falten dades o no son correctes!')
+
+    if (result.length == 0 || isNaN(mida)) {
+        alert('falten dades o son incorrectes!')
     }
-    else 
-    {
+    else {
         document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
         document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
-        if ((mida / result[0].quantitatMinima) == 1) 
-        {
+        if ((mida / result[0].quantitatMinima) == 1) {
             document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
         }
-        else 
-        {
+        else {
             document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
+            document.getElementById('palets').style.boxShadow = '1px 2px 10px gray';
+
+
         }
     }
-}
+} 
+
+/* buto.addEventListener('click', () => {
+    document.getElementById('palets').style.boxShadow = '1px 2px 2px gray';
+}) */
+
+
+
