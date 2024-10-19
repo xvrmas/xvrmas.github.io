@@ -128,7 +128,7 @@ const paletsReferencia =
         }
     ]
 
-let buto = document.querySelector('button');
+/* let buto = document.querySelector('button'); */
 
 function resumPalets() {
     let referencia = document.getElementById('referencia').value;
@@ -146,10 +146,9 @@ function resumPalets() {
             document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
         }
         else {
-            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
-            document.getElementById('palets').style.boxShadow = '1px 2px 10px gray';
-
-
+            document.getElementById('palets').style.color =  '#3c762d';
+            document.getElementById('palets').style.backgroundColor = '#dff0d8';
+            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';       
         }
     }
 } 
