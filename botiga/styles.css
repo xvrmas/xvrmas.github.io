@@ -176,7 +176,7 @@ body{
     box-shadow: 0 10px 10px gray;
 }
 
-@media (max-width: 50rem)
+@media (max-width: 900px)
 {
     .contenidor
     {
@@ -189,7 +189,7 @@ body{
     top: 50px;
     right: 0;
     background-color: white;
-    width: 340px;
+    width: 320px;
     z-index: 1;
     box-shadow: 0 10px 20px gray;
     border-radius: 20px;
@@ -201,7 +201,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 20px;
-    width: 290px;
+    width: 280px;
     border-bottom: 1px solid black;
 }
     
