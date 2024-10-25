@@ -15,24 +15,30 @@ const cartInfo = document.querySelector('.info-cart-product');
 const compraInfo = document.querySelector('.cart-product');
 const btn = document.querySelectorAll('.add-cart');
 
-
 //llista dels contenidors de producte
 
 const productList = document.querySelector('.cart');
 let totProductes = []
 
-/* let valorTotal = document.querySelector('.total-pagar');
-let countProduct = document.querySelector('#contador-productes'); */
+let valorTotal = document.querySelector('.total-pagar');
+let countProduct = document.querySelector('#contador-productes');
 
 //funcio per mostrar html
 
+compraInfo.addEventListener('click', (e) => {
+    if (e.target.classList.contains('creu-tancar'))
+    {
+        const product = e.target.parentElement;
+        console.log(product);
+    }
+});
 
 const showHtml = () => 
 {
     compraInfo.innerHTML = '';
 
-    /* let total = 0;
-    let totalCistella = 0; */
+    let total = 0;
+    let totalCistella = 0;
 
 
     totProductes.forEach(product => {
@@ -42,20 +48,22 @@ const showHtml = () =>
             `<div class="info-cart-product">
                                 <span class="quantitat-producte-cistella">${product.quantity}</span>
                                 <span class="nom-producte-cistella">${product.title}</span>
-                                <span class="preu-producte-cistella">${product.price}</span>
+                                <span class="preu-producte-cistella">${parseInt(product.price) * product.quantity}€</span>
                                 <div class="creu-tancar">
                                 <img src="assets/close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                             </div>`
         compraInfo.append(containerProduct);
 
-        /* total = total + parseInt(product.quantity * product.price).slice(1);
-        totalCistella = totalCistella + product.quantity; */
+        total = total + parseInt(product.price) * product.quantity;
+        totalCistella = totalCistella + product.quantity;
 
     });
-   /*  valorTotal.innerHTML = `${total}`;
-    countProduct.innerHTML = `${countProduct}`; */
+    valorTotal.innerHTML = `${total}`;
+    countProduct.innerHTML = `${totalCistella}`;
 
 }
+
+
 
 btn.forEach(boto => {
 

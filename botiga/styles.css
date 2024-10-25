@@ -184,7 +184,7 @@ body{
 }
 .creu-tancar:hover{
 
-    color: #ccc;
+    cursor: pointer;
 }
 
 @media (max-width: 900px)
