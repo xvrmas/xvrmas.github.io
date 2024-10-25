@@ -21,7 +21,8 @@ const btn = document.querySelectorAll('.add-cart');
 const productList = document.querySelector('.cart');
 let totProductes = []
 
-
+/* let valorTotal = document.querySelector('.total-pagar');
+let countProduct = document.querySelector('#contador-productes'); */
 
 //funcio per mostrar html
 
@@ -29,6 +30,11 @@ let totProductes = []
 const showHtml = () => 
 {
     compraInfo.innerHTML = '';
+
+    /* let total = 0;
+    let totalCistella = 0; */
+
+
     totProductes.forEach(product => {
         const containerProduct = document.createElement('div');
         containerProduct.classList.add('cart-product')
@@ -41,7 +47,14 @@ const showHtml = () =>
                                 <img src="assets/close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                             </div>`
         compraInfo.append(containerProduct);
-    })
+
+        /* total = total + parseInt(product.quantity * product.price).slice(1);
+        totalCistella = totalCistella + product.quantity; */
+
+    });
+   /*  valorTotal.innerHTML = `${total}`;
+    countProduct.innerHTML = `${countProduct}`; */
+
 }
 
 btn.forEach(boto => {
@@ -58,10 +71,30 @@ btn.forEach(boto => {
                 quantity: 1,
                 title: product.querySelector('h2').textContent,
                 price: product.querySelector('p').textContent,
+            };
+            const exits = totProductes.some( product => product.title === infoProduct.title);
+            if (exits)
+            {
+                const products = totProductes.map(product =>
+                {
+                    if (product.title === infoProduct.title)
+                    {
+                        product.quantity++;
+                        return product;
+                    }
+                    else
+                    {
+                        return product;
+                    }
+                })
+                totProductes = [...products];
             }
-            totProductes.push(infoProduct);
+            else
+            {
+                totProductes = [ ...totProductes, infoProduct];
+            }
             showHtml()
         }
     })
 
-})
+});
