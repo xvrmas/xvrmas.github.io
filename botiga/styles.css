@@ -189,31 +189,25 @@ body{
 
 @media (max-width: 900px)
 {
+    
     .contenidor
     {
         grid-template-columns: 1fr;
-        margin: 20px;
+       
     }
     .contenidor-cart-productes
-{
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: white;
-    width: 320px;
-    z-index: 1;
-    box-shadow: 0 10px 20px gray;
-    border-radius: 20px;
-    justify-content: space-between;
-    align-items: center;
-}
-.info-cart-product
-{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 20px;
-    width: 280px;
-}
+    {
+       width: 360px;
+   
+    }
+    .info-cart-product
+    {
+      padding: 10px;
+    }
+    .cart
+    {
+        margin: 2vh;
+    }
     
 }
 
