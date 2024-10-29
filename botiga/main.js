@@ -26,40 +26,63 @@ let countProduct = document.querySelector('#contador-productes');
 //funcio per mostrar html
 
 compraInfo.addEventListener('click', (e) => {
+    
     if (e.target.classList.contains('creu-tancar'))
     {
         const product = e.target.parentElement;
-        console.log(product);
+        const title = product.querySelector('.nom-producte-cistella').textContent;
+
+        totProductes = totProductes.filter(
+            product => product.title !== title
+        );
+        showHtml();
     }
 });
 
 const showHtml = () => 
 {
+    let totalCistella = 0;
+    let total = 0;
+
+
     compraInfo.innerHTML = '';
 
-    let total = 0;
-    let totalCistella = 0;
+    if (totProductes.length == 0)
+    {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.classList.add('cart-empty');
+            emptyMessage.textContent = 'Cistella buida';
+            compraInfo.append(emptyMessage);
+            totalCistella = 0;
+            countProduct.innerHTML = `${totalCistella}`;
+            valorTotal.innerHTML = `${total}€`;
+    }
+    else
+    {
 
+    
+    
+        totProductes.forEach(product => {
+            const containerProduct = document.createElement('div');
+            containerProduct.classList.add('cart-product')
+            containerProduct.innerHTML =
+                                `<div class="info-cart-product">
+                                    <span class="quantitat-producte-cistella">${product.quantity}</span>
+                                    <span id="nom-producte" class="nom-producte-cistella">${product.title}</span>
+                                    <span class="preu-producte-cistella">${parseInt(product.price) * product.quantity}€</span>
+                                    <span class="creu-tancar">X</span>
+                                </div>`
+            compraInfo.append(containerProduct);
+    
+            total = total + parseInt(product.price) * product.quantity;
+            totalCistella = totalCistella + product.quantity;
+    
+        });
+        valorTotal.innerHTML = `${total}€`;
+        countProduct.innerHTML = `${totalCistella}`;
+    }
 
-    totProductes.forEach(product => {
-        const containerProduct = document.createElement('div');
-        containerProduct.classList.add('cart-product')
-        containerProduct.innerHTML =
-            `<div class="info-cart-product">
-                                <span class="quantitat-producte-cistella">${product.quantity}</span>
-                                <span class="nom-producte-cistella">${product.title}</span>
-                                <span class="preu-producte-cistella">${parseInt(product.price) * product.quantity}€</span>
-                                <div class="creu-tancar">
-                                <img src="assets/close_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                            </div>`
-        compraInfo.append(containerProduct);
-
-        total = total + parseInt(product.price) * product.quantity;
-        totalCistella = totalCistella + product.quantity;
-
-    });
-    valorTotal.innerHTML = `${total}`;
-    countProduct.innerHTML = `${totalCistella}`;
+    
 
 }
 
@@ -69,7 +92,6 @@ btn.forEach(boto => {
 
 
     boto.addEventListener('click', (e) => {
-
 
         if (e.target.classList.contains('add-cart')) {
             const product = e.target.parentElement;
@@ -104,5 +126,4 @@ btn.forEach(boto => {
             showHtml()
         }
     })
-
 });

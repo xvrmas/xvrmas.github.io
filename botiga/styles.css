@@ -187,6 +187,11 @@ body{
     cursor: pointer;
 }
 
+.cart-empty
+{
+    padding: 20px;
+    text-align: center;
+}
 @media (max-width: 900px)
 {
     
@@ -198,7 +203,6 @@ body{
     .contenidor-cart-productes
     {
        width: 360px;
-   
     }
     .info-cart-product
     {
