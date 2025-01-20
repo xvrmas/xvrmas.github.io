@@ -210,7 +210,7 @@ function resumPalets() {
     }
     else {
         document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
-        // document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
+      //document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
         document.getElementById('carrer').innerHTML = 'Carrer: ' + result[0].carrer;
         document.getElementById('bloc').innerHTML = 'Bloc: ' + result[0].bloc;
         if ((mida / result[0].quantitatMinima) == 1) {
