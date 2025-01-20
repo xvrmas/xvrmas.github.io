@@ -191,7 +191,7 @@ const paletsReferencia =
 
 function borrar() {
     document.getElementById('minim').innerHTML = '';
-    document.getElementById('demanat').innerHTML = '';
+   // document.getElementById('demanat').innerHTML = '';
     document.getElementById('carrer').innerHTML = '';
     document.getElementById('bloc').innerHTML = '';
     document.getElementById('palets').innerHTML = '';
