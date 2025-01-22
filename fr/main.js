@@ -187,7 +187,8 @@ const paletsReferencia =
     ]
 
 /* let buto = document.querySelector('button'); */
-
+var suma = [];
+const mostraInfo = document.querySelector('.sumaPalets')
 
 function borrar() {
     document.getElementById('minim').innerHTML = '';
@@ -198,30 +199,49 @@ function borrar() {
     document.getElementById('referencia').value = '';
     document.getElementById('quantitat').value = '';
     document.getElementById('palets').style.backgroundColor = 'white';
+    suma = [];
 }
 function resumPalets() {
     let referencia = document.getElementById('referencia').value;
     let mida = parseInt(document.getElementById('quantitat').value);
 
     let result = paletsReferencia.filter(element => element.model == referencia);
+    let totalPalets = parseInt(mida / result[0].quantitatMinima);
+    suma.push(totalPalets);
 
     if (result.length == 0 || isNaN(mida)) {
         alert('falten dades o son incorrectes!')
     }
     else {
         document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
-      //document.getElementById('demanat').innerHTML = 'Quantitat demanada: ' + mida;
         document.getElementById('carrer').innerHTML = 'Carrer: ' + result[0].carrer;
         document.getElementById('bloc').innerHTML = 'Bloc: ' + result[0].bloc;
         if ((mida / result[0].quantitatMinima) == 1) {
-            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palet ' + result[0].midaReferencia;
+            document.getElementById('palets').innerHTML = 'Total: ' + totalPalets + ' palet ' + result[0].midaReferencia;
         }
         else {
             document.getElementById('palets').style.color = '#3c762d';
             document.getElementById('palets').style.backgroundColor = '#dff0d8';
-            document.getElementById('palets').innerHTML = 'Total: ' + (mida / result[0].quantitatMinima) + ' palets ' + result[0].midaReferencia + 's';
+            document.getElementById('palets').innerHTML = 'Total: ' + totalPalets + ' palets ' + result[0].midaReferencia + 's';
         }
     }
+    let i = 0;
+    let suma2 = 0;
+    while(i < suma.length)
+    {
+        suma2 += suma[i]
+        i++;
+    }
+    /*const contenidorPalets = document.createElement('div');
+    contenidorPalets.classList.add('caixa2')
+    contenidorPalets.innerHTML = 
+            `
+              <div class="sumaPalets">
+                <p>${suma2}</p>
+             </div>
+            `
+    mostraInfo.append(contenidorPalets)*/
+    document.getElementById('sumaPalets').innerHTML = suma2;
 }
 
 /* buto.addEventListener('click', () => {
