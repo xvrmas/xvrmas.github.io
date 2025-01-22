@@ -189,9 +189,9 @@ const paletsReferencia =
 var suma = [];
 const mostraInfo = document.querySelector('.contenidorInfo')
 
-function borrar() {
-    suma = [];
-}
+/*function borrar() {
+    location.reload();
+}*/
 function resumPalets() {
     let referencia = document.getElementById('referencia').value;
     let mida = parseInt(document.getElementById('quantitat').value);
@@ -219,6 +219,8 @@ function resumPalets() {
                         <td class="quantitaPalet">${result[0].quantitatMinima}</td>
                         <td class="quantitaDemanada">${mida}</td>
                         <td class="totalPalets">${totalPalets}</td>
+                        <td class="carrer">${result[0].carrer}</td>
+                        <td class="Bloc">${result[0].bloc}</td>
                         <td class="NOF"></td>
                     </table>                        
             `
