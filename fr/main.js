@@ -186,19 +186,10 @@ const paletsReferencia =
         }
     ]
 
-/* let buto = document.querySelector('button'); */
 var suma = [];
-const mostraInfo = document.querySelector('.sumaPalets')
+const mostraInfo = document.querySelector('.contenidorInfo')
 
 function borrar() {
-    document.getElementById('minim').innerHTML = '';
-   // document.getElementById('demanat').innerHTML = '';
-    document.getElementById('carrer').innerHTML = '';
-    document.getElementById('bloc').innerHTML = '';
-    document.getElementById('palets').innerHTML = '';
-    document.getElementById('referencia').value = '';
-    document.getElementById('quantitat').value = '';
-    document.getElementById('palets').style.backgroundColor = 'white';
     suma = [];
 }
 function resumPalets() {
@@ -209,44 +200,35 @@ function resumPalets() {
     let totalPalets = parseInt(mida / result[0].quantitatMinima);
     suma.push(totalPalets);
 
+    let i = 0;
+    let suma2 = 0;
+    while (i < suma.length) {
+        suma2 += suma[i]
+        i++;
+    }
+
     if (result.length == 0 || isNaN(mida)) {
         alert('falten dades o son incorrectes!')
     }
     else {
-        document.getElementById('minim').innerHTML = 'Quantitat per palet: ' + result[0].quantitatMinima;
-        document.getElementById('carrer').innerHTML = 'Carrer: ' + result[0].carrer;
-        document.getElementById('bloc').innerHTML = 'Bloc: ' + result[0].bloc;
-        if ((mida / result[0].quantitatMinima) == 1) {
-            document.getElementById('palets').innerHTML = 'Total: ' + totalPalets + ' palet ' + result[0].midaReferencia;
-        }
-        else {
-            document.getElementById('palets').style.color = '#3c762d';
-            document.getElementById('palets').style.backgroundColor = '#dff0d8';
-            document.getElementById('palets').innerHTML = 'Total: ' + totalPalets + ' palets ' + result[0].midaReferencia + 's';
-        }
-    }
-    let i = 0;
-    let suma2 = 0;
-    while(i < suma.length)
-    {
-        suma2 += suma[i]
-        i++;
-    }
-    /*const contenidorPalets = document.createElement('div');
-    contenidorPalets.classList.add('caixa2')
-    contenidorPalets.innerHTML = 
+        const contenidorPalets = document.createElement('div');
+        contenidorPalets.classList.add('taula')
+        contenidorPalets.innerHTML =
+            `       <table>
+                        <td class="codiArticle">${result[0].model}</td>
+                        <td class="quantitaPalet">${result[0].quantitatMinima}</td>
+                        <td class="quantitaDemanada">${mida}</td>
+                        <td class="totalPalets">${totalPalets}</td>
+                        <td class="NOF"></td>
+                    </table>                        
             `
-              <div class="sumaPalets">
-                <p>${suma2}</p>
-             </div>
-            `
-    mostraInfo.append(contenidorPalets)*/
-    document.getElementById('sumaPalets').innerHTML = suma2;
+
+        mostraInfo.append(contenidorPalets)
+    }
+    document.getElementById('total').innerHTML = 'Total: ' + suma2;
 }
 
-/* buto.addEventListener('click', () => {
-    document.getElementById('palets').style.boxShadow = '1px 2px 2px gray';
-}) */
+
 
 
 
