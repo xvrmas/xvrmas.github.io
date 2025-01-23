@@ -197,7 +197,7 @@ function recontePalets(suma)
         suma2 += suma[i]
         i++;
     }
-    document.getElementById('total').innerHTML = `Total: ${suma2} palets`;
+    document.getElementById('total').innerHTML = `${suma2} palets`;
 }
 
 function resumPalets() {
