@@ -6,7 +6,7 @@ const paletsReferencia =
         {
             model: 920007,
             quantitatMinima: 240,
-            midaReferencia: 'ample',
+            midaReferencia: '-',
             carrer: 11,
             bloc: 19,
         }, {
@@ -36,7 +36,7 @@ const paletsReferencia =
         }, {
             model: 920245,
             quantitatMinima: 240,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 8,
             bloc: 4,
         }, {
@@ -60,7 +60,7 @@ const paletsReferencia =
         }, {
             model: 920352,
             quantitatMinima: 120,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 8,
             bloc: '7-8-9-10-11',
         }, {
@@ -78,7 +78,7 @@ const paletsReferencia =
         }, {
             model: 920355,
             quantitatMinima: 120,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 9,
             bloc: '7-8-9',
         }, {
@@ -90,13 +90,13 @@ const paletsReferencia =
         }, {
             model: 920361,
             quantitatMinima: 240,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 0,
             bloc: 0,
         }, {
             model: 920366,
             quantitatMinima: 240,
-            midaReferencia: 'estret',
+            midaReferencia: '*',
             carrer: 9,
             bloc: '10-11-12-13-14',
         }, {
@@ -126,13 +126,13 @@ const paletsReferencia =
         }, {
             model: 920614,
             quantitatMinima: 120,
-            midaReferencia: 'ample',
+            midaReferencia: '.',
             carrer: '7-9',
             bloc: "carrer 7, blocs 11-12 || carrer 9, blocs 5-6",
         }, {
             model: 920111,
             quantitatMinima: 120,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 8,
             bloc: '16-17',
         }, {
@@ -156,7 +156,7 @@ const paletsReferencia =
         }, {
             model: 920618,
             quantitatMinima: 396,
-            midaReferencia: 'estret',
+            midaReferencia: '*estret',
             carrer: 9,
             bloc: 15,
         }, {
@@ -180,14 +180,13 @@ const paletsReferencia =
         }, {
             model: 920449,
             quantitatMinima: 240,
-            midaReferencia: 'estret',
+            midaReferencia: 'O',
             carrer: 7,
             bloc: "4-5-6",
         }
     ]
 
 var suma = [];
-const mostraInfo = document.querySelector('.contenidorInfo')
 
 /*function borrar() {
     location.reload();
@@ -211,23 +210,21 @@ function resumPalets() {
         alert('falten dades o son incorrectes!')
     }
     else {
-        const contenidorPalets = document.createElement('div');
+        const mostraInfo = document.querySelector('.contenidorInfo')
+        const contenidorPalets = document.createElement('tr');
         contenidorPalets.classList.add('taula')
         contenidorPalets.innerHTML =
-            `       <table>
-                        <td class="codiArticle">${result[0].model}</td>
-                        <td class="quantitaPalet">${result[0].quantitatMinima}</td>
-                        <td class="quantitaDemanada">${mida}</td>
-                        <td class="totalPalets">${totalPalets}</td>
-                        <td class="carrer">${result[0].carrer}</td>
-                        <td class="Bloc">${result[0].bloc}</td>
-                        <td class="NOF"></td>
-                    </table>                        
+            `   <td class="codiArticle">${result[0].model}</td>
+                <td class="quantitaDemanada">${mida}</td>
+                <td class="totalPalets">${totalPalets}</td>
+                <td class="Mida">${result[0].midaReferencia}</td>
+                <td class="carrer">${result[0].carrer}</td>
+                <td class="Bloc">${result[0].bloc}</td>
+                <td class="NOF"></td>                       
             `
-
         mostraInfo.append(contenidorPalets)
     }
-    document.getElementById('total').innerHTML = 'Total: ' + suma2;
+    document.getElementById('total').innerHTML = `Total: ${suma2} palets`;
 }
 
 
