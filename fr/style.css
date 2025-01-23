@@ -3,6 +3,28 @@ body
     align-content: center;
 }
 
+.caixa
+{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 1px rgb(192, 187, 187);
+    width: 80%;
+    align-self:center;
+    justify-self:center;
+}
+input
+{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(254, 254, 254);
+    color:rgb(78, 63, 26);
+    border: none;
+    font-size: medium;
+    box-shadow: 1px 2px 1px 1px rgb(192, 187, 187);
+    border-radius: 5px;
+    margin: 10px;
+}
+
 .contenidor
 {
     display: grid;
@@ -51,18 +73,7 @@ button:hover
 {
     box-shadow: none;
 }
-input
-{
-    width: 200px;
-    height: 30px;
-    background-color: rgb(254, 254, 254);
-    color:rgb(78, 63, 26);
-    border: none;
-    font-size: medium;
-    box-shadow: 3px 3px 5px 1px rgb(192, 187, 187);
-    border-radius: 5px;
-    margin: 10px;
-}
+
 .caixa2
 {
     font-size: x-large;
