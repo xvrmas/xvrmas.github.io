@@ -193,7 +193,6 @@ let total = document.querySelector('.total')
 
 function recontePalets(suma)
 {
-
     let i = 0;
     let suma2 = 0;
     while (i < suma.length) 
@@ -221,26 +220,39 @@ function resumPalets()
         let totalPalets = parseInt(demanat / result[0].quantitatMinima);
         suma.push(totalPalets)
         const mostraInfo = document.querySelector('.contenidorInfo')
-        const contenidorPalets = document.createElement('tr');
+        const contenidorPalets = document.createElement('table');
         contenidorPalets.classList.add('taula')
         contenidorPalets.innerHTML =
             `  
-                <tr>
-                    <td class="mida">${result[0].midaReferencia}</td>
-                    <td class="carrer">${result[0].carrer}</td>
-                    <td class="Bloc">${result[0].bloc}</td>
-                    <td class="quantitatPalet">(${result[0].quantitatMinima})</td>
-                    <td class="quantitaDemanada">${demanat}</td>
-                    <td class="codiArticle">${result[0].model}</td>
-                    <td class="totalPalets">${totalPalets}</td>
-                    <td class="NOF"></td>
-                </tr>  
+                <table class="contenidorInfo">
+                    <tr>
+                        <td class="mida">${result[0].midaReferencia}</td>
+                        <td class="carrer">${result[0].carrer}</td>
+                        <td class="Bloc">${result[0].bloc}</td>
+                        <td class="quantitatPalet">(${result[0].quantitatMinima})</td>
+                        <td class="quantitaDemanada">${demanat}</td>
+                        <td class="codiArticle">${result[0].model}</td>
+                        <td class="totalPalets">${totalPalets}</td>
+                        <td class="NOF"></td>
+                        <td class="creuTancar" onclick="eliminar(this)">Eliminar</td> 
+                    </tr>
+                </table>
             `
         mostraInfo.append(contenidorPalets)
     }
     recontePalets(suma);
-   // console.log(e.target.classList.contains('mida'))
 }
+
+
+function eliminar(fila) 
+{
+        let linea = fila.parentNode.parentNode;
+        let quantitatEliminada = parseInt(linea.querySelector('.totalPalets').innerText);
+        suma.splice(suma.indexOf(quantitatEliminada), 1);
+        linea.deleteRow(linea.rowIndex);
+        recontePalets(suma);   
+}
+    
 
 
 

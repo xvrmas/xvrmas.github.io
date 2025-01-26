@@ -79,6 +79,10 @@ button
     border-radius: 5px;
 
 } 
+.creuTancar
+{
+    font-size:small;
+}
 button:hover
 {
     box-shadow: none;
