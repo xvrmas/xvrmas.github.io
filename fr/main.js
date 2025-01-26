@@ -246,10 +246,11 @@ function resumPalets()
 
 function eliminar(fila) 
 {
-        let linea = fila.parentNode.parentNode;
+        let linea = fila.closest('tr');
         let quantitatEliminada = parseInt(linea.querySelector('.totalPalets').innerText);
         suma.splice(suma.indexOf(quantitatEliminada), 1);
-        linea.deleteRow(linea.rowIndex);
+        linea.parentNode.removeChild(linea);
+
         recontePalets(suma);   
 }
     
