@@ -187,7 +187,6 @@ const paletsReferencia =
     ]
 
 var suma = [];
-var e = document;
 let total = document.querySelector('.total')
 
 
@@ -246,12 +245,25 @@ function resumPalets()
 
 function eliminar(fila) 
 {
-        let linea = fila.closest('tr');
+        let linea = fila.closest('tr');       
         let quantitatEliminada = parseInt(linea.querySelector('.totalPalets').innerText);
-        suma.splice(suma.indexOf(quantitatEliminada), 1);
-        linea.parentNode.removeChild(linea);
-
-        recontePalets(suma);   
+        let coditEliminat = linea.querySelector('.codiArticle').innerText;
+        if (quantitatEliminada == 1)
+        {
+            var pregunta = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${coditEliminat}?`)            
+        }
+        else
+        {
+            pregunta = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${coditEliminat}?`)
+        }
+        if (pregunta == true) 
+        {
+                suma.splice(suma.indexOf(quantitatEliminada), 1);
+                linea.parentNode.removeChild(linea);
+        
+                recontePalets(suma); 
+        }      
+         
 }
     
 
