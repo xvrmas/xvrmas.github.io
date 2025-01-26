@@ -1,6 +1,8 @@
 body
 {
     align-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .caixa
@@ -8,8 +10,7 @@ body
     padding: 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 2px 1px rgb(192, 187, 187);
-    width: 80%;
-    align-self:center;
+    width: 60%;
     justify-self:center;
 }
 input
@@ -27,38 +28,46 @@ input
 
 .contenidor
 {
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 10px;
-    align-items: center;
-    text-align: center;  
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
 
 }
-
-.taula {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border-bottom: 1px solid #5e5b5b;
-    width: 100%;
-    
+.capsaleraTaula 
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    border-bottom: 1px solid;
+    font-size: larger;
 }
-.taula td{
+
+td
+{    
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #676464;
     width: 5%;
 }
+.codiArticle ,.totalPalets
+{
+    font-weight: 700;
+    font-size: 20px;
+}
 
-#total
+.total
 {
     font-size: large;
+    justify-self: center;
+    align-self: center;
+    padding: 40px;
+    font-size: x-large;
 }
   
+.creuTancar:hover
+{
+    cursor: pointer;
+}
 
 button
 {
@@ -90,6 +99,10 @@ button:hover
 
 @media print {
     .caixa ,.versio
+    {
+        display: none;
+    }
+    .creuTancar
     {
         display: none;
     }

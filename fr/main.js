@@ -187,48 +187,66 @@ const paletsReferencia =
     ]
 
 var suma = [];
+var e = document;
+let total = document.querySelector('.total')
 
 
 function recontePalets(suma)
 {
+
     let i = 0;
     let suma2 = 0;
-    while (i < suma.length) {
+    while (i < suma.length) 
+    {
         suma2 += suma[i]
         i++;
     }
-    document.getElementById('total').innerHTML = `${suma2} palets`;
+    total.innerHTML = `${suma2} palets`;
 }
 
-function resumPalets() {
+function resumPalets() 
+{
 
     let referencia = document.getElementById('referencia').value;
-    let mida = parseInt(document.getElementById('quantitat').value);
-    let result = paletsReferencia.filter(element => element.model == referencia); 
+    let demanat = parseInt(document.getElementById('quantitat').value);
+    let result = paletsReferencia.filter(element => element.model == referencia);
 
-    if (result.length == 0 || isNaN(mida)) {
+    if (result.length == 0 || isNaN(demanat)) 
+    {
         alert('falten dades o son incorrectes!')
     }
-    else {
+    else 
+    {
 
-        let totalPalets = parseInt(mida / result[0].quantitatMinima);
+        let totalPalets = parseInt(demanat / result[0].quantitatMinima);
         suma.push(totalPalets)
         const mostraInfo = document.querySelector('.contenidorInfo')
         const contenidorPalets = document.createElement('tr');
         contenidorPalets.classList.add('taula')
         contenidorPalets.innerHTML =
-            `   <td class="codiArticle">${result[0].model}</td>
-                <td class="quantitaDemanada">${mida}</td>
-                <td class="totalPalets">${totalPalets}</td>
-                <td class="Mida">${result[0].midaReferencia}</td>
-                <td class="carrer">${result[0].carrer}</td>
-                <td class="Bloc">${result[0].bloc}</td>
-                <td class="NOF"></td>                       
+            `  
+                <tr>
+                    <td class="mida">${result[0].midaReferencia}</td>
+                    <td class="carrer">${result[0].carrer}</td>
+                    <td class="Bloc">${result[0].bloc}</td>
+                    <td class="quantitatPalet">(${result[0].quantitatMinima})</td>
+                    <td class="quantitaDemanada">${demanat}</td>
+                    <td class="codiArticle">${result[0].model}</td>
+                    <td class="totalPalets">${totalPalets}</td>
+                    <td class="NOF"></td>
+                </tr>  
             `
         mostraInfo.append(contenidorPalets)
     }
     recontePalets(suma);
+   // console.log(e.target.classList.contains('mida'))
 }
+
+
+
+
+
+
 
 
 

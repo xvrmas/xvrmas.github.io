@@ -23,7 +23,7 @@ let totProductes = []
 let valorTotal = document.querySelector('.total-pagar');
 let countProduct = document.querySelector('#contador-productes');
 
-//funcio per mostrar html
+//funcio per eliminar articles de la cistella
 
 compraInfo.addEventListener('click', (e) => {
     
@@ -72,7 +72,7 @@ const showHtml = () =>
                                     <span class="preu-producte-cistella">${parseInt(product.price) * product.quantity}€</span>
                                     <span class="creu-tancar">X</span>
                                 </div>`
-            compraInfo.append(containerProduct);
+            .append(containerProduct);
     
             total = total + parseInt(product.price) * product.quantity;
             totalCistella = totalCistella + product.quantity;
