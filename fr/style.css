@@ -13,7 +13,7 @@ body
     width: 60%;
     justify-self:center;
 }
-input
+.entrada
 {
     width: 200px;
     height: 30px;
@@ -34,21 +34,45 @@ input
     font-style: normal;
 
 }
-.capsaleraTaula 
-{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto;
-    border-bottom: 1px solid;
-    font-size: larger;
+.contenidorInfo {
+    width: 100%;
 }
 
-td
-{    
-    padding: 10px;
+.taulaDinamica {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
     text-align: center;
-    border-bottom: 1px solid #676464;
+    table-layout: fixed; 
+}
+
+.capsaleraTaula th {
+    font-size: larger;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.taulaDinamica td {
+    padding: 10px;
+    border-bottom: 1px solid #b0aeae;
+}
+.mida ,.carrer
+{
     width: 5%;
 }
+.quantitatPalet , .quantitaDemanada
+{
+    width: 10%;
+}
+.bloc {
+
+    width: 20%;
+}
+.totalPalets
+{
+    width: 6%;
+}
+
 .codiArticle ,.totalPalets
 {
     font-weight: 700;
@@ -113,4 +137,10 @@ button:hover
 
     
 } 
+@media screen and (max-width: 768px) {
+    .taulaDinamica th,
+    .taulaDinamica td {
+        font-size: smaller;
+    }
+}
 

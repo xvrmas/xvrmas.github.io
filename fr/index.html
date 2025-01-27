@@ -11,30 +11,34 @@
 <body>
     <div class="contenidor">
         <div class="caixa">
-            <input type="number" id="referencia" placeholder="referència">
-            <input type="number" id="quantitat" placeholder="quantitat">
+            <input class="entrada" type="number" id="referencia" placeholder="referència">
+            <input class="entrada" type="number" id="quantitat" placeholder="quantitat">
             <button onclick="resumPalets()">CALCULA</button>
             <!--<button onclick="borrar()">BORRAR</button>-->
         </div>
         <div class="contenidorInfo">
-            <div class="capsaleraTaula">
-                <p>Mida</p>
-                <p>Carrer</p>
-                <p>Bloc</p>
-                <p>palet</p>
-                <p>Demanat.</p>
-                <p>Codi</p>
-                <p>Palets</p>
-                <p>NOF</p>
-            </div>
-            <tbody>
-                <!-- aqui va el codi dinamic -->
-            </tbody>
-        </div>
+            <table class="taulaDinamica">
+                <thead>
+                    <tr class="capsaleraTaula">
+                        <th class="mida">Mida</th>
+                        <th class="carrer">Carrer</th>
+                        <th class="bloc">Bloc</th>
+                        <th class="quantitatPalet">Minim</th>
+                        <th class="quantitaDemanada">Demanat</th>
+                        <th>Palets</th>
+                        <th>Codi</th>
+                        <th>NOF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ------------------ -->
+                </tbody>
+            </table>
+        </div>    
         <div class="total">
             <span></span>
         </div>
-        <p class="versio">23-1-25.1</p>
+        <p class="versio">27-1-25.1</p>
     </div>
     </div>
 
