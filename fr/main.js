@@ -190,34 +190,36 @@ var suma = [];
 let total = document.querySelector('.total')
 
 
-function recontePalets(suma) {
+function recontePalets(suma) 
+{
     let i = 0;
     let suma2 = 0;
-    while (i < suma.length) {
+    while (i < suma.length) 
+    {
         suma2 += suma[i]
         i++;
     }
     total.innerHTML = `${suma2} palets`;
 }
 
-function resumPalets() {
+function capturaCodi(referencia) 
+{
+    let i = 0;
+    let resultat = [];
+    while (referencia != paletsReferencia[i].model)
+        i++;
+    resultat.push(paletsReferencia[i]);
+    return (resultat);
+}
 
-    let referencia = document.getElementById('referencia').value;
-    let demanat = document.getElementById('quantitat').value;
-    let result = paletsReferencia.filter(element => element.model == referencia);
+function pinta(demanat, result)
+{
+    let totalPalets = parseInt(demanat / result[0].quantitatMinima);
+    suma.push(totalPalets);
+    const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
+    const fila = document.createElement('tr');
 
-    if (result.length == 0 || isNaN(demanat)) {
-        alert('falten dades o son incorrectes!')
-    }
-    else {
-
-        let totalPalets = parseInt(demanat / result[0].quantitatMinima);
-        suma.push(totalPalets)
-
-        const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
-        const fila = document.createElement('tr');
-
-        fila.innerHTML = `
+    fila.innerHTML = `
             <td class="mida">${result[0].midaReferencia}</td>
             <td class="carrer">${result[0].carrer}</td>
             <td class="bloc">${result[0].bloc}</td>
@@ -227,32 +229,52 @@ function resumPalets() {
             <td class="codiArticle">${result[0].model}</td>
             <td class="creuTancar" onclick="eliminar(this)">Eliminar</td>
             <td class="nof"></td>
-             
-        `;
-        taulaDinamicaBody.appendChild(fila);
-        recontePalets(suma);
-    }
-
+    `;
+    taulaDinamicaBody.appendChild(fila);
+    recontePalets(suma);
 }
 
+function resumPalets() 
+{
+    let referencia = document.getElementById('referencia').value;
+    let demanat = document.getElementById('quantitat').value;
+    let result = capturaCodi(referencia);
 
+    if (result.length == 0 || isNaN(demanat)) 
+    {
+        alert('falten dades o son incorrectes!')
+    }
+    else 
+    {
 
-function eliminar(fila) {
+        if (demanat % result[0].quantitatMinima != 0 || demanat < result[0].quantitatMinima)
+            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${result[0].model} es de ${result[0].quantitatMinima}`);
+        else 
+        {
+          pinta(demanat,result);
+        }
+    }
+}
+
+function eliminar(fila) 
+{
     let linea = fila.closest('tr');
     let quantitatEliminada = parseInt(linea.querySelector('.totalPalets').innerText);
     let codiEliminat = linea.querySelector('.codiArticle').innerText;
-    if (quantitatEliminada == 1) {
+    if (quantitatEliminada == 1) 
+    {
         var pregunta = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
     }
-    else {
+    else 
+    {
         pregunta = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
     }
-    if (pregunta == true) {
+    if (pregunta == true) 
+    {
         suma.splice(suma.indexOf(quantitatEliminada), 1);
         linea.parentNode.removeChild(linea);
         recontePalets(suma);
     }
-
 }
 
 
