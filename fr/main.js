@@ -187,13 +187,14 @@ const paletsReferencia =
     ]
 
 var suma = [];
-let total = document.querySelector('.total')
 
 
 function recontePalets(suma) 
 {
     let i = 0;
     let suma2 = 0;
+    let total = document.querySelector('.total')
+
     while (i < suma.length) 
     {
         suma2 += suma[i]
