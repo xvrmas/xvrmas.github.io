@@ -72,7 +72,7 @@ function pinta(demanat, result, totalPalets)
             <td class="quantitaDemanada">${demanat}</td>
             <td class="totalPalets">${totalPalets}</td>
             <td class="codiArticle">${result[0].model}</td>
-            <td><button class="btn-eliminar" data-id="1">Eliminar</button></td>
+            <td><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
             <td class="nof"></td>
     `;
     taulaDinamicaBody.appendChild(fila);

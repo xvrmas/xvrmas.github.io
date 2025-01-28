@@ -116,7 +116,15 @@ button:hover
 {
     font-size: x-large;
 }
-
+.btn-eliminar
+{
+    background-color: rgb(253, 68, 68);
+    color: white;
+}
+.btn-eliminar:hover
+{
+    background-color: rgb(247, 182, 182) ;
+}
 
 #palets
 {
