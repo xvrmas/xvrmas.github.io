@@ -13,13 +13,14 @@
         <div class="caixa">
             <input class="entrada" type="number" id="referencia" placeholder="referència">
             <input class="entrada" type="number" id="quantitat" placeholder="quantitat">
-            <button onclick="resumPalets()">CALCULA</button>
+            <button id="resumPalets">CALCULA</button>
+            <button id="imprimirStock">IMPRIMIR STOCK</button>
             <!--<button onclick="borrar()">BORRAR</button>-->
         </div>
         <div class="contenidorInfo">
-            <table class="taulaDinamica">
+            <table class="taulaDinamica" id="taulaId">
                 <thead>
-                    <tr class="capsaleraTaula">
+                    <tr class="capsaleraTaula" >
                         <th class="mida">Mida</th>
                         <th class="carrer">Carrer</th>
                         <th class="bloc">Bloc</th>
@@ -31,6 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <!-- ------------------ -->
                 </tbody>
             </table>
@@ -38,11 +40,11 @@
         <div class="total">
             <span></span>
         </div>
-        <p class="versio">27-1-25.1</p>
+        <p class="versio">28-1-25.1</p>
     </div>
     </div>
 
-    <script src="main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 
 </body>
 
