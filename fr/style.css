@@ -73,10 +73,9 @@ body
     width: 6%;
 }
 
-.codiArticle ,.totalPalets
+.codiArticle
 {
     font-weight: 700;
-    font-size: 20px;
 }
 
 .total
