@@ -1,4 +1,4 @@
-import paletsReferencia from './magatzem.js';
+import paletsreferenciaDemanda from './magatzem.js';
 
 var suma = [];
 const taula = document.getElementById('taulaId');
@@ -34,71 +34,71 @@ function imprimirStock()
     let i = 0;
     let objecteCaixa = [];
 
-    while (i < paletsReferencia.length)
+    while (i < paletsreferenciaDemanda.length)
     {
-        objecteCaixa.push(paletsReferencia[i])
+        objecteCaixa.push(paletsreferenciaDemanda[i])
         pinta(0, objecteCaixa, 0);
         objecteCaixa = [];
         i++;
     }
 }
 
-function capturaCodi(referencia) 
+function capturaCodi(referenciaDemanda) 
 {
     let i = 0;
-    let resultat = [];
-    while (i < paletsReferencia.length)
+    let creaInfoCodiat = [];
+    while (i < paletsreferenciaDemanda.length)
     {
-        if (referencia == paletsReferencia[i].model)
+        if (referenciaDemanda == paletsreferenciaDemanda[i].model)
         {
-            resultat.push(paletsReferencia[i]);
-            return (resultat);
+            creaInfoCodiat.push(paletsreferenciaDemanda[i]);
+            return (creaInfoCodiat);
         }
         i++;
     }  
     alert('falten dades o son incorrectes!')
 }
 
-function pinta(demanat, result, totalPalets)
+function pinta(quantitatDemanada, infoPreparacio, totalPalets)
 {
     const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
     const fila = document.createElement('tr');
 
     fila.innerHTML = `
-            <td class="mida">${result[0].midaReferencia}</td>
-            <td class="carrer">${result[0].carrer}</td>
-            <td class="bloc">${result[0].bloc}</td>
-            <td class="quantitatPalet">(${result[0].quantitatMinima})</td>
-            <td class="quantitaDemanada">${demanat}</td>
+            <td class="mida">${infoPreparacio[0].midareferenciaDemanda}</td>
+            <td class="carrer">${infoPreparacio[0].carrer}</td>
+            <td class="bloc">${infoPreparacio[0].bloc}</td>
+            <td class="quantitatPalet">(${infoPreparacio[0].quantitatMinima})</td>
+            <td class="quantitaDemanada">${quantitatDemanada}</td>
             <td class="totalPalets">${totalPalets}</td>
-            <td class="codiArticle">${result[0].model}</td>
+            <td class="codiArticle">${infoPreparacio[0].model}</td>
             <td><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
             <td class="nof"></td>
     `;
     taulaDinamicaBody.appendChild(fila);
-    recontePalets(suma);
 }
 
 function resumPalets() 
 {
-    let referencia = document.getElementById('referencia').value;
-    let demanat = document.getElementById('quantitat').value;
-    let result = capturaCodi(referencia);
-    let totalPalets = parseInt(demanat / result[0].quantitatMinima);
-    suma.push(totalPalets);
+    let referenciaDemanda = document.getElementById('referencia').value;
+    let quantitatDemanada = document.getElementById('quantitat').value;
+    let infoPreparacio = capturaCodi(referenciaDemanda);
+    let totalPalets = 0;
 
-    if (result.length == 0 || isNaN(demanat)) 
+    if (infoPreparacio.length == 0 || isNaN(quantitatDemanada)) 
     {
         alert('falten dades o son incorrectes!')
     }
     else 
     {
-
-        if (demanat % result[0].quantitatMinima != 0 || demanat < result[0].quantitatMinima)
-            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${result[0].model} es de ${result[0].quantitatMinima}`);
+        if (quantitatDemanada % infoPreparacio[0].quantitatMinima != 0 || quantitatDemanada < infoPreparacio[0].quantitatMinima)
+            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio[0].model} es de ${infoPreparacio[0].quantitatMinima}`);
         else 
-        {
-            pinta(demanat,result,totalPalets);
+        {   
+            totalPalets = parseInt(quantitatDemanada / infoPreparacio[0].quantitatMinima);
+            suma.push(totalPalets);
+            recontePalets(suma);
+            pinta(quantitatDemanada,infoPreparacio,totalPalets);
         }
     }
 }
@@ -110,13 +110,13 @@ function eliminar(fila)
     let codiEliminat = linea.querySelector('.codiArticle').innerText;
     if (quantitatEliminada == 1) 
     {
-        var pregunta = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
+        var confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
     }
     else 
     {
-        pregunta = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
+     confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
     }
-    if (pregunta == true) 
+    if  (confirmaElimnarLinea == true) 
     {
         suma.splice(suma.indexOf(quantitatEliminada), 1);
         fila.remove();
