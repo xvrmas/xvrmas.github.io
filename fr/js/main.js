@@ -3,7 +3,7 @@ import paletsreferenciaDemanda from './magatzem.js';
 var suma = [];
 const taula = document.getElementById('taulaId');
 
-document.getElementById('resumPalets').addEventListener('click', resumPalets);
+document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
@@ -14,6 +14,25 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
+
+function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
+{
+    const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
+    const fila = document.createElement('tr');
+
+    fila.innerHTML = `
+            <td class="mida">${infoPreparacio[0].midaReferencia}</td>
+            <td class="carrer">${infoPreparacio[0].carrer}</td>
+            <td class="bloc">${infoPreparacio[0].bloc}</td>
+            <td class="quantitatPalet">(${infoPreparacio[0].quantitatMinima})</td>
+            <td class="quantitaDemanada">${quantitatDemanada}</td>
+            <td class="codiArticle">${infoPreparacio[0].model}</td>
+            <td class="paletsPreparar">${paletsPreparar}</td>
+            <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
+            <td class="nof"></td>
+    `;
+    taulaDinamicaBody.appendChild(fila);
+}
 
 function recontePalets(suma) 
 {
@@ -33,11 +52,11 @@ function imprimirStock()
 {
     let i = 0;
     let objecteCaixa = [];
-
+    
     while (i < paletsreferenciaDemanda.length)
     {
         objecteCaixa.push(paletsreferenciaDemanda[i])
-        pinta(0, objecteCaixa, 0);
+        pinta('', objecteCaixa, '');
         objecteCaixa = [];
         i++;
     }
@@ -59,26 +78,28 @@ function capturaCodi(referenciaDemanda)
     alert('falten dades o son incorrectes!')
 }
 
-function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
+function eliminar(fila) 
 {
-    const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
-    const fila = document.createElement('tr');
-
-    fila.innerHTML = `
-            <td class="mida">${infoPreparacio[0].midaReferencia}</td>
-            <td class="carrer">${infoPreparacio[0].carrer}</td>
-            <td class="bloc">${infoPreparacio[0].bloc}</td>
-            <td class="quantitatPalet">(${infoPreparacio[0].quantitatMinima})</td>
-            <td class="quantitaDemanada">${quantitatDemanada}</td>
-            <td class="codiArticle">${infoPreparacio[0].model}</td>
-            <td class="paletsPreparar">${paletsPreparar}</td>
-            <td><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
-            <td class="nof"></td>
-    `;
-    taulaDinamicaBody.appendChild(fila);
+    let linea = fila.closest('tr');
+    let quantitatEliminada = parseInt(linea.querySelector('.paletsPreparar').innerText);
+    let codiEliminat = linea.querySelector('.codiArticle').innerText;
+    if (quantitatEliminada == 1) 
+    {
+        var confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
+    }
+    else 
+    {
+     confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
+    }
+    if  (confirmaElimnarLinea == true) 
+    {
+        suma.splice(suma.indexOf(quantitatEliminada), 1);
+        fila.remove();
+        recontePalets(suma);
+    }
 }
 
-function resumPalets() 
+function principal() 
 {
     let referenciaDemanda = document.getElementById('referencia').value;
     let quantitatDemanada = document.getElementById('quantitat').value;
@@ -103,26 +124,7 @@ function resumPalets()
     }
 }
 
-function eliminar(fila) 
-{
-    let linea = fila.closest('tr');
-    let quantitatEliminada = parseInt(linea.querySelector('.paletsPreparar').innerText);
-    let codiEliminat = linea.querySelector('.codiArticle').innerText;
-    if (quantitatEliminada == 1) 
-    {
-        var confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
-    }
-    else 
-    {
-     confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
-    }
-    if  (confirmaElimnarLinea == true) 
-    {
-        suma.splice(suma.indexOf(quantitatEliminada), 1);
-        fila.remove();
-        recontePalets(suma);
-    }
-}
+
 
 
 

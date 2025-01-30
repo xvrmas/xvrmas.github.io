@@ -50,24 +50,27 @@ body
     font-size: larger;
     font-weight: bold;
     padding: 10px;
+    border-bottom: 1px solid;
 }
 
 .taulaDinamica td {
     padding: 10px;
     border-bottom: 1px solid #b0aeae;
 }
-.mida ,.carrer
+.mida ,.bloc
 {
     width: 5%;
 }
+.carrer, .quantitatPalet, .codiArticle, .boto
+{
+    border-left: 1px solid;
+}
+
 .quantitatPalet , .quantitaDemanada
 {
     width: 10%;
 }
-.bloc {
 
-    width: 20%;
-}
 .totalPalets
 {
     width: 6%;
