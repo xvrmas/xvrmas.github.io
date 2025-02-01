@@ -1,8 +1,7 @@
 import paletsreferenciaDemanda from './magatzem.js';
 
 var suma = [];
-var duplicat = [];
-var controlLinea = 0;
+var endresaTaula = [];
 const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
@@ -17,18 +16,41 @@ taula.addEventListener('click', function (event)
     }
 });
 
+const endresa =  () => 
+{
+            console.log('1',endresaTaula);
+            let i = 0;
+            let j;
+            let aux = 0;
+        
+            while (i < endresaTaula.length)
+            {
+                j = 0;
+                while (j < endresaTaula.length)
+                {
+                    if (endresaTaula[i].midaReferencia == 'X')
+                    aux = endresaTaula[j];
+                    endresaTaula[j] = endresaTaula[i];
+                    endresaTaula[i] = aux;
+                    j++;
+                }
+                i++;
+            }
+            console.log('2',endresaTaula);
+} 
+
 function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 {
     const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
     const fila = document.createElement('tr');
 
     fila.innerHTML = `
-            <td class="mida">${infoPreparacio[0].midaReferencia}</td>
-            <td class="carrer">${infoPreparacio[0].carrer}</td>
-            <td class="bloc">${infoPreparacio[0].bloc}</td>
-            <td class="quantitatPalet">(${infoPreparacio[0].quantitatMinima})</td>
+            <td class="mida">${infoPreparacio.midaReferencia}</td>
+            <td class="cendresaTaulaer">${infoPreparacio.cendresaTaulaer}</td>
+            <td class="bloc">${infoPreparacio.bloc}</td>
+            <td class="quantitatPalet">(${infoPreparacio.quantitatMinima})</td>
             <td class="quantitaDemanada">${quantitatDemanada}</td>
-            <td class="codiArticle">${infoPreparacio[0].model}</td>
+            <td class="codiArticle">${infoPreparacio.model}</td>
             <td class="paletsPreparar">${paletsPreparar}</td>
             <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
             <td class="nof"></td>
@@ -36,7 +58,7 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
     taulaDinamicaBody.appendChild(fila);
 }
 
-function    comprovaDuplicat(referencia)
+/*function    comprovaDuplicat(referencia)
 {
     let i = 0;
     
@@ -49,7 +71,7 @@ function    comprovaDuplicat(referencia)
         i++;
     }
     return 0;
-}
+}*/
 
 function recontePalets(suma) 
 {
@@ -82,12 +104,12 @@ function imprimirStock()
 function capturaCodi(referenciaDemanda) 
 {
     let i = 0;
-    let creaInfoCodi = [];
+    let creaInfoCodi = '';
     while (i < paletsreferenciaDemanda.length)
     {
         if (referenciaDemanda == paletsreferenciaDemanda[i].model)
         {
-            creaInfoCodi.push(paletsreferenciaDemanda[i]);
+            creaInfoCodi = paletsreferenciaDemanda[i];
             return (creaInfoCodi);
         }
         i++;
@@ -111,10 +133,6 @@ function eliminar(fila)
     if  (confirmaElimnarLinea == true) 
     {
         suma.splice(suma.indexOf(quantitatEliminada), 1);
-        duplicat.splice(duplicat.indexOf(codiEliminat.trim()), 1);
-        console.log(duplicat)
-        console.log(suma)
-
         fila.remove();
         recontePalets(suma);
     }
@@ -126,26 +144,23 @@ function principal()
     let quantitatDemanada = document.getElementById('quantitat').value;
     let infoPreparacio = capturaCodi(referenciaDemanda);
     let paletsPreparar = 0;
-
     if (infoPreparacio.length == 0 || isNaN(quantitatDemanada)) 
     {
         alert('falten dades o son incorrectes!')
     }
     else 
     {
-        if (quantitatDemanada % infoPreparacio[0].quantitatMinima != 0 || quantitatDemanada < infoPreparacio[0].quantitatMinima)
-            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio[0].model} es de ${infoPreparacio[0].quantitatMinima}`);
+        if (quantitatDemanada % infoPreparacio.quantitatMinima != 0 || quantitatDemanada < infoPreparacio.quantitatMinima)
+            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio[0].quantitatMinima}`);
         else 
-        {                  
-            paletsPreparar = parseInt(quantitatDemanada / infoPreparacio[0].quantitatMinima);
+        { 
+            paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
             suma.push(paletsPreparar);
-            duplicat.push(infoPreparacio[0].model)
+            endresaTaula.push(infoPreparacio);
             recontePalets(suma);
             pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
-            controlLinea++;
-            console.log(controlLinea);
-            console.log(infoPreparacio[0].midaReferencia);
         }
+        console.log(endresaTaula)
     }
 }
 
