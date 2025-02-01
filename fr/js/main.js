@@ -1,4 +1,4 @@
-import paletsreferenciaDemanda from './magatzem.js';
+import paletsreferencia from './magatzem.js';
 
 var suma = [];
 var endresaTaula = [];
@@ -18,6 +18,7 @@ taula.addEventListener('click', function (event)
 
 const endresa =  () => 
 {
+            /*
             console.log('1',endresaTaula);
             let i = 0;
             let j;
@@ -35,7 +36,7 @@ const endresa =  () =>
                     j++;
                 }
                 i++;
-            }
+            }*/
             console.log('2',endresaTaula);
 } 
 
@@ -46,7 +47,7 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 
     fila.innerHTML = `
             <td class="mida">${infoPreparacio.midaReferencia}</td>
-            <td class="cendresaTaulaer">${infoPreparacio.cendresaTaulaer}</td>
+            <td class="carrer">${infoPreparacio.carrer}</td>
             <td class="bloc">${infoPreparacio.bloc}</td>
             <td class="quantitatPalet">(${infoPreparacio.quantitatMinima})</td>
             <td class="quantitaDemanada">${quantitatDemanada}</td>
@@ -92,9 +93,9 @@ function imprimirStock()
     let i = 0;
     let objecteCaixa = [];
     
-    while (i < paletsreferenciaDemanda.length)
+    while (i < paletsreferencia.length)
     {
-        objecteCaixa.push(paletsreferenciaDemanda[i])
+        objecteCaixa.push(paletsreferencia[i])
         pinta('', objecteCaixa, '');
         objecteCaixa = [];
         i++;
@@ -105,11 +106,11 @@ function capturaCodi(referenciaDemanda)
 {
     let i = 0;
     let creaInfoCodi = '';
-    while (i < paletsreferenciaDemanda.length)
+    while (i < paletsreferencia.length)
     {
-        if (referenciaDemanda == paletsreferenciaDemanda[i].model)
+        if (referenciaDemanda == paletsreferencia[i].model)
         {
-            creaInfoCodi = paletsreferenciaDemanda[i];
+            creaInfoCodi = paletsreferencia[i];
             return (creaInfoCodi);
         }
         i++;
@@ -160,7 +161,6 @@ function principal()
             recontePalets(suma);
             pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
         }
-        console.log(endresaTaula)
     }
 }
 
