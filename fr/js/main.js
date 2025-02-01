@@ -5,7 +5,8 @@ var endresaTaula = [];
 const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
-document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+document.getElementById('endresaTaula').addEventListener('click', endresa);
+//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
@@ -16,7 +17,7 @@ taula.addEventListener('click', function (event)
     }
 });
 
-const endresa =  () => 
+function endresa() 
 {
             /*
             console.log('1',endresaTaula);
@@ -37,7 +38,7 @@ const endresa =  () =>
                 }
                 i++;
             }*/
-            console.log('2',endresaTaula);
+            console.log(endresaTaula);
 } 
 
 function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
@@ -129,7 +130,7 @@ function eliminar(fila)
     }
     else 
     {
-     confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
+        confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
     }
     if  (confirmaElimnarLinea == true) 
     {
@@ -151,8 +152,9 @@ function principal()
     }
     else 
     {
-        if (quantitatDemanada % infoPreparacio.quantitatMinima != 0 || quantitatDemanada < infoPreparacio.quantitatMinima)
-            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio[0].quantitatMinima}`);
+        console.log(infoPreparacio.quantitatMinima)
+        if (parseInt(quantitatDemanada) % infoPreparacio.quantitatMinima != 0)
+            alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         { 
             paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
