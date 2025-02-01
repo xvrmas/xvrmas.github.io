@@ -1,6 +1,8 @@
 import paletsreferenciaDemanda from './magatzem.js';
 
 var suma = [];
+var duplicat = [];
+var controlLinea = 0;
 const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
@@ -34,6 +36,21 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
     taulaDinamicaBody.appendChild(fila);
 }
 
+function    comprovaDuplicat(referencia)
+{
+    let i = 0;
+    
+    while (i < duplicat.length)
+    {
+        if (duplicat[i] == referencia)
+        {  
+           return (1);
+        }
+        i++;
+    }
+    return 0;
+}
+
 function recontePalets(suma) 
 {
     let i = 0;
@@ -65,13 +82,13 @@ function imprimirStock()
 function capturaCodi(referenciaDemanda) 
 {
     let i = 0;
-    let creaInfoCodiat = [];
+    let creaInfoCodi = [];
     while (i < paletsreferenciaDemanda.length)
     {
         if (referenciaDemanda == paletsreferenciaDemanda[i].model)
         {
-            creaInfoCodiat.push(paletsreferenciaDemanda[i]);
-            return (creaInfoCodiat);
+            creaInfoCodi.push(paletsreferenciaDemanda[i]);
+            return (creaInfoCodi);
         }
         i++;
     }  
@@ -94,6 +111,10 @@ function eliminar(fila)
     if  (confirmaElimnarLinea == true) 
     {
         suma.splice(suma.indexOf(quantitatEliminada), 1);
+        duplicat.splice(duplicat.indexOf(codiEliminat.trim()), 1);
+        console.log(duplicat)
+        console.log(suma)
+
         fila.remove();
         recontePalets(suma);
     }
@@ -115,14 +136,19 @@ function principal()
         if (quantitatDemanada % infoPreparacio[0].quantitatMinima != 0 || quantitatDemanada < infoPreparacio[0].quantitatMinima)
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio[0].model} es de ${infoPreparacio[0].quantitatMinima}`);
         else 
-        {   
+        {                  
             paletsPreparar = parseInt(quantitatDemanada / infoPreparacio[0].quantitatMinima);
             suma.push(paletsPreparar);
+            duplicat.push(infoPreparacio[0].model)
             recontePalets(suma);
-            pinta(quantitatDemanada,infoPreparacio,paletsPreparar);
+            pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
+            controlLinea++;
+            console.log(controlLinea);
+            console.log(infoPreparacio[0].midaReferencia);
         }
     }
 }
+
 
 
 
