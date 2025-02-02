@@ -8,7 +8,7 @@ const taula = document.getElementById('taulaId');
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
 //document.getElementById('test').addEventListener('click', test);
-//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
@@ -18,7 +18,7 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
-
+/*
 function test()
 {
     let i = 0;
@@ -31,7 +31,7 @@ function test()
         suma.push()
         i++;
     }
-}
+}*/
 
 function endresa() 
 {
@@ -108,20 +108,15 @@ function recontePalets(suma)
     }
     total.innerHTML = `${suma2} palets`;
 }
-/*
+
 function imprimirStock()
 {
-    let i = 0;
-    let objecteCaixa = [];
-    
-    while (i < paletsreferencia.length)
+    for (let item of paletsreferencia)
     {
-        objecteCaixa.push(paletsreferencia[i])
-        pinta('', objecteCaixa, '');
-        objecteCaixa = [];
-        i++;
+        pinta(item.quantitatMinima, item, 1);
+        endresaTaula.push(item)
     }
-}*/
+}
 
 function capturaCodi(referenciaDemanda) 
 {
@@ -180,7 +175,7 @@ function principal()
             paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
             suma.push(paletsPreparar);
             infoPreparacio.paletsPreparar = paletsPreparar;
-            infoPreparacio.quantitatDemanada = quantitatDemanada
+            infoPreparacio.quantitatDemanada = quantitatDemanada;
             endresaTaula.push(infoPreparacio);
             recontePalets(suma);
             pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
