@@ -1,4 +1,5 @@
 import paletsreferencia from './magatzem.js';
+import dadesTest from './test.js';
 
 var suma = [];
 var endresaTaula = [];
@@ -6,6 +7,7 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
+//document.getElementById('test').addEventListener('click', test);
 //document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
@@ -17,29 +19,47 @@ taula.addEventListener('click', function (event)
     }
 });
 
+function test()
+{
+    let i = 0;
+    let testArray = '';
+    while (i < dadesTest.length)
+    {
+        testArray = dadesTest[i]
+        pinta(dadesTest[i].quantitatMinima, dadesTest[i], 1);
+        endresaTaula.push(testArray)
+        suma.push()
+        i++;
+    }
+}
+
 function endresa() 
 {
-            /*
-            console.log('1',endresaTaula);
-            let i = 0;
-            let j;
-            let aux = 0;
+    let i = 0;
+    let j = 0;
+    let aux;
         
-            while (i < endresaTaula.length)
-            {
-                j = 0;
-                while (j < endresaTaula.length)
-                {
-                    if (endresaTaula[i].midaReferencia == 'X')
-                    aux = endresaTaula[j];
-                    endresaTaula[j] = endresaTaula[i];
-                    endresaTaula[i] = aux;
-                    j++;
-                }
-                i++;
-            }*/
-            console.log(endresaTaula);
+    while (i < endresaTaula.length)
+    {
+        if (endresaTaula[i].midaReferencia === 'X')
+        { 
+            aux = endresaTaula[j];
+            endresaTaula[j] = endresaTaula[i];
+            endresaTaula[i] = aux;         
+            j++;
+        }
+        i++;
+    }
+    
+    const repintaTaula = document.querySelector('.taulaDinamica tbody');
+    repintaTaula.innerHTML = '';
+
+    for (let item of endresaTaula)
+    {
+        pinta(item.quantitatDemanada, item, item.paletsPreparar);
+    }
 } 
+
 
 function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 {
@@ -88,7 +108,7 @@ function recontePalets(suma)
     }
     total.innerHTML = `${suma2} palets`;
 }
-
+/*
 function imprimirStock()
 {
     let i = 0;
@@ -101,7 +121,7 @@ function imprimirStock()
         objecteCaixa = [];
         i++;
     }
-}
+}*/
 
 function capturaCodi(referenciaDemanda) 
 {
@@ -146,19 +166,21 @@ function principal()
     let quantitatDemanada = document.getElementById('quantitat').value;
     let infoPreparacio = capturaCodi(referenciaDemanda);
     let paletsPreparar = 0;
+
     if (infoPreparacio.length == 0 || isNaN(quantitatDemanada)) 
     {
         alert('falten dades o son incorrectes!')
     }
     else 
     {
-        console.log(infoPreparacio.quantitatMinima)
         if (parseInt(quantitatDemanada) % infoPreparacio.quantitatMinima != 0)
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         { 
             paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
             suma.push(paletsPreparar);
+            infoPreparacio.paletsPreparar = paletsPreparar;
+            infoPreparacio.quantitatDemanada = quantitatDemanada
             endresaTaula.push(infoPreparacio);
             recontePalets(suma);
             pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
