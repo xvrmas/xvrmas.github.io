@@ -33,36 +33,132 @@ function test()
     }
 }*/
 
-function endresa() 
+function endresa()
 {
-    let i = 0;
-    let j = 0;
-    let aux;
-        
-    while (i < endresaTaula.length)
+    let tria = Number(prompt('Tria com vols endreçar la taula:\n 1-mida (palets estrets primer, X estret, - ample)\n 2-carrer (de menor a major)\n 3-codi (de menor a major)'));
+    console.log(typeof(tria))
+    if (tria == 1)
+        endresaMida()
+    else if (tria == 2)
+        endresaCarrer();
+    else if (tria == 3)
+        endresaModel();
+    else 
     {
-        if (endresaTaula[i].midaReferencia === 'X')
-        { 
-            aux = endresaTaula[j];
-            endresaTaula[j] = endresaTaula[i];
-            endresaTaula[i] = aux;         
-            j++;
-        }
-        i++;
+        alert('entra un numero del 1 al 3')
     }
-    
-    const repintaTaula = document.querySelector('.taulaDinamica tbody');
-    repintaTaula.innerHTML = '';
+}
 
-    for (let item of endresaTaula)
-    {
-        pinta(item.quantitatDemanada, item, item.paletsPreparar);
+function endresaMida() 
+{
+    if (endresaTaula.length == 0)
+        alert('La taula està buida')
+    else
+    { 
+        let i = 0;
+        let j = 0;
+        let aux;
+        
+        while (i < endresaTaula.length)
+        {
+            if (endresaTaula[i].midaReferencia === 'X')
+            { 
+                aux = endresaTaula[j];
+                endresaTaula[j] = endresaTaula[i];
+                endresaTaula[i] = aux;         
+                j++;
+            }
+            i++;
+        }
+    
+        const repintaTaula = document.querySelector('.taulaDinamica tbody');
+        repintaTaula.innerHTML = '';
+
+        for (let item of endresaTaula)
+        {
+            pinta(item.quantitatDemanada, item, item.paletsPreparar);
+        }
     }
 } 
+
+function endresaCarrer()
+{
+    if (endresaTaula.length == 0)
+        alert('La taula està buida');
+    else 
+    { 
+        let i = 0;
+        let j = 0;
+        let aux;
+
+        while (i < endresaTaula.length)
+        {
+            j = 0;
+            while (j < endresaTaula.length)
+            {
+                if (endresaTaula[i].carrer < endresaTaula[j].carrer)
+                {
+                    aux = endresaTaula[i];
+                    endresaTaula[i] = endresaTaula[j];
+                    endresaTaula[j] = aux
+                }
+                j++;
+            }
+            i++;
+        }
+        const repintaTaula = document.querySelector('.taulaDinamica tbody');
+        repintaTaula.innerHTML = '';
+
+        for (let item of endresaTaula)
+        {
+            pinta(item.quantitatDemanada, item, item.paletsPreparar);
+        }
+    }
+}
+
+function endresaModel()
+{
+    if (endresaTaula.length == 0)
+        alert('La taula està buida');
+    else
+    { 
+        let i = 0;
+        let j = 0;
+        let aux;
+
+        while (i < endresaTaula.length)
+        {
+            j = 0;
+            while (j < endresaTaula.length)
+            {
+                if (endresaTaula[i].model < endresaTaula[j].model)
+                {
+                    aux = endresaTaula[i];
+                    endresaTaula[i] = endresaTaula[j];
+                    endresaTaula[j] = aux
+                }
+                j++;
+            }
+            i++;
+        }
+        const repintaTaula = document.querySelector('.taulaDinamica tbody');
+        repintaTaula.innerHTML = '';
+
+        for (let item of endresaTaula)
+        {
+            pinta(item.quantitatDemanada, item, item.paletsPreparar);
+        }
+    }
+}
 
 
 function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 {
+    if (quantitatDemanada == undefined || paletsPreparar == undefined)
+    {
+        quantitatDemanada = '';
+        paletsPreparar = '';
+    }
     const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
     const fila = document.createElement('tr');
 
@@ -80,20 +176,6 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
     taulaDinamicaBody.appendChild(fila);
 }
 
-/*function    comprovaDuplicat(referencia)
-{
-    let i = 0;
-    
-    while (i < duplicat.length)
-    {
-        if (duplicat[i] == referencia)
-        {  
-           return (1);
-        }
-        i++;
-    }
-    return 0;
-}*/
 
 function recontePalets(suma) 
 {
@@ -113,7 +195,7 @@ function imprimirStock()
 {
     for (let item of paletsreferencia)
     {
-        pinta(item.quantitatMinima, item, 1);
+        pinta('', item, '');
         endresaTaula.push(item)
     }
 }
