@@ -259,6 +259,7 @@ function principal()
             infoPreparacio.paletsPreparar = paletsPreparar;
             infoPreparacio.quantitatDemanada = quantitatDemanada;
             endresaTaula.push(infoPreparacio);
+            console.log(endresaTaula)
             recontePalets(suma);
             pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
         }
