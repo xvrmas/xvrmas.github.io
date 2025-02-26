@@ -8,8 +8,9 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
+document.getElementById('resetImput').addEventListener('click', resetImput)
 //document.getElementById('test').addEventListener('click', test);
-document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
@@ -19,6 +20,12 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
+
+function resetImput()
+{
+    document.getElementById('referencia').value = '';
+    document.getElementById('quantitat').value = '';
+}
 /*
 function test()
 {
