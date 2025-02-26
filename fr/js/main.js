@@ -147,6 +147,29 @@ function capturaCodi(referenciaDemanda)
     alert('falten dades o son incorrectes!')
 }
 
+function comprobaCodi(codi)
+{
+    console.log(codi);
+    let i = 0;
+    if (endresaTaula.length === 0)
+        return false;
+    else
+    {
+        while (i < endresaTaula.length)
+            {
+                if (endresaTaula[i].model === Number(codi))
+                {
+                    return true;
+                }
+                else if (endresaTaula[i].model != Number(codi))
+                {
+                    return false;
+                }
+                i++;
+            } 
+    }
+}
+
 function eliminar(fila) 
 {
 
@@ -198,10 +221,16 @@ function principal()
             suma.push(paletsPreparar);
             infoPreparacio.paletsPreparar = paletsPreparar;
             infoPreparacio.quantitatDemanada = quantitatDemanada;
-            endresaTaula.push(infoPreparacio);   
-            recontePalets(suma);
-            pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
-            console.log('principal',endresaTaula);
+            let comprobaRepetit = comprobaCodi(referenciaDemanda);
+            if (comprobaRepetit === true)
+                alert(`El codi ${referenciaDemanda} ja està en preparació`)
+            else
+            {
+                endresaTaula.push(infoPreparacio);   
+                recontePalets(suma);
+                pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
+                console.log('principal',endresaTaula);
+            }
         }
     }
 }
