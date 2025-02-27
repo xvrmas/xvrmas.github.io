@@ -149,7 +149,6 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 //recalcula el contador total de palets en cas d'eliminar o modificar la llista
 function recontePalets() 
 {
-    let i = 0;
     let suma2 = 0;
     let total = document.querySelector('.total');
     for (let i of endresaTaula)
@@ -213,7 +212,10 @@ function eliminar(fila)
         while (i < endresaTaula.length )
         {
             if (endresaTaula[i].model === Number(codiEliminat))
+            {
                 endresaTaula.splice(i,1)
+                recontePalets();
+            }                
             i++;
         }
     }
