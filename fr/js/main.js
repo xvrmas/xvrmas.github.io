@@ -160,21 +160,15 @@ function comprobaCodi(codi)
     let i = 0;
     if (endresaTaula.length === 0)
         return false;
-    else
+    while (i < endresaTaula.length)
     {
-        while (i < endresaTaula.length)
-            {
-                if (endresaTaula[i].model === Number(codi))
-                {
-                    return true;
-                }
-                else if (endresaTaula[i].model != Number(codi))
-                {
-                    return false;
-                }
-                i++;
-            } 
+        if (endresaTaula[i].model === Number(codi))
+        {
+            return true;
+        }
+        i++;
     }
+    return false;
 }
 
 function eliminar(fila) 
@@ -224,15 +218,15 @@ function principal()
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         { 
-            paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
-            suma.push(paletsPreparar);
-            infoPreparacio.paletsPreparar = paletsPreparar;
-            infoPreparacio.quantitatDemanada = quantitatDemanada;
             let comprobaRepetit = comprobaCodi(referenciaDemanda);
             if (comprobaRepetit === true)
                 alert(`El codi ${referenciaDemanda} ja està en preparació`)
             else
             {
+                paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
+                suma.push(paletsPreparar);
+                infoPreparacio.paletsPreparar = paletsPreparar;
+                infoPreparacio.quantitatDemanada = quantitatDemanada;
                 endresaTaula.push(infoPreparacio);   
                 recontePalets(suma);
                 pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
