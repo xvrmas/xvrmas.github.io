@@ -8,9 +8,7 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
-//document.getElementById('resetImput').addEventListener('click', resetImput);
 document.getElementById('modifica').addEventListener('click', modifica);
-//document.getElementById('test').addEventListener('click', test);
 //document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
@@ -21,6 +19,16 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
+
+/*
+function imprimirStock()
+{
+    for (let item of paletsreferencia)
+    {
+        pinta('', item, '');
+        endresaTaula.push(item)
+    }
+}*/
 
 function modifica()
 {
@@ -51,26 +59,8 @@ function modifica()
         }
     }
 }
-/*
-function resetImput()
-{
-    document.getElementById('referencia').value = '';
-    document.getElementById('quantitat').value = '';
-}*/
-/*
-function test()
-{
-    let i = 0;
-    let testArray = '';
-    while (i < dadesTest.length)
-    {
-        testArray = dadesTest[i]
-        pinta(dadesTest[i].quantitatMinima, dadesTest[i], 1);
-        endresaTaula.push(testArray)
-        suma.push()
-        i++;
-    }
-}*/
+
+
 
 function repintaTaula()
 {
@@ -166,15 +156,7 @@ function recontePalets()
         suma2 += i;
     total.innerHTML = `${suma2} palets`;
 }
-/*
-function imprimirStock()
-{
-    for (let item of paletsreferencia)
-    {
-        pinta('', item, '');
-        endresaTaula.push(item)
-    }
-}*/
+
 
 function capturaCodi(referenciaDemanda) 
 {
