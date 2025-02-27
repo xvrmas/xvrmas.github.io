@@ -8,7 +8,8 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
-document.getElementById('resetImput').addEventListener('click', resetImput)
+//document.getElementById('resetImput').addEventListener('click', resetImput);
+document.getElementById('modifica').addEventListener('click', modifica);
 //document.getElementById('test').addEventListener('click', test);
 //document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
@@ -21,11 +22,35 @@ taula.addEventListener('click', function (event)
     }
 });
 
+function modifica()
+{
+    let i = 0;
+    let codiModificar = Number(prompt('quin codi vols modificar?'));
+    if (endresaTaula.length === 0)
+        alert('No hi ha cap codi a modificar')
+    else
+    {
+        while (i < endresaTaula.length)
+        {
+            if (endresaTaula[i].model === codiModificar)
+            {
+                let quantitatModificar = Number(prompt('entra una quantitat'));
+                alert(`${quantitatModificar}`);
+            }
+            else
+            {
+                alert('aquets codi no està en preparació');  
+            }
+            i++;
+        }
+    }
+}
+/*
 function resetImput()
 {
     document.getElementById('referencia').value = '';
     document.getElementById('quantitat').value = '';
-}
+}*/
 /*
 function test()
 {
@@ -54,37 +79,48 @@ function repintaTaula()
 
 function endresa()
 {
-    let tria = Number(prompt('Tria com vols endreçar la taula:\n 1-mida (palets estrets primer, X estret, - ample)\n 2-carrer (de menor a major)\n 3-codi (de menor a major)'));
-    if (tria == 1)
-    { 
-        endresaTaula.sort((a, b) => 
-        {
-            if (a.midaReferencia === 'X' && b.midaReferencia != 'X')
-                return -1;
-            else if (a.midaReferencia != 'X' && b.midaReferencia === 'X')
-                return 1;
-            else
-                return 0;
-            
-        });
-        repintaTaula();
-      
-    }
-    else if (tria == 2)
-    { 
-        endresaTaula.sort((a, b) => a.carrer - b.carrer);
-        repintaTaula();
-    }
-    else if (tria == 3)
-    { 
-        endresaTaula.sort((a, b) => a.model - b.model);
-        repintaTaula();
-    }
-    else 
+    let tria = Number(prompt('Tria com vols endreçar la taula:\n 1-mida (palets estrets primer, X estret, - ample)\n 2-carrer (de menor a major)\n 3-codi (de menor a major)\n 4-palets (de menor a major)'));
+    if (endresaTaula.length === 0)
+        alert('No hi ha res a endreçar')
+    else
     {
-        alert('entra un numero del 1 al 3')
+        if (tria == 1)
+            { 
+                endresaTaula.sort((a, b) => 
+                {
+                    if (a.midaReferencia === 'X' && b.midaReferencia != 'X')
+                        return -1;
+                    else if (a.midaReferencia != 'X' && b.midaReferencia === 'X')
+                        return 1;
+                    else
+                        return 0;
+                    
+                });
+                repintaTaula();
+              
+            }
+            else if (tria == 2)
+            { 
+                endresaTaula.sort((a, b) => a.carrer - b.carrer);
+                repintaTaula();
+            }
+            else if (tria == 3)
+            { 
+                endresaTaula.sort((a, b) => a.model - b.model);
+                repintaTaula();
+            }
+            else if (tria == 4)
+            {
+                endresaTaula.sort((a,b) => a.paletsPreparar - b.paletsPreparar);
+                repintaTaula();
+            }
+            else 
+            {
+                alert('entra un numero del 1 al 4')
+            }
+            console.log('endresa',endresaTaula)
+
     }
-    console.log('endresa',endresaTaula)
 }
 
 
