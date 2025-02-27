@@ -35,11 +35,17 @@ function modifica()
             if (endresaTaula[i].model === codiModificar)
             {
                 let quantitatModificar = Number(prompt('entra una quantitat'));
-                alert(`${quantitatModificar}`);
-            }
-            else
-            {
-                alert('aquets codi no està en preparació');  
+                if (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
+                    alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima }`)
+                else
+                {
+                    let nouPalet = quantitatModificar / endresaTaula[i].quantitatMinima;
+                    endresaTaula[i].quantitatDemanada = quantitatModificar;
+                    endresaTaula[i].paletsPreparar = nouPalet;
+                    repintaTaula();
+                    suma.splice(i,1, nouPalet);
+                    recontePalets();
+                }
             }
             i++;
         }
@@ -151,20 +157,16 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 }
 
 
-function recontePalets(suma) 
+function recontePalets() 
 {
     let i = 0;
     let suma2 = 0;
-    let total = document.querySelector('.total')
-
-    while (i < suma.length) 
-    {
-        suma2 += suma[i]
-        i++;
-    }
+    let total = document.querySelector('.total');
+    for (let i of suma)
+        suma2 += i;
     total.innerHTML = `${suma2} palets`;
 }
-
+/*
 function imprimirStock()
 {
     for (let item of paletsreferencia)
@@ -172,7 +174,7 @@ function imprimirStock()
         pinta('', item, '');
         endresaTaula.push(item)
     }
-}
+}*/
 
 function capturaCodi(referenciaDemanda) 
 {
@@ -192,7 +194,6 @@ function capturaCodi(referenciaDemanda)
 
 function comprobaCodi(codi)
 {
-    console.log(codi);
     let i = 0;
     if (endresaTaula.length === 0)
         return false;
@@ -232,7 +233,6 @@ function eliminar(fila)
                 endresaTaula.splice(i,1)
             i++;
         }
-        console.log('elimina',endresaTaula)
         recontePalets(suma);
     }
 }
@@ -264,9 +264,9 @@ function principal()
                 infoPreparacio.paletsPreparar = paletsPreparar;
                 infoPreparacio.quantitatDemanada = quantitatDemanada;
                 endresaTaula.push(infoPreparacio);   
-                recontePalets(suma);
+                recontePalets();
                 pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
-                console.log('principal',endresaTaula);
+                ('principal',endresaTaula);
             }
         }
     }
