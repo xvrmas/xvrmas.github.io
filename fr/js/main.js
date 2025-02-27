@@ -1,14 +1,13 @@
 import paletsreferencia from './magatzem.js';
 //import dadesTest from './test.js';
 
-var suma = [];
 var endresaTaula = [];
 const taula = document.getElementById('taulaId');
 
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
-//document.getElementById('modifica').addEventListener('click', modifica);
+document.getElementById('modifica').addEventListener('click', modifica);
 //document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
@@ -32,7 +31,7 @@ function imprimirStock()
 
 //la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada
 //cal arreglar fallos al reconte de palets quan endresem la taul
-/*
+
 function modifica()
 {
     let i = 0;
@@ -54,14 +53,13 @@ function modifica()
                     endresaTaula[i].quantitatDemanada = quantitatModificar;
                     endresaTaula[i].paletsPreparar = nouPalet;
                     repintaTaula();
-                    suma.splice(i,1, nouPalet);
                     recontePalets();
                 }
             }
             i++;
         }
     }
-}*/
+}
 
 
 //en cas de que fem algun canvi en el llistat aquesta funcio permet refrescar el llistat i mostrar els canvis
@@ -121,7 +119,6 @@ function endresa()
             console.log('endresa',endresaTaula)
 
     }
-    console.log('endresa',suma)
 }
 
 //funcio que pinta en pantalla la informació que anem generant
@@ -155,10 +152,9 @@ function recontePalets()
     let i = 0;
     let suma2 = 0;
     let total = document.querySelector('.total');
-    for (let i of suma)
-        suma2 += i;
+    for (let i of endresaTaula)
+        suma2 += i.paletsPreparar;
     total.innerHTML = `${suma2} palets`;
-    console.log('reconte',suma)
 }
 
 //comprova si el codi entrat existeix a l'array magatzem en cas de no existir mostra un missatge d'error
@@ -213,7 +209,6 @@ function eliminar(fila)
     }
     if  (confirmaElimnarLinea == true) 
     {
-        suma.splice(suma.indexOf(quantitatEliminada), 1);
         fila.remove();
         while (i < endresaTaula.length )
         {
@@ -221,7 +216,6 @@ function eliminar(fila)
                 endresaTaula.splice(i,1)
             i++;
         }
-        recontePalets(suma);
     }
 }
 
@@ -248,7 +242,6 @@ function principal()
             else
             {
                 paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
-                suma.push(paletsPreparar);
                 infoPreparacio.paletsPreparar = paletsPreparar;
                 infoPreparacio.quantitatDemanada = quantitatDemanada;
                 endresaTaula.push(infoPreparacio);   
