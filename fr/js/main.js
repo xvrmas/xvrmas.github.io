@@ -219,6 +219,7 @@ function eliminar(fila)
             i++;
         }
     }
+    console.log(endresaTaula);
 }
 
 function principal() 
