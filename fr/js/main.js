@@ -8,7 +8,7 @@ const taula = document.getElementById('taulaId');
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
-//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
@@ -19,7 +19,6 @@ taula.addEventListener('click', function (event)
     }
 });
 
-/*
 function imprimirStock()
 {
     for (let item of paletsreferencia)
@@ -27,11 +26,9 @@ function imprimirStock()
         pinta('', item, '');
         endresaTaula.push(item)
     }
-}*/
+}
 
 //la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada
-//cal arreglar fallos al reconte de palets quan endresem la taul
-
 function modifica()
 {
     let i = 0;
@@ -219,7 +216,7 @@ function eliminar(fila)
             i++;
         }
     }
-    console.log(endresaTaula);
+    console.log(endresaTaula);  
 }
 
 function principal() 
