@@ -23,7 +23,7 @@ function imprimirStock()
 {
     for (let item of paletsreferencia)
     {
-        pinta('', item, '');
+        pinta(1, item, 1);
         endresaTaula.push(item)
     }
 }
@@ -219,6 +219,7 @@ function eliminar(fila)
     console.log(endresaTaula);  
 }
 
+//funcio que rep les dades entrades per l'usuari i reparteix a les diferents funcions per mostrar la informació per pantalla
 function principal() 
 {
     let referenciaDemanda = document.getElementById('referencia').value;
