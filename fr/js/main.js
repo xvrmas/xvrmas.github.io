@@ -8,7 +8,7 @@ const taula = document.getElementById('taulaId');
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
-document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
@@ -43,8 +43,14 @@ function modifica()
             {
                 let quantitatModificar = Number(prompt('entra una quantitat'));
                 if (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
-                    alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima }`)
-                else
+                {
+                    while (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
+                    {
+                      alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima }`);
+                      quantitatModificar = Number(prompt('entra una quantitat'))
+                    }
+                }
+                if (quantitatModificar % endresaTaula[i].quantitatMinima === 0 && quantitatModificar != 0)
                 {
                     let nouPalet = quantitatModificar / endresaTaula[i].quantitatMinima;
                     endresaTaula[i].quantitatDemanada = quantitatModificar;
@@ -197,7 +203,7 @@ function eliminar(fila)
     let i = 0;
     if (quantitatEliminada == 1) 
     {
-        var confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palet del codi ${codiEliminat}?`)
+        var confirmaElimnarLinea = confirm(`vols eliminar 1 palet del codi ${codiEliminat}?`)
     }
     else 
     {
