@@ -185,8 +185,8 @@ const paletsReferencia =
             model: 920462,
             quantitatMinima: 240,
             midaReferencia: '-',
-            carrer: 8,
-            bloc: "31-32",
+            carrer: 11,
+            bloc: "9-10",
         }, {
             model: 920468,
             quantitatMinima: 396,
