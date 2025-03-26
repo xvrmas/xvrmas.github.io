@@ -8,7 +8,7 @@ const taula = document.getElementById('taulaId');
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
-//document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 
 taula.addEventListener('click', function (event) 
 {
