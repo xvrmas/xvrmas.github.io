@@ -23,7 +23,7 @@ function imprimirStock()
 {
     for (let item of paletsreferencia)
     {
-        pinta(1, item, 1);
+        pinta(item.quantitatMinima, item, 1);
         endresaTaula.push(item)
     }
 }
