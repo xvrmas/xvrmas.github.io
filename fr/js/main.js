@@ -9,6 +9,7 @@ document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
+document.getElementById('mostrar').addEventListener('click', mostar);
 
 taula.addEventListener('click', function (event) 
 {
@@ -19,13 +20,20 @@ taula.addEventListener('click', function (event)
     }
 });
 
-function imprimirStock()
+function mostar()
 {
+    
     for (let item of paletsreferencia)
     {
         pinta(item.quantitatMinima, item, 1);
         endresaTaula.push(item)
     }
+}
+
+function imprimirStock()
+{
+    
+   window.print();
 }
 
 //la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada

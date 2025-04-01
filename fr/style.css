@@ -38,6 +38,12 @@ body
     width: 100%;
 }
 
+img
+{
+    height: 30px;
+    width: 30px;
+}
+
 .taulaDinamica {
     margin-top: 20px;
     width: 100%;
