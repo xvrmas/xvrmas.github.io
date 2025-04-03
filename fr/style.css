@@ -104,7 +104,7 @@ button
     border: none;   
     margin: 5px;
     background-color: rgb(220, 230, 239);
-    box-shadow: 1px 1px 2px rgb(183, 192, 199);
+    box-shadow: 4px 4px 2px rgb(183, 192, 199);
     border-radius: 5px;
 
 } 
