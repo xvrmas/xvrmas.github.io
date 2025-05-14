@@ -197,6 +197,8 @@ const paletsReferencia =
             model: 920452,
             quantitatMinima: 792,
             midaReferencia: '-',
+            carrer: 7,
+            bloc:'7,8',
          }
 ]
 export default paletsReferencia;
