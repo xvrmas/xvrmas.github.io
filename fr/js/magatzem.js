@@ -194,11 +194,11 @@ const paletsReferencia =
             carrer: 11,
             bloc: '19',
         }, {
-            model: 920452,
+            model: 920453,
             quantitatMinima: 792,
             midaReferencia: '-',
             carrer: 7,
-            bloc:'7,8',
+            bloc:'7-8',
          }
 ]
 export default paletsReferencia;
