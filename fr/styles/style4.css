@@ -62,12 +62,12 @@ img {
   padding: 12px;
   background-color: #007acc;
   color: #fff;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .taulaDinamica td {
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
   background-color: #fafafa;
 }
 
