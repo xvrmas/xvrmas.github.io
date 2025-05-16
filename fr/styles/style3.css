@@ -1,0 +1,171 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.caixa {
+    background-color: #2c2f48;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 85%;
+    max-width: 1100px;
+    margin-top: 40px;
+}
+
+.entrada {
+    width: 240px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.contenidor {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.contenidorInfo {
+    width: 100%;
+    margin-top: 20px;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+    filter: brightness(0.9);
+}
+
+.taulaDinamica {
+    margin-top: 25px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #2c2f48;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.capsaleraTaula th {
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #3a3d5c;
+    color: #fff;
+    padding: 14px;
+    border-bottom: 2px solid #444;
+}
+
+.taulaDinamica td {
+    padding: 14px;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.mida, .bloc {
+    width: 6%;
+}
+
+.quantitatPalet, .quantitatDemanada {
+    width: 12%;
+}
+
+.totalPalets {
+    width: 8%;
+}
+
+.codiArticle {
+    font-weight: 700;
+    color: #9be7ff;
+}
+
+.total {
+    font-size: 22px;
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.creuTancar {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.creuTancar:hover {
+    cursor: pointer;
+    color: #ff5f5f;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 5px;
+    background-color: #3a3d5c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #52567c;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+}
+
+.btn-eliminar:hover {
+    background-color: #ff7b72;
+}
+
+.caixa2 {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #f0f0f0;
+}
+
+#palets {
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: #3a3d5c;
+    border-radius: 12px;
+    text-align: center;
+    color: #9be7ff;
+    font-weight: bold;
+}
+
+@media print {
+    .caixa,
+    .versio,
+    .btn-eliminar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .taulaDinamica th,
+    .taulaDinamica td {
+        font-size: 12px;
+    }
+
+    .entrada {
+        width: 100%;
+    }
+
+    .caixa {
+        width: 95%;
+    }
+}

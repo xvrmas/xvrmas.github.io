@@ -1,0 +1,162 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfdfd;
+  color: #111;
+  margin: 0;
+  padding: 1rem;
+}
+
+.caixa {
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  width: 60%;
+  margin: 0 auto;
+  background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+}
+
+.entrada {
+  width: 220px;
+  height: 35px;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #007acc;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin: 10px;
+  padding-left: 10px;
+  transition: border 0.3s ease;
+}
+
+.entrada:focus {
+  outline: none;
+  border-color: #005a9e;
+}
+
+.contenidor {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contenidorInfo {
+  width: 100%;
+}
+
+img {
+  height: 32px;
+  width: 32px;
+}
+
+.taulaDinamica {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.capsaleraTaula th {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 12px;
+  background-color: #007acc;
+  color: #fff;
+  border: 1px solid #ccc;
+}
+
+.taulaDinamica td {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+.mida, .bloc {
+  width: 5%;
+}
+
+.quantitatPalet, .quantitatDemanada {
+  width: 10%;
+}
+
+.totalPalets {
+  width: 6%;
+}
+
+.codiArticle {
+  font-weight: 700;
+  color: #007acc;
+}
+
+.total {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 30px;
+  color: #111;
+}
+
+.creuTancar:hover {
+  cursor: pointer;
+  color: #ff3333;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  margin: 5px;
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #005a9e;
+  box-shadow: none;
+}
+
+.btn-eliminar {
+  background-color: #d62828;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background-color: #ff7a7a;
+}
+
+.caixa2 {
+  font-size: 1.6rem;
+  color: #222;
+}
+
+#palets {
+  font-size: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #eef6fb;
+  color: #111;
+}
+
+@media print {
+  .caixa, .versio, .btn-eliminar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .taulaDinamica th,
+  .taulaDinamica td {
+    font-size: 0.9rem;
+  }
+
+  .caixa {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .entrada {
+    width: 100%;
+  }
+}

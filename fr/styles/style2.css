@@ -1,0 +1,174 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e0e5ec;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.caixa {
+    background: #e0e5ec;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 40px;
+}
+
+.entrada {
+    width: 240px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 12px;
+    background: #e0e5ec;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    border: none;
+    font-size: 15px;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.contenidor {
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenidorInfo {
+    width: 100%;
+    margin-top: 25px;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+}
+
+.taulaDinamica {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: #e0e5ec;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+}
+
+.capsaleraTaula th {
+    font-size: 15px;
+    font-weight: 600;
+    background: #d1d9e6;
+    padding: 14px;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+}
+
+.taulaDinamica td {
+    padding: 14px;
+    border-bottom: 1px solid #d3d3d3;
+    font-size: 14px;
+    color: #2f2f2f;
+}
+
+.mida, .bloc {
+    width: 6%;
+}
+
+.quantitatPalet, .quantitatDemanada {
+    width: 12%;
+}
+
+.totalPalets {
+    width: 8%;
+}
+
+.codiArticle {
+    font-weight: 700;
+    color: #34495e;
+}
+
+.total {
+    font-size: 22px;
+    text-align: center;
+    padding: 30px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.creuTancar {
+    font-size: 14px;
+    color: #555;
+}
+
+.creuTancar:hover {
+    cursor: pointer;
+    color: #e74c3c;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 5px;
+    background: #e0e5ec;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    color: #2c3e50;
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: inset 5px 5px 15px #bebebe, inset -5px -5px 15px #ffffff;
+    color: #111;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c;
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn-eliminar:hover {
+    background-color: #ffaaa7;
+}
+
+.caixa2 {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #34495e;
+}
+
+#palets {
+    font-size: 2rem;
+    padding: 2rem;
+    background: #d1d9e6;
+    border-radius: 20px;
+    box-shadow: inset 5px 5px 15px #bebebe, inset -5px -5px 15px #ffffff;
+    text-align: center;
+    color: #2c3e50;
+}
+
+@media print {
+    .caixa,
+    .versio,
+    .btn-eliminar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .taulaDinamica th,
+    .taulaDinamica td {
+        font-size: 12px;
+    }
+
+    .entrada {
+        width: 100%;
+    }
+
+    .caixa {
+        width: 95%;
+    }
+}
