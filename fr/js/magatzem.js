@@ -85,25 +85,25 @@ const paletsReferencia =
             midaReferencia: '-',
             carrer: 11,
             bloc: '17-18',
-        }, {
+        }, /*{
             model: 920361,
             quantitatMinima: 240,
             midaReferencia: 'X',
             carrer: 0,
             bloc: 0,
-        }, {
+        },*/ {
             model: 920366,
             quantitatMinima: 240,
             midaReferencia: 'X',
             carrer: 9,
             bloc: '10-11-12',
-        }, {
+        },/* {
             model: 920442,
             quantitatMinima: 396,
             midaReferencia: '-',
             carrer: 8,
             bloc: '23-24-25-26',
-        }, {
+        }, */{
             model: 920393,
             quantitatMinima: 396,
             midaReferencia: '-',
@@ -145,13 +145,13 @@ const paletsReferencia =
             midaReferencia: '-',
             carrer: 8,
             bloc: '33-15',
-        }, {
+        }, /*{
             model: 920427,
             quantitatMinima: 240,
             midaReferencia: '-',
             carrer: 11,
             bloc: '9-10',
-        }, {
+        },*/ {
             model: 920618,
             quantitatMinima: 396,
             midaReferencia: 'X',
@@ -163,7 +163,7 @@ const paletsReferencia =
             midaReferencia: '-',
             carrer: 11,
             bloc: 16,
-        }, {
+        }, /*{
             model: 920438,
             quantitatMinima: 240,
             midaReferencia: '-',
@@ -175,7 +175,7 @@ const paletsReferencia =
             midaReferencia: '-',
             carrer: 11,
             bloc: '14-15',
-        }, {
+        },*/ {
             model: 920449,
             quantitatMinima: 240,
             midaReferencia: 'X',
@@ -204,6 +204,12 @@ const paletsReferencia =
             quantitatMinima: 792,
             midaReferencia: '-',
             carrer: 9,
+            bloc:'14',
+         },{
+            model: 920461,
+            quantitatMinima: 396,
+            midaReferencia: '-',
+            carrer: 8,
             bloc:'14',
          },
 ]
