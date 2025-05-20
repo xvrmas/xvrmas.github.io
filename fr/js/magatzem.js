@@ -78,7 +78,7 @@ const paletsReferencia =
             quantitatMinima: 120,
             midaReferencia: 'X',
             carrer: 9,
-            bloc: '8-9-14',
+            bloc: '8-9',
         }, {
             model: 920359,
             quantitatMinima: 240,
@@ -132,7 +132,7 @@ const paletsReferencia =
             quantitatMinima: 120,
             midaReferencia: 'X',
             carrer: 8,
-            bloc: '16-17-18-19',
+            bloc: '16-17',
         }, {
             model: 920372,
             quantitatMinima: 396,
@@ -144,7 +144,7 @@ const paletsReferencia =
             quantitatMinima: 240,
             midaReferencia: '-',
             carrer: 8,
-            bloc: '33-15',
+            bloc: '32-33',
         }, /*{
             model: 920427,
             quantitatMinima: 240,
@@ -192,7 +192,7 @@ const paletsReferencia =
             quantitatMinima: 396,
             midaReferencia: '-',
             carrer: 11,
-            bloc: '19',
+            bloc: '14',
         }, {
             model: 920453,
             quantitatMinima: 792,
