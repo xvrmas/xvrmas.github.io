@@ -40,7 +40,7 @@ const paletsReferencia =
         }, {
             model: 920299,
             quantitatMinima: 220,
-            midaReferencia: '-',
+            midaReferencia: 'X',
             carrer: 9,
             bloc: '16',
         }, {
@@ -210,6 +210,12 @@ const paletsReferencia =
             quantitatMinima: 396,
             midaReferencia: '-',
             carrer: 8,
+            bloc:'14',
+         },{
+            model: 920480,
+            quantitatMinima: 396,
+            midaReferencia: '-',
+            carrer: 15,
             bloc:'14',
          },
 ]
