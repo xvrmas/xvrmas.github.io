@@ -148,13 +148,19 @@ button:hover {
   .caixa, .versio, .btn-eliminar {
     display: none;
   }
+   .contenidorInfo
+  {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .taulaDinamica th,
   .taulaDinamica td {
     font-size: 0.9rem;
+    margin-top: 0;
   }
+ 
 
   .caixa {
     width: 90%;
