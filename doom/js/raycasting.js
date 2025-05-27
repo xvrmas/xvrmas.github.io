@@ -22,8 +22,8 @@ var nivell1 =
     [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 1, 0, 1, 1, 1, 0, 1],
-        [1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+        [1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 1, 1, 1, 0, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 0, 1, 0, 1],
         [1, 0, 0, 1, 0, 0, 0, 1, 0, 1],
         [1, 0, 0, 0, 0, 1, 0, 0, 0, 1],
@@ -37,34 +37,34 @@ var nivell1 =
 
 document.addEventListener('keydown', function (tecla) {
 
-    switch (tecla.keyCode) {
-        case 38:
+    switch (tecla.code) {
+        case 'ArrowUp':
             jugador.adalt();
             break;
-        case 40:
+        case 'ArrowDown':
             jugador.abaix();
             break;
-        case 39:
+        case 'ArrowRight':
             jugador.dreta();
             break;
-        case 37:
+        case 'ArrowLeft':
             jugador.esquerra();
             break;
     }
 }
 );
 document.addEventListener('keyup', function (tecla) {
-    switch (tecla.keyCode) {
-        case 38:
+    switch (tecla.code) {
+        case 'ArrowUp':
             jugador.adaltDes();
             break;
-        case 40:
+        case 'ArrowDown':
             jugador.abaixDes();
             break;
-        case 39:
+        case 'ArrowRight':
             jugador.giraDes();
             break;
-        case 37:
+        case 'ArrowLeft':
             jugador.giraDes();
             break;
     }
@@ -81,7 +81,21 @@ function normalitzaAngle(angle) {
 
 }
 
-
+class raig
+{
+    constructor(con, escenari, x,y, angleJugador, incrementRaig,columna)
+    {
+        this.ctx = con;
+        this.escenari = escenari;
+        this.x = x;
+        this.y = y;
+        this.angleJugador = angleJugador;
+        this.incrementRaig = incrementRaig;   
+        this.columna = columna;  
+        console.log('angle jugador  ' + this.angleJugador);
+    }
+    
+}
 
 //clase escenari
 class Nivell {
@@ -102,7 +116,10 @@ class Nivell {
         this.altT = parseInt(this.altC / this.altM);
         this.ampleT = parseInt(this.ampleC / this.ampleM);
 
+       
     }
+
+    
 
     colisio(x, y) {
         var choca = false;
@@ -150,7 +167,14 @@ class Player {
 
         this.velMoviment = 3;               //pixels
         this.velGir = 3 * (Math.PI / 180);   //graus
+
+         //raig
+        this.raig;
+        //con, escenari, x, y, angleJugador, incrementRaig, columna
+        this.raig = new raig(this.ctx, this.escenari, this.x, this.y, this.angleJugador,this.incrementRaig, 10)
     }
+
+    
     colisio(x, y) {
         var choca = false;
 
@@ -250,3 +274,5 @@ function principal() {
     escenari.dibuixa();
     jugador.dibuixa();
 }
+
+
