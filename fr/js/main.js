@@ -137,8 +137,8 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 {
     if (quantitatDemanada == undefined || paletsPreparar == undefined)
     {
-        quantitatDemanada = 1;
-        paletsPreparar = 1;
+        quantitatDemanada = "";
+        paletsPreparar = "";
     }
     const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
     const fila = document.createElement('tr');
