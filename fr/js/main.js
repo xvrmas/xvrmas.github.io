@@ -161,10 +161,24 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
 function recontePalets() 
 {
     let suma2 = 0;
+    let sumaEstret = 0;
+    let sumaAmple = 0;
     let total = document.querySelector('.total');
+    let ample = document.querySelector('.ample');
+    let estret = document.querySelector('.estret');
     for (let i of endresaTaula)
         suma2 += i.paletsPreparar;
-    total.innerHTML = `${suma2} palets`;
+    total.innerHTML = `Total: ${suma2} palets`;
+    for (let j of endresaTaula)
+    {
+        if (j.midaReferencia == 'X')
+            sumaEstret += j.paletsPreparar;
+        else
+            sumaAmple += j.paletsPreparar;
+    }
+    estret.innerHTML = `Estrets: ${sumaEstret}`;
+    ample.innerHTML = `Amples: ${sumaAmple}`;
+    
 }
 
 //comprova si el codi entrat existeix a l'array magatzem en cas de no existir mostra un missatge d'error

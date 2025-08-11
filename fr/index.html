@@ -9,25 +9,34 @@
 </head>
 
 <body>
-     <div class="caixa">
-            <input class="entrada" type="number" id="referencia" placeholder="referència">
-            <input class="entrada" type="number" id="quantitat" placeholder="quantitat">
-            <button id="resumPalets" title="crea una llista dels elements entrats als inputs"><img src="./assets/calculadora_white.png" alt=""></button>
-            <button id="endresaTaula" title="endreça la llista segons difenrents criteris"><img src="./assets/ordenar_white.png" alt=""></button>
-            <button id="modifica" title="modifica la quantitat d'un codi"><img src="./assets/editar_white.png" alt=""></button>
-            <button id="mostrar" title="mostra tots els codis disponibles"><img src="./assets/portapapeles_white.png" alt=""></button>
-            <button id="imprimirStock" title="imprimeix la llista"><img src="./assets/impresora.png" alt=""></button>
-
+    <div class="caixa">
+        <input class="entrada" type="number" id="referencia" placeholder="referència">
+        <input class="entrada" type="number" id="quantitat" placeholder="quantitat">
+        <button id="resumPalets" title="crea una llista dels elements entrats als inputs"><img
+                src="./assets/calculadora_white.png" alt=""></button>
+        <button id="endresaTaula" title="endreça la llista segons difenrents criteris"><img
+                src="./assets/ordenar_white.png" alt=""></button>
+        <button id="modifica" title="modifica la quantitat d'un codi"><img src="./assets/editar_white.png"
+                alt=""></button>
+        <button id="mostrar" title="mostra tots els codis disponibles"><img src="./assets/portapapeles_white.png"
+                alt=""></button>
+        <button id="imprimirStock" title="imprimeix la llista"><img src="./assets/impresora.png" alt=""></button>
         <!--<button id="resetImput">RESET</button>-->
         <!--<button id="test">"TEST"</button>-->
         <!--<button onclick="borrar()">BORRAR</button>-->
+        <div class="estret">
+            <span></span>
         </div>
+        <div class="ample">
+            <span></span>
+        </div>
+    </div>
     <div class="contenidor">
-       
+
         <div class="contenidorInfo">
             <table class="taulaDinamica" id="taulaId">
                 <thead>
-                    <tr class="capsaleraTaula" >
+                    <tr class="capsaleraTaula">
                         <th>Mida</th>
                         <th>Carrer</th>
                         <th>Bloc</th>
@@ -40,15 +49,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <!-- ------------------ -->
                 </tbody>
             </table>
-        </div>    
+        </div>
         <div class="total">
             <span></span>
         </div>
-        <p class="versio">09-07-25.0</p>
+    </div>
+
+    <p class="versio">11-08-25.0</p>
     </div>
     </div>
 

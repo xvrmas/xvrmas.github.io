@@ -19,6 +19,14 @@ body {
   background: linear-gradient(to bottom right, #eff5f9, #f0f0f0);
 }
 
+.estret,
+.ample {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 10px;
+  color: #111;
+}
+
 .entrada {
   width: 220px;
   height: 35px;
@@ -76,11 +84,13 @@ img {
   background-color: #fafafa;
 }
 
-.mida, .bloc {
+.mida,
+.bloc {
   width: 5%;
 }
 
-.quantitatPalet, .quantitatDemanada {
+.quantitatPalet,
+.quantitatDemanada {
   width: 10%;
 }
 
@@ -113,7 +123,7 @@ button {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -145,22 +155,30 @@ button:hover {
 }
 
 @media print {
-  .caixa, .versio, .btn-eliminar {
+
+  .caixa,
+  .versio,
+  .btn-eliminar {
     display: none;
   }
-   .contenidorInfo
-  {
+
+  .contenidorInfo {
     margin: 0;
+  }
+
+  .caixa .contenidor-mides {
+    display: inline-block;
   }
 }
 
 @media screen and (max-width: 768px) {
+
   .taulaDinamica th,
   .taulaDinamica td {
     font-size: 0.9rem;
     margin-top: 0;
   }
- 
+
 
   .caixa {
     width: 90%;
