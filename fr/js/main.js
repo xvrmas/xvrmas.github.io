@@ -10,6 +10,7 @@ document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 document.getElementById('mostrar').addEventListener('click', mostar);
+document.getElementById('infoOperativa').addEventListener('click', info)
 
 taula.addEventListener('click', function (event) 
 {
@@ -19,6 +20,11 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
+
+function info()
+{
+    alert('info');
+}
 
 function mostar()
 {
@@ -168,7 +174,6 @@ function recontePalets()
     let estret = document.querySelector('.estret');
     for (let i of endresaTaula)
         suma2 += i.paletsPreparar;
-    total.innerHTML = `Total: ${suma2} palets`;
     for (let j of endresaTaula)
     {
         if (j.midaReferencia == 'X')
@@ -176,6 +181,7 @@ function recontePalets()
         else
             sumaAmple += j.paletsPreparar;
     }
+    total.innerHTML = `Total: ${suma2} palets`;
     estret.innerHTML = `Estrets: ${sumaEstret}`;
     ample.innerHTML = `Amples: ${sumaAmple}`;
     
