@@ -181,15 +181,11 @@ button:hover {
 
 
   .caixa {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 95%;
-    padding: 1rem;
+    display: flex;
+    display: list-item;
+    position: relative;
     align-items: center;
     justify-content: center;
-    
-    position: relative;
-    margin: 0;
   }
-
+  
 }
