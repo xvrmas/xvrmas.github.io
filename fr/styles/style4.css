@@ -154,6 +154,13 @@ button:hover {
   color: #111;
 }
 
+  .paletsPreparar
+  {
+   color: #e40606;
+   margin-left: 10px;
+  }
+  
+
 @media print {
 
   .caixa,
@@ -186,6 +193,11 @@ button:hover {
     position: relative;
     align-items: center;
     justify-content: center;
+  }
+
+  th .paletsPreparar
+  {
+   color: #07e821;
   }
   
 }
