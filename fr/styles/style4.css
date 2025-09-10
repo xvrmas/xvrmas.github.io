@@ -154,12 +154,16 @@ button:hover {
   color: #111;
 }
 
-  .paletsPreparar
-  {
-   color: #e40606;
-   margin-left: 10px;
-  }
-  
+.impPetit,
+.impGran {
+  visibility: hidden;
+}
+
+.paletsPreparar {
+  color: #012c08;
+  margin-left: 10px;
+}
+
 
 @media print {
 
@@ -175,6 +179,12 @@ button:hover {
 
   .caixa .contenidor-mides {
     display: inline-block;
+  }
+
+  .impPetit,
+  .impGran {
+    visibility: visible;
+    text-align: center;
   }
 }
 
@@ -195,9 +205,10 @@ button:hover {
     justify-content: center;
   }
 
-  th .paletsPreparar
-  {
-   color: #07e821;
+  th .paletsPreparar {
+    color: #07e821;
   }
-  
+
+
+
 }

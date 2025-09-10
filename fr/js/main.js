@@ -172,6 +172,8 @@ function recontePalets()
     let total = document.querySelector('.total');
     let ample = document.querySelector('.ample');
     let estret = document.querySelector('.estret');
+    let impPetit = document.querySelector('.impPetit');
+    let impGran = document.querySelector('.impGran');
     for (let i of endresaTaula)
         suma2 += i.paletsPreparar;
     for (let j of endresaTaula)
@@ -184,6 +186,8 @@ function recontePalets()
     total.innerHTML = `Total: ${suma2} palets`;
     estret.innerHTML = `Estrets: ${sumaEstret}`;
     ample.innerHTML = `Amples: ${sumaAmple}`;
+    impGran.innerHTML = `Amples: ${sumaAmple}`;
+    impPetit.innerHTML = `Estrets: ${sumaEstret}`;
     
 }
 
