@@ -17,6 +17,7 @@ body {
   right: 0;
   top: 0;
   background: linear-gradient(to bottom right, #eff5f9, #f0f0f0);
+  list-style: none;
 }
 
 .estret,
@@ -186,6 +187,8 @@ button:hover {
     visibility: visible;
     text-align: center;
   }
+
+
 }
 
 @media screen and (max-width: 800px) {
@@ -196,6 +199,11 @@ button:hover {
     margin-top: 0;
   }
 
+  .btn-eliminar {
+    background-color: #ec2020;
+    width: 5%;
+    font-size: 0;
+  }
 
   .caixa {
     display: flex;
@@ -209,6 +217,7 @@ button:hover {
     color: #07e821;
   }
 
-
-
+  .paletsPreparar {
+    color: #070707;
+  }
 }
