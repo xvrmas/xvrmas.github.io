@@ -28,6 +28,10 @@ body {
   color: #111;
 }
 
+#comentaris{
+  border: none;
+  font-size: large;
+}
 .entrada {
   width: 220px;
   height: 35px;

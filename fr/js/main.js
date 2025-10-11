@@ -157,8 +157,9 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
             <td class="quantitatDemanada">${quantitatDemanada}</td>
             <td class="codiArticle">${infoPreparacio.model}</td>
             <td class="paletsPreparar">${paletsPreparar}</td>
+            <textarea id="comentaris" name="comentaris" rows="2" cols="15"></textarea>
             <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
-            <td class="nof"></td>
+
     `;
     taulaDinamicaBody.appendChild(fila);
 }
