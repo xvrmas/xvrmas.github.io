@@ -28,10 +28,11 @@ body {
   color: #111;
 }
 
-#comentaris{
+#comentaris {
   border: none;
   font-size: large;
 }
+
 .entrada {
   width: 220px;
   height: 35px;
@@ -167,6 +168,13 @@ button:hover {
 .paletsPreparar {
   color: #012c08;
   margin-left: 10px;
+}
+
+textarea {
+  field-sizing: content;
+  resize: none;
+  width: 130px;
+  min-height: 15px;
 }
 
 
