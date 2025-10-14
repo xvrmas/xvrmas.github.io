@@ -157,7 +157,7 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
             <td class="quantitatDemanada">${quantitatDemanada}</td>
             <td class="codiArticle">${infoPreparacio.model}</td>
             <td class="paletsPreparar">${paletsPreparar}</td>
-            <td><textarea id="comentaris" name="comentaris" rows="2" cols="13"></textarea></td>
+            <td><textarea id="comentaris" name="comentaris" rows="1" cols="13"></textarea></td>
             <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
 
     `;
