@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style-manuals.css">
+    <title>Apostes</title>
+</head>
+
+<body>
+
+    <div id="loto-bolsa">
+        <span>
+            <button id="boto-loto-bolsa">Lotobolsa</button>
+        </span>
+        <div class="saldo">
+            <span>Saldo: 0€</span>
+        </div>
+    </div>
+    <div id="contenidor">
+        <div id="Sorteig">
+            <p>Sorteig</p>
+        </div>
+        <div id="botons-periode">
+            <span>
+                <button class="boto-periodes" id="setmanal">Setmanal</button>
+                <button class="boto-periodes" id="mensual">Mensual</button>
+                <button class="boto-periodes" id="anual">Anual</button>
+            </span>
+        </div>
+        <div id="checks">
+            <span>
+                <input type="radio" id="manual" name="tipo-aposta" value="manual" checked>
+                <label for="manual">Manual</label>
+
+                <input type="radio" id="automatica" name="tipo-aposta" value="automatica">
+                <label for="automatica">Automatica</label>
+            </span>
+        </div>
+        <div id="pronostics">
+            <button id="boto-pronostic">PRONOSTIC</button>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

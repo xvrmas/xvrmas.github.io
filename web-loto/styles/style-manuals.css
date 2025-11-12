@@ -1,0 +1,75 @@
+body
+{
+    background-color: rgb(220, 234, 247)
+   
+}
+#contenidor
+{
+    background-color: aliceblue;
+    padding: 40px;
+}
+#loto-bolsa
+{
+    padding: 25px;
+    margin: 20px;
+    background-color: rgb(218, 228, 238);
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+#boto-loto-bolsa
+{
+    padding: 20px;
+    font-size: large;
+    border-radius: 10%;
+    border: none;
+    margin: 20px;
+}
+#Sorteig
+{
+    color: rgb(6, 6, 6);
+    border-bottom: solid 1px;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+}
+.boto-seleccionat
+{
+    background-color: rgb(145, 184, 215);
+    color: white;
+    border-color: rgb(0, 50, 0);
+    font-weight: bold;
+}
+#botons-periode
+{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.boto-periodes:hover
+{
+   background-color: rgb(182, 181, 181);
+   color: white;
+}
+.boto-periodes{
+    padding: 20px;
+    border: none;
+    border-radius: 10%;    
+}
+#checks
+{
+    display: flex;
+    justify-content: center;
+}
+#pronostics
+{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+#boto-pronostic
+{
+    padding: 20px;
+    width: 150px;
+    border: none ;
+}
