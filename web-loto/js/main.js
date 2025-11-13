@@ -21,10 +21,10 @@ periodeAposta.forEach(element => {
         if (periodeText === 'Dia') {
             periode = 1;
         }
-        else if (periodeText === 'Setmanal') {
+        else if (periodeText === 'Setmana') {
             periode = 3;
         }
-        else if (periodeText == 'Mensual') {
+        else if (periodeText == 'Mes') {
             periode = 12;
         }
         else {
