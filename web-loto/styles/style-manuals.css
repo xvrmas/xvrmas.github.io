@@ -35,9 +35,8 @@ body
 }
 .boto-seleccionat
 {
-    background-color: rgb(145, 184, 215);
+    background-color: rgb(35, 147, 240);
     color: white;
-    border-color: rgb(0, 50, 0);
     font-weight: bold;
 }
 #botons-periode
@@ -48,13 +47,12 @@ body
 }
 .boto-periodes:hover
 {
-   background-color: rgb(182, 181, 181);
+   background-color: rgb(35, 147, 240);
    color: white;
 }
 .boto-periodes{
-    padding: 20px;
+    padding: 2px;
     border: none;
-    border-radius: 10%;    
 }
 #checks
 {
