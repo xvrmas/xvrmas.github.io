@@ -71,3 +71,49 @@ body
     width: 150px;
     border: none ;
 }
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.contingut-modal {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border: 6px solid #a8bfd9;
+  border-radius: 10px;
+}
+
+.tanca {
+  color: #aaa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modalHtml
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tanca:hover,
+.tanca:focus {
+  color: #0b5ed7;
+  text-decoration: none;
+  cursor: pointer;
+}
