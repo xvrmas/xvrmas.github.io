@@ -1,13 +1,43 @@
-import {SALDO,periode,saldoLotoBolsa} from './main.js';
+import { SALDO, periode, saldoLotoBolsa, textBoto } from './main.js';
 
-function omplirAposta()
+const textPlana = document.getElementById('text');
+document.getElementById('boto-retorn').addEventListener('click', alerta)
+
+export function alerta()
 {
-    let text = 'aqui van les caselles';
-    return text;
+    alert('retorn');
+}
+export function apostar() 
+{
+
+    SALDO.saldo += 2;
+    saldoLotoBolsa.innerHTML = `Saldo: ${SALDO.saldo}€`;
+    alert(`saldo: ${SALDO.saldo}\nperiode: ` + periode);
+   /* let castPeriode = '';
+
+    switch (periode) {
+        case 1:
+            castPeriode = 'Dia'
+            break;
+        case 3:
+            castPeriode = 'Setmana'
+            break;
+        case 12:
+            castPeriode = 'Mes'
+            break;
+        default:
+            castPeriode = 'Any'
+            break;
+    }
+
+    let text = ` Saldo: ${SALDO.saldo} \n Periode: ${castPeriode}`;
+
+    textPlana.innerHtml = text;*/
 }
 
-export function apostar()
-{
+
+/*
+export function apostar() {
     let contingut = omplirAposta();
 
     let modal = document.createElement('div');
@@ -15,7 +45,7 @@ export function apostar()
 
     let contingutModal = document.createElement('div');
     contingutModal.classList.add('contingut-modal');
-   
+
     let nodeText = document.createElement('p');
     nodeText.textContent = contingut;
     contingutModal.appendChild(nodeText)
@@ -24,9 +54,8 @@ export function apostar()
     botoTancament.innerHTML = '&times;';
     botoTancament.classList.add('tanca');
 
-    
-    botoTancament.onclick = function ()
-    {
+
+    botoTancament.onclick = function () {
         modal.style.display = 'none';
     };
 
@@ -36,7 +65,7 @@ export function apostar()
     document.body.appendChild(modal);
 
 
-    /*SALDO.saldo += 2;
+    SALDO.saldo += 2;
     saldoLotoBolsa.innerHTML = `Saldo: ${SALDO.saldo}€`;
-    alert(`saldo: ${SALDO.saldo}\nperiode: ` + periode );*/
-}
+    alert(`saldo: ${SALDO.saldo}\nperiode: ` + periode );
+}*/

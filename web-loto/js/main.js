@@ -7,6 +7,8 @@ const periodeAposta = document.querySelectorAll('.boto-periodes');
 
 export let saldoLotoBolsa = document.querySelector('.saldo');
 export let periode = 1;
+export let textBoto = document.getElementById('boto-pronostic').innerText;
+
 export const SALDO = {
     saldo: 0
 };
@@ -60,14 +62,6 @@ function lotoBolsa() {
     }
 }
 
-function omplirApostes() {
-    const textBoto = document.getElementById('boto-pronostic').innerText;
-    if (textBoto === 'PRONOSTIC') {
-        apostar();
-    }
-    else
-        alert('MUY MAL')
-}
 
 
 function cambiarOpcioAposta() {
@@ -90,6 +84,23 @@ function cambiarOpcioAposta() {
 
     });
 }
+
+function omplirApostes() {
+
+    const textActualBoto = botoSeleccionat.textContent;
+
+    if (textActualBoto === 'PRONOSTIC') 
+    {
+        apostar();
+        window.location.href = './caselles.html';
+
+    }
+    else if (textActualBoto === 'VALIDAR')
+    { 
+        alert('MUY MAL');
+    }
+}
+
 
 radioSeleccionat.forEach(radio => {
     radio.addEventListener('change', cambiarOpcioAposta)
