@@ -1,0 +1,11 @@
+#ancla{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+a{
+    text-decoration: none;
+    border: solid 1px gray;
+    padding: 10px;
+}
