@@ -1,7 +1,7 @@
 import { SALDO, periode, saldoLotoBolsa, textBoto } from './main.js';
 
 const textPlana = document.getElementById('text');
-document.getElementById('boto-retorn').addEventListener('click', alerta)
+document.getElementById('.boto-retorn').addEventListener('click', alerta)
 
 export function alerta()
 {
@@ -13,7 +13,7 @@ export function apostar()
     SALDO.saldo += 2;
     saldoLotoBolsa.innerHTML = `Saldo: ${SALDO.saldo}€`;
     alert(`saldo: ${SALDO.saldo}\nperiode: ` + periode);
-   /* let castPeriode = '';
+   let castPeriode = '';
 
     switch (periode) {
         case 1:
@@ -32,11 +32,11 @@ export function apostar()
 
     let text = ` Saldo: ${SALDO.saldo} \n Periode: ${castPeriode}`;
 
-    textPlana.innerHtml = text;*/
+    textPlana.innerHtml = text;
 }
 
 
-/*
+
 export function apostar() {
     let contingut = omplirAposta();
 
@@ -68,4 +68,4 @@ export function apostar() {
     SALDO.saldo += 2;
     saldoLotoBolsa.innerHTML = `Saldo: ${SALDO.saldo}€`;
     alert(`saldo: ${SALDO.saldo}\nperiode: ` + periode );
-}*/
+}
