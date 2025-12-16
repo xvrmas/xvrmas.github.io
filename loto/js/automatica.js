@@ -7,3 +7,4 @@ export function auto() {
   return numeros;
 }
 
+

@@ -9,16 +9,48 @@
 <body>
   <h1>Resultado del Sorteo</h1>
 
-  <div id="res">
-    <p id="loading">🎲 Sorteando...</p>
+  <div id="loto-bolsa">
+    <p id="saldo-display">Saldo: 0€</p>
+    <p id="bote-display">Bote: 0€</p>
   </div>
+
+  <div id="res">
+  <p><strong>Tu apuesta:</strong></p>
+  <div class="balls">
+    <span class="ball">1</span>
+    <span class="ball acierto">2</span>
+    <span class="ball">3</span>
+    <span class="ball acierto">4</span>
+    <span class="ball">5</span>
+    <span class="ball">6</span>
+  </div>
+
+  <p><strong>Sorteo:</strong></p>
+  <div class="balls">
+    <span class="ball">2</span>
+    <span class="ball">4</span>
+    <span class="ball">7</span>
+    <span class="ball">8</span>
+    <span class="ball">9</span>
+    <span class="ball">10</span>
+  </div>
+
+  <p><strong>Aciertos:</strong> 2</p>
+  <p><strong>Premio:</strong> 0€</p>
+  <p><strong>Bote actual:</strong> 2€</p>
+</div>
+
 
   <button onclick="window.location.href='index.html'">Volver</button>
 
+  <!-- Scripts -->
   <script type="module" src="js/state.js"></script>
   <script type="module" src="js/lotoBolsa.js"></script>
-  <script type="module" src="js/sorteoAnimado.js"></script>
+  <script type="module" src="js/sorteo.js"></script>
 </body>
 </html>
+
+
+
 
 

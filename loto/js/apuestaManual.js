@@ -1,46 +1,50 @@
-import { STATE, save } from './state.js';
+import { STATE, save, load } from './state.js';
 
-let seleccion = [];
-const contenedor = document.getElementById('numeros');
+document.addEventListener('DOMContentLoaded', () => {
+  // ✅ refresca el estado al volver a index.html
+  load();
 
-for (let i = 1; i <= 49; i++) {
-  const btn = document.createElement('button');
-  btn.textContent = i;
-  btn.classList.add('numero-btn');
+  let seleccion = [];
+  const contenedor = document.getElementById('numeros');
 
-  btn.addEventListener('click', () => {
-    if (seleccion.includes(i)) {
-      seleccion = seleccion.filter(n => n !== i);
-      btn.classList.remove('seleccionado');
-    } else if (seleccion.length < 6) {
-      seleccion.push(i);
-      btn.classList.add('seleccionado');
-    }
+  for (let i = 1; i <= 49; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    btn.classList.add('numero-btn');
 
-    document.getElementById('numeros-seleccionados').textContent =
-      `Seleccionados: ${seleccion.join(', ')}`;
-
-    contenedor.querySelectorAll('button').forEach(b => {
-      if (!seleccion.includes(parseInt(b.textContent))) {
-        b.disabled = seleccion.length >= 6;
+    btn.addEventListener('click', () => {
+      if (seleccion.includes(i)) {
+        seleccion = seleccion.filter(n => n !== i);
+        btn.classList.remove('seleccionado');
+      } else if (seleccion.length < 6) {
+        seleccion.push(i);
+        btn.classList.add('seleccionado');
       }
+
+      document.getElementById('numeros-seleccionados').textContent =
+        `Seleccionados: ${seleccion.join(', ')}`;
+
+      contenedor.querySelectorAll('button').forEach(b => {
+        if (!seleccion.includes(parseInt(b.textContent))) {
+          b.disabled = seleccion.length >= 6;
+        }
+      });
     });
-  });
 
-  contenedor.appendChild(btn);
-}
-
-document.getElementById('boto-pronostic').addEventListener('click', () => {
-  if (seleccion.length !== 6) {
-    alert('Debes seleccionar exactamente 6 números');
-    return;
+    contenedor.appendChild(btn);
   }
 
-  STATE.apuesta = [...seleccion];
-  save();
-  window.location.href = './resultado.html';
-});
+  document.getElementById('boto-pronostic').addEventListener('click', () => {
+    if (seleccion.length !== 6) {
+      alert('Debes seleccionar exactamente 6 números');
+      return;
+    }
 
+    STATE.apuesta = [...seleccion];
+    save();
+    window.location.href = './resultado.html';
+  });
+});
 
 
 

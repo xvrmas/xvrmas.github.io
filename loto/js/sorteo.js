@@ -1,3 +1,4 @@
+// js/sorteo.js
 import { STATE, save, load } from './state.js';
 import { auto } from './automatica.js';
 import { descontarApuesta, agregarPremio } from './lotoBolsa.js';
@@ -5,14 +6,13 @@ import { descontarApuesta, agregarPremio } from './lotoBolsa.js';
 document.addEventListener('DOMContentLoaded', () => {
   load();
 
-  if (!STATE.apuesta || STATE.apuesta.length !== 6) {
+  if (!Array.isArray(STATE.apuesta) || STATE.apuesta.length !== 6) {
     alert('No hay apuesta válida. Vuelve a la página de apuestas.');
     window.location.href = './index.html';
     return;
   }
 
   if (!descontarApuesta()) {
-    alert('No tienes saldo suficiente.');
     window.location.href = './index.html';
     return;
   }
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const apuestaJugador = [...STATE.apuesta].sort((a, b) => a - b);
   const sorteo = auto().sort((a, b) => a - b);
-
   const aciertos = apuestaJugador.filter(n => sorteo.includes(n)).length;
 
   let premio = 0;
@@ -31,11 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     agregarPremio(premio);
     STATE.bote = 0;
   } else if (aciertos === 5) {
-    premio = 25;
-    agregarPremio(premio);
+    premio = 25; agregarPremio(premio);
   } else if (aciertos === 4) {
-    premio = 5;
-    agregarPremio(premio);
+    premio = 5;  agregarPremio(premio);
   } else {
     STATE.bote += 2;
   }
@@ -48,40 +45,30 @@ document.addEventListener('DOMContentLoaded', () => {
     fecha: new Date().toLocaleString()
   });
 
+  // Limpiar apuesta y guardar ya
   STATE.apuesta = [];
   save();
 
-  // Animación de sorteo
-  const loading = document.getElementById('loading');
-  let current = 0;
-  const interval = setInterval(() => {
-    loading.textContent = '🎲 Sorteando ' + '.'.repeat(current % 4);
-    current++;
-    if (current >= 20) { // duración animación
-      clearInterval(interval);
-      mostrarResultadoFinal();
-    }
-  }, 100);
+  const renderBalls = (nums, highlightSet = new Set()) =>
+    `<div class="balls">${nums
+      .map(n => `<span class="ball ${highlightSet.has(n) ? 'acierto' : ''}">${n}</span>`)
+      .join('')}</div>`;
 
-  function mostrarResultadoFinal() {
-    // Reemplazar todo el contenido de 'res' por el resultado final
-    res.innerHTML = `
-      <p><strong>Tu apuesta:</strong></p>
-      <div class="balls">
-        ${apuestaJugador.map(n => `<span class="ball ${sorteo.includes(n)?'acierto':''}">${n}</span>`).join('')}
-      </div>
-
-      <p><strong>Sorteo:</strong></p>
-      <div class="balls">
-        ${sorteo.map(n => `<span class="ball">${n}</span>`).join('')}
-      </div>
-
-      <p><strong>Aciertos:</strong> ${aciertos}</p>
-      <p><strong>Premio:</strong> ${premio}€</p>
-      <p><strong>Bote actual:</strong> ${STATE.bote}€</p>
-    `;
-  }
+  res.innerHTML = `
+    <p><strong>Tu apuesta:</strong></p>
+    ${renderBalls(apuestaJugador, new Set(sorteo))}
+    <p><strong>Sorteo:</strong></p>
+    ${renderBalls(sorteo)}
+    <p><strong>Aciertos:</strong> ${aciertos}</p>
+    <p><strong>Premio:</strong> ${premio}€</p>
+    <p><strong>Bote actual:</strong> ${STATE.bote}€</p>
+  `;
 });
+
+
+
+
+
 
 
 
