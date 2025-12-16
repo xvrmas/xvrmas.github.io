@@ -1,11 +1,56 @@
-#ancla{
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
+.numeros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 420px;
+  margin-bottom: 10px;
 }
-a{
-    text-decoration: none;
-    border: solid 1px gray;
-    padding: 10px;
+
+.numero-btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #facc15;
+  color: #020617;
+  font-weight: bold;
+  cursor: pointer;
 }
+
+.numero-btn.seleccionado {
+  background-color: #22c55e;
+  color: white;
+}
+
+.balls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.ball {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #facc15;
+  color: #020617;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.ball.acierto {
+  background-color: #22c55e;
+  color: white;
+  transform: scale(1.3);
+}
+
+
+

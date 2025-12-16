@@ -1,18 +1,28 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apuesta Manual</title>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
-    <div id="ancla">
-        <a  href="apostes-manuals.html">JUGAR!</a>
-    </div>
-    <script src="js/main.js"></script>
-</body>
+  <h1>LotoBolsa - Apuesta Manual</h1>
 
+  <div id="loto-bolsa">
+    <p id="saldo-display">Saldo: 0€</p>
+    <p id="bote-display">Bote: 0€</p>
+    <button id="boto-loto-bolsa">Ingresar dinero</button>
+  </div>
+
+  <h2>Selecciona 6 números</h2>
+  <div id="numeros" class="numeros-container"></div>
+  <p id="numeros-seleccionados">Seleccionados: </p>
+  <button id="boto-pronostic">Jugar / Pronóstico</button>
+
+  <script type="module" src="js/state.js"></script>
+  <script type="module" src="js/lotoBolsa.js"></script>
+  <script type="module" src="js/apuestaManual.js"></script>
+</body>
 </html>
