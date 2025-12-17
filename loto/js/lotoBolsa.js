@@ -3,14 +3,16 @@ import { STATE, save, load } from './state.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   load();
-
   const saldoDisplay = document.getElementById('saldo-display');
   const boteDisplay  = document.getElementById('bote-display');
+  const saldoGanancias = document.getElementById('ganancias-display');
   const botonIngreso = document.getElementById('boto-loto-bolsa');
 
   function actualizarDisplays() {
     if (saldoDisplay) saldoDisplay.textContent = `Balance: ${STATE.saldo}€`;
+    if (saldoGanancias) saldoGanancias.textContent = `Win: ${STATE.ganancias}`;
     if (boteDisplay)  boteDisplay.textContent  = `Pot: ${STATE.bote}€`;
+
   }
 
   actualizarDisplays();
@@ -37,8 +39,11 @@ export function descontarApuesta() {
     // No asumimos que hay displays en todas las páginas
     const saldoDisplay = document.getElementById('saldo-display');
     const boteDisplay  = document.getElementById('bote-display');
+    const saldoGanancias = document.getElementById('ganancias-display') ;
+
     if (saldoDisplay) saldoDisplay.textContent = `Funds: ${STATE.saldo}€`;
     if (boteDisplay)  boteDisplay.textContent  = `Pot: ${STATE.bote}€`;
+    if (saldoGanancias)  saldoGanancias.textContent  = `Win: ${STATE.ganancias}€`;
     return true;
   } else {
     alert('You have insufficient funds');
@@ -47,10 +52,10 @@ export function descontarApuesta() {
 }
 
 export function agregarPremio(premio) {
-  STATE.saldo += premio;
+  STATE.ganancias += premio;
   save();
-  const saldoDisplay = document.getElementById('saldo-display');
-  if (saldoDisplay) saldoDisplay.textContent = `Funds: ${STATE.saldo}€`;
+  const gananciasDisplay = document.getElementById('ganancias-display');
+  if (gananciasDisplay) gananciasDisplay.textContent = `Funds: ${STATE.ganancias}€`;
 }
 
 

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     premio = 25; agregarPremio(premio);
   } else if (aciertos === 4) {
     premio = 5;  agregarPremio(premio);
-  } else if (aciertos === 3){
+  } else if (aciertos === 1){
     premio = 1; agregarPremio(premio);
   }  
   else {
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p><strong>Lottery:</strong></p>
     ${renderBalls(sorteo)}
     <p><strong>Matches:</strong> ${aciertos}</p>
+    <p><strong>Win:</strong> ${STATE.ganancias}</p>
     <p><strong>Current Jackpot:</strong> ${STATE.bote}€</p>
   `;
 });

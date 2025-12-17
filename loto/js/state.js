@@ -1,7 +1,7 @@
 export const STATE = {
   saldo: 0,
   bote: 0,
-  ganancias:0,
+  ganancias: 0,
   historial: [],
   apuesta: []
 };
