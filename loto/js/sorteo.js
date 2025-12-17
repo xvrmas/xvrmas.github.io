@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   load();
 
   if (!Array.isArray(STATE.apuesta) || STATE.apuesta.length !== 6) {
-    alert('No hay apuesta válida. Vuelve a la página de apuestas.');
+    alert('There is no valid bet. Return to the betting page.');
     window.location.href = './index.html';
     return;
   }
@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderBalls = (nums, highlightSet = new Set()) =>
     `<div class="balls">${nums
-      .map(n => `<span class="ball ${highlightSet.has(n) ? 'acierto' : ''}">${n}</span>`)
+      .map(n => `<span class="ball ${highlightSet.has(n) ? 'Hit' : ''}">${n}</span>`)
       .join('')}</div>`;
 
   res.innerHTML = `
-    <p><strong>Tu apuesta:</strong></p>
+    <p><strong>Your bet:</strong></p>
     ${renderBalls(apuestaJugador, new Set(sorteo))}
-    <p><strong>Sorteo:</strong></p>
+    <p><strong>Lottery:</strong></p>
     ${renderBalls(sorteo)}
-    <p><strong>Aciertos:</strong> ${aciertos}</p>
-    <p><strong>Premio:</strong> ${premio}€</p>
-    <p><strong>Bote actual:</strong> ${STATE.bote}€</p>
+    <p><strong>Matches:</strong> ${aciertos}</p>
+    <p><strong>Prize:</strong> ${premio}€</p>
+    <p><strong>Current Jackpot:</strong> ${STATE.bote}€</p>
   `;
 });
 
