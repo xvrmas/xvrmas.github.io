@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function actualizarDisplays() {
     if (saldoDisplay) saldoDisplay.textContent = `Balance: ${STATE.saldo}€`;
-    if (saldoGanancias) saldoGanancias.textContent = `Win: ${STATE.ganancias}`;
+    if (saldoGanancias) saldoGanancias.textContent = `Win: ${STATE.ganancias}€`;
     if (boteDisplay)  boteDisplay.textContent  = `Pot: ${STATE.bote}€`;
 
   }
