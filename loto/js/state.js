@@ -1,7 +1,7 @@
 export const STATE = {
   saldo: 0,
   bote: 0,
-  premi:0,
+  ganancias:0,
   historial: [],
   apuesta: []
 };
@@ -14,7 +14,7 @@ export function load() {
   if (data) {
     STATE.saldo = data.saldo;
     STATE.bote = data.bote;
-    STATE.premi = data.premi;
+    STATE.ganancias = data.ganancias;
     STATE.historial = data.historial || [];
     STATE.apuesta = data.apuesta || [];
   }

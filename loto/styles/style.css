@@ -1,7 +1,7 @@
 /* --- Base Reset and General Styles --- */
 :root {
     --primary-color: #2563eb; /* Blue-600 */
-    --accent-color: #f59e0b; /* Amber-500 for aciertos */
+    --accent-color: rgb(228, 194, 4); /* gold */
     --background-color: #f8fafc; /* Slate-50 */
     --card-bg: #ffffff;
     --text-color: #1e293b; /* Slate-800 */
@@ -73,7 +73,7 @@ button:hover {
 }
 
 #bote-display {
-    color: var(--accent-color);
+    color: var(--success-color);
 }
 
 
@@ -160,6 +160,7 @@ button:hover {
     border-left: 5px solid var(--primary-color);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 /* --- Responsive Design (Media Queries) --- */
 

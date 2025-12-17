@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.remove('seleccionado');
       } else if (seleccion.length < 6) {
         seleccion.push(i);
-        btn.classList.add('seleccionado' ,'aposta-feta');
+        btn.classList.add('seleccionado');
       }
 
       document.getElementById('numeros-seleccionados').textContent =
