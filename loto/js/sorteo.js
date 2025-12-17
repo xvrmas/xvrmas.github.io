@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     premio,
     fecha: new Date().toLocaleString()
   });
-
   // Limpiar apuesta y guardar ya
   STATE.apuesta = [];
   save();
@@ -63,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <p><strong>Lottery:</strong></p>
     ${renderBalls(sorteo)}
     <p><strong>Matches:</strong> ${aciertos}</p>
-    <p><strong>Prize:</strong> ${premio}€</p>
     <p><strong>Current Jackpot:</strong> ${STATE.bote}€</p>
   `;
 });

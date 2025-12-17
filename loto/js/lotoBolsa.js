@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const botonIngreso = document.getElementById('boto-loto-bolsa');
 
   function actualizarDisplays() {
-    if (saldoDisplay) saldoDisplay.textContent = `Funds: ${STATE.saldo}€`;
+    if (saldoDisplay) saldoDisplay.textContent = `Balance: ${STATE.saldo}€`;
     if (boteDisplay)  boteDisplay.textContent  = `Pot: ${STATE.bote}€`;
   }
 
@@ -41,7 +41,7 @@ export function descontarApuesta() {
     if (boteDisplay)  boteDisplay.textContent  = `Pot: ${STATE.bote}€`;
     return true;
   } else {
-    alert('You do not have enough balance');
+    alert('You have insufficient funds');
     return false;
   }
 }

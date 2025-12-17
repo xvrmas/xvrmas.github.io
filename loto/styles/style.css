@@ -46,6 +46,7 @@ button {
 
 button:hover {
     background-color: #1d4ed8; /* Darker blue */
+    color:white;
 }
 
 /* --- Loto Bolsa / Balance Section --- */

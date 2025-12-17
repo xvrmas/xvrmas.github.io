@@ -1,7 +1,6 @@
 import { STATE, save, load } from './state.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ✅ refresca el estado al volver a index.html
   load();
 
   let seleccion = [];
@@ -18,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.remove('seleccionado');
       } else if (seleccion.length < 6) {
         seleccion.push(i);
-        btn.classList.add('seleccionado');
+        btn.classList.add('seleccionado' ,'aposta-feta');
       }
 
       document.getElementById('numeros-seleccionados').textContent =
-        `Seleccionados: ${seleccion.join(', ')}`;
+        `Selected: ${seleccion.join(', ')}`;
 
       contenedor.querySelectorAll('button').forEach(b => {
         if (!seleccion.includes(parseInt(b.textContent))) {
