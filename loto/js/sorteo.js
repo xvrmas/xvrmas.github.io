@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p><strong>Lottery:</strong></p>
     ${renderBalls(sorteo)}
     <p><strong>Matches:</strong> ${aciertos}</p>
-    <p><strong>Win:</strong> ${premio}</p>
+    <p><strong>Win:</strong> ${premio}€</p>
     <p><strong>Current Jackpot:</strong> ${STATE.bote}€</p>
   `;
 });
