@@ -33,8 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     premio = 25; agregarPremio(premio);
   } else if (aciertos === 4) {
     premio = 5;  agregarPremio(premio);
-  } else {
-    STATE.bote += 2;
+  } else if (aciertos === 3){
+    premio = 1; agregarPremio(premio);
+  }  
+  else {
+    STATE.bote += 10;
   }
 
   STATE.historial.push({
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const renderBalls = (nums, highlightSet = new Set()) =>
     `<div class="balls">${nums
-      .map(n => `<span class="ball ${highlightSet.has(n) ? 'Hit' : ''}">${n}</span>`)
+      .map(n => `<span class="ball ${highlightSet.has(n) ? 'acierto' : ''}">${n}</span>`)
       .join('')}</div>`;
 
   res.innerHTML = `

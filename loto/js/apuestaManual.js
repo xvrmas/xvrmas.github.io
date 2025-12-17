@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('boto-pronostic').addEventListener('click', () => {
     if (seleccion.length !== 6) {
-      alert('Debes seleccionar exactamente 6 números');
+      alert('You must select exactly 6 numbers');
       return;
     }
 

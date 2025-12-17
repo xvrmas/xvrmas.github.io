@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   STATE.historial.forEach(h => {
     const li = document.createElement('li');
     li.textContent =
-      `${h.fecha} | ${h.apuesta.join(', ')} → ${h.aciertos} aciertos (${h.premio}€)`;
+      `${h.fecha} || Your bet: ${h.apuesta.join(', ')} - Winning numbers: ${h.sorteo}→ ${h.aciertos} Matches (${h.premio}€)`;
     ul.appendChild(li);
   });
 });
