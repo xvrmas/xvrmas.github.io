@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     premio = 25; agregarPremio(premio);
   } else if (aciertos === 4) {
     premio = 5;  agregarPremio(premio);
-  } else if (aciertos === 2){
+  } else if (aciertos === 3){
     premio = 1; agregarPremio(premio);
   }  
   else {
