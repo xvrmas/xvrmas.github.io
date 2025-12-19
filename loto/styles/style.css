@@ -1,11 +1,12 @@
-/* --- Base Reset and General Styles --- */
+
 :root {
-    --primary-color: #2563eb; /* Blue-600 */
-    --accent-color: rgb(228, 194, 4); /* gold */
-    --background-color: #f8fafc; /* Slate-50 */
+    --primary-color: #2563eb;
+    --accent-color: rgb(228, 194, 4);
+    --background-color: #f8fafc;
     --card-bg: #ffffff;
-    --text-color: #1e293b; /* Slate-800 */
-    --success-color: #10b981; /* Emerald-500 */
+    --text-color: #1e293b;
+    --success-color: #10b981;
+    --alert-color:rgb(255, 0, 0);
 }
 
 * {
@@ -31,7 +32,7 @@ h1, h2 {
     padding-bottom: 5px;
 }
 
-/* --- Buttons (General Style) --- */
+
 button {
     background-color: var(--primary-color);
     color: white;
@@ -45,12 +46,11 @@ button {
 }
 
 button:hover {
-    background-color: #1d4ed8; /* Darker blue */
-    color:white;
+    background-color: #1d4ed8;
 }
 
-/* --- Loto Bolsa / Balance Section --- */
-#loto-bolsa {
+
+#panell-joc {
     background-color: var(--card-bg);
     padding: 15px;
     border-radius: 8px;
@@ -63,21 +63,23 @@ button:hover {
     gap: 10px;
 }
 
-#loto-bolsa p {
+#panell-joc p {
     margin: 0;
     font-weight: bold;
 }
 
-#saldo-display {
+#saldo,
+#pot,
+#premis
+ {
     color: var(--success-color);
 }
 
-#bote-display {
-    color: var(--success-color);
+#gastat
+{
+    color: var(--alert-color);
 }
 
-
-/* --- Lottery Balls (Shared Styles) --- */
 .balls {
     display: flex;
     flex-wrap: wrap;
@@ -86,24 +88,24 @@ button:hover {
 }
 
 .ball {
-    display: inline-flex;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: #e2e8f0; /* Light gray */
-    color: var(--text-color);
+    background: #e2e8f0;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    color: var(--text-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .ball.acierto {
-    background: var(--accent-color); /* Gold/Amber color */
+    background: var(--accent-color);
     color: black;
 }
 
-/* --- Page 2: Index/Apuestas (Selectors) --- */
+
 .numeros-container {
     display: flex;
     flex-wrap: wrap;
@@ -112,47 +114,47 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Specific styling for the selector buttons */
 .numero-btn {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 1px solid #cbd5e1;
+    font-weight: bold;
+    color:black;
+    cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--card-bg);
-    border: 1px solid #cbd5e1;
-    color: var(--text-color);
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 50%; /* Make them look like balls */
 }
 
 .numero-btn.seleccionado {
-    background-color: var(--success-color); /* Green when selected */
+    background-color: var(--success-color);
     color: white;
     border-color: var(--success-color);
 }
 
-#numeros-seleccionados {
+
+#seleccio-actual {
     margin-bottom: 20px;
     font-style: italic;
     color: #475569;
 }
 
-/* --- Page 1: Results Page Styling --- */
-#res p {
+
+#resultats p {
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
 
-/* --- History List (Page 2) --- */
-#lista {
-    list-style-type: none;
+
+#historial {
+    list-style: none;
     padding: 0;
     margin-top: 15px;
 }
 
-#lista li {
+#historial li {
     background-color: var(--card-bg);
     margin-bottom: 10px;
     padding: 10px;
@@ -161,10 +163,6 @@ button:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-
-/* --- Responsive Design (Media Queries) --- */
-
-/* Adjust layout for smaller screens (e.g., mobile portrait) */
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -174,18 +172,12 @@ button:hover {
         font-size: 1.5rem;
     }
 
-    /* Stack balance items vertically if they don't fit horizontally */
-    #loto-bolsa {
+    #panell-joc {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    #loto-bolsa button {
+    #panell-joc button {
         width: 100%;
     }
 }
-
-
-
-
-

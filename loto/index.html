@@ -9,27 +9,33 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+
   <h1>When will I be a millionaire?</h1>
 
-  <div id="loto-bolsa">
-    <p id="saldo-display">Balance: 0€</p>
-    <p id="ganancias-display">win: 0€</p>
-    <p id="bote-display">Pot: 0€</p>
-    <button id="boto-loto-bolsa">Add funds</button>
+  <!-- Game panel -->
+  <div id="panell-joc">
+    <p id="saldo">Balance: 0€</p>
+    <p id="premis">Win: 0€</p>
+    <p id="gastat">Waste: 0€</p>
+    <p id="pot">Pot: 0€</p>
+    <button id="boto-afegir-fons">Add funds</button>
   </div>
 
   <h2>Choose 6 numbers</h2>
-  <div id="numeros" class="numeros-container"></div>
-  <p id="numeros-seleccionados">Selected: </p>
-  <button id="boto-pronostic">Play / Prediction</button>
+
+  <div id="selector-numeros" class="numeros-container"></div>
+
+  <p id="seleccio-actual">Selected:</p>
+
+  <button id="boto-jugar">Play / Prediction</button>
 
   <h2>History</h2>
-  <ul id="lista"></ul>
+  <ul id="historial"></ul>
 
   <!-- Scripts -->
-  <script type="module" src="js/state.js"></script>
-  <script type="module" src="js/lotoBolsa.js"></script>
-  <script type="module" src="js/apuestaManual.js"></script>
+  <script type="module" src="js/estat.js"></script>
+  <script type="module" src="js/panellJoc.js"></script>
+  <script type="module" src="js/apostaManual.js"></script>
   <script type="module" src="js/historial.js"></script>
 </body>
 </html>

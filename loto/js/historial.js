@@ -1,14 +1,17 @@
-import { STATE, load } from './state.js';
+//Render de l’historial
+
+import { ESTAT, carregarEstat } from './estat.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  load();
+  carregarEstat();
 
-  const ul = document.getElementById('lista');
-  STATE.historial.forEach(h => {
+  const historialEl = document.getElementById('historial');
+
+  ESTAT.historial.forEach(h => {
     const li = document.createElement('li');
     li.textContent =
-      `${h.fecha} || Your bet: ${h.apuesta.join(', ')} - Winning numbers: ${h.sorteo}→ ${h.aciertos} Matches (${h.premio}€)`;
-    ul.appendChild(li);
+      `${h.data} || Your bet: ${h.aposta.join(', ')} - Winning numbers: ${h.sorteig.join(', ')} → ${h.encerts} Matches (${h.premi}€)`;
+    historialEl.appendChild(li);
   });
 });
 

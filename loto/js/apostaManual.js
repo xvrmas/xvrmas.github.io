@@ -1,0 +1,53 @@
+//Selecció manual de números
+
+import { ESTAT, desarEstat, carregarEstat } from './estat.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  carregarEstat();
+
+  let seleccioActual = [];
+  const contenidor = document.getElementById('selector-numeros');
+  const seleccioEl = document.getElementById('seleccio-actual');
+  const botoJugar = document.getElementById('boto-jugar');
+
+  for (let i = 1; i <= 49; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = i;
+    btn.classList.add('numero-btn');
+
+    btn.addEventListener('click', () => {
+      if (seleccioActual.includes(i)) {
+        seleccioActual = seleccioActual.filter(n => n !== i);
+        btn.classList.remove('seleccionado');
+      } else if (seleccioActual.length < 6) {
+        seleccioActual.push(i);
+        btn.classList.add('seleccionado');
+      }
+
+      seleccioEl.textContent = `Selected: ${seleccioActual.join(', ')}`;
+
+      contenidor.querySelectorAll('button').forEach(b => {
+        if (!seleccioActual.includes(Number(b.textContent))) {
+          b.disabled = seleccioActual.length >= 6;
+        }
+      });
+    });
+
+    contenidor.appendChild(btn);
+  }
+
+  botoJugar.addEventListener('click', () => {
+    if (seleccioActual.length !== 6) {
+      alert('You must select exactly 6 numbers');
+      return;
+    }
+
+    ESTAT.apostaActual = [...seleccioActual];
+    desarEstat();
+    window.location.href = './resultado.html';
+  });
+});
+
+
+
+

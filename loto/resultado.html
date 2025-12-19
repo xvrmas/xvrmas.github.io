@@ -1,54 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultado</title>
+  <title>Resultat</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+
   <h1>Lottery Results</h1>
 
-  <div id="loto-bolsa">
-    <p id="saldo-display">Balance: 0€</p>
-    <p id="bote-display">Pot: 0€</p>
+  <!-- Game panel -->
+  <div id="panell-joc">
+    <p id="saldo">Balance: 0€</p>
+    <p id="pot">Pot: 0€</p>
   </div>
 
-  <div id="res">
-  <p><strong>Your bet:</strong></p>
-  <div class="balls">
-    <span class="ball">1</span>
-    <span class="ball acierto">2</span>
-    <span class="ball">3</span>
-    <span class="ball acierto">4</span>
-    <span class="ball">5</span>
-    <span class="ball">6</span>
-  </div>
-
-  <p><strong>Lottery:</strong></p>
-  <div class="balls">
-    <span class="ball">2</span>
-    <span class="ball">4</span>
-    <span class="ball">7</span>
-    <span class="ball">8</span>
-    <span class="ball">9</span>
-    <span class="ball">10</span>
-  </div>
-
-  <p><strong>Matches:</strong> 2</p>
-  <p><strong>Prize:</strong> 0€</p>
-  <p><strong>Current Jackpot:</strong> 2€</p>
-</div>
-
+  <!-- Results -->
+  <div id="resultats"></div>
 
   <button onclick="window.location.href='index.html'">Return</button>
 
   <!-- Scripts -->
-  <script type="module" src="js/state.js"></script>
-  <script type="module" src="js/lotoBolsa.js"></script>
-  <script type="module" src="js/sorteo.js"></script>
+  <script type="module" src="js/estat.js"></script>
+  <script type="module" src="js/panellJoc.js"></script>
+  <script type="module" src="js/sorteig.js"></script>
 </body>
 </html>
+
 
 
 
