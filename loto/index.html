@@ -1,18 +1,18 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>When will I be a millionaire?</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
 
   <h1>When will I be a millionaire?</h1>
 
-  <!-- Game panel -->
+  <!-- info del estat dels contes, guanys, pot i diners invertits -->
   <div id="panell-joc">
     <p id="saldo">Balance: 0€</p>
     <p id="premis">Win: 0€</p>
@@ -20,14 +20,17 @@
     <p id="pot">Pot: 0€</p>
     <button id="boto-afegir-fons">Add funds</button>
   </div>
-
+  <label for="numero-apostes">How many games do you want to bet on?</label>
+  <input id="num-sorteigs"  class="numero-apostes" type="number" value="1" min="1">
   <h2>Choose 6 numbers</h2>
 
-  <div id="selector-numeros" class="numeros-container"></div>
+  <div id="selector-numeros" class="numeros-container">
+    <!--aqui va la cuadricula del 1 al 49-->
+  </div>
 
-  <p id="seleccio-actual">Selected:</p>
+  <p id="seleccio-actual">Selected: </p>
 
-  <button id="boto-jugar">Play / Prediction</button>
+  <button id="boto-jugar">Play</button>
 
   <h2>History</h2>
   <ul id="historial"></ul>
@@ -38,4 +41,5 @@
   <script type="module" src="js/apostaManual.js"></script>
   <script type="module" src="js/historial.js"></script>
 </body>
+
 </html>

@@ -4,16 +4,19 @@ import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 import { generarSorteig } from './generadorSorteig.js';
 import { cobrarAposta, afegirPremi } from './panellJoc.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>
+{
   carregarEstat();
 
-  if (!Array.isArray(ESTAT.apostaActual) || ESTAT.apostaActual.length !== 6) {
+  if (!Array.isArray(ESTAT.apostaActual) || ESTAT.apostaActual.length !== 6)
+  {
     alert('There is no valid bet. Return to the betting page.');
     window.location.href = './index.html';
     return;
   }
 
-  if (!cobrarAposta()) {
+  if (!cobrarAposta())
+  {
     window.location.href = './index.html';
     return;
   }
@@ -26,22 +29,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let importPremi = 0;
 
-  if (nombreEncerts === 6) {
+  if (nombreEncerts === 6)
+  {
     importPremi = ESTAT.pot > 0 ? ESTAT.pot : 100;
     ESTAT.pot = 0;
     ESTAT.gastat -= importPremi
     afegirPremi(importPremi);
   }
-  else if (nombreEncerts === 5) {
+  else if (nombreEncerts === 5)
+  {
     importPremi = 25;
     afegirPremi(importPremi);
-  } else if (nombreEncerts === 4) {
+  }
+  else if (nombreEncerts === 4)
+  {
     importPremi = 5;
     afegirPremi(importPremi);
-  } else if (nombreEncerts === 3) {
+  } 
+  else if (nombreEncerts === 3)
+  {
     importPremi = 1;
     afegirPremi(importPremi);
-  } else {
+  } 
+  else
+  {
     ESTAT.pot += 10;
   }
 

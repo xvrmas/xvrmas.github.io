@@ -2,12 +2,14 @@
 
 import { ESTAT, carregarEstat } from './estat.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>
+{
   carregarEstat();
 
   const historialEl = document.getElementById('historial');
 
-  ESTAT.historial.forEach(h => {
+  ESTAT.historial.forEach(h =>
+  {
     const li = document.createElement('li');
     li.textContent =
       `${h.data} || Your bet: ${h.aposta.join(', ')} - Winning numbers: ${h.sorteig.join(', ')} → ${h.encerts} Matches (${h.premi}€)`;

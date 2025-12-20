@@ -32,6 +32,12 @@ h1, h2 {
     padding-bottom: 5px;
 }
 
+.numero-apostes{
+    border: solid 2px var(--primary-color);
+    border-radius: 12%;;
+    width: 10%;
+    height: 20px;
+}
 
 button {
     background-color: var(--primary-color);
