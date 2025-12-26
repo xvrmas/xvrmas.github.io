@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
   carregarEstat();
 
-  console.log('ESTAT.numSorteigs 2 -> ',ESTAT.numSorteigs);
-
   if (!Array.isArray(ESTAT.apostaActual) || ESTAT.apostaActual.length !== 6)
   {
     alert('There is no valid bet. Return to the betting page.');
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () =>
   }
 
   const resultatsEl = document.getElementById('resultats');
-
+  
   const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
   const numerosSorteig = generarSorteig().sort((a, b) => a - b);
   const nombreEncerts = apostaOrdenada.filter(n => numerosSorteig.includes(n)).length;

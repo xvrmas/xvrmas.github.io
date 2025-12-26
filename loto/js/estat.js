@@ -23,7 +23,7 @@ export function carregarEstat()
     ESTAT.saldo = data.saldo;
     ESTAT.pot = data.pot;
     ESTAT.premis = data.premis;
-    ESTAT.numApostes = data.numApostes;
+    ESTAT.numSorteigs = data.numSorteigs;
     ESTAT.gastat = data.gastat;
     ESTAT.historial = data.historial || [];
     ESTAT.apostaActual = data.apostaActual || [];

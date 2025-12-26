@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () =>
     const gastatEl = document.getElementById('gastat');
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
     const iteracions = document.getElementById('num-sorteigs');
-    
-    console.log('iteracions-> ', iteracions)
+
 
     function actualitzarPanell()
     {
@@ -24,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () =>
         if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
     }
 
- 
+
     actualitzarPanell();
 
-    
+
     const botoCapturaIteracions = document.getElementById('boto-jugar');
 
-   if (botoCapturaIteracions)
+    if (botoCapturaIteracions)
     {
         botoCapturaIteracions.addEventListener('click', () =>
         {

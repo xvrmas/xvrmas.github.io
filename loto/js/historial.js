@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () =>
   carregarEstat();
 
   const historialEl = document.getElementById('historial');
+  console.log('iteracions-> ', ESTAT.numSorteigs);
 
   ESTAT.historial.forEach(h =>
   {
