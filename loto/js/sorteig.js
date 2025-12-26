@@ -4,9 +4,13 @@ import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 import { generarSorteig } from './generadorSorteig.js';
 import { cobrarAposta, afegirPremi } from './panellJoc.js';
 
+
 document.addEventListener('DOMContentLoaded', () =>
 {
+
   carregarEstat();
+
+  console.log('ESTAT.numSorteigs 2 -> ',ESTAT.numSorteigs);
 
   if (!Array.isArray(ESTAT.apostaActual) || ESTAT.apostaActual.length !== 6)
   {
@@ -45,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () =>
   {
     importPremi = 5;
     afegirPremi(importPremi);
-  } 
+  }
   else if (nombreEncerts === 3)
   {
     importPremi = 1;
     afegirPremi(importPremi);
-  } 
+  }
   else
   {
     ESTAT.pot += 10;

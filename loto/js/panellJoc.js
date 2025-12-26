@@ -2,15 +2,19 @@
 
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 
+
+
 document.addEventListener('DOMContentLoaded', () =>
 {
     carregarEstat();
-    console.log(ESTAT.gastat);
     const saldoEl = document.getElementById('saldo');
     const potEl = document.getElementById('pot');
     const premisEl = document.getElementById('premis');
     const gastatEl = document.getElementById('gastat');
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
+    const iteracions = document.getElementById('num-sorteigs');
+    
+    console.log('iteracions-> ', iteracions)
 
     function actualitzarPanell()
     {
@@ -20,7 +24,20 @@ document.addEventListener('DOMContentLoaded', () =>
         if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
     }
 
+ 
     actualitzarPanell();
+
+    
+    const botoCapturaIteracions = document.getElementById('boto-jugar');
+
+   if (botoCapturaIteracions)
+    {
+        botoCapturaIteracions.addEventListener('click', () =>
+        {
+            ESTAT.numSorteigs = iteracions.value;
+        }
+        )
+    }
 
     if (botoAfegirFons)
     {

@@ -51,7 +51,7 @@ h1, h2 {
     transition: background-color 0.3s ease;
     margin-top: 10px;
  }
-#boto-afegir-fons {
+#boto-afegir-fons, #boto-retorn {
     background-color: var(--primary-color);
     color: white;
     border: none;
