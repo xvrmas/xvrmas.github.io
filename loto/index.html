@@ -10,6 +10,7 @@
 
 <body>
 
+
   <h1>When will I be a millionaire?</h1>
 
   <!-- info del estat dels contes, guanys, pot i diners invertits -->
@@ -19,18 +20,17 @@
     <p id="gastat">Waste: 0€</p>
     <p id="pot">Pot: 0€</p>
     <button id="boto-afegir-fons">Add funds</button>
+    <button id="boto-jugar">Play</button>
   </div>
   <label for="numero-apostes">How many games do you want to bet on?</label>
-  <input id="num-sorteigs"  class="numero-apostes" type="number" value="1" min="1">
+  <input id="num-sorteigs" class="numero-apostes" type="number" value="1" min="1">
   <h2>Choose 6 numbers</h2>
-
+  <p id="seleccio-actual">Selected: </p>
   <div id="selector-numeros" class="numeros-container">
     <!--aqui va la cuadricula del 1 al 49-->
   </div>
 
-  <p id="seleccio-actual">Selected: </p>
 
-  <button id="boto-jugar">Play</button>
 
   <h2>History</h2>
   <ul id="historial"></ul>
