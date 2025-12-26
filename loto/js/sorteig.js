@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
     ESTAT.apostaActual = [];
     desarEstat();
-
+    cobrarAposta();
     const renderBoles = (nums, encertsSet = new Set()) =>
       `<div class="balls">${nums
         .map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`)
