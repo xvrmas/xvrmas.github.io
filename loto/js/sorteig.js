@@ -25,11 +25,12 @@ document.addEventListener('DOMContentLoaded', () =>
     return;
   }
 
+  const resultatsEl = document.getElementById('resultats');
+  const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
+
   while (i < ESTAT.numSorteigs)
   {
-    const resultatsEl = document.getElementById('resultats');
 
-    const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
     const numerosSorteig = generarSorteig().sort((a, b) => a - b);
     const nombreEncerts = apostaOrdenada.filter(n => numerosSorteig.includes(n)).length;
 
@@ -89,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () =>
   `;
     i++;
   }
-
 });
 
 
