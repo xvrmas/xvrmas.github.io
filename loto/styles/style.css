@@ -190,6 +190,13 @@ button:hover {
     font-size: 1.1rem;
 }
 
+.guanyador
+{
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: large;
+}
+
 
 #historial {
     list-style: none;
@@ -206,21 +213,81 @@ button:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
+/* --- ADAPTACIÓ RESPONSIVE (900px) --- */
+@media (max-width: 900px) {
+    /* Apliquem el canvi de disseny NOMÉS a la taula de l'historial */
+    .taula-dinamica, 
+    .taula-dinamica thead, 
+    .taula-dinamica tbody, 
+    .taula-dinamica tr, 
+    .taula-dinamica td { 
+        display: block; 
+        width: 100%;
     }
 
-    h1, h2 {
-        font-size: 1.5rem;
+    .taula-dinamica thead {
+        display: none; /* Amaguem la capçalera */
     }
 
+    .taula-dinamica tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: var(--card-bg);
+    }
+
+    .taula-dinamica td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #eee;
+        min-height: 40px;
+    }
+
+    /* Etiquetes per a la taula */
+    .taula-dinamica td::before {
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .taula-dinamica td.data::before { content: "Date:"; }
+    .taula-dinamica td.aposta::before { content: "Your bet:"; }
+    .taula-dinamica td.resultat::before { content: "Winning numbers:"; }
+    .taula-dinamica td.coincidencies::before { content: "Matches:"; }
+    .taula-dinamica td.premi::before { content: "Winnings:"; }
+
+    /* --- PROTECCIÓ DELS BOTONS DE NÚMEROS --- */
+    /* Forcem que el contenidor de números segueixi sent una graella flexible */
+    .numeros-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    /* Ens assegurem que els botons circulars no perdin la seva forma */
+    .numero-btn {
+        display: inline-flex !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Ajustos del panell de control (Saldo, Pot, etc.) */
     #panell-joc {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
     }
 
     #panell-joc button {
-        width: 100%;
+        width: 100%; /* Només els botons d'acció (Jugar, Afegir fons) ocupen tot l'ample */
+        max-width: 300px;
     }
 }

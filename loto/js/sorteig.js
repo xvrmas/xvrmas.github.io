@@ -38,24 +38,24 @@ document.addEventListener('DOMContentLoaded', () =>
 
     if (nombreEncerts === 6)
     {
-      importPremi = ESTAT.pot > 0 ? ESTAT.pot : 100;
+      importPremi = ESTAT.pot > 0 ? ESTAT.pot : 15000000;
       ESTAT.pot = 0;
       ESTAT.gastat -= importPremi
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 5)
     {
-      importPremi = 25;
+      importPremi = 2045,19;
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 4)
     {
-      importPremi = 5;
+      importPremi = 51,81;
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 3)
     {
-      importPremi = 1;
+      importPremi = 8;
       afegirPremi(importPremi);
     }
     else
