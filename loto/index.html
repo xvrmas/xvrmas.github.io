@@ -23,7 +23,7 @@
     <button id="boto-jugar">Play</button>
   </div>
   <label for="numero-apostes">How many games do you want to bet on?</label>
-  <input id="num-sorteigs" class="numero-apostes" type="number" value="1"  min="1" max="100">
+  <input id="num-sorteigs" class="numero-apostes" type="number" value="1" min="1" max="100">
   <h2>Choose 6 numbers</h2>
   <p id="seleccio-actual">Selected: </p>
   <div id="selector-numeros" class="numeros-container">
@@ -33,7 +33,23 @@
 
 
   <h2>History</h2>
-  <ul id="historial"></ul>
+
+  <div id="historial">
+    <table class="taula-dinamica" id="taula-Id">
+      <thead>
+        <tr class="capsalera-taula">
+          <th>Date</th>
+          <th>Your bet</th>
+          <th>Winning numbers</th>
+          <th>Matches</th>
+          <th>Winnings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--aqui va el llistat dinamic-->
+      </tbody>
+    </table>
+  </div>
 
   <!-- Scripts -->
   <script type="module" src="js/estat.js"></script>
