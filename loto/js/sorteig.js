@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', () =>
     return;
   }
 
-  if (!cobrarAposta())
-  {
-    window.location.href = './index.html';
-    return;
-  }
+  
 
   const resultatsEl = document.getElementById('resultats');
   const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
 
   while (i < ESTAT.numSorteigs)
   {
-
+    if (!cobrarAposta())
+    {
+       window.location.href = './index.html';
+       return;
+    }
     const numerosSorteig = generarSorteig().sort((a, b) => a - b);
     const nombreEncerts = apostaOrdenada.filter(n => numerosSorteig.includes(n)).length;
 
