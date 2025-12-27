@@ -2,11 +2,19 @@
 
 import { ESTAT, carregarEstat } from './estat.js';
 
+
+
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
 
   ESTAT.historial.sort((a, b) => b.encerts - a.encerts);
+
+  const netejaHistorial = document.getElementById('neteja-historial');
+  netejaHistorial.addEventListener('click', () => {
+    localStorage.clear();
+    location.reload();
+  })
 
   for (let item of ESTAT.historial)
   {

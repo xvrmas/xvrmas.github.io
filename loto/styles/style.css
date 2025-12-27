@@ -197,7 +197,11 @@ button:hover {
     font-size: large;
 }
 
-
+#neteja-historial
+{
+    border: none;
+    background-color: var(--background-color);
+}
 #historial {
     list-style: none;
     padding: 0;
