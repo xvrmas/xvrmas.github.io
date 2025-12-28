@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () =>
   const contenidor = document.getElementById('selector-numeros');
   const seleccioEl = document.getElementById('seleccio-actual');
   const botoJugar = document.getElementById('boto-jugar');
-
+  const restaSeleccio = document.getElementById('numeros-restants');
+  let j = 6;
   for (let i = 1; i <= 49; i++)
   {
     const btn = document.createElement('button');
@@ -22,12 +23,17 @@ document.addEventListener('DOMContentLoaded', () =>
     {
       if (seleccioActual.includes(i))
       {
+        j++;
         seleccioActual = seleccioActual.filter(n => n !== i);
         btn.classList.remove('seleccionado');
+        restaSeleccio.innerHTML = j;
       } else if (seleccioActual.length < 6)
       {
+        j--;
         seleccioActual.push(i);
         btn.classList.add('seleccionado');
+        restaSeleccio.innerHTML = j;
+        console.log(restaSeleccio);
       }
 
       seleccioEl.textContent = `Selected: ${seleccioActual.join(', ')}`;

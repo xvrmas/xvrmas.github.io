@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () =>
     return;
   }
 
-  
+
 
   const resultatsEl = document.getElementById('resultats');
   const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () =>
   {
     if (!cobrarAposta())
     {
-       window.location.href = './index.html';
-       return;
+      window.location.href = './index.html';
+      return;
     }
     const numerosSorteig = generarSorteig().sort((a, b) => a - b);
     const nombreEncerts = apostaOrdenada.filter(n => numerosSorteig.includes(n)).length;
@@ -45,17 +45,17 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     else if (nombreEncerts === 5)
     {
-      importPremi = 2045,19;
+      importPremi = parseFloat(2045, 19);
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 4)
     {
-      importPremi = 51,81;
+      importPremi = parseFloat(51, 81);
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 3)
     {
-      importPremi = 8;
+      importPremi = parseFloat(8, 37);
       afegirPremi(importPremi);
     }
     else
@@ -75,9 +75,7 @@ document.addEventListener('DOMContentLoaded', () =>
     desarEstat();
     //cobrarAposta();
     const renderBoles = (nums, encertsSet = new Set()) =>
-      `<div class="balls">${nums
-        .map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`)
-        .join('')}</div>`;
+      `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
     resultatsEl.innerHTML = `
     <p><strong>Your bet:</strong></p>

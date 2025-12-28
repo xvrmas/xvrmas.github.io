@@ -11,9 +11,19 @@ document.addEventListener('DOMContentLoaded', () =>
   ESTAT.historial.sort((a, b) => b.encerts - a.encerts);
 
   const netejaHistorial = document.getElementById('neteja-historial');
-  netejaHistorial.addEventListener('click', () => {
-    localStorage.clear();
-    location.reload();
+  netejaHistorial.addEventListener('click', () =>
+  {
+    let confirmaNeteja = confirm('Do you want to clear your history?, Earnings, balance, and all history will be deleted.');
+    if (confirmaNeteja === true)
+    {
+      localStorage.clear();
+      location.reload();
+    }
+    else
+    {
+      return;
+    }
+
   })
 
   for (let item of ESTAT.historial)
@@ -30,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () =>
     tdPremi.textContent = `${h.premi}`;
     if (h.premi !== 0)
     {
-        tdPremi.classList.add('guanyador');
+      tdPremi.classList.add('guanyador');
     }
     fila.innerHTML = `
     <td class="data">${h.data}</td>
@@ -38,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () =>
     <td class="resultat">${h.sorteig.join('-')}</td>
     <td class="coincidencies">${h.encerts}</td>
   `;
-  fila.appendChild(tdPremi);
+    fila.appendChild(tdPremi);
     historialEl.appendChild(fila);
   }
 });
