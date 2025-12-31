@@ -49,6 +49,25 @@ document.addEventListener('DOMContentLoaded', () =>
 
     contenidor.appendChild(btn);
   }
+  const opcions = document.querySelectorAll('input[name="opcio"]');
+  //const checkManual = document.getElementById('manual');
+  const checkAutomatica = document.getElementById('automatica');
+  const opcioAutomatica = document.getElementById('opcio-manual');
+
+  opcions.forEach(radio =>
+  {
+    radio.addEventListener('change', () =>
+    {
+      if (checkAutomatica.checked)
+      {
+        opcioAutomatica.classList.add('opcio-visivilitat')
+      }
+      else{
+        opcioAutomatica.classList.remove('opcio-visivilitat')
+      }
+    })
+  });
+
 
   botoJugar.addEventListener('click', () =>
   {
