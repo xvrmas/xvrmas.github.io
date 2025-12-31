@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () =>
     const premisEl = document.getElementById('premis');
     const gastatEl = document.getElementById('gastat');
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
-    const iteracions = document.getElementById('num-sorteigs');
-    
+    const iteracions = document.getElementById('boto-jugar');
+
 
     function actualitzarPanell()
     {
@@ -23,20 +23,34 @@ document.addEventListener('DOMContentLoaded', () =>
         if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
     }
 
- 
+
     actualitzarPanell();
 
-    
-    const botoCapturaIteracions = document.getElementById('boto-jugar');
 
-   if (botoCapturaIteracions)
+    iteracions.addEventListener('click', () =>
     {
-        botoCapturaIteracions.addEventListener('click', () =>
+        const element = document.getElementById('num-sorteigs').value
+
+        if (element === 'dia')
         {
-            ESTAT.numSorteigs = iteracions.value;
+            ESTAT.numSorteigs = 1;
         }
-        )
-    }
+        else if (element === 'setmana')
+        {
+            ESTAT.numSorteigs = 3;
+            
+        }
+        else if (element === 'mes')
+        {
+            ESTAT.numSorteigs = 12;
+            
+        }
+        else if (element === 'any')
+        {
+            ESTAT.numSorteigs = 156;
+            
+        }
+    })
 
     if (botoAfegirFons)
     {

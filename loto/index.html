@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -22,18 +22,21 @@
     <button id="boto-afegir-fons">Add funds</button>
     <button id="boto-jugar">Play</button>
   </div>
-  <label for="numero-apostes">How many games do you want to bet on?</label>
-  <select name="iteracions">
-    <option value="dia" selected disabled>dia (1)</option>
-    <option value="setmana">setmana (3)</option>
-    <option value="mes">mes (12)</option>
-    <option value="any">any (156)</option>
+  <label for="numero-apostes">Please select your draw frequency from the dropdown menu: </label>
+  <select name="iteracions" id="num-sorteigs">
+    <option value="dia" selected>Day (1)</option>
+    <option value="setmana">Week (3)</option>
+    <option value="mes">Month (12)</option>
+    <option value="any">Year (156)</option>
   </select>
   <!--<input id="num-sorteigs" class="numero-apostes" type="number" value="1" min="1" max="100">-->
-  <input type="radio" id="manual" name="opcio" value="m" checked>
-  <label for="manual">Manual</label>
-  <input type="radio" id="automatica" name="opcio" value="a">
-  <label for="automatica">automatica</label>
+  <div class="radio-group">
+    <input type="radio" id="manual" name="opcio" value="m" checked>
+    <label for="manual">Manual pick</label>
+
+    <input type="radio" id="automatica" name="opcio" value="a">
+    <label for="automatica">Random selection</label>
+  </div>
   <div id="opcio-manual">
     <h2>Choose <span id="numeros-restants">6</span> numbers</h2>
     <p id="seleccio-actual">Selected: </p>
