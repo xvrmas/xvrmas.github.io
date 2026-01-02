@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () =>
         btn.classList.add('seleccionado');
         restaSeleccio.innerHTML = j;
       }
+      seleccioActual.sort((a, b) => a - b)
 
       seleccioEl.textContent = `Selected: ${seleccioActual.join(', ')}`;
 
@@ -49,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () =>
     contenidor.appendChild(btn);
   }
   const opcions = document.querySelectorAll('input[name="opcio"]');
-  //const checkManual = document.getElementById('manual');
   const checkAutomatica = document.getElementById('automatica');
   const opcioAutomatica = document.getElementById('opcio-manual');
 
@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () =>
       {
         opcioAutomatica.classList.add('opcio-visivilitat')
       }
-      else{
+      else
+      {
         opcioAutomatica.classList.remove('opcio-visivilitat')
       }
     })
