@@ -273,8 +273,9 @@ button:hover {
 }
 #seleccio-actual {
     margin-bottom: 20px;
-    font-style: italic;
-    color: #475569;
+    font-style: normal;
+    font-weight: bolder;
+    color: var(--primary-color);
 }
 
 

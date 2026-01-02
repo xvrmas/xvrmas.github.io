@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', () =>
         btn.classList.add('seleccionado');
         restaSeleccio.innerHTML = j;
       }
-      seleccioActual.sort((a, b) => a - b)
-
-      seleccioEl.textContent = `Selected: ${seleccioActual.join(', ')}`;
+      seleccioEl.textContent = `Selected: ${seleccioActual.sort((a, b) => a - b).join(' - ')}`;
 
       contenidor.querySelectorAll('button').forEach(b =>
       {
