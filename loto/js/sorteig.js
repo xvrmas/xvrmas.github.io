@@ -5,6 +5,8 @@ import { generarSorteig } from './generadorSorteig.js';
 import { cobrarAposta, afegirPremi } from './panellJoc.js';
 
 let i = 0;
+let premiRonda = 0;
+
 
 document.addEventListener('DOMContentLoaded', () =>
 {
@@ -33,9 +35,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     const numerosSorteig = generarSorteig().sort((a, b) => a - b);
     const nombreEncerts = apostaOrdenada.filter(n => numerosSorteig.includes(n)).length;
-
     let importPremi = 0;
-
     if (nombreEncerts === 6)
     {
       importPremi = ESTAT.pot > 0 ? ESTAT.pot : 15000000;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () =>
     {
       ESTAT.pot += 10;
     }
-
+    premiRonda += importPremi;
     ESTAT.historial.push({
       aposta: apostaOrdenada,
       sorteig: numerosSorteig,
@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () =>
     ESTAT.apostaActual = [];
     desarEstat();
     //cobrarAposta();
+
     const renderBoles = (nums, encertsSet = new Set()) =>
       `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
@@ -83,8 +84,7 @@ document.addEventListener('DOMContentLoaded', () =>
     <p><strong>Lottery:</strong></p>
     ${renderBoles(numerosSorteig)}
     <p><strong>Matches:</strong> ${nombreEncerts}</p>
-    <p><strong>Win:</strong> ${ESTAT.premis}</p>
-    <p><strong>Current Jackpot:</strong> ${ESTAT.pot}€</p>
+    <p><strong>Win:</strong> ${premiRonda}</p>
   `;
     i++;
   }

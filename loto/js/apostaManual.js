@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () =>
         seleccioActual.push(i);
         btn.classList.add('seleccionado');
         restaSeleccio.innerHTML = j;
-        console.log(restaSeleccio);
       }
 
       seleccioEl.textContent = `Selected: ${seleccioActual.join(', ')}`;

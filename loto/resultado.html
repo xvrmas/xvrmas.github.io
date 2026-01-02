@@ -1,36 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultat</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
 
   <h1>Lottery Results</h1>
 
   <!-- Game panel -->
   <div id="panell-joc">
-    <p id="saldo">Balance: 0€</p>
-    <p id="pot">Pot: 0€</p>
+    <div id="resultats">
+    </div>
   </div>
-
-  <!-- Results -->
-  <div id="resultats"></div>
-
-  <button  id="boto-retorn" onclick="window.location.href='index.html'">Return</button>
-
+   <button id="boto-retorn" onclick="window.location.href='index.html'">Return</button>
   <!-- Scripts -->
   <script type="module" src="js/estat.js"></script>
   <script type="module" src="js/panellJoc.js"></script>
   <script type="module" src="js/sorteig.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
