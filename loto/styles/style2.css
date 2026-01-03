@@ -1,0 +1,855 @@
+/* ===== VARIABLES CSS ===== */
+:root {
+    --primary-color: #2563eb;
+    --accent-color: rgb(228, 194, 4);
+    --background-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --success-color: #10b981;
+    --alert-color: rgb(255, 0, 0);
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 30px 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px 0 25px;
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--text-color);
+    margin: 25px 0 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
+/* ===== PANEL DE JUEGO CENTRADO ===== */
+#panell-joc {
+    background: var(--card-bg);
+    padding: 30px 40px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#panell-joc p {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-color);
+    box-shadow: var(--shadow-sm);
+}
+
+#saldo {
+    border-color: var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+}
+
+#premis {
+    border-color: var(--accent-color);
+    background: rgba(228, 194, 4, 0.1);
+    color: var(--accent-color);
+}
+
+#gastat {
+    border-color: var(--alert-color);
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--alert-color);
+}
+
+#pot {
+    border-color: var(--primary-color);
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+}
+
+/* ===== BOTONES GENERALES CENTRADOS ===== */
+button {
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid transparent;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* BOTÓN PLAY DESTACADO Y CENTRADO */
+#boto-jugar {
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    margin: 30px auto;
+    display: block;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+#boto-jugar::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: rotate(30deg);
+    transition: transform 0.6s;
+}
+
+#boto-jugar:hover {
+    background: linear-gradient(135deg, #1d4ed8, var(--primary-color));
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+}
+
+#boto-jugar:hover::after {
+    transform: rotate(30deg) translateX(50%);
+}
+
+#boto-afegir-fons {
+    background: var(--success-color);
+    color: white;
+    padding: 14px 32px;
+    border: none;
+    margin-top: 15px;
+}
+
+#boto-afegir-fons:hover {
+    background: #0da271;
+}
+
+#boto-retorn {
+    background: #64748b;
+    color: white;
+    display: block;
+    margin: 30px auto;
+    width: 180px;
+}
+
+#boto-retorn:hover {
+    background: #475569;
+}
+
+/* ===== OPCIONES DE JUEGO CENTRADAS ===== */
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    max-width: 700px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+    font-weight: 500;
+    background: var(--background-color);
+    border: 2px solid var(--border-color);
+}
+
+.radio-group label:hover {
+    background: #f1f5f9;
+    border-color: var(--primary-color);
+}
+
+.radio-group input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* ===== SELECTS CENTRADOS ===== */
+select {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin: 15px;
+    text-align: center;
+    min-width: 200px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+select option {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 12px;
+    text-align: center;
+}
+
+label[for="iteracions"] {
+    display: block;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    width: 100%;
+}
+
+/* ===== CLASES PARA CONTROLAR VISIBILIDAD ===== */
+.opcion-oculta {
+    display: none !important;
+}
+
+/* Por defecto, ocultamos la opción automática */
+#opcio-automatica {
+    display: none;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 35px;
+    margin: 25px auto;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    align-items: center;
+}
+
+#opcio-manual {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 35px;
+    margin: 25px auto;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cuando el radio automático está seleccionado, mostramos automática y ocultamos manual */
+#automatica:checked ~ #opcio-automatica,
+#automatica:checked ~ #opcio-manual.opcion-oculta {
+    display: flex;
+}
+
+#automatica:checked ~ #opcio-manual:not(.opcion-oculta) {
+    display: none;
+}
+
+/* Cuando el radio manual está seleccionado, mostramos manual y ocultamos automática */
+#manual:checked ~ #opcio-manual,
+#manual:checked ~ #opcio-automatica.opcion-oculta {
+    display: flex;
+}
+
+#manual:checked ~ #opcio-automatica:not(.opcion-oculta) {
+    display: none;
+}
+
+/* ===== SELECCIÓN MANUAL DE NÚMEROS CENTRADA ===== */
+.numeros-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+    justify-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+@media (max-width: 600px) {
+    .numeros-container {
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 400px;
+    }
+}
+
+.numero-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.numero-btn:hover:not(.seleccionado):not(:disabled) {
+    background: #f1f5f9;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.numero-btn.seleccionado {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.numero-btn:disabled:not(.seleccionado) {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#seleccio-actual {
+    font-size: 1.2rem;
+    padding: 20px;
+    background: var(--background-color);
+    border-radius: 12px;
+    margin: 20px 0;
+    min-height: 70px;
+    color: var(--text-color);
+    font-weight: 500;
+    border: 2px dashed var(--border-color);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* ===== HISTORIAL CENTRADO ===== */
+#historial {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 35px;
+    margin: 30px auto;
+    max-width: 1000px;
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#historial > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+#neteja-historial {
+    background: var(--alert-color);
+    color: white;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+#neteja-historial:hover {
+    background: #cc0000;
+    transform: rotate(15deg);
+}
+
+#neteja-historial img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+/* ===== TABLA CENTRADA ===== */
+.taula-dinamica {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.capsalera-taula {
+    background: #f1f5f9;
+}
+
+.capsalera-taula th {
+    padding: 18px 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    font-size: 1.1rem;
+    background: #f8fafc;
+}
+
+.taula-dinamica tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    background: var(--card-bg);
+}
+
+.taula-dinamica tbody tr:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+.taula-dinamica td {
+    padding: 16px 15px;
+    color: var(--text-color);
+}
+
+.taula-dinamica td.data {
+    color: #64748b;
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+}
+
+/* DESTACAR ACIERTOS CON ESQUEMA DE COLORES */
+.taula-dinamica td.coincidencies {
+    font-weight: 600;
+    text-align: center;
+    min-width: 80px;
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+/* Colores para los aciertos */
+.taula-dinamica td.coincidencies[data-encerts="3"] {
+    color: var(--primary-color);
+    background: rgba(37, 99, 235, 0.1);
+    padding: 8px 16px;
+}
+
+.taula-dinamica td.coincidencies[data-encerts="4"] {
+    color: var(--accent-color);
+    background: rgba(228, 194, 4, 0.1);
+    padding: 8px 16px;
+}
+
+.taula-dinamica td.coincidencies[data-encerts="5"] {
+    color: var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 8px 16px;
+    font-weight: 700;
+}
+
+.taula-dinamica td.coincidencies[data-encerts="6"] {
+    color: white;
+    background: var(--primary-color);
+    padding: 8px 16px;
+    font-weight: 700;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    50% { 
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+}
+
+/* Premios con colores */
+.taula-dinamica td.premi {
+    font-weight: 600;
+    color: var(--success-color);
+    min-width: 100px;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+.taula-dinamica td.premi.guanyador {
+    color: var(--success-color);
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* ===== PÁGINA DE RESULTADOS CENTRADA ===== */
+#resultats {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#resultats p {
+    margin: 18px 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#resultats p strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.balls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+    max-width: 500px;
+}
+
+.ball {
+    width: 60px;
+    height: 60px;
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.ball.acierto {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    animation: bounce 0.5s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1.1) translateY(0); }
+    50% { transform: scale(1.1) translateY(-10px); }
+}
+
+/* Estilo específico para la página de resultado.html */
+body.resultado-page {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.resultado-page h1 {
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.resultado-page #panell-joc {
+    max-width: 700px;
+}
+
+.resultado-page #resultats {
+    margin-top: 20px;
+}
+
+.resultado-page .balls {
+    justify-content: center;
+}
+
+/* Mensajes de resultado */
+.result-message {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.win-message {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+    border: 2px solid var(--success-color);
+}
+
+.lose-message {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--alert-color);
+    border: 2px solid var(--alert-color);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    #panell-joc {
+        padding: 25px;
+        border-radius: 12px;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 12px;
+    }
+    
+    .numeros-container {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+    
+    .numero-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+    
+    #historial {
+        padding: 25px;
+        border-radius: 12px;
+    }
+    
+    .taula-dinamica {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .taula-dinamica th,
+    .taula-dinamica td {
+        padding: 12px 10px;
+        white-space: nowrap;
+    }
+    
+    #boto-jugar {
+        width: 100%;
+        max-width: 300px;
+        padding: 16px 30px;
+    }
+    
+    .balls {
+        gap: 8px;
+    }
+    
+    .ball {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .numeros-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+    
+    .numero-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .ball {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    #panell-joc p {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Estilos para las opciones de apuesta automática */
+#opcio-automatica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#opcio-automatica label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+#opcio-automatica select {
+    align-self: center;
+}
+
+#boto-apostes {
+    align-self: center;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+#boto-apostes:hover {
+    background: #1d4ed8;
+}
+
+/* Mensaje de números restantes */
+#numeros-restants {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.3em;
+}
+
+/* Alineación de todo el contenido */
+.radio-group, #opcio-manual, #opcio-automatica, #historial {
+    align-self: center;
+}
+
+/* Estilo para los grupos de elementos */
+.section-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Clases para aciertos específicos en la página de resultados */
+.match-3 { background: rgba(37, 99, 235, 0.1) !important; }
+.match-4 { background: rgba(228, 194, 4, 0.1) !important; }
+.match-5 { background: rgba(16, 185, 129, 0.1) !important; }
+.match-6 { background: rgba(37, 99, 235, 0.2) !important; }
+
+/* Mensaje de jackpot */
+.jackpot-message {
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 20px 0;
+    text-align: center;
+    animation: jackpotPulse 2s infinite;
+}
+
+@keyframes jackpotPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
