@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () =>
   const checManual = document.getElementById('manual')
   const opcioAutomatica = document.getElementById('opcio-manual');
   const opcioManual = document.getElementById('opcio-automatica');
+  const botoPlay = document.getElementById('boto-jugar');
   
   opcioManual.classList.add('opcio-oculta');
   
@@ -63,11 +64,13 @@ document.addEventListener('DOMContentLoaded', () =>
       {
         opcioAutomatica.classList.add('opcio-oculta');
         opcioManual.classList.remove('opcio-oculta');
+        botoJugar.classList.add('opcio-oculta');
       }
       else
       {
         opcioAutomatica.classList.remove('opcio-oculta');
-        opcioManual.classList.add('opcio-oculta')
+        opcioManual.classList.add('opcio-oculta');
+        botoJugar.classList.remove('opcio-oculta');
       }
     })
   });

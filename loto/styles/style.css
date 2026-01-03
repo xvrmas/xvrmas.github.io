@@ -31,7 +31,8 @@ h2 {
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 5px;
 }
-#num-sorteigs {
+#num-sorteigs,
+#num-sorteigs-auto {
     /* Eliminem l'estil per defecte del navegador */
     appearance: none;
     -webkit-appearance: none;
@@ -103,7 +104,7 @@ h2 {
     width: 10%;
     height: 20px;
 }
-#boto-jugar {
+#boto-jugar,#boto-apostes {
     color: white;
     background-color: var(--success-color);
     color: white;
@@ -116,7 +117,7 @@ h2 {
     margin-top: 10px;
 }
 #boto-afegir-fons,
-#boto-retorn,#boto-apostes {
+#boto-retorn {
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -262,7 +263,6 @@ button:hover {
     color: white;
     border-color: var(--success-color);
 }
-
 
 .opcio-oculta {
     display: none;
