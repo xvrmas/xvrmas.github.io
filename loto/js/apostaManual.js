@@ -49,19 +49,25 @@ document.addEventListener('DOMContentLoaded', () =>
   }
   const opcions = document.querySelectorAll('input[name="opcio"]');
   const checkAutomatica = document.getElementById('automatica');
+  const checManual = document.getElementById('manual')
   const opcioAutomatica = document.getElementById('opcio-manual');
+  const opcioManual = document.getElementById('opcio-automatica');
 
+  opcioManual.classList.add('opcio-visivilitat');
+  
   opcions.forEach(radio =>
   {
     radio.addEventListener('change', () =>
     {
-      if (checkAutomatica.checked)
+      if (checkAutomatica.checked && !checManual.checked)
       {
-        opcioAutomatica.classList.add('opcio-visivilitat')
+        opcioAutomatica.classList.add('opcio-visivilitat');
+        opcioManual.classList.remove('opcio-visivilitat');
       }
       else
       {
-        opcioAutomatica.classList.remove('opcio-visivilitat')
+        opcioAutomatica.classList.remove('opcio-visivilitat');
+        opcioManual.classList.add('opcio-visivilitat')
       }
     })
   });
