@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () =>
   const opcioAutomatica = document.getElementById('opcio-manual');
   const opcioManual = document.getElementById('opcio-automatica');
   
-  opcioManual.classList.add('opcion-oculta');
+  opcioManual.classList.add('opcio-oculta');
   
   opcions.forEach(radio =>
   {
@@ -61,13 +61,13 @@ document.addEventListener('DOMContentLoaded', () =>
     {
       if (checkAutomatica.checked && !checManual.checked)
       {
-        opcioAutomatica.classList.add('opcion-oculta');
-        opcioManual.classList.remove('opcion-oculta');
+        opcioAutomatica.classList.add('opcio-oculta');
+        opcioManual.classList.remove('opcio-oculta');
       }
       else
       {
-        opcioAutomatica.classList.remove('opcion-oculta');
-        opcioManual.classList.add('opcion-oculta')
+        opcioAutomatica.classList.remove('opcio-oculta');
+        opcioManual.classList.add('opcio-oculta')
       }
     })
   });
