@@ -80,13 +80,14 @@ document.addEventListener('DOMContentLoaded', () =>
       `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
     resultatsDiv.innerHTML = `
-      <p><strong>Your bet: ${i + 1}</strong></p>
+     <p>Draw:<strong> ${i + 1}</strong></p>
+     <p>Your bet:</p>
      ${renderBoles(apostaOrdenada, new Set(numerosSorteig))}
-     <p><strong>Lottery:</strong></p>
+     <p>Lottery:</p>
      ${renderBoles(numerosSorteig)}
-     <p><strong>Matches:</strong> ${nombreEncerts}</p>
-     <p><strong>Win:</strong> ${importPremi}</p>
-      <h1></h1>
+     <p>Matches: ${nombreEncerts}</p>
+     <p>Win: ${importPremi}</p>
+    <h1></h1>
      `;
     resultatsEl.appendChild(resultatsDiv);
     i++;

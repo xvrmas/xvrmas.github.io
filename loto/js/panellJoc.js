@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>
     function actualitzarPanell()
     {
         if (saldoEl) saldoEl.textContent = `Balance: ${ESTAT.saldo}€`;
-        if (premisEl) premisEl.textContent = `Win: ${ESTAT.premis}€`;
+        if (premisEl) premisEl.textContent = `Win: ${ESTAT.premis.toFixed(2)}€`;
         if (gastatEl) gastatEl.textContent = `Waste: ${ESTAT.gastat}€`;
         if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
     }
