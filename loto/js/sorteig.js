@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
 
 
-  const resultatsEl = document.getElementById('resultats');
   const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
 
   while (i < ESTAT.numSorteigs)
@@ -45,17 +44,17 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     else if (nombreEncerts === 5)
     {
-      importPremi = parseFloat(2045, 19);
+      importPremi = 2045.19;
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 4)
     {
-      importPremi = parseFloat(51, 81);
+      importPremi = 51.81;
       afegirPremi(importPremi);
     }
     else if (nombreEncerts === 3)
     {
-      importPremi = parseFloat(8, 37);
+      importPremi = 8.37;
       afegirPremi(importPremi);
     }
     else
@@ -71,21 +70,25 @@ document.addEventListener('DOMContentLoaded', () =>
       data: new Date().toLocaleString()
     });
 
+
     ESTAT.apostaActual = [];
     desarEstat();
-    //cobrarAposta();
+    const resultatsEl = document.getElementById('resultats');
+    const resultatsDiv = document.createElement('span');
 
     const renderBoles = (nums, encertsSet = new Set()) =>
       `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
-    resultatsEl.innerHTML = `
-    <p><strong>Your bet:</strong></p>
-    ${renderBoles(apostaOrdenada, new Set(numerosSorteig))}
-    <p><strong>Lottery:</strong></p>
-    ${renderBoles(numerosSorteig)}
-    <p><strong>Matches:</strong> ${nombreEncerts}</p>
-    <p><strong>Win:</strong> ${premiRonda}</p>
-  `;
+    resultatsDiv.innerHTML = `
+      <p><strong>Your bet: ${i + 1}</strong></p>
+     ${renderBoles(apostaOrdenada, new Set(numerosSorteig))}
+     <p><strong>Lottery:</strong></p>
+     ${renderBoles(numerosSorteig)}
+     <p><strong>Matches:</strong> ${nombreEncerts}</p>
+     <p><strong>Win:</strong> ${importPremi}</p>
+      <h1></h1>
+     `;
+    resultatsEl.appendChild(resultatsDiv);
     i++;
   }
 });

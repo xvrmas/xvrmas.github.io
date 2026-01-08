@@ -2,7 +2,7 @@ import { generarSorteig } from "./generadorSorteig.js";
 
 document.addEventListener('DOMContentLoaded', () =>
 {
-   // const goBoto = document.getElementById('boto-apostes');
+    const goBoto = document.getElementById('boto-apostes');
     const mostrarNumeros = document.getElementById('mostrar-numeros');
     const inputValor = document.getElementById('num-sorteigs-auto');
     const inputCambi = document.getElementById('num-sorteigs-auto')
