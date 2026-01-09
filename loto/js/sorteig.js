@@ -74,12 +74,13 @@ document.addEventListener('DOMContentLoaded', () =>
     ESTAT.apostaActual = [];
     desarEstat();
     const resultatsEl = document.getElementById('resultats');
-    const resultatsDiv = document.createElement('span');
+    const resultatsDiv = document.createElement('div');
 
     const renderBoles = (nums, encertsSet = new Set()) =>
       `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
     resultatsDiv.innerHTML = `
+    <div>
      <p>Draw:<strong> ${i + 1}</strong></p>
      <p>Your bet:</p>
      ${renderBoles(apostaOrdenada, new Set(numerosSorteig))}
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () =>
      <p>Matches: ${nombreEncerts}</p>
      <p>Win: ${importPremi}</p>
     <h1></h1>
+    </div>
      `;
     resultatsEl.appendChild(resultatsDiv);
     i++;
