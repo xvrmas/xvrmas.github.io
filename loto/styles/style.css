@@ -222,9 +222,10 @@ button:hover {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: var(--background-color);
+    background: var(--card-bg);
     display: inline-flex;
     justify-content: center;
+    border: 2px solid var(--primary-color);
     align-items: center;
     font-weight: bold;
     color: var(--text-color);
@@ -232,7 +233,7 @@ button:hover {
 }
 
 .ball.acierto {
-    background: var(--success-color);
+    background: var(--primary-color);
     color:var(--card-bg);
 }
 
@@ -251,7 +252,7 @@ button:hover {
     background-color: var(--card-bg);
     border: 1px solid #cbd5e1;
     font-weight: bold;
-    color: black;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
@@ -261,7 +262,6 @@ button:hover {
 .numero-btn.seleccionado {
     background-color: var(--success-color);
     color: white;
-    border-color: var(--success-color);
 }
 
 .opcio-oculta {
