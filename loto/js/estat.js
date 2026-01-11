@@ -7,7 +7,8 @@ export const ESTAT = {
   gastat: 0,
   numSorteigs: 0,
   historial: [],
-  apostaActual: []
+  apostaActual: [],
+  apostesAutoUsuari:[]
 };
 
 export function desarEstat()

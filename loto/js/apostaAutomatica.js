@@ -7,13 +7,11 @@ document.addEventListener('DOMContentLoaded', () =>
     const mostrarNumeros = document.getElementById('mostrar-numeros');
     const inputValor = document.getElementById('num-sorteigs-auto');
     const inputCambi = document.getElementById('num-sorteigs-auto');
-    let numApostesAuto = [];
 
 
     inputCambi.addEventListener('change', () =>
     {
         const goValor = parseInt(inputValor.value);
-        numApostesAuto = [];
 
         // 1. Netejar el contenidor abans de posar resultats nous
         mostrarNumeros.innerHTML = "";
@@ -22,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () =>
         for (let i = 0; i < goValor; i++)
         {
             const numAuto = generarSorteig().sort((a, b) => a - b);
-            numApostesAuto.push(numAuto);
+            ESTAT.apostesAutoUsuari.push(numAuto);
         }
+        console.log(ESTAT.apostesAutoUsuari)
+        desarEstat();
 
         // 3. Mostrar-les creant un element NOU per cada aposta
-        numApostesAuto.forEach((element, index) =>
+        ESTAT.apostesAutoUsuari.forEach((element, index) =>
         {
             const creaP = document.createElement('p'); // CREAR AQUÍ DINS
             creaP.innerHTML =
@@ -38,18 +38,15 @@ document.addEventListener('DOMContentLoaded', () =>
         });
     });
 
-    const apostesLoteria = [];
-
     goBoto.addEventListener('click', () =>
     {
         let i = 0;
-        let guanysAcumulats = 0;
         while (i < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
 
-            numApostesAuto.forEach((apostaUsuari, index) =>
+            ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
             {
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
