@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
                 console.log('sorteig:', i + 1)
-                console.log(`Linea ${index + 1} guanyadora[${guanyadora}] \n            usuari[${apostaUsuari}]: ${quantitatEncerts} encerts  (${encerts})\n`)
+                console.log(`Linea ${index + 1}\n guanyadora[${guanyadora}] \n     usuari[${apostaUsuari}]: ${quantitatEncerts} encerts  (${encerts})\n`)
             })
             i++;
         }
