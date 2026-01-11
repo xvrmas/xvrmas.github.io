@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () =>
     const premisEl = document.getElementById('premis');
     const gastatEl = document.getElementById('gastat');
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
-    const iteracions = document.getElementById('boto-jugar');
 
 
     function actualitzarPanell()
@@ -26,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () =>
 
     actualitzarPanell();
 
+    const iteracions = document.getElementById('num-sorteigs');
 
-    iteracions.addEventListener('click', () =>
+    iteracions.addEventListener('change', (e) =>
     {
-        const element = document.getElementById('num-sorteigs').value
+        const element = e.target.value;
 
         if (element === 'dia')
         {
@@ -47,9 +47,10 @@ document.addEventListener('DOMContentLoaded', () =>
         }
         else if (element === 'any')
         {
-            ESTAT.numSorteigs = 156;
-            
+            ESTAT.numSorteigs = 156;            
         }
+        desarEstat();
+        console.log(ESTAT.numSorteigs)
     })
 
     if (botoAfegirFons)

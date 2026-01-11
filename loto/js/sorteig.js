@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
 
   const apostaOrdenada = [...ESTAT.apostaActual].sort((a, b) => a - b);
-
   while (i < ESTAT.numSorteigs)
   {
     if (!cobrarAposta())
