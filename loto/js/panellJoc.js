@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () =>
             ESTAT.numSorteigs = 156;            
         }
         desarEstat();
-        console.log(ESTAT.numSorteigs)
     })
 
     if (botoAfegirFons)

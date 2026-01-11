@@ -37,16 +37,25 @@ document.addEventListener('DOMContentLoaded', () =>
             mostrarNumeros.appendChild(creaP);
         });
     });
+
+    const apostesLoteria = [];
+
     goBoto.addEventListener('click', () =>
     {
         let i = 0;
+        let guanysAcumulats = 0;
         while (i < ESTAT.numSorteigs)
         {
-            const apostaAuto = generarSorteig().sort((a, b) => a - b);
-            console.log('sorteigs          ',i + 1)
-            console.log('apostes usuari    ', numApostesAuto);
-            console.log('apostes guanyadora', apostaAuto);
-            console.log('<---------------------------->')
+            const guanyadora = generarSorteig().sort((a, b) => a - b);
+            const guanyadoraSet = new Set(guanyadora);
+
+            numApostesAuto.forEach((apostaUsuari, index) =>
+            {
+                const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
+                const quantitatEncerts = encerts.length;
+                console.log('sorteig:', i + 1)
+                console.log(`Linea ${index + 1} guanyadora[${guanyadora}] \n            usuari[${apostaUsuari}]: ${quantitatEncerts} encerts  (${encerts})\n`)
+            })
             i++;
         }
     })
