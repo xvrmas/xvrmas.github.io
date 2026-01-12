@@ -1,18 +1,63 @@
 //pinta la cuadricula del 1 al 49 i permet sel·leccionar 6 numeros i només 6
 
-
+import { generarSorteig } from './generadorSorteig.js';
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
 
-  let seleccioActual = [];
   const contenidor = document.getElementById('selector-numeros');
   const seleccioEl = document.getElementById('seleccio-actual');
   const botoJugar = document.getElementById('boto-jugar');
   const restaSeleccio = document.getElementById('numeros-restants');
+
+  const mostrarNumeros = document.getElementById('mostrar-numeros');
+  const inputValor = document.getElementById('num-sorteigs-auto');
+  const inputCambi = document.getElementById('num-sorteigs-auto');
+
+  const opcions = document.querySelectorAll('input[name="opcio"]');
+  const checkAutomatica = document.getElementById('automatica');
+  const checManual = document.getElementById('manual')
+  const opcioAutomatica = document.getElementById('opcio-manual');
+  const opcioManual = document.getElementById('opcio-automatica');
+  const botoPlay = document.getElementById('boto-jugar');
+
+  opcioManual.classList.add('opcio-oculta');
+
+  let seleccioActual = [];
+
+  inputCambi.addEventListener('change', () =>
+  {
+    const goValor = parseInt(inputValor.value);
+
+    // 1. Netejar el contenidor abans de posar resultats nous
+    mostrarNumeros.innerHTML = "";
+
+    // 2. Generar les apostes
+    for (let i = 0; i < goValor; i++)
+    {
+      const numAuto = generarSorteig().sort((a, b) => a - b);
+      ESTAT.apostesAutoUsuari.push(numAuto);
+    }
+    console.log(ESTAT.apostesAutoUsuari)
+    desarEstat();
+
+    // 3. Mostrar-les creant un element NOU per cada aposta
+    ESTAT.apostesAutoUsuari.forEach((element, index) =>
+    {
+      const creaP = document.createElement('p'); // CREAR AQUÍ DINS
+      creaP.innerHTML =
+        `<div id="seleccio-actual">
+                 Block ${index + 1}:<br> ${element.join('-')}
+            </div>
+            `;
+      mostrarNumeros.appendChild(creaP);
+    });
+  });
+
   let j = 6;
+
   for (let i = 1; i <= 49; i++)
   {
     const btn = document.createElement('button');
@@ -47,15 +92,8 @@ document.addEventListener('DOMContentLoaded', () =>
 
     contenidor.appendChild(btn);
   }
-  const opcions = document.querySelectorAll('input[name="opcio"]');
-  const checkAutomatica = document.getElementById('automatica');
-  const checManual = document.getElementById('manual')
-  const opcioAutomatica = document.getElementById('opcio-manual');
-  const opcioManual = document.getElementById('opcio-automatica');
-  const botoPlay = document.getElementById('boto-jugar');
-  
-  opcioManual.classList.add('opcio-oculta');
-  
+
+
   opcions.forEach(radio =>
   {
     radio.addEventListener('change', () =>
