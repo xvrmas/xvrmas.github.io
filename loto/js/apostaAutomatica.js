@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () =>
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
             {
                 //cobrarAposta();
-
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
                 console.log('sorteig:', i + 1)
