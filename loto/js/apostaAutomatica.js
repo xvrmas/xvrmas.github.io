@@ -1,6 +1,7 @@
 import { generarSorteig } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
-import { cobrarAposta } from "./panellJoc.js";
+import { afegirPremi, cobrarAposta } from "./panellJoc.js";
+import { actualitzarPanell } from "./panellJoc.js";
 
 document.addEventListener('DOMContentLoaded', () =>
 {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
             {
-               // cobrarAposta();
+                cobrarAposta();
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
                 console.log('sorteig:', i + 1)
@@ -25,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () =>
             })
             i++;
         }
+        desarEstat();
+        actualitzarPanell();
         console.log('saldo', ESTAT.saldo)
     })
 });
