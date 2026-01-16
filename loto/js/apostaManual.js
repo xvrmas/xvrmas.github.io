@@ -33,32 +33,28 @@ document.addEventListener('DOMContentLoaded', () =>
 
     // 1. Netejar el contenidor abans de posar resultats nous
     mostrarNumeros.innerHTML = "";
-
     ESTAT.apostesAutoUsuari = [];
+
     // 2. Generar les apostes
     for (let i = 0; i < goValor; i++)
     {
-      const numAuto = generarSorteig().sort((a, b) =>
-      {
-        return a - b;
-      });
+      const numAuto = generarSorteig().sort((a, b) => a - b);
       ESTAT.apostesAutoUsuari.push(numAuto);
     }
-   // console.log(ESTAT.apostesAutoUsuari)
+    console.log(ESTAT.apostesAutoUsuari)
     desarEstat();
 
     // 3. Mostrar-les creant un element NOU per cada aposta
     ESTAT.apostesAutoUsuari.forEach((element, index) =>
     {
-      const creaP = document.createElement('div'); // CREAR AQUÍ DINS
+      const creaP = document.createElement('p'); // CREAR AQUÍ DINS
       creaP.innerHTML =
-        `<div class="seleccio-actual">
+        `<div id="seleccio-actual">
                  Block ${index + 1}:<br> ${element.join('-')}
             </div>
             `;
       mostrarNumeros.appendChild(creaP);
     });
-
   });
 
   let j = 6;

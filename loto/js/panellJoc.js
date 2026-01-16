@@ -2,28 +2,30 @@
 
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 
+let saldoEl, potEl, premisEl, gastatEl;
+
+export function actualitzarPanell()
+{
+    if (!saldoEl) saldoEl = document.getElementById('saldo');
+    if (!potEl) potEl = document.getElementById('pot');
+    if (!premisEl) premisEl = document.getElementById('premis');
+    if (!gastatEl) gastatEl = document.getElementById('gastat');
+
+    if (saldoEl) saldoEl.textContent = `Balance: ${ESTAT.saldo}€`;
+    if (premisEl) premisEl.textContent = `Win: ${ESTAT.premis.toFixed(2)}€`;
+    if (gastatEl) gastatEl.textContent = `Waste: ${ESTAT.gastat}€`;
+    if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
+}
 
 
 document.addEventListener('DOMContentLoaded', () =>
 {
     carregarEstat();
-    const saldoEl = document.getElementById('saldo');
-    const potEl = document.getElementById('pot');
-    const premisEl = document.getElementById('premis');
-    const gastatEl = document.getElementById('gastat');
+    actualitzarPanell();
+
+
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
 
-
-    function actualitzarPanell()
-    {
-        if (saldoEl) saldoEl.textContent = `Balance: ${ESTAT.saldo}€`;
-        if (premisEl) premisEl.textContent = `Win: ${ESTAT.premis.toFixed(2)}€`;
-        if (gastatEl) gastatEl.textContent = `Waste: ${ESTAT.gastat}€`;
-        if (potEl) potEl.textContent = `Pot: ${ESTAT.pot}€`;
-    }
-
-
-    actualitzarPanell();
 
     const iteracions = document.getElementById('num-sorteigs');
 
@@ -38,17 +40,18 @@ document.addEventListener('DOMContentLoaded', () =>
         else if (element === 'setmana')
         {
             ESTAT.numSorteigs = 3;
-            
+
         }
         else if (element === 'mes')
         {
             ESTAT.numSorteigs = 12;
-            
+
         }
         else if (element === 'any')
         {
-            ESTAT.numSorteigs = 156;            
+            ESTAT.numSorteigs = 156;
         }
+        console.log('panell', ESTAT.numSorteigs)
         desarEstat();
     })
 

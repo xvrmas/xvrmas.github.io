@@ -1,6 +1,6 @@
 import { generarSorteig } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
-import { cobrarAposta, afegirPremi } from './panellJoc.js';
+import { cobrarAposta } from "./panellJoc.js";
 
 document.addEventListener('DOMContentLoaded', () =>
 {
@@ -9,11 +9,7 @@ document.addEventListener('DOMContentLoaded', () =>
     goBoto.addEventListener('click', () =>
     {
         let i = 0;
-        if (!cobrarAposta())
-        {
-            window.location.href = './index.html';
-            return;
-        }
+        console.log('numero sorteigs', ESTAT.numSorteigs)
         while (i < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -21,13 +17,15 @@ document.addEventListener('DOMContentLoaded', () =>
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
             {
+                //cobrarAposta();
+
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
-                cobrarAposta();
                 console.log('sorteig:', i + 1)
                 console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${quantitatEncerts} Match (${encerts})\n`)
             })
             i++;
         }
+        console.log('saldo', ESTAT.saldo)
     })
 });
