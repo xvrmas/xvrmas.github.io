@@ -5,7 +5,7 @@ export const ESTAT = {
   pot: 0,
   premis: 0,
   gastat: 0,
-  numSorteigs: 0,
+  numSorteigs: 1,
   historial: [],
   apostaActual: [],
   apostesAutoUsuari:[]

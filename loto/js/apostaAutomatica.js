@@ -5,7 +5,9 @@ import { actualitzarPanell } from "./panellJoc.js";
 
 document.addEventListener('DOMContentLoaded', () =>
 {
+    carregarEstat();
     const goBoto = document.getElementById('boto-apostes');
+
 
     goBoto.addEventListener('click', () =>
     {
@@ -20,9 +22,44 @@ document.addEventListener('DOMContentLoaded', () =>
             {
                 cobrarAposta();
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
-                const quantitatEncerts = encerts.length;
+                const nombreEncerts = encerts.length;
+                let importPremi = 0;
+                if (nombreEncerts === 6)
+                {
+                    importPremi = ESTAT.pot > 0 ? ESTAT.pot : 15000000;
+                    ESTAT.pot = 0;
+                    ESTAT.gastat -= importPremi
+                    afegirPremi(importPremi);
+                }
+                else if (nombreEncerts === 5)
+                {
+                    importPremi = 2045.19;
+                    afegirPremi(importPremi);
+                }
+                else if (nombreEncerts === 4)
+                {
+                    importPremi = 51.81;
+                    afegirPremi(importPremi);
+                }
+                else if (nombreEncerts === 3)
+                {
+                    importPremi = 8.37;
+                    afegirPremi(importPremi);
+                }
+                else
+                {
+                    ESTAT.pot += 10;
+                }
+                ESTAT.historial.push({
+                    aposta: apostaUsuari,
+                    sorteig: guanyadora,
+                    encerts: nombreEncerts,
+                    premi: importPremi,
+                    data: new Date().toLocaleString()
+                });
+                //afegirPremi(importPremi);
                 console.log('sorteig:', i + 1)
-                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${quantitatEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}`)
+                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)
             })
             i++;
         }
