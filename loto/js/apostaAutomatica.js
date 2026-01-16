@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () =>
     goBoto.addEventListener('click', () =>
     {
         let i = 0;
-        console.log('numero sorteigs', ESTAT.numSorteigs)
+        console.log('aposta auto', ESTAT.numSorteigs)
         while (i < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () =>
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
             {
-                //cobrarAposta();
+               // cobrarAposta();
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const quantitatEncerts = encerts.length;
                 console.log('sorteig:', i + 1)
-                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${quantitatEncerts} Match (${encerts})\n`)
+                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${quantitatEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}`)
             })
             i++;
         }

@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () =>
     resultatsEl.appendChild(resultatsDiv);
     i++;
   }
+  ESTAT.numSorteigs = 1;
+  desarEstat();
+  console.log('sorteig', ESTAT.numSorteigs)
 });
 
 

@@ -23,10 +23,7 @@ document.addEventListener('DOMContentLoaded', () =>
     carregarEstat();
     actualitzarPanell();
 
-
     const botoAfegirFons = document.getElementById('boto-afegir-fons');
-
-
     const iteracions = document.getElementById('num-sorteigs');
 
     iteracions.addEventListener('change', (e) =>
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () =>
         else if (element === 'setmana')
         {
             ESTAT.numSorteigs = 3;
-
         }
         else if (element === 'mes')
         {
@@ -50,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () =>
         else if (element === 'any')
         {
             ESTAT.numSorteigs = 156;
+        }
+        else
+        {
+            ESTAT.numSorteigs = 0;
         }
         console.log('panell', ESTAT.numSorteigs)
         desarEstat();
