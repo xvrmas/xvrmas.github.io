@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () =>
     goBoto.addEventListener('click', () =>
     {
         let i = 0;
-        console.log('aposta auto', ESTAT.numSorteigs)
         while (i < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -45,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 {
                     importPremi = 8.37;
                     afegirPremi(importPremi);
+
                 }
                 else
                 {
@@ -54,17 +54,21 @@ document.addEventListener('DOMContentLoaded', () =>
                     aposta: apostaUsuari,
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
-                    premi: importPremi,
+                    premis:importPremi,
                     data: new Date().toLocaleString()
                 });
-                //afegirPremi(importPremi);
-                console.log('sorteig:', i + 1)
-                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)
+                console.log('-->',apostaUsuari);
+                console.log('-->',guanyadora);
+                console.log('-->',nombreEncerts);
+                console.log('-->',importPremi);
+                console.log('---------------->');
+
+                /*  console.log('sorteig:', i + 1)
+                  console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)*/
             })
             i++;
+            actualitzarPanell();
         }
-        desarEstat();
-        actualitzarPanell();
         console.log('saldo', ESTAT.saldo)
     })
 });

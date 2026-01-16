@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () =>
       aposta: apostaOrdenada,
       sorteig: numerosSorteig,
       encerts: nombreEncerts,
-      premi: importPremi,
+      premis: importPremi,
       data: new Date().toLocaleString()
     });
 

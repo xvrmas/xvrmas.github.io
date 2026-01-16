@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
 
   })
+  console.log('pinta',ESTAT.historial);
 
   for (let item of ESTAT.historial)
   {
@@ -37,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () =>
     const fila = document.createElement('tr');
     const tdPremi = document.createElement('td');
     tdPremi.classList.add('premi');
-    tdPremi.textContent = `${h.premi}`;
-    if (h.premi !== 0)
+    tdPremi.textContent = `${h.premis}`;
+    if (h.premis !== 0)
     {
       tdPremi.classList.add('guanyador');
     }

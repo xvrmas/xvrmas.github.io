@@ -86,10 +86,15 @@ export function cobrarAposta()
     return false;
 }
 
+var i = 1;
+
 export function afegirPremi(importPremi)
 {
     ESTAT.premis += importPremi;
     desarEstat();
+    i++;
+
+
 }
 
 
