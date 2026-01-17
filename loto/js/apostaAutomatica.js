@@ -54,21 +54,17 @@ document.addEventListener('DOMContentLoaded', () =>
                     aposta: apostaUsuari,
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
-                    premis:importPremi,
+                    premis: importPremi,
                     data: new Date().toLocaleString()
                 });
-                console.log('-->',apostaUsuari);
-                console.log('-->',guanyadora);
-                console.log('-->',nombreEncerts);
-                console.log('-->',importPremi);
-                console.log('---------------->');
 
-                /*  console.log('sorteig:', i + 1)
-                  console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)*/
+
+                console.log('sorteig:', i + 1)
+                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)
             })
             i++;
             actualitzarPanell();
         }
-        console.log('saldo', ESTAT.saldo)
+        window.location.href = window.location.href;
     })
 });

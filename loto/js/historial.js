@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () =>
     }
 
   })
-  console.log('pinta',ESTAT.historial);
 
   for (let item of ESTAT.historial)
   {

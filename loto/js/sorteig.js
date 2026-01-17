@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () =>
   }
   ESTAT.numSorteigs = 1;
   desarEstat();
-  console.log('sorteig', ESTAT.numSorteigs)
 });
 
 
