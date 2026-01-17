@@ -77,7 +77,7 @@ export function cobrarAposta()
 {
     if (ESTAT.saldo >= 1)
     {
-        ESTAT.saldo -= 1;
+        ESTAT.saldo += 1;
         ESTAT.gastat += 1;
         desarEstat();
         return true;

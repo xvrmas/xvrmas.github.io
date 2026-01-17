@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     fila.innerHTML = `
     <td class="data">${h.data}</td>
+    <td class="way">${h.origen}</td>
     <td class="aposta">${h.aposta.join('-')}</td>
     <td class="resultat">${h.sorteig.join('-')}</td>
     <td class="coincidencies">${h.encerts}</td>

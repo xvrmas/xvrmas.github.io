@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () =>
                     ESTAT.pot += 10;
                 }
                 ESTAT.historial.push({
+                    origen: "Random",
                     aposta: apostaUsuari,
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () =>
             i++;
             actualitzarPanell();
         }
+        alert(`saldo ${ESTAT.saldo}`)
         window.location.href = window.location.href;
     })
 });

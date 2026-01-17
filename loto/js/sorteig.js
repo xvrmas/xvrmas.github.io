@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     premiRonda += importPremi;
     ESTAT.historial.push({
+      origen:'Manual',
       aposta: apostaOrdenada,
       sorteig: numerosSorteig,
       encerts: nombreEncerts,
