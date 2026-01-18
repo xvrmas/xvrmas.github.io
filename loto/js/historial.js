@@ -13,17 +13,32 @@ document.addEventListener('DOMContentLoaded', () =>
   const netejaHistorial = document.getElementById('neteja-historial');
   netejaHistorial.addEventListener('click', () =>
   {
-    let confirmaNeteja = confirm('Do you want to clear your history?, Earnings, balance, and all history will be deleted.');
-    if (confirmaNeteja === true)
+    Swal.fire({
+      title: 'Are you sure',
+      text: 'Do you want to clear your history?, Earnings, balance, and all history will be deleted.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) =>
     {
-      localStorage.clear();
-      location.reload();
-    }
-    else
-    {
-      return;
-    }
-
+      if (result.isConfirmed)
+      {
+        localStorage.clear();
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'All deleted',
+          icon: 'success',
+          timer: 1500,
+          timerProgessBar:true,
+          showConfirmButton:false
+        }).then(() =>
+        {
+          location.reload();
+        })
+      }
+    })
   })
 
   for (let item of ESTAT.historial)

@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () =>
             i++;
             actualitzarPanell();
         }
-        alert(`saldo ${ESTAT.saldo}`)
         window.location.href = window.location.href;
     })
 });
