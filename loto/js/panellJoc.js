@@ -93,8 +93,6 @@ export function afegirPremi(importPremi)
     ESTAT.premis += importPremi;
     desarEstat();
     i++;
-
-
 }
 
 

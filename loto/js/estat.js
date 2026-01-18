@@ -1,7 +1,7 @@
 //Estat global del joc
 
 export const ESTAT = {
-  saldo: 624,
+  saldo: 936,
   pot: 0,
   premis: 0,
   gastat: 0,
