@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () =>
   ESTAT.historial.sort((a, b) => b.encerts - a.encerts);
 
   const netejaHistorial = document.getElementById('neteja-historial');
-  netejaHistorial.addEventListener('click', () =>
+  netejaHistorial.addEventListener('click', async () =>
   {
-    Swal.fire({
+    const result = await Swal.fire({
       title: 'Are you sure',
       text: 'Do you want to clear your history?, Earnings, balance, and all history will be deleted.',
       icon: 'warning',
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () =>
           text: 'All deleted',
           icon: 'success',
           timer: 1500,
-          timerProgessBar:true,
-          showConfirmButton:false
+          timerProgessBar: true,
+          showConfirmButton: false
         }).then(() =>
         {
           location.reload();
