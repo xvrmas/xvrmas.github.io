@@ -74,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () =>
             i++;
             actualitzarPanell();
         }
-        // window.location.href = window.location.href;
+        window.location.href = window.location.href;
     })
 });
