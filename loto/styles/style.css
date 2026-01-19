@@ -104,7 +104,8 @@ h2 {
     width: 10%;
     height: 20px;
 }
-#boto-jugar,#boto-apostes {
+#boto-jugar,
+#boto-apostes {
     color: white;
     background-color: var(--success-color);
     color: white;
@@ -116,8 +117,7 @@ h2 {
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
-#boto-afegir-fons,
-#boto-retorn {
+#boto-afegir-fons {
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -127,6 +127,19 @@ h2 {
     font-size: 1rem;
     transition: background-color 0.3s ease;
     margin-top: 10px;
+}
+#boto-retorn {
+    position: fixed;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    margin-left: 30%;
 }
 
 button:hover {
@@ -234,7 +247,7 @@ button:hover {
 
 .ball.acierto {
     background: var(--primary-color);
-    color:var(--card-bg);
+    color: var(--card-bg);
 }
 
 .numeros-container {
@@ -290,8 +303,7 @@ button:hover {
     cursor: pointer;
     background-color: var(--background-color);
 }
-hr
-{
+hr {
     margin: 50px;
 }
 #historial {
@@ -395,5 +407,36 @@ hr
     #panell-joc button {
         width: 100%; /* Només els botons d'acció (Jugar, Afegir fons) ocupen tot l'ample */
         max-width: 300px;
+    }
+    #boto-retorn {
+        position: fixed;
+        background-color: transparent ;
+        color: transparent;
+        border: none;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+    .btn-chevron {
+        font-size: 0; 
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .btn-chevron::after {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        /* Vores només a la dreta i a dalt */
+        border-right: 6px solid #555;
+        border-top: 6px solid #555;
+        /* Rotem 45 graus per fer la forma de > */
+        transform: rotate(-135deg);
+        /* Ajust visual petit */
     }
 }

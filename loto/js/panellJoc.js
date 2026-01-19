@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 actualitzarPanell();
             } else
             {
-                alert('Invalid amount');
+
             }
         });
     }
@@ -82,7 +82,7 @@ export function cobrarAposta()
         desarEstat();
         return true;
     }
-    alert('You have insufficient funds');
+    Swal.fire('You have insufficient funds¡');
     return false;
 }
 

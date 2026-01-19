@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () =>
       const numAuto = generarSorteig().sort((a, b) => a - b);
       ESTAT.apostesAutoUsuari.push(numAuto);
     }
-    console.log(ESTAT.apostesAutoUsuari)
     desarEstat();
 
     // 3. Mostrar-les creant un element NOU per cada aposta
@@ -119,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () =>
   {
     if (seleccioActual.length !== 6)
     {
-      alert('You must select exactly 6 numbers');
+      Swal.fire({
+        icon:"error",
+        text:'You must select exactly 6 numbers',
+      })
       return;
     }
 

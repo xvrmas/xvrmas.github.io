@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () =>
 
     goBoto.addEventListener('click', () =>
     {
+        if (ESTAT.apostesAutoUsuari.length === 0)
+        {
+            Swal.fire({
+                icon: "error",
+                text: 'Please select the number of lines you wish to play.',
+            })
+            return;
+        }
         let i = 0;
         while (i < ESTAT.numSorteigs)
         {
@@ -66,6 +74,6 @@ document.addEventListener('DOMContentLoaded', () =>
             i++;
             actualitzarPanell();
         }
-        window.location.href = window.location.href;
+        // window.location.href = window.location.href;
     })
 });

@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultat</title>
   <link rel="stylesheet" href="styles/style.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -13,11 +15,11 @@
   <h1>Lottery Results</h1>
 
   <!-- Game panel -->
+  <button id="boto-retorn"class="btn-chevron" aria-label="Return" onclick="window.location.href='index.html'">Return</button>
   <div id="panell-joc">
     <div id="resultats">
     </div>
   </div>
-   <button id="boto-retorn" onclick="window.location.href='index.html'">Return</button>
   <!-- Scripts -->
   <script type="module" src="js/estat.js"></script>
   <script type="module" src="js/panellJoc.js"></script>

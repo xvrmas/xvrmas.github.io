@@ -16,9 +16,14 @@ document.addEventListener('DOMContentLoaded', () =>
 
   if (!Array.isArray(ESTAT.apostaActual) || ESTAT.apostaActual.length !== 6)
   {
-    alert('There is no valid bet. Return to the betting page.');
-    window.location.href = './index.html';
-    return;
+    Swal.fire({
+      title: "Oops...",
+      text: "Here is no valid bet. Return to the betting page.",
+    }).then(() =>
+    {
+      window.location.href = './index.html';
+      return;
+    });
   }
 
 
@@ -62,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     premiRonda += importPremi;
     ESTAT.historial.push({
-      origen:'Manual',
+      origen: 'Manual',
       aposta: apostaOrdenada,
       sorteig: numerosSorteig,
       encerts: nombreEncerts,
