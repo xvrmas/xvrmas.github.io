@@ -66,14 +66,13 @@ document.addEventListener('DOMContentLoaded', () =>
                     premis: importPremi,
                     data: new Date().toLocaleString()
                 });
-
-
                 console.log('sorteig:', i + 1)
                 console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)
             })
-            i++;
             actualitzarPanell();
+            i++;
         }
+        console.log('esta historial', ESTAT.historial)
         window.location.href = window.location.href;
     })
 });

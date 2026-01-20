@@ -74,8 +74,6 @@ document.addEventListener('DOMContentLoaded', () =>
       premis: importPremi,
       data: new Date().toLocaleString()
     });
-
-
     ESTAT.apostaActual = [];
     desarEstat();
     const resultatsEl = document.getElementById('resultats');
