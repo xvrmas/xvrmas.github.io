@@ -10,3 +10,10 @@ export function generarSorteig()
   }
   return numeros;
 }
+
+export function generarReintegrament()
+{
+  const reintegrement = Math.floor(Math.random() * 9) + 1;
+  return reintegrement;
+  
+}

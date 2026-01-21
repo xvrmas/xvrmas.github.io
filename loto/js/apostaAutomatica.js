@@ -1,7 +1,8 @@
-import { generarSorteig } from "./generadorSorteig.js";
+import { generarSorteig, generarReintegrament } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
 import { afegirPremi, cobrarAposta } from "./panellJoc.js";
 import { actualitzarPanell } from "./panellJoc.js";
+
 
 document.addEventListener('DOMContentLoaded', () =>
 {
@@ -19,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () =>
             })
             return;
         }
+        const numReintegrament = generarReintegrament();
         let i = 0;
         while (i < ESTAT.numSorteigs)
         {
+
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
 
@@ -66,13 +69,14 @@ document.addEventListener('DOMContentLoaded', () =>
                     premis: importPremi,
                     data: new Date().toLocaleString()
                 });
-                console.log('sorteig:', i + 1)
-                console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)
+                /*  console.log('sorteig:', i + 1)
+                  console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)*/
             })
-            actualitzarPanell();
             i++;
         }
-        desarEstat()
+        ESTAT.numSorteigs = 1;
+        desarEstat();
+        actualitzarPanell();
         window.location.href = window.location.href;
     })
 });
