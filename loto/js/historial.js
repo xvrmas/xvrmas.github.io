@@ -7,6 +7,7 @@ import { ESTAT, carregarEstat } from './estat.js';
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
+  console.log('esta historial', ESTAT)
 
   ESTAT.historial.sort((a, b) => b.encerts - a.encerts);
 

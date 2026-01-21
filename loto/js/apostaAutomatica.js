@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () =>
             actualitzarPanell();
             i++;
         }
-        console.log('esta historial', ESTAT.historial)
+        desarEstat()
         window.location.href = window.location.href;
     })
 });
