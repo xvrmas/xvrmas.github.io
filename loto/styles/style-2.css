@@ -1,0 +1,242 @@
+/* --- Estils Generals --- */
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --success: #27ae60;
+    --error: #e74c3c;
+    --warning: #f1c40f;
+    --bg: #f4f7f6;
+    --text: #333;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* --- Panell de Joc (Estadístiques) --- */
+#panell-joc {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#panell-joc p {
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+#premis { color: var(--success); }
+#gastat { color: var(--error); }
+#pot { color: var(--warning); text-shadow: 1px 1px 0px #0002; }
+
+/* --- Controls i Formularis --- */
+.radio-group, .iteracions-group {
+    margin: 20px 0;
+    background: #eee;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+select, button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button#boto-jugar, button#boto-apostes {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* --- Quadrícula de Números (Manual) --- */
+.numeros-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+.numero-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: white;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.numero-btn.seleccionado {
+    background-color: var(--accent);
+    color: white;
+}
+
+.numero-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #ccc;
+}
+
+/* --- Boles de Resultat --- */
+.balls-container, .balls {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid #bbb;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.ball.acierto {
+    background: radial-gradient(circle at 30% 30%, #a2e0a4, #4caf50);
+    color: white;
+    border-color: #388e3c;
+}
+
+.ball-r {
+    background: radial-gradient(circle at 30% 30%, #fff176, #fbc02d);
+    border-color: #f9a825;
+}
+
+.ball-r-win {
+    background: radial-gradient(circle at 30% 30%, #ff8a80, #f44336);
+    color: white;
+    border-color: #c62828;
+}
+
+/* --- Historial (Taula) --- */
+.taula-dinamica {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.taula-dinamica th, .taula-dinamica td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.taula-dinamica th {
+    background-color: var(--primary);
+    color: white;
+}
+
+.guanyador {
+    background-color: #e8f5e9;
+    font-weight: bold;
+    color: var(--success);
+}
+
+/* --- Pàgina de Resultats --- */
+.result-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 600px;
+    border-left: 8px solid var(--accent);
+}
+
+.summary {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* --- Utilitats --- */
+.opcio-oculta {
+    display: none !important;
+}
+
+#neteja-historial {
+    background: none;
+    border: none;
+    float: right;
+}
+
+#neteja-historial img {
+    width: 25px;
+    opacity: 0.6;
+}
+
+#neteja-historial img:hover {
+    opacity: 1;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    #panell-joc {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .numeros-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
