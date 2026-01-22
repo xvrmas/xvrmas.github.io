@@ -1,66 +1,41 @@
-import { generarSorteig, generarReintegrament } from "./generadorSorteig.js";
+import { generarSorteig } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
-import { afegirPremi, cobrarAposta } from "./panellJoc.js";
-import { actualitzarPanell } from "./panellJoc.js";
+import { cobrarAposta, afegirPremi } from "./panellJoc.js";
 
-
-document.addEventListener('DOMContentLoaded', () =>
-{
-    carregarEstat();
+document.addEventListener('DOMContentLoaded', () => {
     const goBoto = document.getElementById('boto-apostes');
+    if (!goBoto) return; // Si no hi ha botó (estem a resultado.html), no facis res
 
-
-    goBoto.addEventListener('click', () =>
-    {
-        if (ESTAT.apostesAutoUsuari.length === 0)
-        {
-            Swal.fire({
-                icon: "error",
-                text: 'Please select the number of lines you wish to play.',
-            })
+    goBoto.addEventListener('click', () => {
+        carregarEstat();
+        if (ESTAT.apostesAutoUsuari.length === 0) {
+            Swal.fire({ icon: "error", text: 'Please select lines.' });
             return;
         }
-        const numReintegrament = generarReintegrament();
-        let i = 0;
-        while (i < ESTAT.numSorteigs)
-        {
 
+        // 1. Fem els càlculs
+        let drawsDone = 0;
+        while (drawsDone < ESTAT.numSorteigs) {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
 
-            ESTAT.apostesAutoUsuari.forEach((apostaUsuari, index) =>
-            {
-                cobrarAposta();
+            ESTAT.apostesAutoUsuari.forEach((apostaUsuari) => {
+                if (!cobrarAposta()) return;
+
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const nombreEncerts = encerts.length;
                 let importPremi = 0;
-                if (nombreEncerts === 6)
-                {
-                    importPremi = ESTAT.pot > 0 ? ESTAT.pot : 15000000;
-                    ESTAT.pot = 0;
-                    ESTAT.gastat -= importPremi
-                    afegirPremi(importPremi);
-                }
-                else if (nombreEncerts === 5)
-                {
-                    importPremi = 2045.19;
-                    afegirPremi(importPremi);
-                }
-                else if (nombreEncerts === 4)
-                {
-                    importPremi = 51.81;
-                    afegirPremi(importPremi);
-                }
-                else if (nombreEncerts === 3)
-                {
-                    importPremi = 8.37;
-                    afegirPremi(importPremi);
 
-                }
-                else
-                {
-                    ESTAT.pot += 10;
-                }
+                // Lògica de premis 
+                if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
+                else if (nombreEncerts === 5) importPremi = 2045.19;
+                else if (nombreEncerts === 4) importPremi = 51.81;
+                else if (nombreEncerts === 3) importPremi = 8.37;
+                
+                if (importPremi > 0) afegirPremi(importPremi);
+                else ESTAT.pot += 10;
+
+                // GUARDEM A L'HISTORIAL
                 ESTAT.historial.push({
                     origen: "Random",
                     aposta: apostaUsuari,
@@ -69,14 +44,13 @@ document.addEventListener('DOMContentLoaded', () =>
                     premis: importPremi,
                     data: new Date().toLocaleString()
                 });
-                /*  console.log('sorteig:', i + 1)
-                  console.log(`Bet ${index + 1}\n Winner[${guanyadora}] \n     usuari[${apostaUsuari}]: ${nombreEncerts} Match (${encerts})\n gasto: ${ESTAT.gastat}\n -------------------------------PREMI: ${importPremi}`)*/
-            })
-            i++;
+            });
+            drawsDone++;
         }
+
+        // 2. Guardem i marxem a la pàgina de resultats
         ESTAT.numSorteigs = 1;
         desarEstat();
-        actualitzarPanell();
-        window.location.href = window.location.href;
-    })
+        window.location.href = './resultado.html';
+    });
 });

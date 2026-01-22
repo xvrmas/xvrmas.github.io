@@ -119,12 +119,11 @@ document.addEventListener('DOMContentLoaded', () =>
     if (seleccioActual.length !== 6)
     {
       Swal.fire({
-        icon:"error",
-        text:'You must select exactly 6 numbers',
+        icon: "error",
+        text: 'You must select exactly 6 numbers',
       })
       return;
     }
-
     ESTAT.apostaActual = [...seleccioActual];
     desarEstat();
     window.location.href = './resultado.html';
