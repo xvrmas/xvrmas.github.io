@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultatsEl = document.getElementById('resultats');
     if (!resultatsEl) return;
 
-    // Quants sorteigs hem de mostrar? 
-    // Si venim de l'index, mostrarem els últims N elements de l'historial 
-    // que coincideixin amb el que acabem de jugar.
+    /* Quants sorteigs hem de mostrar? 
+       Si venim de l'index, mostrarem els últims N elements de l'historial 
+       que coincideixin amb el que acabem de jugar.
+    */
     
     const ultimSorteigData = ESTAT.historial[ESTAT.historial.length - 1]?.data;
     const resultatsAMostrar = ESTAT.historial.filter(h => h.data === ultimSorteigData);
