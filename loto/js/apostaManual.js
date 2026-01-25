@@ -1,7 +1,7 @@
 //pinta la cuadricula del 1 al 49 i permet sel·leccionar 6 numeros i només 6
 
-import { generarSorteig } from './generadorSorteig.js';
-import {cobrarAposta,afegirPremi,actualitzarPanell} from './panellJoc.js'
+import { generarSorteig, generarReintegrament } from './generadorSorteig.js';
+import { cobrarAposta, afegirPremi } from './panellJoc.js'
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 
 document.addEventListener('DOMContentLoaded', () =>
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () =>
   opcioManual.classList.add('opcio-oculta');
 
   let seleccioActual = [];
+
 
   inputCambi.addEventListener('change', () =>
   {
@@ -114,7 +115,9 @@ document.addEventListener('DOMContentLoaded', () =>
     })
   });
 
-
+  const refund = generarReintegrament();
+  const pintaRefund = document.getElementById('reintegrament');
+  pintaRefund.innerHTML = `Refund:  ${refund}`;
   botoJugar.addEventListener('click', () =>
   {
     if (seleccioActual.length !== 6)
@@ -129,14 +132,25 @@ document.addEventListener('DOMContentLoaded', () =>
     ESTAT.apostaActual = [...seleccioActual];
 
     let i = 0;
+    var contador = 0;
+
     while (i < ESTAT.numSorteigs)
     {
-      const guanyadora = generarSorteig().sort((a,b) => a - b);
+      const guanyadora = generarSorteig().sort((a, b) => a - b);
       const guanyadoraSet = new Set(guanyadora);
       const encerts = seleccioActual.filter(num => guanyadoraSet.has(num));
       const nombreEncerts = encerts.length;
       let importPremi = 0;
 
+      const reintegramentGuanyador = generarReintegrament();
+      if (refund === reintegramentGuanyador)
+      {
+        console.log('premi');
+        contador++;
+      }
+      console.log('reintegrement',refund)
+      console.log('re. guanyador',reintegramentGuanyador);
+      console.log('-------------------------------------');
 
       // Lògica de premis 
       if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
@@ -159,8 +173,9 @@ document.addEventListener('DOMContentLoaded', () =>
       });
       i++;
     }
+    console.log('total reintegrament: ', contador)
     desarEstat();
-    window.location.href = './resultado.html';
+   // window.location.href = './resultado.html';
   });
 });
 

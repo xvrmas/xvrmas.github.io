@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () =>
         {
             ESTAT.numSorteigs = 0;
         }
-        console.log('panell', ESTAT.numSorteigs)
         desarEstat();
     })
 
