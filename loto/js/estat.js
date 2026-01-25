@@ -6,9 +6,10 @@ export const ESTAT = {
   premis: 0,
   gastat: 0,
   numSorteigs: 1,
+  reintegrament: 0,
   historial: [],
   apostaActual: [],
-  apostesAutoUsuari:[]
+  apostesAutoUsuari: []
 };
 
 export function desarEstat()

@@ -2,24 +2,29 @@ import { generarSorteig } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
 import { cobrarAposta, afegirPremi } from "./panellJoc.js";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>
+{
     const goBoto = document.getElementById('boto-apostes');
     if (!goBoto) return; // Si no hi ha botó (estem a resultado.html), no facis res
 
-    goBoto.addEventListener('click', () => {
+    goBoto.addEventListener('click', () =>
+    {
         carregarEstat();
-        if (ESTAT.apostesAutoUsuari.length === 0) {
+        if (ESTAT.apostesAutoUsuari.length === 0)
+        {
             Swal.fire({ icon: "error", text: 'Please select lines.' });
             return;
         }
 
         // 1. Fem els càlculs
         let drawsDone = 0;
-        while (drawsDone < ESTAT.numSorteigs) {
+        while (drawsDone < ESTAT.numSorteigs)
+        {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
 
-            ESTAT.apostesAutoUsuari.forEach((apostaUsuari) => {
+            ESTAT.apostesAutoUsuari.forEach((apostaUsuari) =>
+            {
                 if (!cobrarAposta()) return;
 
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
@@ -31,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (nombreEncerts === 5) importPremi = 2045.19;
                 else if (nombreEncerts === 4) importPremi = 51.81;
                 else if (nombreEncerts === 3) importPremi = 8.37;
-                
+
                 if (importPremi > 0) afegirPremi(importPremi);
                 else ESTAT.pot += 10;
 

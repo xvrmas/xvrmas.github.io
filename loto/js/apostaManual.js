@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () =>
   }
 
 
+
   opcions.forEach(radio =>
   {
     radio.addEventListener('change', () =>
@@ -115,9 +116,8 @@ document.addEventListener('DOMContentLoaded', () =>
     })
   });
 
-  const refund = generarReintegrament();
-  const pintaRefund = document.getElementById('reintegrament');
-  pintaRefund.innerHTML = `Refund:  ${refund}`;
+
+
   botoJugar.addEventListener('click', () =>
   {
     if (seleccioActual.length !== 6)
@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () =>
         console.log('premi');
         contador++;
       }
-      console.log('reintegrement',refund)
-      console.log('re. guanyador',reintegramentGuanyador);
+      console.log('reintegrement', refund)
+      console.log('re. guanyador', reintegramentGuanyador);
       console.log('-------------------------------------');
 
       // Lògica de premis 
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     console.log('total reintegrament: ', contador)
     desarEstat();
-   // window.location.href = './resultado.html';
+    window.location.href = './resultado.html';
   });
 });
 
