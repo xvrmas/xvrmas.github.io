@@ -142,16 +142,6 @@ document.addEventListener('DOMContentLoaded', () =>
       const nombreEncerts = encerts.length;
       let importPremi = 0;
 
-      const reintegramentGuanyador = generarReintegrament();
-      if (refund === reintegramentGuanyador)
-      {
-        console.log('premi');
-        contador++;
-      }
-      console.log('reintegrement', refund)
-      console.log('re. guanyador', reintegramentGuanyador);
-      console.log('-------------------------------------');
-
       // Lògica de premis 
       if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
       else if (nombreEncerts === 5) importPremi = 2045.19;
