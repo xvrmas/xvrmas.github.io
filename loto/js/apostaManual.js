@@ -1,6 +1,7 @@
 //pinta la cuadricula del 1 al 49 i permet sel·leccionar 6 numeros i només 6
 
 import { generarSorteig } from './generadorSorteig.js';
+import {cobrarAposta,afegirPremi,actualitzarPanell} from './panellJoc.js'
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 
 document.addEventListener('DOMContentLoaded', () =>
@@ -124,7 +125,40 @@ document.addEventListener('DOMContentLoaded', () =>
       })
       return;
     }
+
     ESTAT.apostaActual = [...seleccioActual];
+
+    let i = 0;
+    while (i < ESTAT.numSorteigs)
+    {
+      const guanyadora = generarSorteig().sort((a,b) => a - b);
+      const guanyadoraSet = new Set(guanyadora);
+      const encerts = seleccioActual.filter(num => guanyadoraSet.has(num));
+      const nombreEncerts = encerts.length;
+      let importPremi = 0;
+
+
+      // Lògica de premis 
+      if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
+      else if (nombreEncerts === 5) importPremi = 2045.19;
+      else if (nombreEncerts === 4) importPremi = 51.81;
+      else if (nombreEncerts === 3) importPremi = 8.37;
+
+      if (importPremi > 0) afegirPremi(importPremi);
+      else ESTAT.pot += 10;
+      cobrarAposta();
+
+      // GUARDEM A L'HISTORIAL
+      ESTAT.historial.push({
+        origen: "manual",
+        aposta: seleccioActual,
+        sorteig: guanyadora,
+        encerts: nombreEncerts,
+        premis: importPremi,
+        data: new Date().toLocaleString()
+      });
+      i++;
+    }
     desarEstat();
     window.location.href = './resultado.html';
   });
