@@ -7,6 +7,7 @@
   <title>Resultat</title>
   <link rel="stylesheet" href="styles/style-2.css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="components/botoInici.js"></script>
 
 </head>
 
@@ -17,12 +18,17 @@
   <!-- Game panel -->
   <button id="boto-retorn" class="btn-chevron" aria-label="Return"
     onclick="window.location.href='index.html'">Return</button>
+
   <div id="panell-joc">
     <div id="resultats">
     </div>
   </div>
+  <boto-inici></boto-inici>
+
   <!-- Scripts -->
   <script type="module" src="js/estat.js"></script>
   <script type="module" src="js/sorteig.js"></script>
+
+</body>
 
 </html>
