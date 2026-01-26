@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () =>
       });
       i++;
     }
+    ESTAT.numSorteigs = 1;
     console.log('total reintegrament: ', contador)
     desarEstat();
     window.location.href = './resultado.html';
