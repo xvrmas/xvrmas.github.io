@@ -133,14 +133,23 @@ document.addEventListener('DOMContentLoaded', () =>
 
     let i = 0;
     var contador = 0;
-
+    var index = 0;
     while (i < ESTAT.numSorteigs)
     {
       const guanyadora = generarSorteig().sort((a, b) => a - b);
       const guanyadoraSet = new Set(guanyadora);
       const encerts = seleccioActual.filter(num => guanyadoraSet.has(num));
       const nombreEncerts = encerts.length;
+
+      const reintegreJoc = generarReintegrament();
+      ESTAT.reintegramentBanca = reintegreJoc;
       let importPremi = 0;
+
+      if (ESTAT.reintegrament === reintegreJoc)
+      {
+        ESTAT.premis;
+        index++;
+      }
 
       // Lògica de premis 
       if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
@@ -159,10 +168,12 @@ document.addEventListener('DOMContentLoaded', () =>
         sorteig: guanyadora,
         encerts: nombreEncerts,
         premis: importPremi,
+        bonus: reintegreJoc,
         data: new Date().toLocaleString()
       });
       i++;
     }
+
     ESTAT.numSorteigs = 1;
     console.log('total reintegrament: ', contador)
     desarEstat();

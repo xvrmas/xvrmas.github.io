@@ -54,14 +54,13 @@ class ReintegrePremi extends HTMLElement
             btn.textContent = i;
             btn.classList.add('numero-btn');
 
-            // --- MILLORA: Pintar el botó si ja estava seleccionat a l'ESTAT ---
             if (this.seleccioActual.includes(i))
             {
                 btn.classList.add('seleccionado');
                 
             } else if (this.seleccioActual.length >= 1)
             {
-                btn.disabled = true; // Bloquejar els altres si ja n'hi ha un de triat
+                btn.disabled = true; 
             }
 
             btn.onclick = () => this.gestionarSeleccio(i, btn);
@@ -82,7 +81,7 @@ class ReintegrePremi extends HTMLElement
         {
             this.seleccioActual = [numero];
             boto.classList.add('seleccionado');
-            ESTAT.reintegrament = numero; // Guardem el número directament, no l'array
+            ESTAT.reintegrament = numero;
         }
 
         desarEstat();
@@ -91,11 +90,9 @@ class ReintegrePremi extends HTMLElement
 
     actualitzarVisuals()
     {
-        // Actualitzem el text del Refund
         const display = this.shadowRoot.getElementById('numero-triat');
         display.textContent = this.seleccioActual.length > 0 ? this.seleccioActual[0] : '';
 
-        // Actualitzem l'estat de bloqueig de tots els botons
         const hiHaSeleccio = this.seleccioActual.length >= 1;
         this.shadowRoot.querySelectorAll('.numero-btn').forEach(b =>
         {

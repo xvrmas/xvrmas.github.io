@@ -1,11 +1,11 @@
-import { generarSorteig } from "./generadorSorteig.js";
+import { generarReintegrament, generarSorteig } from "./generadorSorteig.js";
 import { ESTAT, desarEstat, carregarEstat } from "./estat.js";
 import { cobrarAposta, afegirPremi } from "./panellJoc.js";
 
 document.addEventListener('DOMContentLoaded', () =>
 {
     const goBoto = document.getElementById('boto-apostes');
-    if (!goBoto) return; // Si no hi ha botó (estem a resultado.html), no facis res
+    if (!goBoto) return;
 
     goBoto.addEventListener('click', () =>
     {
@@ -18,10 +18,20 @@ document.addEventListener('DOMContentLoaded', () =>
 
         // 1. Fem els càlculs
         let drawsDone = 0;
+        var index = 0;
         while (drawsDone < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
+
+            const reintegreJoc = generarReintegrament();
+            ESTAT.reintegramentBanca = reintegreJoc;
+
+            if (ESTAT.reintegrament === reintegreJoc)
+            {
+                ESTAT.premis++;
+                index++;
+            }
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari) =>
             {
@@ -47,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () =>
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
                     premis: importPremi,
+                    bonus: reintegreJoc,
                     data: new Date().toLocaleString()
                 });
             });
             drawsDone++;
         }
-
         // 2. Guardem i marxem a la pàgina de resultats
         ESTAT.numSorteigs = 1;
         desarEstat();
