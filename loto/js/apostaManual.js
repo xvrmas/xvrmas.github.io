@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
     let i = 0;
     var contador = 0;
-    var index = 0;
     while (i < ESTAT.numSorteigs)
     {
       const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -147,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
       if (ESTAT.reintegrament === reintegreJoc)
       {
-        ESTAT.premis;
-        index++;
+        ESTAT.premis++;
       }
 
       // Lògica de premis 
@@ -173,11 +171,11 @@ document.addEventListener('DOMContentLoaded', () =>
       });
       i++;
     }
-
+    console.log(ESTAT.historial)
     ESTAT.numSorteigs = 1;
     console.log('total reintegrament: ', contador)
     desarEstat();
-    window.location.href = './resultado.html';
+  //  window.location.href = './resultado.html';
   });
 });
 

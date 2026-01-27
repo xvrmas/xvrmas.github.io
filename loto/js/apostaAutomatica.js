@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
         // 1. Fem els càlculs
         let drawsDone = 0;
-        var index = 0;
         while (drawsDone < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () =>
             if (ESTAT.reintegrament === reintegreJoc)
             {
                 ESTAT.premis++;
-                index++;
             }
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari) =>

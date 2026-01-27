@@ -40,14 +40,16 @@ document.addEventListener('DOMContentLoaded', () =>
       }
     })
   })
-
   for (let item of ESTAT.historial)
   {
     pinta(item);
+
   }
 
   function pinta(h)
   {
+    console.log(h.bonus)
+
     const historialEl = document.querySelector('.taula-dinamica tbody');
     const fila = document.createElement('tr');
     const tdPremi = document.createElement('td');
