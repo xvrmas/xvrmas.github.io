@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () =>
 {
     const goBoto = document.getElementById('boto-apostes');
     if (!goBoto) return;
+    ESTAT.reintegrament = 0;
+    console.log('reset  bonus ball', ESTAT.reintegrament);
 
     goBoto.addEventListener('click', () =>
     {
@@ -13,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () =>
         if (ESTAT.apostesAutoUsuari.length === 0)
         {
             Swal.fire({ icon: "error", text: 'Please select lines.' });
+            return;
+        }
+        else if (ESTAT.reintegrament === null || ESTAT.reintegrament === 0)
+        {
+            Swal.fire({
+                icon: "error",
+                text: 'You must select exactly 1 Bonus Ball',
+            })
             return;
         }
 
@@ -50,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
                 // GUARDEM A L'HISTORIAL
                 ESTAT.historial.push({
-                    origen: "Random",
+                    origen: "(R)",
                     aposta: apostaUsuari,
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
@@ -61,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () =>
             });
             drawsDone++;
         }
-        // 2. Guardem i marxem a la pàgina de resultats
         ESTAT.numSorteigs = 1;
         desarEstat();
         window.location.href = './resultado.html';

@@ -1,4 +1,4 @@
-import { ESTAT, desarEstat } from "../js/estat.js"; // Recorda posar .js si és un mòdul pur
+import { ESTAT, desarEstat } from "../js/estat.js"; 
 
 class ReintegrePremi extends HTMLElement
 {
@@ -6,7 +6,6 @@ class ReintegrePremi extends HTMLElement
     {
         super();
         this.attachShadow({ mode: 'open' });
-        // Inicialitzem des de l'estat global si ja existeix una selecció
         this.seleccioActual = ESTAT.reintegrament ? [Number(ESTAT.reintegrament)] : [];
     }
 
@@ -17,9 +16,9 @@ class ReintegrePremi extends HTMLElement
 
     render()
     {
+        ESTAT.reintegrament = 0;
         this.shadowRoot.innerHTML = `
             <style>
-                /* ... el teu CSS es manté igual ... */
                 .numeros-container 
                 { 
                     display: grid; 
@@ -102,6 +101,6 @@ class ReintegrePremi extends HTMLElement
                 b.disabled = hiHaSeleccio;
             }
         });
-    }
+    }    
 }
 customElements.define('reintegre-premi', ReintegrePremi);

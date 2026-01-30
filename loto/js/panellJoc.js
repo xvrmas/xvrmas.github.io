@@ -18,6 +18,7 @@ export function actualitzarPanell()
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () =>
 {
     carregarEstat();

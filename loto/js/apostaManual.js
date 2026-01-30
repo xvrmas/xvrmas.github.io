@@ -7,6 +7,8 @@ import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
+  ESTAT.reintegrament = 0;
+  console.log('reset  bonus ball', ESTAT.reintegrament);
 
   const contenidor = document.getElementById('selector-numeros');
   const seleccioEl = document.getElementById('seleccio-actual');
@@ -33,11 +35,9 @@ document.addEventListener('DOMContentLoaded', () =>
   {
     const goValor = parseInt(inputValor.value);
 
-    // 1. Netejar el contenidor abans de posar resultats nous
     mostrarNumeros.innerHTML = "";
     ESTAT.apostesAutoUsuari = [];
 
-    // 2. Generar les apostes
     for (let i = 0; i < goValor; i++)
     {
       const numAuto = generarSorteig().sort((a, b) => a - b);
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     desarEstat();
 
-    // 3. Mostrar-les creant un element NOU per cada aposta
     ESTAT.apostesAutoUsuari.forEach((element, index) =>
     {
       const creaP = document.createElement('p'); // CREAR AQUÍ DINS
@@ -120,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
   botoJugar.addEventListener('click', () =>
   {
+
     if (seleccioActual.length !== 6)
     {
       Swal.fire({
@@ -128,11 +128,19 @@ document.addEventListener('DOMContentLoaded', () =>
       })
       return;
     }
+    else if (ESTAT.reintegrament === null || ESTAT.reintegrament === 0)
+    {
+      Swal.fire({
+        icon: "error",
+        text: 'You must select exactly 1 Bonus Ball',
+      })
+      return;
+
+    }
 
     ESTAT.apostaActual = [...seleccioActual];
 
     let i = 0;
-    var contador = 0;
     while (i < ESTAT.numSorteigs)
     {
       const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -171,11 +179,9 @@ document.addEventListener('DOMContentLoaded', () =>
       });
       i++;
     }
-    console.log(ESTAT.historial)
     ESTAT.numSorteigs = 1;
-    console.log('total reintegrament: ', contador)
     desarEstat();
-  //  window.location.href = './resultado.html';
+    window.location.href = './resultado.html';
   });
 });
 
