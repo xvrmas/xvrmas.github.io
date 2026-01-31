@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () =>
       const nombreEncerts = encerts.length;
 
       const reintegreJoc = generarReintegrament();
-      ESTAT.reintegramentBanca = reintegreJoc;
+     // ESTAT.reintegramentBanca = reintegreJoc;
       let importPremi = 0;
 
       if (ESTAT.reintegrament === reintegreJoc)

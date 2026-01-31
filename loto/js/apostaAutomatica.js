@@ -33,17 +33,19 @@ document.addEventListener('DOMContentLoaded', () =>
             const guanyadora = generarSorteig().sort((a, b) => a - b);
             const guanyadoraSet = new Set(guanyadora);
 
-            const reintegreJoc = generarReintegrament();
-            ESTAT.reintegramentBanca = reintegreJoc;
 
-            if (ESTAT.reintegrament === reintegreJoc)
-            {
-                ESTAT.premis++;
-            }
 
             ESTAT.apostesAutoUsuari.forEach((apostaUsuari) =>
             {
                 if (!cobrarAposta()) return;
+
+                const reintegreJoc = generarReintegrament();
+                //ESTAT.reintegramentBanca = reintegreJoc;
+
+                if (ESTAT.reintegrament === reintegreJoc)
+                {
+                    ESTAT.premis++;
+                }
 
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const nombreEncerts = encerts.length;
