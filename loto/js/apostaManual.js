@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
       // GUARDEM A L'HISTORIAL
       ESTAT.historial.push({
-        origen: "manual",
+        origen: "M",
         aposta: seleccioActual,
         sorteig: guanyadora,
         encerts: nombreEncerts,
