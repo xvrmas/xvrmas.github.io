@@ -157,8 +157,7 @@ button:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.contenidor-bonus-ball
-{
+.contenidor-bonus-ball {
     display: flex;
 }
 .ball.acierto {
@@ -256,5 +255,18 @@ button:hover {
 
     .numeros-container {
         grid-template-columns: repeat(5, 1fr);
+    }
+    .taula-dinamica {
+        width: 100%;
+        background: white;
+        border-radius: 8px;
+        overflow: scroll;
+    }
+
+    .taula-dinamica th,
+    .taula-dinamica td {
+        padding: 0;
+        text-align: center;
+        border-bottom: 15px solid #eee;
     }
 }
