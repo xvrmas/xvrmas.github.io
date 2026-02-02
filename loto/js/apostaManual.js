@@ -149,19 +149,18 @@ document.addEventListener('DOMContentLoaded', () =>
       const nombreEncerts = encerts.length;
 
       const reintegreJoc = generarReintegrament();
-     // ESTAT.reintegramentBanca = reintegreJoc;
       let importPremi = 0;
-
-      if (ESTAT.reintegrament === reintegreJoc)
-      {
-        ESTAT.premis++;
-      }
 
       // Lògica de premis 
       if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
       else if (nombreEncerts === 5) importPremi = 2045.19;
       else if (nombreEncerts === 4) importPremi = 51.81;
       else if (nombreEncerts === 3) importPremi = 8.37;
+      else if (ESTAT.reintegrament === reintegreJoc)
+      {
+        ESTAT.premis++;
+        desarEstat();
+      }
 
       if (importPremi > 0) afegirPremi(importPremi);
       else ESTAT.pot += 10;

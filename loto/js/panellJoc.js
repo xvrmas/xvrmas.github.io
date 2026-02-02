@@ -31,27 +31,11 @@ document.addEventListener('DOMContentLoaded', () =>
     {
         const element = e.target.value;
 
-        if (element === 'dia')
-        {
-            ESTAT.numSorteigs = 1;
-        }
-        else if (element === 'setmana')
-        {
-            ESTAT.numSorteigs = 3;
-        }
-        else if (element === 'mes')
-        {
-            ESTAT.numSorteigs = 12;
-
-        }
-        else if (element === 'any')
-        {
-            ESTAT.numSorteigs = 156;
-        }
-        else
-        {
-            ESTAT.numSorteigs = 0;
-        }
+        if (element === 'dia') ESTAT.numSorteigs = 1;
+        else if (element === 'setmana') ESTAT.numSorteigs = 3;
+        else if (element === 'mes') ESTAT.numSorteigs = 12;
+        else if (element === 'any') ESTAT.numSorteigs = 156;
+        else ESTAT.numSorteigs = 0;
         desarEstat();
     })
 
@@ -60,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () =>
         botoAfegirFons.addEventListener('click', () =>
         {
             const importIngressat = Number(prompt('How much money do you want to add?'));
+            
             if (!isNaN(importIngressat) && importIngressat > 0)
             {
                 ESTAT.saldo += importIngressat;

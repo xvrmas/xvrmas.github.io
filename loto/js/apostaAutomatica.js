@@ -40,12 +40,6 @@ document.addEventListener('DOMContentLoaded', () =>
                 if (!cobrarAposta()) return;
 
                 const reintegreJoc = generarReintegrament();
-                //ESTAT.reintegramentBanca = reintegreJoc;
-
-                if (ESTAT.reintegrament === reintegreJoc)
-                {
-                    ESTAT.premis++;
-                }
 
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const nombreEncerts = encerts.length;
@@ -56,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () =>
                 else if (nombreEncerts === 5) importPremi = 2045.19;
                 else if (nombreEncerts === 4) importPremi = 51.81;
                 else if (nombreEncerts === 3) importPremi = 8.37;
+                else if (ESTAT.reintegrament === reintegreJoc){
+                    ESTAT.premis++;
+                    desarEstat();
+                }
 
                 if (importPremi > 0) afegirPremi(importPremi);
                 else ESTAT.pot += 10;
