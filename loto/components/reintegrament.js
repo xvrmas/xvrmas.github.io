@@ -30,7 +30,7 @@ class ReintegrePremi extends HTMLElement
                     width: 45px; 
                     height: 45px; border-radius: 50%; 
                     border: 2px solid var(--accent, #ff4500); 
-                    background: white; font-weight: bold; color: var(--accent, #ff4500); cursor: pointer; 
+                    background: LightCyan; font-weight: bold; color: var(--accent, #ff4500); cursor: pointer; 
                     }
                 .numero-btn.seleccionado 
                 { 
@@ -47,7 +47,7 @@ class ReintegrePremi extends HTMLElement
 
         const contenidor = this.shadowRoot.getElementById('selector-numeros');
 
-        for (let i = 1; i <= 9; i++)
+        for (let i = 0; i <= 9; i++)
         {
             const btn = document.createElement('button');
             btn.textContent = i;

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () =>
 {
     const goBoto = document.getElementById('boto-apostes');
     if (!goBoto) return;
-    ESTAT.reintegrament = 0;
+    ESTAT.reintegrament = null;
     console.log('reset  bonus ball', ESTAT.reintegrament);
 
     goBoto.addEventListener('click', () =>
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () =>
             Swal.fire({ icon: "error", text: 'Please select lines.' });
             return;
         }
-        else if (ESTAT.reintegrament === null || ESTAT.reintegrament === 0)
+        else if (ESTAT.reintegrament === null)
         {
             Swal.fire({
                 icon: "error",

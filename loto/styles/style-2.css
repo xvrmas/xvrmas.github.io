@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg);
     color: var(--text);
     margin: 0;
@@ -38,7 +38,7 @@ h2 {
     background: var(--white);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 25px;
     margin-bottom: 20px;
@@ -54,12 +54,20 @@ h2 {
     font-size: 1.1rem;
 }
 
-#premis { color: var(--success); }
-#gastat { color: var(--error); }
-#pot { color: var(--warning); text-shadow: 1px 1px 0px #0002; }
+#premis {
+    color: var(--success);
+}
+#gastat {
+    color: var(--error);
+}
+#pot {
+    color: var(--warning);
+    text-shadow: 1px 1px 0px #0002;
+}
 
 /* --- Controls i Formularis --- */
-.radio-group, .iteracions-group {
+.radio-group,
+.iteracions-group {
     margin: 20px 0;
     background: #eee;
     padding: 15px;
@@ -69,7 +77,8 @@ h2 {
     align-items: center;
 }
 
-select, button {
+select,
+button {
     padding: 10px 15px;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -78,7 +87,9 @@ select, button {
     transition: all 0.3s ease;
 }
 
-button#boto-jugar, button#boto-apostes, button#boto-retorn {
+button#boto-jugar,
+button#boto-apostes,
+button#boto-retorn {
     background-color: var(--accent);
     margin: 20px;
     width: 200px;
@@ -124,7 +135,8 @@ button:hover {
 }
 
 /* --- Boles de Resultat --- */
-.balls-container, .balls {
+.balls-container,
+.balls {
     display: flex;
     gap: 10px;
     margin: 15px 0;
@@ -142,9 +154,13 @@ button:hover {
     justify-content: center;
     font-weight: bold;
     border: 2px solid #bbb;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.contenidor-bonus-ball
+{
+    display: flex;
+}
 .ball.acierto {
     background: radial-gradient(circle at 30% 30%, #a2e0a4, #4caf50);
     color: white;
@@ -164,16 +180,16 @@ button:hover {
 
 /* --- Historial (Taula) --- */
 .taula-dinamica {
-    width: 100%;
-    max-width: 900px;
+    width: 200vh;
     border-collapse: collapse;
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.taula-dinamica th, .taula-dinamica td {
+.taula-dinamica th,
+.taula-dinamica td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #eee;
@@ -237,7 +253,7 @@ button:hover {
         align-items: center;
         gap: 10px;
     }
-    
+
     .numeros-container {
         grid-template-columns: repeat(5, 1fr);
     }

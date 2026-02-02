@@ -7,7 +7,7 @@ export const ESTAT = {
   premis: 0,
   gastat: 0,
   numSorteigs: 1,
-  reintegrament: 0,
+  reintegrament: null,
   reintegramentBanca: 0,
   historial: [],
   apostaActual: [],

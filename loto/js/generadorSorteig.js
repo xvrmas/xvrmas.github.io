@@ -13,7 +13,7 @@ export function generarSorteig()
 
 export function generarReintegrament()
 {
-  const reintegrement = Math.floor(Math.random() * 9) + 1;
+  const reintegrement = Math.floor(Math.random() * 10);
   return reintegrement;
   
 }

@@ -7,7 +7,7 @@ import { ESTAT, desarEstat, carregarEstat } from './estat.js';
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
-  ESTAT.reintegrament = 0;
+  ESTAT.reintegrament = null;
   console.log('reset  bonus ball', ESTAT.reintegrament);
 
   const contenidor = document.getElementById('selector-numeros');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () =>
       })
       return;
     }
-    else if (ESTAT.reintegrament === null || ESTAT.reintegrament === 0)
+    else if (ESTAT.reintegrament === null)
     {
       Swal.fire({
         icon: "error",
