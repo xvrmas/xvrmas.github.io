@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () =>
     <td class="coincidencies">${h.encerts}</td>
     <td class="bonus">${h.bonusUsuari}</td>
     <td class="bonus">${h.bonus}</td>
-    <td class="coincidencies">${h.b}</td>
+    <td class="coincidencies">${h.encertsBonusjoc}</td>
   `;
     fila.appendChild(tdPremi);
     historialEl.appendChild(fila);

@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
         // 1. Fem els càlculs
         let drawsDone = 0;
-        let h = 1;
         while (drawsDone < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -43,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () =>
                 const reintegreJoc = generarReintegrament();
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const nombreEncerts = encerts.length;
+                let encertsBonus = 0;
                 let importPremi = 0;
 
                 // Lògica de premis 
@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () =>
                 else if (nombreEncerts === 3) importPremi = 8.37;
                 else if (ESTAT.reintegrament === reintegreJoc)
                 {
-                    console.log('premi', h);
+                    encertsBonus = 1;
                     ESTAT.premis++;
-                    h++;
                     desarEstat();
                 }
+                console.log(encertsBonus)
 
                 if (importPremi > 0) afegirPremi(importPremi);
                 else ESTAT.pot += 10;
@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () =>
                     premis: importPremi,
                     bonusUsuari: ESTAT.reintegrament,
                     bonus: reintegreJoc,
+                    encertsBonusjoc:encertsBonus,
+                    premis: importPremi,
                     data: new Date().toLocaleString()
                 });
             });
