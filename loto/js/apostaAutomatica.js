@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
         // 1. Fem els càlculs
         let drawsDone = 0;
+        let h = 1;
         while (drawsDone < ESTAT.numSorteigs)
         {
             const guanyadora = generarSorteig().sort((a, b) => a - b);
@@ -44,14 +45,6 @@ document.addEventListener('DOMContentLoaded', () =>
                 const nombreEncerts = encerts.length;
                 let importPremi = 0;
 
-
-
-                if (ESTAT.reintegrament === reintegreJoc)
-                {
-                    console.log('bonus usuari', ESTAT.reintegrament);
-                    console.log('bonus loteri', reintegreJoc);
-                }
-
                 // Lògica de premis 
                 if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
                 else if (nombreEncerts === 5) importPremi = 2045.19;
@@ -59,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () =>
                 else if (nombreEncerts === 3) importPremi = 8.37;
                 else if (ESTAT.reintegrament === reintegreJoc)
                 {
+                    console.log('premi', h);
                     ESTAT.premis++;
+                    h++;
                     desarEstat();
                 }
 
@@ -82,6 +77,6 @@ document.addEventListener('DOMContentLoaded', () =>
         }
         ESTAT.numSorteigs = 1;
         desarEstat();
-        // window.location.href = './resultado.html';
+        window.location.href = './resultado.html';
     });
 });
