@@ -158,9 +158,10 @@ document.addEventListener('DOMContentLoaded', () =>
       else if (nombreEncerts === 5) importPremi = 2045.19;
       else if (nombreEncerts === 4) importPremi = 51.81;
       else if (nombreEncerts === 3) importPremi = 8.37;
-      else if (ESTAT.reintegrament === reintegreJoc) 
+      
+      if (ESTAT.reintegrament === reintegreJoc) 
       {
-        importPremi = 1;
+        importPremi += 1;
         encertsBonus = 1;
 
       }
