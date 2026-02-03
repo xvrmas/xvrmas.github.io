@@ -40,17 +40,25 @@ document.addEventListener('DOMContentLoaded', () =>
                 if (!cobrarAposta()) return;
 
                 const reintegreJoc = generarReintegrament();
-
                 const encerts = apostaUsuari.filter(num => guanyadoraSet.has(num));
                 const nombreEncerts = encerts.length;
                 let importPremi = 0;
+
+
+
+                if (ESTAT.reintegrament === reintegreJoc)
+                {
+                    console.log('bonus usuari', ESTAT.reintegrament);
+                    console.log('bonus loteri', reintegreJoc);
+                }
 
                 // Lògica de premis 
                 if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
                 else if (nombreEncerts === 5) importPremi = 2045.19;
                 else if (nombreEncerts === 4) importPremi = 51.81;
                 else if (nombreEncerts === 3) importPremi = 8.37;
-                else if (ESTAT.reintegrament === reintegreJoc){
+                else if (ESTAT.reintegrament === reintegreJoc)
+                {
                     ESTAT.premis++;
                     desarEstat();
                 }
@@ -60,11 +68,12 @@ document.addEventListener('DOMContentLoaded', () =>
 
                 // GUARDEM A L'HISTORIAL
                 ESTAT.historial.push({
-                    origen: "R",
+                    origen: "A",
                     aposta: apostaUsuari,
                     sorteig: guanyadora,
                     encerts: nombreEncerts,
                     premis: importPremi,
+                    bonusUsuari: ESTAT.reintegrament,
                     bonus: reintegreJoc,
                     data: new Date().toLocaleString()
                 });
@@ -73,6 +82,6 @@ document.addEventListener('DOMContentLoaded', () =>
         }
         ESTAT.numSorteigs = 1;
         desarEstat();
-        window.location.href = './resultado.html';
+        // window.location.href = './resultado.html';
     });
 });

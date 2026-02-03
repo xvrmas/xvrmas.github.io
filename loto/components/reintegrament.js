@@ -1,4 +1,4 @@
-import { ESTAT, desarEstat } from "../js/estat.js"; 
+import { ESTAT, desarEstat } from "../js/estat.js";
 
 class ReintegrePremi extends HTMLElement
 {
@@ -23,22 +23,31 @@ class ReintegrePremi extends HTMLElement
                 { 
                     display: grid; 
                     grid-template-columns: repeat(5, 1fr); 
-                    gap: 8px; max-width: 300px; margin: 20px auto; 
+                    gap: 8px; 
+                    max-width: 300px; margin: 20px auto; 
                 }
                 .numero-btn 
                 { 
                     width: 45px; 
                     height: 45px; border-radius: 50%; 
                     border: 2px solid var(--accent, #ff4500); 
-                    background: LightCyan; font-weight: bold; color: var(--accent, #ff4500); cursor: pointer; 
+                    background: LightCyan; 
+                    font-weight: bold; 
+                    color: var(--accent, #ff4500); 
+                    cursor: pointer; 
                     }
                 .numero-btn.seleccionado 
                 { 
-                    background-color: var(--accent, #ff4500); color: white; 
+                    background-color: var(--accent, #ff4500); 
+                    color: white; 
                 }
                 .numero-btn:disabled 
                 { 
                     opacity: 0.3; cursor: not-allowed; filter: grayscale(1); 
+                }
+                button:hover {
+                    filter: brightness(1.1);
+                    transform: translateY(-2px);
                 }
             </style>
             <h3>Refund: <span id="numero-triat">${this.seleccioActual.length > 0 ? this.seleccioActual[0] : ''}</span></h3>
@@ -56,10 +65,10 @@ class ReintegrePremi extends HTMLElement
             if (this.seleccioActual.includes(i))
             {
                 btn.classList.add('seleccionado');
-                
+
             } else if (this.seleccioActual.length >= 1)
             {
-                btn.disabled = true; 
+                btn.disabled = true;
             }
 
             btn.onclick = () => this.gestionarSeleccio(i, btn);
@@ -101,6 +110,6 @@ class ReintegrePremi extends HTMLElement
                 b.disabled = hiHaSeleccio;
             }
         });
-    }    
+    }
 }
 customElements.define('reintegre-premi', ReintegrePremi);

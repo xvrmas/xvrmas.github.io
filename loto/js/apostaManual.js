@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () =>
         sorteig: guanyadora,
         encerts: nombreEncerts,
         premis: importPremi,
+        bonusUsuari:ESTAT.reintegrament,
         bonus: reintegreJoc,
         data: new Date().toLocaleString()
       });
