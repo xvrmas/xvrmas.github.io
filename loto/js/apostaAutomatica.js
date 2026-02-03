@@ -50,13 +50,11 @@ document.addEventListener('DOMContentLoaded', () =>
                 else if (nombreEncerts === 5) importPremi = 2045.19;
                 else if (nombreEncerts === 4) importPremi = 51.81;
                 else if (nombreEncerts === 3) importPremi = 8.37;
-                else if (ESTAT.reintegrament === reintegreJoc)
+                else if (ESTAT.reintegrament === reintegreJoc) 
                 {
+                    importPremi = 1;
                     encertsBonus = 1;
-                    ESTAT.premis++;
-                    desarEstat();
                 }
-                console.log(encertsBonus)
 
                 if (importPremi > 0) afegirPremi(importPremi);
                 else ESTAT.pot += 10;
@@ -70,8 +68,6 @@ document.addEventListener('DOMContentLoaded', () =>
                     premis: importPremi,
                     bonusUsuari: ESTAT.reintegrament,
                     bonus: reintegreJoc,
-                    encertsBonusjoc:encertsBonus,
-                    premis: importPremi,
                     data: new Date().toLocaleString()
                 });
             });

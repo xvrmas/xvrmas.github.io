@@ -150,18 +150,20 @@ document.addEventListener('DOMContentLoaded', () =>
 
       const reintegreJoc = generarReintegrament();
       let importPremi = 0;
+      let encertsBonus = 0;
+
 
       // Lògica de premis 
       if (nombreEncerts === 6) importPremi = ESTAT.pot || 15000000;
       else if (nombreEncerts === 5) importPremi = 2045.19;
       else if (nombreEncerts === 4) importPremi = 51.81;
       else if (nombreEncerts === 3) importPremi = 8.37;
-      else if (ESTAT.reintegrament === reintegreJoc)
+      else if (ESTAT.reintegrament === reintegreJoc) 
       {
-        ESTAT.premis++;
-        desarEstat();
-      }
+        importPremi = 1;
+        encertsBonus = 1;
 
+      }
       if (importPremi > 0) afegirPremi(importPremi);
       else ESTAT.pot += 10;
       cobrarAposta();
@@ -173,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () =>
         sorteig: guanyadora,
         encerts: nombreEncerts,
         premis: importPremi,
-        bonusUsuari:ESTAT.reintegrament,
+        bonusUsuari: ESTAT.reintegrament,
         bonus: reintegreJoc,
         data: new Date().toLocaleString()
       });
