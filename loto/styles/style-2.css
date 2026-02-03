@@ -179,7 +179,7 @@ button:hover {
 
 /* --- Historial (Taula) --- */
 .taula-dinamica {
-    width: 200vh;
+    width: 100%;
     border-collapse: collapse;
     background: white;
     border-radius: 8px;
