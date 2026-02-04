@@ -7,8 +7,8 @@ import { ESTAT, carregarEstat } from './estat.js';
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
-
-  ESTAT.historial.sort((a, b) => b.encerts - a.encerts);
+  console.log(ESTAT.historial)
+  ESTAT.historial.sort((a, b) => b.premis - a.premis);
 
   const netejaHistorial = document.getElementById('neteja-historial');
   netejaHistorial.addEventListener('click', async () =>

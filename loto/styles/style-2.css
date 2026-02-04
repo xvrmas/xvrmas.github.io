@@ -185,6 +185,7 @@ button:hover {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .taula-dinamica th,
@@ -192,11 +193,13 @@ button:hover {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #eee;
+    
 }
 
 .taula-dinamica th {
     background-color: var(--primary);
     color: white;
+    
 }
 
 .guanyador {
@@ -284,7 +287,6 @@ button:hover {
         border-bottom: 2px solid #eee;
         text-align: right;
         margin-right: 15px;
-        
     }
 
     .taula-dinamica td::before {

@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () =>
     const goBoto = document.getElementById('boto-apostes');
     if (!goBoto) return;
     ESTAT.reintegrament = null;
-    console.log('reset  bonus ball', ESTAT.reintegrament);
 
     goBoto.addEventListener('click', () =>
     {
