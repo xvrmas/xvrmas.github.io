@@ -265,6 +265,8 @@ button:hover {
     .taula-dinamica tr {
         display: block;
         width: 100%;
+        background-color:var(--bg);
+        box-shadow: none;
     }
 
     .taula-dinamica tr {
@@ -279,9 +281,10 @@ button:hover {
         display: flex;
         justify-content: space-between;
         padding: 8px 10px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 2px solid #eee;
         text-align: right;
         margin-right: 15px;
+        
     }
 
     .taula-dinamica td::before {
