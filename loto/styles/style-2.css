@@ -246,7 +246,7 @@ button:hover {
 }
 
 /* --- Responsive --- */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #panell-joc {
         flex-direction: column;
         align-items: center;
@@ -256,17 +256,48 @@ button:hover {
     .numeros-container {
         grid-template-columns: repeat(5, 1fr);
     }
-    .taula-dinamica {
-        width: 100%;
-        background: white;
-        border-radius: 8px;
-        overflow: scroll;
+    .taula-dinamica thead {
+        display: none;
     }
 
-    .taula-dinamica th,
+    .taula-dinamica,
+    .taula-dinamica tbody,
+    .taula-dinamica tr {
+        display: block;
+        width: 100%;
+    }
+
+    .taula-dinamica tr {
+        margin-bottom: 15px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
     .taula-dinamica td {
-        padding: 0;
-        text-align: center;
-        border-bottom: 15px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        text-align: right;
+        margin-right: 15px;
+    }
+
+    .taula-dinamica td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--primary);
+        text-align: left;
+    }
+
+    .taula-dinamica td:last-child {
+        border-bottom: none;
+    }
+
+    .guanyador {
+        background-color: #e8f5e9;
+        border-radius: 6px;
+        color:rgb(1, 140, 13);
     }
 }

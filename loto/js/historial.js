@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', () =>
       tdPremi.classList.add('guanyador');
     }
     fila.innerHTML = `
-    <td class="data">${h.data}</td>
-    <td class="way">${h.origen}</td>
-    <td class="aposta">${h.aposta.join('-')}</td>
-    <td class="resultat">${h.sorteig.join('-')}</td>
-    <td class="coincidencies">${h.encerts}</td>
-    <td class="bonus">${h.bonusUsuari}</td>
-    <td class="bonus">${h.bonus}</td>
-  `;
+      <td data-label="Date" class="data">${h.data}</td>
+      <td data-label="Way" class="way">${h.origen}</td>
+      <td data-label="Your bet" class="aposta">${h.aposta.join('-')}</td>
+      <td data-label="Winning numbers" class="resultat">${h.sorteig.join('-')}</td>
+      <td data-label="Matches" class="coincidencies">${h.encerts}</td>
+      <td data-label="Bonus player" class="bonus">${h.bonusUsuari}</td>
+      <td data-label="Bonus Lottery" class="bonus">${h.bonus}</td>
+    `;
     fila.appendChild(tdPremi);
     historialEl.appendChild(fila);
   }
