@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () =>
     const fila = document.createElement('tr');
     const tdPremi = document.createElement('td');
     tdPremi.classList.add('premi');
+    tdPremi.dataset.label = 'Winnings';
     tdPremi.textContent = `${h.premis}`;
     if (h.premis !== 0)
     {
