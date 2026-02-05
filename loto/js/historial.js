@@ -7,7 +7,6 @@ import { ESTAT, carregarEstat } from './estat.js';
 document.addEventListener('DOMContentLoaded', () =>
 {
   carregarEstat();
-  console.log(ESTAT.historial)
   ESTAT.historial.sort((a, b) => b.premis - a.premis);
 
   const netejaHistorial = document.getElementById('neteja-historial');
@@ -53,10 +52,14 @@ document.addEventListener('DOMContentLoaded', () =>
     const tdPremi = document.createElement('td');
     tdPremi.classList.add('premi');
     tdPremi.dataset.label = 'Winnings';
-    tdPremi.textContent = `${h.premis}`;
+    tdPremi.textContent = `${h.premis}€`;
     if (h.premis !== 0)
     {
       tdPremi.classList.add('guanyador');
+    }
+    if (h.premis === 0)
+    {
+      tdPremi.textContent = '-';
     }
     fila.innerHTML = `
       <td data-label="Date" class="data">${h.data}</td>
