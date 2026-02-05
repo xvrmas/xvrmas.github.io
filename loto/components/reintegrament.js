@@ -30,15 +30,15 @@ class ReintegrePremi extends HTMLElement
                 { 
                     width: 45px; 
                     height: 45px; border-radius: 50%; 
-                    border: 2px solid var(--accent, #ff4500); 
-                    background: LightCyan; 
+                    border: 2px solid var(--accent); 
+                    background: white; 
                     font-weight: bold; 
-                    color: var(--accent, #ff4500); 
+                    color: var(--accent); 
                     cursor: pointer; 
                     }
                 .numero-btn.seleccionado 
                 { 
-                    background-color: var(--accent, #ff4500); 
+                    background-color: var(--accent); 
                     color: white; 
                 }
                 .numero-btn:disabled 

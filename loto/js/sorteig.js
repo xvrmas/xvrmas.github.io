@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () =>
             <p>Lottery:</p>
             ${renderBoles(item.sorteig, new Set(item.aposta))} 
             <div class="contenidor-bonus-ball">
-            <p style="margin-right:10px; margin-top:10px;">Bonus ball:</p>  
+            <p>Bonus ball:</p>  
                ${renderBonusBall(ESTAT.reintegrament, item.bonus)}
             </div>
             <p>Matches: ${item.encerts} | Win: ${item.premis}€</p>
