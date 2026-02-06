@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () =>
       const creaP = document.createElement('p'); // CREAR AQUÍ DINS
       creaP.innerHTML =
         ` <div class="balls"> 
-            <h5>Block ${index + 1}:</h5> ${element.map(n => `<span class="ball-auto">${n}</span>`).join(' ')}
+            <h3> ${index + 1} </h3>
+             ${element.map(n => `<span class="ball-auto">${n}</span>`).join(' ')}
           </div>
         `;
       mostrarNumeros.appendChild(creaP);
