@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () =>
       const creaP = document.createElement('p'); // CREAR AQUÍ DINS
       creaP.innerHTML =
         `<div id="seleccio-actual">
-                 Block ${index + 1}:<br><span class="ball"> ${element.join('-')}</span>
+                 Block ${index + 1}:<br> ${element.join('-')}
             </div>
             `;
       mostrarNumeros.appendChild(creaP);
