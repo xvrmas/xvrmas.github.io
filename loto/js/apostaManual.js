@@ -45,14 +45,16 @@ document.addEventListener('DOMContentLoaded', () =>
     }
     desarEstat();
 
+    const rendeAruto = (element) => `<span>${element.map(n => `<span class="ball">${n}</span>`).join(' ')}</span>`
+
     ESTAT.apostesAutoUsuari.forEach((element, index) =>
     {
       const creaP = document.createElement('p'); // CREAR AQUÍ DINS
       creaP.innerHTML =
         `<div id="seleccio-actual">
-                 Block ${index + 1}:<br> ${element.join('-')}
-            </div>
-            `;
+            Block ${index + 1}:<br>${rendeAruto(element)}
+         </div>
+        `;
       mostrarNumeros.appendChild(creaP);
     });
   });

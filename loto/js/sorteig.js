@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () =>
 
 
     const renderBoles = (nums, encertsSet = new Set()) =>
-        `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n) 
-            ? 'acierto' 
+
+        `<div class="balls">${nums.map(n => `<span class="ball ${console} ${encertsSet.has(n)  
+            ? 'acierto'
             : ''}">${n}</span>`).join('')}</div>`;
 
     const renderBonusBall = (rein, bonus) =>
         rein === bonus
             ? `<span class="ball acierto">${rein}</span> &nbsp;&nbsp;&nbsp; <span class="ball acierto">${bonus}</span>`
-            : `<span class="ball">${rein}</span> &nbsp;&nbsp;&nbsp; <span class="ball">${bonus}</span>`;
-
+            : `<span class="ball">${rein}</span> &nbsp;&nbsp;&nbsp; <span class="ball">${bonus}</span>`
 
     resultatsAMostrar.forEach((item, index) =>
     {
