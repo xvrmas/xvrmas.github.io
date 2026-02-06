@@ -163,7 +163,7 @@ button:hover {
     margin-top: 5px;
     border-radius: 50%;
     background: var(--accent);
-    color:white;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,8 +171,8 @@ button:hover {
     border: 2px solid var(--accent);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-h3{
-    font-family: 'Courier New', Courier, monospace;
+h3 {
+    font-family: "Courier New", Courier, monospace;
 }
 .contenidor-bonus-ball {
     display: flex;
@@ -318,5 +318,10 @@ h3{
         background-color: #e8f5e9;
         border-radius: 6px;
         color: rgb(1, 140, 13);
+    }
+    .ball-auto {
+        width: 36px;
+        height: 36px;
+        margin-top: 7px;
     }
 }
