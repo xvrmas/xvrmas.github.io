@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
     const renderBoles = (nums, encertsSet = new Set()) =>
 
-        `<div class="balls">${nums.map(n => `<span class="ball ${console} ${encertsSet.has(n)  
-            ? 'acierto'
-            : ''}">${n}</span>`).join('')}</div>`;
+        `<div class="balls">${nums.map(n => `<span class="ball ${encertsSet.has(n)  ? 'acierto' : ''}">${n}</span>`).join('')}</div>`;
 
     const renderBonusBall = (rein, bonus) =>
         rein === bonus
