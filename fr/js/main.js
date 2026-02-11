@@ -16,10 +16,18 @@ taula.addEventListener('click', function (event)
 {
     if (event.target && event.target.classList.contains('btn-eliminar')) 
     {
-        const fila = event.target.closest('tr');  
+        const fila = event.target.closest('tr');
         eliminar(fila);
     }
 });
+
+const referenciaCarrusel = document.getElementById('referencia');
+
+referenciaCarrusel.addEventListener('input', function (e)
+{
+    console.log(e.target.value)
+})
+
 
 function info()
 {
@@ -28,7 +36,7 @@ function info()
 
 function mostar()
 {
-    
+
     for (let item of paletsreferencia)
     {
         pinta(item.quantitatMinima, item, 1);
@@ -38,9 +46,30 @@ function mostar()
 
 function imprimirStock()
 {
-    
-   window.print();
+
+    window.print();
 }
+
+function desarLlistat()
+{
+    localStorage.setItem('comandaFrit', JSON.stringify(endresaTaula))
+}
+function carregarLlisat()
+{
+    const data = JSON.parse(localStorage.getItem('comandaFrit'));
+    endresaTaula = [...data]
+    console.log(endresaTaula)
+    if (data === null)
+    {
+        alert('no hi ha elements a mostrar')
+        return
+    }
+    for (let element of data)
+        pinta(element.quantitatDemanada, element, element.paletsPreparar)
+}
+
+//document.getElementById('desar').addEventListener('click', desarLlistat)
+document.getElementById('carregar').addEventListener('click', carregarLlisat)
 
 //la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada
 function modifica()
@@ -60,8 +89,8 @@ function modifica()
                 {
                     while (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
                     {
-                      alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima }`);
-                      quantitatModificar = Number(prompt('entra una quantitat'))
+                        alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima}`);
+                        quantitatModificar = Number(prompt('entra una quantitat'))
                     }
                 }
                 if (quantitatModificar % endresaTaula[i].quantitatMinima === 0 && quantitatModificar != 0)
@@ -100,40 +129,44 @@ function endresa()
     else
     {
         if (tria == 1)
-            { 
-                endresaTaula.sort((a, b) => 
-                {
-                    if (a.midaReferencia === 'X' && b.midaReferencia != 'X')
-                        return -1;
-                    else if (a.midaReferencia != 'X' && b.midaReferencia === 'X')
-                        return 1;
-                    else
-                        return 0;
-                    
-                });
-                repintaTaula();
-              
-            }
-            else if (tria == 2)
-            { 
-                endresaTaula.sort((a, b) => a.carrer - b.carrer);
-                repintaTaula();
-            }
-            else if (tria == 3)
-            { 
-                endresaTaula.sort((a, b) => a.model - b.model);
-                repintaTaula();
-            }
-            else if (tria == 4)
+        {
+            endresaTaula.sort((a, b) => 
             {
-                endresaTaula.sort((a,b) => a.paletsPreparar - b.paletsPreparar);
-                repintaTaula();
-            }
-            else 
-            {
-                alert('entra un numero del 1 al 4')
-            }
-            console.log('endresa',endresaTaula)
+                if (a.midaReferencia === 'X' && b.midaReferencia != 'X')
+                    return -1;
+                else if (a.midaReferencia != 'X' && b.midaReferencia === 'X')
+                    return 1;
+                else
+                    return 0;
+
+            });
+            desarLlistat();
+            repintaTaula();
+
+        }
+        else if (tria == 2)
+        {
+            endresaTaula.sort((a, b) => a.carrer - b.carrer);
+            desarLlistat();
+            repintaTaula();
+        }
+        else if (tria == 3)
+        {
+            endresaTaula.sort((a, b) => a.model - b.model);
+            desarLlistat();
+            repintaTaula();
+        }
+        else if (tria == 4)
+        {
+            endresaTaula.sort((a, b) => a.paletsPreparar - b.paletsPreparar);
+            desarLlistat();
+            repintaTaula();
+        }
+        else 
+        {
+            alert('entra un numero del 1 al 4')
+        }
+        console.log('endresa', endresaTaula)
 
     }
 }
@@ -157,7 +190,7 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
             <td class="quantitatDemanada">${quantitatDemanada}</td>
             <td class="codiArticle">${infoPreparacio.model}</td>
             <td class="paletsPreparar">${paletsPreparar}</td>
-            <td><textarea id="comentaris" name="comentaris" rows="1" cols="13"></textarea></td>
+            <td><textarea id="comentaris" name="comentaris" rows="1" cols="15"></textarea></td>
             <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
 
     `;
@@ -189,7 +222,7 @@ function recontePalets()
     ample.innerHTML = `Amples: ${sumaAmple}`;
     impGran.innerHTML = `Amples: ${sumaAmple}`;
     impPetit.innerHTML = `Estrets: ${sumaEstret}`;
-    
+
 }
 
 //comprova si el codi entrat existeix a l'array magatzem en cas de no existir mostra un missatge d'error
@@ -205,7 +238,7 @@ function capturaCodi(referenciaDemanda)
             return (creaInfoCodi);
         }
         i++;
-    }  
+    }
     alert('falten dades o son incorrectes!')
 }
 
@@ -242,21 +275,22 @@ function eliminar(fila)
     {
         confirmaElimnarLinea = confirm(`vols eliminar ${quantitatEliminada} palets del codi ${codiEliminat}?`)
     }
-    if  (confirmaElimnarLinea == true) 
+    if (confirmaElimnarLinea == true) 
     {
         fila.remove();
-        while (i < endresaTaula.length )
+        while (i < endresaTaula.length)
         {
             if (endresaTaula[i].model === Number(codiEliminat))
             {
-                endresaTaula.splice(i,1)
+                endresaTaula.splice(i, 1)
                 recontePalets();
-            }                
+            }
             i++;
         }
     }
-    console.log(endresaTaula);  
 }
+
+
 
 //funcio que rep les dades entrades per l'usuari i reparteix a les diferents funcions per mostrar la informació per pantalla
 function principal() 
@@ -275,7 +309,7 @@ function principal()
         if (parseInt(quantitatDemanada) % infoPreparacio.quantitatMinima != 0)
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
-        { 
+        {
             let comprobaRepetit = comprobaCodi(referenciaDemanda);
             if (comprobaRepetit === true)
                 alert(`El codi ${referenciaDemanda} ja està en preparació`)
@@ -284,10 +318,10 @@ function principal()
                 paletsPreparar = parseInt(quantitatDemanada / infoPreparacio.quantitatMinima);
                 infoPreparacio.paletsPreparar = paletsPreparar;
                 infoPreparacio.quantitatDemanada = quantitatDemanada;
-                endresaTaula.push(infoPreparacio);   
+                endresaTaula.push(infoPreparacio);
                 recontePalets();
-                pinta(quantitatDemanada,infoPreparacio,paletsPreparar); 
-                ('principal',endresaTaula);
+                pinta(quantitatDemanada, infoPreparacio, paletsPreparar);
+                desarLlistat();
             }
         }
     }
