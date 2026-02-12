@@ -28,7 +28,7 @@ body {
   color: #111;
 }
 
-#comentaris {
+.comentaris {
   border: none;
   font-size: large;
 }
