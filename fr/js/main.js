@@ -21,13 +21,30 @@ taula.addEventListener('click', function (event)
     }
 });
 
-const referenciaCarrusel = document.getElementById('referencia');
+/*const referenciaCarrusel = document.getElementById('referencia');
 
 referenciaCarrusel.addEventListener('input', function (e)
 {
     console.log(e.target.value)
-})
+})*/
 
+taula.addEventListener('change', (e) =>
+{
+
+    const fila = e.target.closest('tr');
+    const filaNof = fila.querySelector('.comentaris').value;
+    const filaModel = fila.querySelector('.codiArticle').innerText;
+    let i = 0;
+    while (i < endresaTaula.length)
+    {
+        if (endresaTaula[i].model == filaModel)
+        {
+            endresaTaula[i].NOF = filaNof;
+            desarLlistat();
+        }
+        i++;
+    }
+})
 
 function info()
 {
@@ -58,14 +75,14 @@ function carregarLlisat()
 {
     const data = JSON.parse(localStorage.getItem('comandaFrit'));
     endresaTaula = [...data]
-    console.log(endresaTaula)
     if (data === null)
     {
         alert('no hi ha elements a mostrar')
         return
     }
     for (let element of data)
-        pinta(element.quantitatDemanada, element, element.paletsPreparar)
+        pinta(element.quantitatDemanada, element, element.paletsPreparar);
+    recontePalets();
 }
 
 //document.getElementById('desar').addEventListener('click', desarLlistat)
@@ -100,6 +117,7 @@ function modifica()
                     endresaTaula[i].paletsPreparar = nouPalet;
                     repintaTaula();
                     recontePalets();
+                    desarLlistat();
                 }
             }
             i++;
@@ -179,6 +197,8 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
         quantitatDemanada = "";
         paletsPreparar = "";
     }
+    if (infoPreparacio.NOF == undefined)
+        infoPreparacio.NOF = '';
     const taulaDinamicaBody = document.querySelector('.taulaDinamica tbody');
     const fila = document.createElement('tr');
 
@@ -190,7 +210,7 @@ function pinta(quantitatDemanada, infoPreparacio, paletsPreparar)
             <td class="quantitatDemanada">${quantitatDemanada}</td>
             <td class="codiArticle">${infoPreparacio.model}</td>
             <td class="paletsPreparar">${paletsPreparar}</td>
-            <td><textarea id="comentaris" name="comentaris" rows="1" cols="15"></textarea></td>
+            <td><textarea class="comentaris" name="comentaris" rows="1" cols="15">${infoPreparacio.NOF}</textarea></td>
             <td class="boto"><button class="btn-eliminar" data-id="1">ELIMINAR</button></td>
 
     `;
@@ -282,11 +302,12 @@ function eliminar(fila)
         {
             if (endresaTaula[i].model === Number(codiEliminat))
             {
-                endresaTaula.splice(i, 1)
+                endresaTaula.splice(i, 1);
                 recontePalets();
             }
             i++;
         }
+        desarLlistat();
     }
 }
 
@@ -320,8 +341,8 @@ function principal()
                 infoPreparacio.quantitatDemanada = quantitatDemanada;
                 endresaTaula.push(infoPreparacio);
                 recontePalets();
-                pinta(quantitatDemanada, infoPreparacio, paletsPreparar);
                 desarLlistat();
+                pinta(quantitatDemanada, infoPreparacio, paletsPreparar);
             }
         }
     }
