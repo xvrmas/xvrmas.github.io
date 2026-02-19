@@ -85,13 +85,13 @@ const paletsReferencia =
             midaReferencia: '-',
             carrer: 11,
             bloc: '17-18',
-        }, /*{
+        }, {
             model: 920641,
             quantitatMinima: 240,
             midaReferencia: 'X',
             carrer: 0,
             bloc: 0,
-        },*/ {
+        }, {
             model: 920366,
             quantitatMinima: 240,
             midaReferencia: 'X',
