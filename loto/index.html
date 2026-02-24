@@ -1,113 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>When will I be a millionaire?</title>
-  <link rel="stylesheet" href="styles/style.css"><!-- Incluye SweetAlert2 en tu HTML -->
+  <link rel="stylesheet" href="styles/style.css">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="components/reintegrament.js"></script>
-
 </head>
-
 <body>
-
-
   <h1>When will I be a millionaire?</h1>
 
-  <!-- info del estat dels contes, guanys, pot i diners invertits -->
   <div id="panell-joc">
-    <!--<p id="saldo">Balance: 0€</p>-->
-    <p id="premis">Win: 0€</p>
-    <p id="gastat">Waste: 0€</p>
-    <p id="pot">Pot: 0€</p>
-    <!--  <button id="boto-afegir-fons">Add funds</button>-->
+    <!-- <p id="saldo">Balance: 0 EUR</p> -->
+    <p id="punts">Points: 0</p>
+    <p id="jocs-desbloquejats">Unlocked games: 0</p>
+    <p id="jocs-bloquejats">Locked games: 0</p>
+    <p id="punts-gastats">Lottery points spent: 0</p>
+    <!-- <button id="boto-afegir-fons">Add funds</button> -->
   </div>
 
+  <button id="boto-toggle-loteria" type="button">Mostrar loteria</button>
 
-  <div class="radio-group">
-    <input type="radio" id="manual" name="opcio" value="m" checked>
-    <label for="manual">Manual pick</label>
+  <div id="bloc-loteria" class="loteria-modal ocult-loteria">
+    <div class="loteria-modal__content">
+      <div class="loteria-modal__header">
+        <h2>Loteria</h2>
+        <button id="boto-tancar-loteria" type="button" aria-label="Tancar loteria">X</button>
+      </div>
 
-    <input type="radio" id="automatica" name="opcio" value="a">
-    <label for="automatica">Random selection</label>
-  </div>
-  <label for="iteracions">Please select your draw frequency from the dropdown menu: </label>
+      <div class="radio-group">
+      <input type="radio" id="manual" name="opcio" value="m" checked>
+      <label for="manual">Manual pick</label>
 
-  <div>
-    <select name="iteracions" id="num-sorteigs">
-      <option value="dia" selected>Day (1)</option>
-      <option value="setmana">Week (3)</option>
-      <option value="mes">Month (12)</option>
-      <option value="any">Year (156)</option>
-    </select>
-    <button id="boto-jugar">Play</button>
-  </div>
+      <input type="radio" id="automatica" name="opcio" value="a">
+      <label for="automatica">Random selection</label>
+      </div>
 
+    <label for="iteracions">Please select your draw frequency from the dropdown menu: </label>
 
-  <!--aqui van els 9 numeros del reintegrament-->
-  <reintegre-premi></reintegre-premi>
+    <div>
+      <select name="iteracions" id="num-sorteigs">
+        <option value="dia" selected>Day (1)</option>
+        <option value="setmana">Week (3)</option>
+        <option value="mes">Month (12)</option>
+        <option value="any">Year (156)</option>
+      </select>
+      <button id="boto-jugar">Play</button>
+    </div>
 
+    <reintegre-premi></reintegre-premi>
 
-  <div id="opcio-manual">
-    <h2>Choose <span id="numeros-restants">6</span> numbers</h2>
-    <p id="seleccio-actual">Selected: </p>
-    <div id="selector-numeros" class="numeros-container">
-      <!--aqui va la cuadricula del 1 al 49-->
+    <div id="opcio-manual">
+      <h2>Choose <span id="numeros-restants">6</span> numbers</h2>
+      <p id="seleccio-actual">Selected: </p>
+      <div id="selector-numeros" class="numeros-container"></div>
+    </div>
+
+    <div id="opcio-automatica">
+      <label for="autoAposta">How many lines do you want to play?</label>
+      <select name="autoAposta" id="num-sorteigs-auto">
+        <option value="0" selected>-</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button type="button" id="boto-apostes">Play</button>
+      <div id="mostrar-numeros"></div>
+    </div>
+
+    <div id="resultats-index"></div>
+
+    <div>
+      <h2>History</h2>
+      <div class="historial-controls">
+        <button id="boto-toggle-historial" type="button">Mostrar historial</button>
+        <button id="neteja-historial"><img src="./assets/delete.svg" alt=""></button>
+      </div>
+    </div>
+
+      <div id="historial" class="ocult-historial">
+        <table class="taula-dinamica" id="taula-Id">
+          <thead>
+            <tr class="capsalera-taula">
+              <th class="data">Date</th>
+              <th class="origen">Way</th>
+              <th>Your bet</th>
+              <th>Winning numbers</th>
+              <th>Matches</th>
+              <th>Bonus player</th>
+              <th>Bonus Lottery</th>
+              <th>Winnings</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div id="opcio-automatica">
-    <label for="autoAposta">How many lines do you want to play?</label>
-    <select name="autoAposta" id="num-sorteigs-auto">
-      <option value="0" selected>-</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <button type="button" id="boto-apostes">Play</button>
-    <div id="mostrar-numeros">
-    </div>
-  </div>
-  <div id="resultats-index">
 
-  </div>
+  <section id="mini-jocs">
+    <h2>Mini games to earn points</h2>
+    <p>Each lottery bet costs 1 point.</p>
+    <p id="millor-encerts">Best matches: 0</p>
+    <div id="mini-jocs-groups"></div>
 
-  <div>
-    <h2>History</h2>
-    <button id="neteja-historial"><img src="./assets/delete.svg" alt=""></button>
-  </div>
+    <p id="mini-joc-resultat"></p>
+  </section>
 
-<!--historial-->
-
-  <div id="historial">
-    <table class="taula-dinamica" id="taula-Id">
-      <thead>
-        <tr class="capsalera-taula">
-          <th class="data">Date</th>
-          <th class="origen">Way</th>
-          <th>Your bet</th>
-          <th>Winning numbers</th>
-          <th>Matches</th>
-          <th>Bonus player</th>
-          <th>Bonus Lottery</th>
-          <th>Winnings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!--aqui va el llistat dinamic-->
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Scripts -->
   <script type="module" src="js/estat.js"></script>
   <script type="module" src="js/panellJoc.js"></script>
+  <script type="module" src="js/visibilitatLoteria.js"></script>
+  <script type="module" src="js/minijocs.js"></script>
   <script type="module" src="js/apostaManual.js"></script>
   <script type="module" src="js/historial.js"></script>
   <script type="module" src="js/apostaAutomatica.js"></script>
 </body>
-
 </html>

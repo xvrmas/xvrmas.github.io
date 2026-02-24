@@ -1,8 +1,9 @@
 //pinta la cuadricula del 1 al 49 i permet sel·leccionar 6 numeros i només 6
 
 import { generarSorteig, generarReintegrament } from './generadorSorteig.js';
-import { cobrarAposta, afegirPremi } from './panellJoc.js'
+import { cobrarAposta, afegirPremi, COST_APOSTA_PUNTS } from './panellJoc.js'
 import { ESTAT, desarEstat, carregarEstat } from './estat.js';
+import { aplicarDesbloqueigPerEncerts } from './progressioMiniJocs.js';
 
 document.addEventListener('DOMContentLoaded', () =>
 {
@@ -141,10 +142,25 @@ document.addEventListener('DOMContentLoaded', () =>
     }
 
     ESTAT.apostaActual = [...seleccioActual];
+    const apostesTotals = ESTAT.numSorteigs;
+    const puntsNecessaris = apostesTotals * COST_APOSTA_PUNTS;
+    if (ESTAT.punts < puntsNecessaris)
+    {
+      Swal.fire({
+        icon: "warning",
+        title: "Not enough points",
+        text: `You want ${apostesTotals} bets (${puntsNecessaris} points), but you only have ${ESTAT.punts}. Missing: ${puntsNecessaris - ESTAT.punts} points.`
+      });
+      return;
+    }
 
     let i = 0;
+    const miniJocsNous = new Set();
+    let millorEncertsSessio = -1;
     while (i < ESTAT.numSorteigs)
     {
+      if (!cobrarAposta()) break;
+
       const guanyadora = generarSorteig().sort((a, b) => a - b);
       const guanyadoraSet = new Set(guanyadora);
       const encerts = seleccioActual.filter(num => guanyadoraSet.has(num));
@@ -167,9 +183,10 @@ document.addEventListener('DOMContentLoaded', () =>
         encertsBonus = 1;
 
       }
+      millorEncertsSessio = Math.max(millorEncertsSessio, nombreEncerts);
+
       if (importPremi > 0) afegirPremi(importPremi);
       else ESTAT.pot += 10;
-      cobrarAposta();
 
       // GUARDEM A L'HISTORIAL
       ESTAT.historial.push({
@@ -178,14 +195,33 @@ document.addEventListener('DOMContentLoaded', () =>
         sorteig: guanyadora,
         encerts: nombreEncerts,
         premis: importPremi,
+        puntsGuanyats: 0,
         bonusUsuari: ESTAT.reintegrament,
         bonus: reintegreJoc,
         data: new Date().toLocaleString()
       });
       i++;
     }
+    if (millorEncertsSessio >= 0)
+    {
+      const nousDesbloquejats = aplicarDesbloqueigPerEncerts(millorEncertsSessio);
+      nousDesbloquejats.forEach(nom => miniJocsNous.add(nom));
+    }
     ESTAT.numSorteigs = 1;
     desarEstat();
+    if (miniJocsNous.size > 0)
+    {
+      const jocs = Array.from(miniJocsNous).join(', ');
+      Swal.fire({
+        icon: "success",
+        title: "New mini game unlocked",
+        text: `You unlocked: ${jocs}`
+      }).then(() =>
+      {
+        window.location.href = './resultado.html';
+      });
+      return;
+    }
     window.location.href = './resultado.html';
   });
 });
