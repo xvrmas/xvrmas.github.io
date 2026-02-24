@@ -162,8 +162,7 @@ button:hover {
     height: 40px;
     margin-top: 5px;
     border-radius: 50%;
-    background: var(--accent);
-    color: white;
+    color: rgb(10, 10, 10);
     display: flex;
     align-items: center;
     justify-content: center;

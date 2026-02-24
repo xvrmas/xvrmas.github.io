@@ -6,7 +6,9 @@ class ReintegrePremi extends HTMLElement
     {
         super();
         this.attachShadow({ mode: 'open' });
-        this.seleccioActual = ESTAT.reintegrament ? [Number(ESTAT.reintegrament)] : [];
+        this.seleccioActual = ESTAT.reintegrament !== null && ESTAT.reintegrament !== undefined
+            ? [Number(ESTAT.reintegrament)]
+            : [];
     }
 
     connectedCallback()
@@ -16,7 +18,6 @@ class ReintegrePremi extends HTMLElement
 
     render()
     {
-        ESTAT.reintegrament = 0;
         this.shadowRoot.innerHTML = `
             <style>
                 .numeros-container 
@@ -50,7 +51,7 @@ class ReintegrePremi extends HTMLElement
                     transform: translateY(-2px);
                 }
             </style>
-            <h3>Refund: <span id="numero-triat">${this.seleccioActual.length > 0 ? this.seleccioActual[0] : ''}</span></h3>
+            <h3>Bonus ball: <span id="numero-triat">${this.seleccioActual.length > 0 ? this.seleccioActual[0] : ''}</span></h3>
             <div id="selector-numeros" class="numeros-container"></div>
         `;
 
