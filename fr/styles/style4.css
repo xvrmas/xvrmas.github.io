@@ -7,7 +7,6 @@ body {
 }
 
 .caixa {
-  display: flex;
   padding: 25px;
   position: fixed;
   display: flex;
@@ -204,7 +203,7 @@ textarea {
 
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
 
   .taulaDinamica th,
   .taulaDinamica td {
