@@ -205,10 +205,13 @@ textarea {
 
 @media screen and (max-width: 1200px) {
 
+  .taulaDinamica
+  {
+    margin-top: 250px;
+  }
   .taulaDinamica th,
   .taulaDinamica td {
     font-size: 0.9rem;
-    margin-top: 0;
   }
 
   .btn-eliminar {
@@ -220,7 +223,7 @@ textarea {
   .caixa {
     display: flex;
     display: list-item;
-    position: relative;
+    position: fixed;
     align-items: center;
     justify-content: center;
   }

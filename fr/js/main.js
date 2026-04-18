@@ -21,14 +21,17 @@ taula.addEventListener('click', function (event)
     }
 });
 
-/*const referenciaCarrusel = document.getElementById('referencia');
+const referenciaCarrusel = document.getElementById('referencia');
 
 referenciaCarrusel.addEventListener('input', function (e)
 {
-    console.log(e.target.value)
-})*/
+    const model = e.target.value;
+    const carrusel = paletsreferencia.filter(paletsreferencia.includes(model.value));
+    console.log(carrusel)
 
-taula.addEventListener('change', (e) =>
+})
+
+taula.addEventListener('input', (e) =>
 {
 
     const fila = e.target.closest('tr');
