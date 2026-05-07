@@ -5,14 +5,14 @@ const paletsReferencia =
             model: 920007,
             quantitatMinima: 240,
             midaReferencia: '-',
-            carrer: ENTRGA,
-            bloc: DIRECTA,
+            carrer: 'ENTREGA',
+            bloc: 'DIRECTA',
         }, {
             model: 920107,
             quantitatMinima: 170,
             midaReferencia: '-',
-            carrer: ENTREGA,
-            bloc: DIRECTA,
+            carrer: 'ENTREGA',
+            bloc: 'DIRECTA',
         }, {
             model: 920146,
             quantitatMinima: 480,
@@ -131,8 +131,8 @@ const paletsReferencia =
             model: 920111,
             quantitatMinima: 120,
             midaReferencia: 'X',
-            carrer: ENTREGA,
-            bloc: DIRECTA,
+            carrer: 'ENTREGA',
+            bloc: 'DIRECTA',
         }, {
             model: 920372,
             quantitatMinima: 396,
@@ -227,7 +227,7 @@ const paletsReferencia =
             model: 920476,
             quantitatMinima: 231,
             midaReferencia: '-',
-            carrer: ENTREGA,
+            carrer: 'ENTREGA',
             bloc: 'DIRECTA',
          },
 ]
