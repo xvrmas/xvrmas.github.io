@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+:root {
+  --primary: #f4c960;
+  --text: #f5f5f5;
+  --muted: #b3b3b3;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Coolvetica', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* BACKGROUND */
+.fons_pantalla {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* TEXT */
+.rave-title {
+  font-family: 'Archivo Black';
+  text-align: center;
+  color: var(--primary);
+  font-size: clamp(1.8rem, 8vw, 3rem);
+}
+
+.rave-sub {
+  font-family: 'Archivo Black';
+  text-align: center;
+  color: var(--primary);
+  letter-spacing: 0.15em;
+}
+
+.rave-body {
+  text-align: center;
+  font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.glow {
+  text-shadow: 0 0 8px rgba(244,201,96,0.6);
+}
+
+/* HERO */
+.hero {
+  padding: 100px 20px 60px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: min(95vw, 650px);
+  margin: 25px auto;
+  display: block;
+  filter: drop-shadow(0 0 25px rgba(244,201,96,0.55));
+}
+
+.hero-location {
+  margin-top: 20px;
+}
+
+/* BUTTON */
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: #111;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Archivo Black';
+}
+
+/* ABOUT */
+.about {
+  padding: 40px 20px;
+}
+
+.about .rave-body {
+  background: #fff;
+  color: #111;
+  max-width: 500px;
+  margin: 12px auto;
+  padding: 16px 20px;
+  border-radius: 16px;
+}
+.link-underline
+{
+  text-decoration: none;
+  margin-top: 20px;
+}
+/* CONTACT */
+.contact {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
