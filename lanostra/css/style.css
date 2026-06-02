@@ -78,7 +78,7 @@ body::before {
 }
 
 .hero-location {
-  margin-top: 20px;
+  margin: 20px;
 }
 
 /* BUTTON */
@@ -90,6 +90,7 @@ body::before {
   border-radius: 999px;
   text-decoration: none;
   font-family: 'Archivo Black';
+  margin-top: 20px;
 }
 
 /* ABOUT */
@@ -108,6 +109,7 @@ body::before {
 .link-underline
 {
   text-decoration: none;
+  color: white;
   margin-top: 20px;
 }
 /* CONTACT */
@@ -136,6 +138,10 @@ body::before {
   height: 20px;
 }
 
+.contact-note
+{
+  margin: 20px;
+}
 /* FOOTER */
 .footer {
   text-align: center;
