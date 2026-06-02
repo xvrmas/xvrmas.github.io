@@ -56,8 +56,10 @@ body::before {
 
 .rave-body {
   text-align: center;
+  color: var(--primary);
   font-size: clamp(0.9rem, 3.5vw, 1.1rem);
   line-height: 1.5;
+
 }
 
 .glow {
@@ -99,8 +101,7 @@ body::before {
 }
 
 .about .rave-body {
-  background: #fff;
-  color: #111;
+  background-color: hsla(0, 0%, 0%, 0.3) ;
   max-width: 500px;
   margin: 12px auto;
   padding: 16px 20px;
