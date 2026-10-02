@@ -10,7 +10,9 @@ document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 document.getElementById('mostrar').addEventListener('click', mostar);
-document.getElementById('infoOperativa').addEventListener('click', info)
+//document.getElementById('infoOperativa').addEventListener('click', info)
+document.getElementById('afegir').addEventListener('click', afegirPico);
+
 
 taula.addEventListener('click', function (event) 
 {
@@ -21,7 +23,7 @@ taula.addEventListener('click', function (event)
     }
 });
 
-const referenciaCarrusel = document.getElementById('referencia');
+/*const referenciaCarrusel = document.getElementById('referencia');
 
 referenciaCarrusel.addEventListener('input', function (e)
 {
@@ -29,7 +31,7 @@ referenciaCarrusel.addEventListener('input', function (e)
     const carrusel = paletsreferencia.filter(paletsreferencia.includes(model.value));
     console.log(carrusel)
 
-})
+})*/
 
 taula.addEventListener('input', (e) =>
 {
@@ -49,9 +51,40 @@ taula.addEventListener('input', (e) =>
     }
 })
 
-function info()
+/*function info()
 {
     alert('info');
+}*/
+
+function afegirPico()
+{
+    let codiAModificar = Number(prompt('A quin codi vols afegir un pico?'));
+    let i = 0;
+    let nouPico = 0;
+
+    while (i < endresaTaula.length)
+    {
+        if (endresaTaula[i].model === codiAModificar)
+        {
+            let quantitatPico = Number(prompt('Entra el numero de caixes del pico'));
+
+            if (quantitatPico === 0)
+            {
+                alert('entra la quantitat de caixes del pico')
+                return;
+            }
+            else
+            {
+                nouPico = Number(endresaTaula[i].quantitatDemanada) + quantitatPico;
+                endresaTaula[i].quantitatDemanada = nouPico;
+                endresaTaula[i].paletsPreparar++;
+                recontePalets();
+                repintaTaula();
+                desarLlistat();
+            }
+        }
+        i++;
+    }
 }
 
 function mostar()
