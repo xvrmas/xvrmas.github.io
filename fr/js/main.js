@@ -51,10 +51,10 @@ taula.addEventListener('input', (e) =>
     }
 })
 
-/*function info()
+function info()
 {
     alert('info');
-}*/
+}
 
 function afegirPico()
 {
