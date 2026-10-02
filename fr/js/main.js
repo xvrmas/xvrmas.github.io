@@ -10,7 +10,7 @@ document.getElementById('endresaTaula').addEventListener('click', endresa);
 document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 document.getElementById('mostrar').addEventListener('click', mostar);
-//document.getElementById('infoOperativa').addEventListener('click', info)
+document.getElementById('infoOperativa').addEventListener('click', info)
 document.getElementById('afegir').addEventListener('click', afegirPico);
 
 
