@@ -59,6 +59,8 @@ function info()
 function afegirPico()
 {
     let codiAModificar = Number(prompt('A quin codi vols afegir un pico?'));
+    let picos = document.querySelector('.picos');
+    let text = document.querySelector('.text');
     let i = 0;
     let nouPico = 0;
 
@@ -75,12 +77,14 @@ function afegirPico()
             }
             else
             {
-                nouPico = Number(endresaTaula[i].quantitatDemanada) + quantitatPico;
+                text.innerHTML = 'picos:';
+                picos.innerHTML += `${endresaTaula[i].model}: ${quantitatPico} + ${endresaTaula[i].quantitatDemanada} = ${quantitatPico + Number(endresaTaula[i].quantitatDemanada)} caixes<br>`
+                /*nouPico = Number(endresaTaula[i].quantitatDemanada) + quantitatPico;
                 endresaTaula[i].quantitatDemanada = nouPico;
                 endresaTaula[i].paletsPreparar++;
                 recontePalets();
                 repintaTaula();
-                desarLlistat();
+                desarLlistat();*/
             }
         }
         i++;

@@ -195,7 +195,7 @@ textarea {
   }
 
   .impPetit,
-  .impGran {
+  .impGran,.picos, .text {
     visibility: visible;
     text-align: center;
   }
