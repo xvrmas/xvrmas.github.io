@@ -7,7 +7,7 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
-document.getElementById('modifica').addEventListener('click', modifica);
+//document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 document.getElementById('mostrar').addEventListener('click', mostar);
 document.getElementById('infoOperativa').addEventListener('click', info)
@@ -129,7 +129,7 @@ function carregarLlisat()
 document.getElementById('carregar').addEventListener('click', carregarLlisat)
 
 //la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada
-function modifica()
+/*function modifica()
 {
     let i = 0;
     let codiModificar = Number(prompt('quin codi vols modificar?'));
@@ -164,7 +164,7 @@ function modifica()
         }
     }
 }
-
+*/
 
 //en cas de que fem algun canvi en el llistat aquesta funcio permet refrescar el llistat i mostrar els canvis
 function repintaTaula()
@@ -303,7 +303,7 @@ function capturaCodi(referenciaDemanda)
 }
 
 //comprova si el codi entrat existeix a l'array modificable
-function comprobaCodi(codi)
+function comprobaCodi(codi,quantitatModificar)
 {
     let i = 0;
     if (endresaTaula.length === 0)
@@ -312,7 +312,13 @@ function comprobaCodi(codi)
     {
         if (endresaTaula[i].model === Number(codi))
         {
-            return true;
+            let nouPalet = quantitatModificar / endresaTaula[i].quantitatMinima;
+            endresaTaula[i].quantitatDemanada = quantitatModificar;
+            endresaTaula[i].paletsPreparar = nouPalet;
+            repintaTaula();
+            recontePalets();
+            desarLlistat();
+            return 4;
         }
         i++;
     }
@@ -371,7 +377,9 @@ function principal()
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         {
-            let comprobaRepetit = comprobaCodi(referenciaDemanda);
+            let comprobaRepetit = comprobaCodi(referenciaDemanda,quantitatDemanada);
+            if (comprobaRepetit === 4)
+                return;
             if (comprobaRepetit === true)
                 alert(`El codi ${referenciaDemanda} ja està en preparació`)
             else

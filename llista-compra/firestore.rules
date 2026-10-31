@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /shoppingLists/{listId} {
+      // IMPORTANT: substitueix els correus següents pels comptes Google de la família.
+      // Tots els correus han de coincidir exactament.
+      function familyMember() {
+        return request.auth != null
+          && request.auth.token.email_verified == true
+          && request.auth.token.email in [
+            "4masduran@gmail.com",
+            "xvrmasgarcia@gmail.com"
+          ];
+      }
+      allow read, write: if familyMember();
+    }
+  }
+}

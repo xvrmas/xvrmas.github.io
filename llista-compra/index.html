@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#176b52">
+<title>Llista de la compra familiar</title>
+<style>
+:root{color-scheme:light;--green:#176b52;--line:#e4e9e6}
+*{box-sizing:border-box}body{margin:0;background:#f3f7f4;color:#17211d;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--green);color:white;padding:22px 17px}header h1{margin:0 0 5px;font-size:1.45rem}header p{margin:0;font-size:.95rem}
+main{max-width:680px;margin:auto;padding:14px}
+.panel,.group{background:white;border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 2px 8px #00000009}
+.status{font-size:.9rem;color:#43574d}.progressline{display:flex;justify-content:space-between;gap:10px;font-weight:650;margin-bottom:8px}progress{width:100%;height:12px;accent-color:var(--green)}
+h2{font-size:1.05rem;margin:3px 0 8px}.item{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}
+.item input{width:23px;height:23px;accent-color:var(--green);flex-shrink:0}.item.done span{color:#77827c;text-decoration:line-through}
+.item .remove{margin-left:auto;border:0;background:transparent;color:#7a4646;font-size:1.15rem;padding:4px 7px}
+.add{display:flex;gap:8px;margin-top:12px}.add input{min-width:0;flex:1;padding:12px;border:1px solid #ccd6d0;border-radius:10px;font:inherit}.btn{border:0;border-radius:10px;padding:11px 14px;background:var(--green);color:white;font:inherit;font-weight:600}.btn.secondary{background:white;color:#26352d;border:1px solid #cbd5d0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hint{font-size:.87rem;line-height:1.45;color:#5a6961}.hide{display:none!important}
+#login{max-width:520px;margin:28px auto;padding:20px;background:white;border-radius:16px}
+</style>
+</head>
+<body>
+<header><h1>🛒 Llista de la compra</h1><p>Compartida amb la família · actualització en temps real</p></header>
+<main>
+  <div id="login" class="hide">
+    <h2>Accés familiar</h2>
+    <p>Inicia sessió amb el compte de Google que s'hagi autoritzat per a aquesta llista.</p>
+    <button class="btn" id="signIn">Continuar amb Google</button>
+    <p id="loginMsg" class="hint"></p>
+  </div>
+  <div id="app" class="hide">
+    <div class="panel">
+      <div class="progressline"><span>Progrés de la compra</span><span id="count">0 de 0</span></div>
+      <progress id="progress" value="0" max="1"></progress>
+      <p id="status" class="status">Connectant…</p>
+      <div class="row"><button class="btn secondary" id="copyLink">Copiar enllaç per compartir</button><button class="btn secondary" id="signOut">Tancar sessió</button></div>
+    </div>
+    <div id="groups"></div>
+    <div class="panel">
+      <h2>Afegir producte</h2>
+      <form id="addForm" class="add"><input id="newItem" maxlength="100" placeholder="Ex. llet, pa…" autocomplete="off" required><button class="btn" type="submit">Afegir</button></form>
+      <p class="hint">Els canvis es mostren als altres membres autoritzats gairebé immediatament.</p>
+    </div>
+    <p class="hint">La llista es vincula a aquest enllaç. Comparteix-lo només amb la família i autoritza els seus comptes Google a les regles de Firebase. No publiquis l'enllaç en espais públics.</p>
+  </div>
+</main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getFirestore, doc, onSnapshot, setDoc, updateDoc, deleteField, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+/* 1) Enganxa aquí la configuració de Firebase del teu projecte. */
+const firebaseConfig = {
+  apiKey: "ENGANXA_API_KEY",
+  authDomain: "ENGANXA_PROJECT_ID.firebaseapp.com",
+  projectId: "ENGANXA_PROJECT_ID",
+  appId: "ENGANXA_APP_ID"
+};
+/* 2) La llista utilitza un identificador aleatori a l'URL (#...). */
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+const listId = location.hash.slice(1);
+const login = document.querySelector("#login"), appView = document.querySelector("#app");
+const statusEl = document.querySelector("#status"), groupsEl = document.querySelector("#groups");
+let currentItems = [];
+
+function setStatus(t){ statusEl.textContent=t; }
+function render(items) {
+  currentItems = items || [];
+  const groups = {"🧀 Frescos i altres":[], "🍎 Fruita i verdura":[], "🧺 Altres":[]};
+  currentItems.forEach(item => (groups[item.category] || (groups[item.category]=[])).push(item));
+  groupsEl.replaceChildren();
+  for (const [name, arr] of Object.entries(groups)) {
+    if (!arr.length) continue;
+    const section=document.createElement("section"); section.className="group";
+    const h=document.createElement("h2"); h.textContent=name; section.append(h);
+    arr.forEach(item=>{
+      const label=document.createElement("label"); label.className="item"+(item.done?" done":"");
+      const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!item.done; cb.setAttribute("aria-label","Marcar "+item.name);
+      cb.addEventListener("change",()=>changeItem(item.id,{done:cb.checked}));
+      const span=document.createElement("span"); span.textContent=item.name;
+      label.append(cb,span);
+      const del=document.createElement("button"); del.className="remove"; del.type="button"; del.textContent="×"; del.title="Eliminar producte"; del.setAttribute("aria-label","Eliminar "+item.name);
+      del.addEventListener("click",()=>removeItem(item.id));
+      label.append(del); section.append(label);
+    });
+    groupsEl.append(section);
+  }
+  const done=currentItems.filter(x=>x.done).length;
+  document.querySelector("#count").textContent=`${done} de ${currentItems.length}`;
+  const p=document.querySelector("#progress"); p.max=Math.max(1,currentItems.length); p.value=done;
+}
+function listRef(){return doc(db,"shoppingLists",listId);}
+async function changeItem(id,patch){
+  try { const next=currentItems.map(x=>x.id===id?{...x,...patch}:x); await updateDoc(listRef(),{items:next,updatedAt:serverTimestamp()}); }
+  catch(e){setStatus("No s'ha pogut desar. Comprova la connexió i els permisos.");}
+}
+async function removeItem(id){
+  if(!confirm("Vols eliminar aquest producte de la llista compartida?")) return;
+  try { await updateDoc(listRef(),{items:currentItems.filter(x=>x.id!==id),updatedAt:serverTimestamp()}); }
+  catch(e){setStatus("No s'ha pogut eliminar. Comprova els permisos.");}
+}
+function initialItems(){
+ const rows=[
+ ["Peix","🧀 Frescos i altres"],["Mozzarella","🧀 Frescos i altres"],["Provolone","🧀 Frescos i altres"],
+ ["Patates","🧀 Frescos i altres"],["Ous","🧀 Frescos i altres"],["Tonyina","🧀 Frescos i altres"],
+ ["Pollastres — 3½","🧀 Frescos i altres"],["Sofregit brasa","🧀 Frescos i altres"],["Pèsols","🧀 Frescos i altres"],
+ ["Amanida","🍎 Fruita i verdura"],["Tomàquets","🍎 Fruita i verdura"],["Fruita","🍎 Fruita i verdura"],["Pastanagues","🍎 Fruita i verdura"],
+ ["Llimones","🧺 Altres"],["Patates","🧺 Altres"],["Ceba","🧺 Altres"],["Pebrot","🧺 Altres"]];
+ return rows.map((r,i)=>({id:"item"+i,name:r[0],category:r[1],done:false}));
+}
+document.querySelector("#signIn").addEventListener("click",async()=>{
+ try {await signInWithPopup(auth,provider);} catch(e){document.querySelector("#loginMsg").textContent="No s'ha pogut iniciar la sessió: "+e.message;}
+});
+document.querySelector("#signOut").addEventListener("click",()=>signOut(auth));
+document.querySelector("#copyLink").addEventListener("click",async()=>{
+ try {await navigator.clipboard.writeText(location.href); setStatus("Enllaç copiat. Comparteix-lo només amb la família.");}
+ catch(e){prompt("Copia aquest enllaç i comparteix-lo només amb la família:",location.href);}
+});
+document.querySelector("#addForm").addEventListener("submit",async e=>{
+ e.preventDefault(); const input=document.querySelector("#newItem"); const name=input.value.trim(); if(!name)return;
+ const items=[...currentItems,{id:"item"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name,category:"🧺 Altres",done:false}];
+ try {await updateDoc(listRef(),{items,updatedAt:serverTimestamp()});input.value="";}
+ catch(e){setStatus("No s'ha pogut afegir. Comprova els permisos.");}
+});
+onAuthStateChanged(auth,async user=>{
+ if(!user){login.classList.remove("hide");appView.classList.add("hide");return;}
+ login.classList.add("hide");appView.classList.remove("hide");
+ if(!listId){setStatus("Falta l'identificador de la llista a l'enllaç.");return;}
+ try {
+  const ref=listRef();
+  // La primera persona autoritzada inicialitza la llista si encara no existeix.
+  let first=true;
+  const unsub=onSnapshot(ref,async snap=>{
+   try {
+    if(!snap.exists() && first){first=false;await setDoc(ref,{items:initialItems(),createdBy:user.email,updatedAt:serverTimestamp()});return;}
+    first=false;
+    render(snap.exists()?snap.data().items:[]);
+    setStatus("Sincronitzat · "+(user.email||"sessió iniciada"));
+   } catch(e){setStatus("No s'ha pogut llegir o inicialitzar la llista. Revisa les regles de Firestore.");}
+  },err=>setStatus("Accés denegat o error de connexió. Revisa les regles de Firestore."));
+ } catch(e){setStatus("Error: revisa la configuració de Firebase.");}
+});
+if(firebaseConfig.apiKey==="ENGANXA_API_KEY"){login.classList.remove("hide");document.querySelector("#loginMsg").textContent="Abans d'usar-la, configura Firebase seguint el README.";}
+</script>
+</body>
+</html>
