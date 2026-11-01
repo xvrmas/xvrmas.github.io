@@ -181,7 +181,7 @@ const paletsReferencia =
             midaReferencia: 'X',
             carrer: 7,
             bloc: "4-5-6",
-        },{
+        }, {
             model: 920462,
             quantitatMinima: 240,
             midaReferencia: '-',
@@ -198,37 +198,37 @@ const paletsReferencia =
             quantitatMinima: 792,
             midaReferencia: '-',
             carrer: 7,
-            bloc:'7',
-         },{
+            bloc: '7',
+        }, {
             model: 920457,
             quantitatMinima: 792,
             midaReferencia: '-',
             carrer: 8,
-            bloc:'23',
-         },{
+            bloc: '23',
+        }, {
             model: 920461,
             quantitatMinima: 396,
             midaReferencia: '-',
             carrer: 11,
-            bloc:'19',
-         },{
+            bloc: '19',
+        }, {
             model: 920480,
             quantitatMinima: 396,
             midaReferencia: '-',
             carrer: 11,
-            bloc:'15',
-         },{
+            bloc: '15',
+        }, {
             model: 920486,
             quantitatMinima: 120,
             midaReferencia: '-',
             carrer: 8,
-            bloc:'18-19-20',
-         },{
+            bloc: '18-19-20',
+        }, {
             model: 920476,
             quantitatMinima: 231,
             midaReferencia: '-',
             carrer: 'ENTREGA',
             bloc: 'DIRECTA',
-         },
-]
+        },
+    ]
 export default paletsReferencia;
