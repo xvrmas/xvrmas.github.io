@@ -302,8 +302,8 @@ function capturaCodi(referenciaDemanda)
     alert('falten dades o son incorrectes!')
 }
 
-//comprova si el codi entrat existeix a l'array modificable
-function comprobaCodi(codi)
+
+function comprobaCodi(codi,quantitatModificar)
 {
     let i = 0;
     if (endresaTaula.length === 0)
@@ -312,7 +312,13 @@ function comprobaCodi(codi)
     {
         if (endresaTaula[i].model === Number(codi))
         {
-            return true;
+            let nouPalet = quantitatModificar / endresaTaula[i].quantitatMinima;
+            endresaTaula[i].quantitatDemanada = quantitatModificar;
+            endresaTaula[i].paletsPreparar = nouPalet;
+            repintaTaula();
+            recontePalets();
+            desarLlistat();
+            return 4;
         }
         i++;
     }
@@ -352,8 +358,6 @@ function eliminar(fila)
 }
 
 
-
-//funcio que rep les dades entrades per l'usuari i reparteix a les diferents funcions per mostrar la informació per pantalla
 function principal() 
 {
     let referenciaDemanda = document.getElementById('referencia').value;
@@ -371,7 +375,9 @@ function principal()
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         {
-            let comprobaRepetit = comprobaCodi(referenciaDemanda);
+            let comprobaRepetit = comprobaCodi(referenciaDemanda,quantitatDemanada);
+            if (comprobaRepetit === 4)
+                return;
             if (comprobaRepetit === true)
                 alert(`El codi ${referenciaDemanda} ja està en preparació`)
             else
@@ -387,6 +393,8 @@ function principal()
         }
     }
 }
+
+
 
 
 
