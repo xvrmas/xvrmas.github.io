@@ -109,7 +109,6 @@ function carregarLlisat()
     recontePalets();
 }
 
-//document.getElementById('desar').addEventListener('click', desarLlistat)
 document.getElementById('carregar').addEventListener('click', carregarLlisat)
 
 //en cas de que fem algun canvi en el llistat aquesta funcio permet refrescar el llistat i mostrar els canvis
@@ -249,7 +248,7 @@ function capturaCodi(referenciaDemanda)
 }
 
 
-function comprobaCodi(codi,quantitatModificar)
+function comprobaCodi(codi, quantitatModificar)
 {
     let i = 0;
     if (endresaTaula.length === 0)
@@ -304,6 +303,17 @@ function eliminar(fila)
 }
 
 
+document.getElementById('quantitat').addEventListener('keydown', function (e)
+{
+    if (e.key === 'Enter')
+    {
+        principal();
+    }
+});
+
+
+
+
 function principal() 
 {
     let referenciaDemanda = document.getElementById('referencia').value;
@@ -321,7 +331,7 @@ function principal()
             alert(`revisa que la quantitat demanada sigui correcte, la quantitat minima del codi ${infoPreparacio.model} es de ${infoPreparacio.quantitatMinima}`);
         else 
         {
-            let comprobaRepetit = comprobaCodi(referenciaDemanda,quantitatDemanada);
+            let comprobaRepetit = comprobaCodi(referenciaDemanda, quantitatDemanada);
             if (comprobaRepetit === 4)
                 return;
             if (comprobaRepetit === true)
