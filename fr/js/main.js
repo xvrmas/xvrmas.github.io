@@ -7,10 +7,8 @@ const taula = document.getElementById('taulaId');
 
 document.getElementById('resumPalets').addEventListener('click', principal);
 document.getElementById('endresaTaula').addEventListener('click', endresa);
-document.getElementById('modifica').addEventListener('click', modifica);
 document.getElementById('imprimirStock').addEventListener('click', imprimirStock);
 document.getElementById('mostrar').addEventListener('click', mostar);
-document.getElementById('infoOperativa').addEventListener('click', info)
 document.getElementById('afegir').addEventListener('click', afegirPico);
 
 
@@ -22,16 +20,6 @@ taula.addEventListener('click', function (event)
         eliminar(fila);
     }
 });
-
-/*const referenciaCarrusel = document.getElementById('referencia');
-
-referenciaCarrusel.addEventListener('input', function (e)
-{
-    const model = e.target.value;
-    const carrusel = paletsreferencia.filter(paletsreferencia.includes(model.value));
-    console.log(carrusel)
-
-})*/
 
 taula.addEventListener('input', (e) =>
 {
@@ -51,10 +39,6 @@ taula.addEventListener('input', (e) =>
     }
 })
 
-function info()
-{
-    alert('info');
-}
 
 function afegirPico()
 {
@@ -127,44 +111,6 @@ function carregarLlisat()
 
 //document.getElementById('desar').addEventListener('click', desarLlistat)
 document.getElementById('carregar').addEventListener('click', carregarLlisat)
-
-//la funcio permet sel·leccionar un codi del llistat i modificar la quantitat demanada
-function modifica()
-{
-    let i = 0;
-    let codiModificar = Number(prompt('quin codi vols modificar?'));
-    if (endresaTaula.length === 0)
-        alert('No hi ha cap codi a modificar')
-    else
-    {
-        while (i < endresaTaula.length)
-        {
-            if (endresaTaula[i].model === codiModificar)
-            {
-                let quantitatModificar = Number(prompt('entra una quantitat'));
-                if (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
-                {
-                    while (quantitatModificar % endresaTaula[i].quantitatMinima != 0)
-                    {
-                        alert(`la quantitat per palet del codi ${codiModificar} es ${endresaTaula[i].quantitatMinima}`);
-                        quantitatModificar = Number(prompt('entra una quantitat'))
-                    }
-                }
-                if (quantitatModificar % endresaTaula[i].quantitatMinima === 0 && quantitatModificar != 0)
-                {
-                    let nouPalet = quantitatModificar / endresaTaula[i].quantitatMinima;
-                    endresaTaula[i].quantitatDemanada = quantitatModificar;
-                    endresaTaula[i].paletsPreparar = nouPalet;
-                    repintaTaula();
-                    recontePalets();
-                    desarLlistat();
-                }
-            }
-            i++;
-        }
-    }
-}
-
 
 //en cas de que fem algun canvi en el llistat aquesta funcio permet refrescar el llistat i mostrar els canvis
 function repintaTaula()
