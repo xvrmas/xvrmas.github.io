@@ -203,36 +203,250 @@ textarea {
 
 }
 
+
+/* ==============================
+   TAULETS
+================================ */
 @media screen and (max-width: 1200px) {
-
-  .taulaDinamica
-  {
-    margin-top: 250px;
-  }
-  .taulaDinamica th,
-  .taulaDinamica td {
-    font-size: 0.9rem;
-  }
-
-  .btn-eliminar {
-    background-color: #ec2020;
-    width: 5%;
-    font-size: 0;
-  }
 
   .caixa {
     display: flex;
-    display: list-item;
+    flex-wrap: wrap;
     position: fixed;
-    align-items: center;
+    gap: 5px;
+    padding: 12px;
+    z-index: 1000;
+  }
+
+  .entrada {
+    width: 150px;
+  }
+
+  .contenidorInfo {
+    margin-top: 200px;
+  }
+
+}
+
+/* ==============================
+   MOBIL - TAULES EN FORMAT TARGETA
+================================ */
+@media screen and (max-width: 650px) {
+
+  body {
+    padding: 10px;
+    background-color: #f1f4f8;
+  }
+
+  /* Barra superior */
+  .caixa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    background: #eaf2f8;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
   }
 
-  th .paletsPreparar {
-    color: #07e821;
+  .entrada {
+    width: 42%;
+    height: 42px;
+    margin: 3px;
+    padding-left: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
   }
 
-  .paletsPreparar {
-    color: #070707;
+  .caixa button {
+    min-height: 42px;
+    padding: 8px;
+    margin: 2px;
+    font-size: 0.8rem;
   }
+
+  .caixa button img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+  }
+
+  #afegir,
+  #carregar {
+    flex: 1;
+    min-width: 90px;
+  }
+
+  .estret,
+  .ample {
+    font-size: 0.9rem;
+    padding: 4px;
+  }
+
+  /* Espai per evitar que la barra superior tapi les targetes */
+  .contenidorInfo {
+    margin-top: 220px;
+    width: 100%;
+  }
+
+  .taulaDinamica {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    background: transparent;
+    table-layout: auto;
+  }
+
+  /* Amaguem la capçalera */
+  .taulaDinamica thead {
+    display: none;
+  }
+
+  /* Cada fila és una targeta */
+  .taulaDinamica tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .taulaDinamica tr {
+    display: block;
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #dce3eb;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Cada cel·la es converteix en una línia */
+  .taulaDinamica td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 9px 4px;
+    border-bottom: 1px solid #edf0f3;
+    background: transparent;
+    text-align: right;
+    font-size: 0.95rem;
+  }
+
+  /* Etiquetes de cada dada */
+  .taulaDinamica td:nth-child(1)::before {
+    content: "Mida";
+  }
+
+  .taulaDinamica td:nth-child(2)::before {
+    content: "Carrer";
+  }
+
+  .taulaDinamica td:nth-child(3)::before {
+    content: "Bloc";
+  }
+
+  .taulaDinamica td:nth-child(4)::before {
+    content: "Mínim";
+  }
+
+  .taulaDinamica td:nth-child(5)::before {
+    content: "Demanat";
+  }
+
+  .taulaDinamica td:nth-child(6)::before {
+    content: "Codi";
+  }
+
+  .taulaDinamica td:nth-child(7)::before {
+    content: "Palets";
+  }
+
+  .taulaDinamica td:nth-child(8)::before {
+    content: "NOF";
+  }
+
+  .taulaDinamica td::before {
+    font-weight: 700;
+    color: #555;
+    text-align: left;
+    margin-right: 10px;
+  }
+
+  /* Destacar el codi de referència */
+  .taulaDinamica td.codiArticle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #007acc;
+    background-color: #f0f7ff;
+    border-radius: 6px;
+    padding: 12px 8px;
+  }
+
+  /* Destacar els palets */
+  .taulaDinamica td.paletsPreparar {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #08752a;
+  }
+
+  /* NOF */
+  .taulaDinamica textarea {
+    width: 55%;
+    max-width: 180px;
+    min-height: 35px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: right;
+    border: 1px solid #d5dce5;
+    border-radius: 6px;
+    padding: 5px;
+    background: #f9fafb;
+  }
+
+  /* Botó eliminar */
+  .taulaDinamica td.boto {
+    display: block;
+    border-bottom: none;
+    padding-top: 12px;
+  }
+
+  .taulaDinamica td.boto::before {
+    display: none;
+  }
+
+  .btn-eliminar {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    background-color: #d62828;
+    margin: 0;
+  }
+
+  .btn-eliminar:hover {
+    background-color: #ff7a7a;
+  }
+
+  /* Total de palets */
+  .total {
+    font-size: 1.4rem;
+    padding: 15px 5px;
+    margin-top: 10px;
+    background-color: #eaf2f8;
+    border-radius: 10px;
+  }
+
+  .versio {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
 }
